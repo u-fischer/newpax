@@ -53,78 +53,73 @@
       {
         \tl_if_empty:NTF  \PAX@key@C
           {
-            \hook_remove:nnn { pdf } { link_begin_#1_attr } { C }
+            \hook_remove:nnn { pdf } { link_#1_attr } { C }
           }
           {
             \hook_put:nnnn
              { pdf }
-             { link_begin_#1_attr }
+             { link_#1_attr }
              { C }
              { \PAX@key@C }
           }
         \tl_if_empty:NTF \PAX@key@Border
           {
-            \hook_remove:nnn { pdf } { link_begin_#1_attr } { Border }
+            \hook_remove:nnn { pdf } { link_#1_attr } { Border }
           }
           {
             \hook_put:nnnn
               { pdf }
-              { link_begin_#1_attr }
+              { link_#1_attr }
               { Border }
               { \PAX@key@Border }
           }
         \tl_if_empty:NTF \PAX@key@BS
           {
-            \hook_remove:nnn { pdf } { link_begin_#1_attr } { BS }
+            \hook_remove:nnn { pdf } { link_#1_attr } { BS }
           }
           {
             \hook_put:nnnn
               { pdf }
-              { link_begin_#1_attr }
+              { link_#1_attr }
               { BS }
               { \PAX@key@BS }
           }
         \tl_if_empty:NTF \PAX@key@H
           {
-            \hook_remove:nnn { pdf } { link_begin_#1_attr } { H }
+            \hook_remove:nnn { pdf } { link_#1_attr } { H }
           }
           {
             \hook_put:nnnn
               { pdf }
-              { link_begin_#1_attr }
+              { link_#1_attr }
               { H }
               { \PAX@key@H }
           }
       }
   }
 
-%\def\PAX@set@attrs{%
-%  \PAX@attrs\PAX@link@type{%
-%    \PAX@set@attr{C}\PAX@key@C
-%    \PAX@set@attr{Border}\PAX@key@Border
-%    \PAX@set@attr{BS}\PAX@key@BS
-%    \PAX@set@attr{H}\PAX@key@H
-%  }%
-%}
-\cs_new_protected:Npn \@PAX@gotoannot@nnnn %#1 width,#2 height, #3 attributes #4dest
-  {
-   \group_begin:
-   \pdf_link_begin_goto:nnw {link}{PAX@\PAX@file @\PAX@key@DestLabel}
-   \pdf_link_end:n
-   \group_end:
-  }
 
 \cs_set_eq:NN \@PAX@annotation@nnnn \pdf_annotation:nnnn
 
-\cs_new_protected:Npn \@PAX@linkgoto@xxnn #1 #2 #3 #4 %#1 linktype #2 dest #3 width #4 height
+\cs_new_protected:Npn \@PAX@linkgoto@xnn #1 #2 #3  %#1 dest #2 width #3 height
+  {
+    \group_begin:
+      \exp_args:Nx\@PAX@setattributes@n {GoTo}
+      \leavevmode
+      \exp_args:Nx\pdf_link_goto_begin:nw
+        { #1 }
+        \hbox_to_wd:nn {#2}{\@PAX@ensurelinkbox@n { \rule{0pt}{#3} }}
+      \pdf_link_goto_end:
+    \group_end:
+  }
+
+\cs_generate_variant:Nn \pdf_annotation:nnnnn {xnnnx}
+
+\cs_new_protected:Npn \@PAX@annotboxlink@xnnx #1 #2 #3 #4  %#1 type, #2 width #3 height #4 spec
   {
     \group_begin:
       \exp_args:Nx\@PAX@setattributes@n {#1}
-      \leavevmode\exp_args:Nxx\pdf_link_begin_goto:nnw
-        { #1 }
-        { #2 }
-        \hbox_to_wd:nn {#3}{\rule{0pt}{#4}}
-      \exp_args:Nx \pdf_link_end:n { #1 }
+      \leavevmode\pdf_annotation:xnnnx {link_#1}{#2}{#3}{0pt}{#4}
     \group_end:
   }
 
@@ -141,7 +136,7 @@
     Named = menu
   }
 
-\cs_new:Npn \@PAX@maplinktype@n #1 {\prop_item:Nn \c__pax_map_linktypes_prop {#1}}
+\cs_new:Npn \@PAX@maplinktype@V #1 { \exp_args:NNV \prop_item:Nn \c__pax_map_linktypes_prop {#1}}
 
 \cs_new:Npn \@PAX@tempa
 \cs_new_protected:Npn \@PAX@escapename@NV #1 #2
@@ -155,6 +150,14 @@
         \exp_args:NNx
         \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{}{utf8/name} %utf8 because of hyperref
       }
+  }
+
+\sys_if_engine_xetex:TF
+  {
+    \cs_set_eq:NN \@PAX@ensurelinkbox@n \XeTeXLinkBox
+  }
+  {
+    \cs_set_eq:NN \@PAX@ensurelinkbox@n \use:n
   }
 \ExplSyntaxOff
 % Hook into \includegraphics of graphicx with one optional
@@ -422,27 +425,24 @@
     }%
     \raise\PAX@raise\hb@xt@\z@{%
       \kern\PAX@right
-      \ifPAX@GoTo %\show\PAX@set@attrs \show\PAX@link@type
-        %\pdfstartlink\@width\PAX@width\@height\PAX@height\@depth\z@
-        %    attr{\PAX@set@attrs}%
-        %    goto name{PAX@\PAX@file @\PAX@key@DestLabel}\relax
-        %\pdfendlink
+      \ifPAX@GoTo
         %additional box for lualatex ...
-        \hbox{\@PAX@linkgoto@xxnn
-          {\@PAX@maplinktype@n{\PAX@link@type}}%
-          {PAX@\PAX@file @\PAX@key@DestLabel}%
-          {\PAX@width}{\PAX@height}}%
+        \hbox{%
+          \@PAX@linkgoto@xnn
+            {PAX@\PAX@file @\PAX@key@DestLabel}%
+            {\PAX@width}%
+            {\PAX@height}%
+            }%
       \else
         \hbox{%
-        \@PAX@annotation@nnnn {\PAX@width}{\PAX@height}{0pt}
-         {
-          /Subtype/Link%
-          \PAX@set@attrs
-          /A<<%
-            /Type/Action%
-            /S/\PAX@link@type
-            #1%
-          >>%
+        \@PAX@annotboxlink@xnnx {\PAX@link@type}{\PAX@width}{\PAX@height}
+          {
+            /Subtype/Link%
+            /A<<%
+              /Type/Action%
+              /S/\PAX@link@type
+              #1%
+             >>%
          }}%
       \fi
       \hss

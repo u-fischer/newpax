@@ -4,4 +4,6 @@
 *.synctex.gz
 test-utf8.tex
 test-utf8.pdf
+*.prj
+*.prj.bak
 .DAV

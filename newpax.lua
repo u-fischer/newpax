@@ -12,6 +12,7 @@ local GETSTRING = pdfe.getstring
 local GETFROMDICTIONARY = pdfe.getfromdictionary
 local GETFROMARRAY = pdfe.getfromarray
 local PAGESTOTABLE = pdfe.pagestotable
+local DICTIONARYTOTABLE = pdfe.dictionarytotable
 
 -- get/build data
 -- returns table,pagecount where table objref ->page number
@@ -136,6 +137,27 @@ local function outputborder (pdfedict)
   return a
 end 
 
+local function outputBS (pdfedict)
+  local bsstyle = GETDICTIONARY(pdfedict,"BS")
+  local a =""
+  if bsstyle then 
+    local bsstyledict = DICTIONARYTOTABLE(bsstyle)
+    print("BBBBBBBBB",table.serialize(bsstyledict))
+    a = "  BS={<<"
+    for k,v in pairs (bsstyledict) do
+      a = a .. "/".. k 
+      if v[1]== 5 then
+       a = a .. "/" .. v[2] 
+      else 
+       a = a .." " .. v[2]
+      end  
+    end
+  end 
+  a = a ..">>},\n"
+  return a
+end 
+
+
 local function outputuri (pdfedict)
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"URI")
   local a="  URI={"
@@ -217,6 +239,7 @@ local function __writepax (ext,file)
          WRITE ( outputcolor(annot) )
          WRITE ( outputname(annot,"H") )
          WRITE ( outputborder (annot) )
+         WRITE ( outputBS (annot) )
        if annotactiontype =="URI" then 
          WRITE ( outputuri(annotaction) )
          WRITE("}\\\\\n") -- end annot data   

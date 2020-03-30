@@ -7,8 +7,10 @@
 \ExplSyntaxOff
 
 \usepackage{ifluatex,graphicx}
-\usepackage{pdfpages}
+\usepackage{pdfpages,xcolor}
 \usepackage[customdriver=hgeneric-experimental]{hyperref}
+\hypersetup{linkbordercolor=yellow}
+\hypupdateattribute
 %\usepackage{newpax}
 %\usepackage{luacode}
 %\begin{luacode}
@@ -24,12 +26,19 @@
 \else
 \usepackage{newpax}
 \fi
+
+\paxsetup{useattributes}
 %\end{luacode}
 
 \begin{document}
-blub
+included graphic:
 %\includepdf[pages=-]{pax-input}
-\fbox{\includegraphics[scale=0.5]{pax-input}}
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
+
+
+\paxsetup{useattributes=false}
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
+
 
 \makeatletter \def\blb{abc düß}
 %\@PAX@escapename@NV \blub \blb
@@ -39,7 +48,6 @@ blub
 
 %\includegraphics[page=2]{pax-input}
 %\insertlink blbbl
-bkbkb
 %\includepdf[pagecommand={\insertlink}]{testinput}
 \end{document}
 \usepackage{pax} 
