@@ -352,7 +352,7 @@
 \def\PAX@pdf@annot#1{%
   \ifPAX@Gin@clip
     \ifdim\PAX@annot@llx<\PAX@page@llx
-      \let\PAX@annot@llx\PAX@pagellx
+      \let\PAX@annot@llx\PAX@page@llx
     \fi
     \ifdim\PAX@annot@lly<\PAX@page@lly
       \let\PAX@annot@lly\PAX@page@lly
@@ -363,7 +363,7 @@
     \ifdim\PAX@annot@ury>\PAX@page@ury
       \let\PAX@annot@ury\PAX@page@ury
     \fi
-    \PAX@okfalse
+    \PAX@okfalse \show\x
     \ifdim\PAX@annot@llx<\PAX@annot@urx
       \ifdim\PAX@annot@lly<\PAX@annot@ury
         \PAX@oktrue
