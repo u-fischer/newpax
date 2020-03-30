@@ -1,0 +1,7 @@
+*.log
+*.aux
+*.out
+*.synctex.gz
+test-utf8.tex
+test-utf8.pdf
+.DAV

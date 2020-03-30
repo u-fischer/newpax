@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{l3pdf}
+\ExplSyntaxOn
+\pdf_uncompress:
+\ExplSyntaxOff
+\begin{document}
+
+\url{https://www.latex-project.org}
+
+\section{abc}\label{sec}
+
+\section{abc}\label{sec2}
+
+\section{abc}\label{sec3}
+
+\href{example-image.pdf}{file}
+
+\Acrobatmenu{View}{View Something}
+
+\ref{sec} \quad  \ref{sec2} \quad \ref{sec3}
+\newpage
+
+\end{document} 
