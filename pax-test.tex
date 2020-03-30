@@ -18,16 +18,12 @@
 \ifluatex
 \directlua{
  require("newpax.lua")
-% print("XXXXXX",newpax.writepax,newpax.writenewpax)
  newpax.writenewpax("pax-input")
-% newpax.writepax("pax-input")
  }
-\usepackage{newpax}
-\else
-\usepackage{newpax}
 \fi
+\usepackage{newpax}
 
-\paxsetup{useattributes}
+\newpaxsetup{useattributes}
 %\end{luacode}
 
 \begin{document}
@@ -36,7 +32,7 @@ included graphic:
 \fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip]{pax-input}}
 
 %
-\paxsetup{useattributes=false,destprefix=B}
+\newpaxsetup{useattributes=false,destprefix=B}
 \fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
 
 

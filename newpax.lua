@@ -142,7 +142,6 @@ local function outputBS (pdfedict)
   local a =""
   if bsstyle then 
     local bsstyledict = DICTIONARYTOTABLE(bsstyle)
-    print("BBBBBBBBB",table.serialize(bsstyledict))
     a = "  BS={<<"
     for k,v in pairs (bsstyledict) do
       a = a .. "/".. k 

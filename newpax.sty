@@ -38,10 +38,11 @@
 \RequirePackage{etexcmds}[2011/02/16]
 \RequirePackage{pdftexcmds}
 \ExplSyntaxOn
+\prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
 \bool_new:N \l__pax_use_attributes_bool
 \tl_new:N \l__pax_destprefix_tl
 
-\NewDocumentCommand\paxsetup { m }
+\NewDocumentCommand\newpaxsetup { m }
   {
     \keys_set:nn {pax}{ #1}
   }
@@ -363,7 +364,7 @@
     \ifdim\PAX@annot@ury>\PAX@page@ury
       \let\PAX@annot@ury\PAX@page@ury
     \fi
-    \PAX@okfalse \show\x
+    \PAX@okfalse 
     \ifdim\PAX@annot@llx<\PAX@annot@urx
       \ifdim\PAX@annot@lly<\PAX@annot@ury
         \PAX@oktrue
