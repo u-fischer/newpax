@@ -466,43 +466,43 @@
   \endgroup
 }
 
-\def\PAX@set@attrs{%
-  \PAX@attrs\PAX@link@type{%
-    \PAX@set@attr{C}\PAX@key@C
-    \PAX@set@attr{Border}\PAX@key@Border
-    \PAX@set@attr{BS}\PAX@key@BS
-    \PAX@set@attr{H}\PAX@key@H
-  }%
-}
+%\def\PAX@set@attrs{%
+%  \PAX@attrs\PAX@link@type{%
+%    \PAX@set@attr{C}\PAX@key@C
+%    \PAX@set@attr{Border}\PAX@key@Border
+%    \PAX@set@attr{BS}\PAX@key@BS
+%    \PAX@set@attr{H}\PAX@key@H
+%  }%
+%}
 
-\def\PAX@set@attr#1#2{%
-  \ifx#2\@empty
-  \else
-    /#1 #2%
-  \fi
-}
+%\def\PAX@set@attr#1#2{%
+%  \ifx#2\@empty
+%  \else
+%    /#1 #2%
+%  \fi
+%}
 
-\def\PAX@attrs#1{%
-  \@ifundefined{PAX@attrs@#1}{%
-    \@ifundefined{hyperref}{%
-      \@firstofone
-    }{%
-      \Hy@setpdfborder
-      /H\@pdfhighlight
-      \@ifundefined{PAX@htype@#1}\@firstofone{%
-        \@ifundefined{@\@nameuse{PAX@htype@#1}bordercolor}\@firstofone{%
-          /C[\@nameuse{@\@nameuse{PAX@htype@#1}bordercolor}]%
-          \@gobble
-        }%
-      }{%
-        \PAX@set@attr{C}\PAX@key@C
-      }%
-      \@gobble
-    }%
-  }{%
-    \@nameuse{PAX@attrs@#1}%
-  }%
-}
+%\def\PAX@attrs#1{%
+%  \@ifundefined{PAX@attrs@#1}{%
+%    \@ifundefined{hyperref}{%
+%      \@firstofone
+%    }{%
+%      \Hy@setpdfborder
+%      /H\@pdfhighlight
+%      \@ifundefined{PAX@htype@#1}\@firstofone{%
+%        \@ifundefined{@\@nameuse{PAX@htype@#1}bordercolor}\@firstofone{%
+%          /C[\@nameuse{@\@nameuse{PAX@htype@#1}bordercolor}]%
+%          \@gobble
+%        }%
+%      }{%
+%        \PAX@set@attr{C}\PAX@key@C
+%      }%
+%      \@gobble
+%    }%
+%  }{%
+%    \@nameuse{PAX@attrs@#1}%
+%  }%
+%}
 \def\PAX@htype@GoToR{file}
 \def\PAX@htype@GoTo{link}
 \def\PAX@htype@Named{link}
