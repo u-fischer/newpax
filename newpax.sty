@@ -40,7 +40,8 @@
 \ExplSyntaxOn
 \prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
 \bool_new:N \l__pax_use_attributes_bool
-\tl_new:N \l__pax_destprefix_tl
+\bool_new:N \l__pax_addannots_bool
+\tl_new:N \l__pax_destsuffix_tl
 
 \NewDocumentCommand\newpaxsetup { m }
   {
@@ -49,8 +50,11 @@
 
 \keys_define:nn {pax}
   {
-    useattributes .bool_set:N = \l__pax_use_attributes_bool,
-    destprefix  .tl_set:N = \l__pax_destprefix_tl
+    usefileattributes .bool_set:N = \l__pax_use_attributes_bool,
+    destsuffix        .tl_set:N = \l__pax_destsuffix_tl,
+    addannots         .bool_set:N = \l__pax_addannots_bool,
+    addannots .default:n = true,
+    addannots .initial:n = true
   }
 \cs_new_protected:Npn \@PAX@setattributes@n #1 %link type
   {
@@ -113,7 +117,7 @@
       \leavevmode
       \exp_args:Nx\pdf_link_goto_begin:nw
         { #1 }
-        \hbox_to_wd:nn {#2}{\@PAX@ensurelinkbox@n { \rule{0pt}{#3} }}
+        \hbox_to_wd:nn {#2}{\@PAX@ensurelinkbox@n { \rule{0pt}{#3} }\hfill}
       \pdf_link_goto_end:
     \group_end:
   }
@@ -157,6 +161,7 @@
       }
   }
 
+% only defined if hyperref is loaded ...
 \sys_if_engine_xetex:TF
   {
     \cs_set_eq:NN \@PAX@ensurelinkbox@n \XeTeXLinkBox
@@ -188,6 +193,8 @@
     }%
   }%
 }
+
+\ExplSyntaxOn
 \def\PAX@includegraphics[#1]#2{%
   \begingroup
     \sbox0{\PAX@ORG@includegraphics[{#1}]{#2}}%
@@ -196,14 +203,17 @@
     \leavevmode
     \hbox to \wd0{%
       \rlap{\copy0}%
-      \raise-\dp0\hbox{%
-        \PAX@AddAnnots{#1}{#2}%
-      }%
+      \bool_if:NT \l__pax_addannots_bool
+        {
+          \raise-\dp0\hbox{%
+            \PAX@AddAnnots{#1}{#2}%
+           }%
+        }
       \hfill
     }%
   \endgroup
 }
-
+\ExplSyntaxOff
 \SetupKeyvalOptions{family=PAX@Gin,prefix=PAX@Gin@}
 \DeclareStringOption[1]{page}
 \DeclareStringOption[0]{angle}
@@ -364,7 +374,7 @@
     \ifdim\PAX@annot@ury>\PAX@page@ury
       \let\PAX@annot@ury\PAX@page@ury
     \fi
-    \PAX@okfalse 
+    \PAX@okfalse
     \ifdim\PAX@annot@llx<\PAX@annot@urx
       \ifdim\PAX@annot@lly<\PAX@annot@ury
         \PAX@oktrue
@@ -434,7 +444,7 @@
         %additional box for lualatex ...
         \hbox{%
           \@PAX@linkgoto@xnn
-            {PAX@\PAX@file @\PAX@key@DestLabel @\csname l__pax_destprefix_tl\endcsname}%
+            {PAX@\PAX@file @\PAX@key@DestLabel @\csname l__pax_destsuffix_tl\endcsname}%
             {\PAX@width}%
             {\PAX@height}%
             }%
@@ -647,7 +657,7 @@
             \PAX@scale@y\dimexpr\PAX@dest@lly-\PAX@page@lly\relax
           }%
         \fi
-        \edef\PAX@name{PAX@\PAX@file @#2@\csname l__pax_destprefix_tl\endcsname}%
+        \edef\PAX@name{PAX@\PAX@file @#2@\csname l__pax_destsuffix_tl\endcsname}%
         \let\PAX@type\@empty
         \ifcase\pdf@strcmp{#3}{FITR}\relax
           \def\PAX@type{xyz}% too lazy for now

@@ -9,41 +9,32 @@
 \usepackage{ifluatex,graphicx}
 \usepackage{pdfpages,xcolor}
 \usepackage[customdriver=hgeneric-experimental]{hyperref}
-\hypersetup{linkbordercolor=yellow}
+\hypersetup{linkbordercolor=red}
 \hypupdateattribute
-%\usepackage{newpax}
-%\usepackage{luacode}
-%\begin{luacode}
-%\usepackage{luatex85}
+
 \ifluatex
 \directlua{
  require("newpax.lua")
  newpax.writenewpax("pax-input")
+ newpax.writenewpax("figure/pax-input2")
+ newpax.writenewpax("example-image-a")
  }
 \fi
 \usepackage{newpax}
 
-\newpaxsetup{useattributes}
-%\end{luacode}
+%\newpaxsetup{usefileattributes}
 
-\begin{document}
+
+\begin{document}\raggedright \tracingpages=1
 included graphic:
-%\includepdf[pages=-]{pax-input}
-\fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip]{pax-input}}
 
-%
-\newpaxsetup{useattributes=false,destprefix=B}
-\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
+\fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
 
+%\newpaxsetup{useattributes=false,destsuffix=B}
 
-\makeatletter \def\blb{abc düß}
-%\@PAX@escapename@NV \blub \blb
-%\show\blub
-\ExplSyntaxOn
-\ExplSyntaxOff
+%\newpaxsetup{addannots=false}
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
 
-%\includegraphics[page=2]{pax-input}
-%\insertlink blbbl
-%\includepdf[pagecommand={\insertlink}]{testinput}
+%\newpaxsetup{addannots=true}
+%\includepdf[pages=-]{figure/pax-input2}
 \end{document}
-\usepackage{pax} 

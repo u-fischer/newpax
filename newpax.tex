@@ -1,0 +1,80 @@
+\makeatletter
+\def\UlrikeFischer@package@version{0.1}
+\def\UlrikeFischer@package@date{2020-03-30}
+\makeatother
+\RequirePackage[patches]{pdfresources}
+\DeclareDocumentMetaData{pdfversion=1.7,lang=en-UK}
+\documentclass[DIV=12,parskip=half-,bibliography=totoc]{scrartcl}
+\usepackage{scrlayer-scrpage}
+\usepackage{fontspec}
+\setmainfont{Heuristica}
+\usepackage{unicode-math}
+\usepackage[english]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{microtype}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily, columns=fullflexible,language=[LaTeX]TeX,
+        escapechar=*,
+        commentstyle=\color{green!50!black}\bfseries}
+\usepackage[customdriver=hgeneric-experimental,
+             pdfdisplaydoctitle=true,pdfusetitle,hyperfootnotes=false,
+            ]{hyperref}
+\usepackage{newpax}
+
+\title{The \pkg{newpax} package, v\csname UlrikeFischer@package@version\endcsname}
+\subtitle{Reinserting annotations from included pdf file}
+\date{\csname UlrikeFischer@package@date\endcsname}
+\author{Ulrike Fischer\thanks{fischer@troubleshooting-tex.de}}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+When including pdf-files in a document -- may it be with \verb+\includegraphics+ or with \verb+\includepdf+ -- clickable links and other annotations in this documents are lost.
+
+The  \pkg{newpax} package offers some tools to reinsert these annotations. It is based in large parts
+on the \pkg{pax} package from Heiko Oberdiek. 
+
+\subsection{Importing annotations}
+
+Clickable links in a pdf are one example of an annotation. Annotations are areas on a page which are associated with an action. A typical annotation object could look this this:
+
+\begin{lstlisting}
+15 0 obj
+<<
+/Type /Annot
+/Border[0 0 1]/BS<</S/U/W 1>>/H/I/C[0 1 1]
+/Rect [147.716 654.025 301.887 665.15]
+/Subtype/Link/A<</Type/Action/S/URI/URI(https://www.latex-project.org)>>
+>>
+endobj
+\end{lstlisting} 
+
+The \texttt{/Rect} value describes the rectangle of the annotation. It is important to understand that an annotation is not connected to some content but to a page. And the coordinates are absolute page coordinates. 
+
+ 
+To \enquote{reactivate} the annotations of an included pdf one has to
+\begin{itemize}
+\item retrieve and store the annotations of the included pdf. For links to external links to requires to find only one object. But e.g. internal links point to a destination object and these must be found too.
+\item recalculate the rectangle coordinates to fit to the coordinate system of the target page: as the included pdf can be scaled, rotated and even clipped this is not an easy task. Destinations have rectangles too that must be recalculated.
+\item  Reinsert the annotation and related objects. This has to take into account the a pdf is perhaps not included completly, a link shouldn't point to a missing page or a clipped annotation. It also has to take into account that a pdf is perhaps inserted more than once or in steps. 
+\end{itemize}
+
+\section{Importing annotations with the \pkg{pax} package}
+
+The \pkg{pax} package from Heiko Oberdiek consists of a script \texttt{PDFAnnotExtractor}
+which extract the data of all annotations from a pdf and stores them in a text file with the extension \texttt{pax}, a style \texttt{pax.sty} which patches the \verb+\includegraphics+ command to load the \texttt{pax}, process it to calculate the rectangles and reinsert destinations and annotations.
+
+The package works actually very well. Problems are
+\begin{itemize}
+\item \texttt{PDFAnnotExtractor} requires an external, old version of the java library of PDFbox.
+\item The style works only with pdflatex and partly with lualatex (with the luatex85) and not at all with xelatex. 
+\end{itemize}
+
+\section{Importing annotations with the \pkg{newpag} package}
+
+
+
+\end{document}
