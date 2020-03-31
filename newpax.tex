@@ -26,7 +26,12 @@
 \usepackage{ydoc-desc}
 \hypupdateattribute
 \usepackage{newpax}
-
+\directlua{require("newpax")}
+% write .newpax files for newpax.sty
+\directlua
+  {
+    newpax.writenewpax("pax-input")
+  }  
 \newpaxsetup{usefileattributes}
 \title{The \pkg{newpax} package, v\csname UlrikeFischer@package@version\endcsname}
 \subtitle{Reinserting annotations from included pdf file}
