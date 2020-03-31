@@ -1,0 +1,25 @@
+% !Mode:: "TeX:UTF-8:Main"
+\documentclass{article}
+\usepackage{ifluatex,etoolbox}
+\usepackage{pdfpages}
+%pax needs this to run with lualatex
+\ifluatex
+\usepackage{pdftexcmds}
+\makeatletter
+\let\pdfstrcmp\pdf@strcmp
+\let\pdfescapename\pdf@escapename
+\makeatother
+\usepackage{luatex85}
+\fi
+%load pax
+\usepackage{pax}
+%correct a bug in pax affecting clipping
+\makeatletter
+\patchcmd\PAX@pdf@annot{\PAX@pagellx}{\PAX@page@llx}{}{\fail}
+\makeatother
+\begin{document}
+\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
+\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=1]{pax-input}
+
+\includepdf[pages=-]{figure/pax-input2}
+\end{document}

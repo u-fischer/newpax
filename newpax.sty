@@ -19,7 +19,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{newpax}%
   [2020/02/29 v0.1 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
-
 \RequirePackage{ifpdf}
 %\ifpdf
 %\else
@@ -42,6 +41,7 @@
 \bool_new:N \l__pax_use_attributes_bool
 \bool_new:N \l__pax_addannots_bool
 \tl_new:N \l__pax_destsuffix_tl
+\tl_new:N \PAX@fileextension
 
 \NewDocumentCommand\newpaxsetup { m }
   {
@@ -54,7 +54,11 @@
     destsuffix        .tl_set:N = \l__pax_destsuffix_tl,
     addannots         .bool_set:N = \l__pax_addannots_bool,
     addannots .default:n = true,
-    addannots .initial:n = true
+    addannots .initial:n = true,
+    paxextension .choices:nn =
+     {pax,newpax}
+     {\tl_set:Nn \PAX@fileextension {#1}},
+    paxextension .initial:n = newpax
   }
 \cs_new_protected:Npn \@PAX@setattributes@n #1 %link type
   {
@@ -285,7 +289,7 @@
     \PackageWarning{pax}{Unsupported value for option angle}%
   \fi
   \filename@parse{#2}%
-  \def\PAX@file{\filename@area\filename@base.newpax}%
+  \def\PAX@file{\filename@area\filename@base.\PAX@fileextension }%
   \let\[\PAX@parser
   \def\<{<}%
   \def\>{>}%
