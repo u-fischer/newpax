@@ -22,9 +22,12 @@
 \usepackage[customdriver=hgeneric-experimental,
              pdfdisplaydoctitle=true,pdfusetitle,hyperfootnotes=false,
             ]{hyperref}
+\hypupdateattribute            
 \usepackage{ydoc-desc}            
+\hypupdateattribute   
 \usepackage{newpax}
 
+\newpaxsetup{usefileattributes}
 \title{The \pkg{newpax} package, v\csname UlrikeFischer@package@version\endcsname}
 \subtitle{Reinserting annotations from included pdf file}
 \date{\csname UlrikeFischer@package@date\endcsname}
@@ -139,4 +142,9 @@ The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the 
 
 \pkg{newpax} reuses the core commands of \pkg{pax}. It adds a number of switches and changed primitive so that more engines and backend can be supported.
 
+
+\section{Example}
+
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
+\fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
 \end{document}
