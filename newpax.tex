@@ -49,29 +49,29 @@ The luacode offers two functions which take as argument the name of a PDF withou
 The functions can be used in some lua scripts but also in some document which then must be compiled
 with lualatex:
 
-\lstinputlisting{doc-extract.tex}
+\lstinputlisting[caption=doc-extract.tex]{doc-extract.tex}
 
 \subsection{Step two: Using the \texttt{.pax}-file with \pkg{pax.sty}}
 
 Ensure that the \texttt{.pax} file created in the first step can be found by your main document. You can then insert your
-PDF files together with they annotations like in the following listing.
+PDF files together with their annotations like in the following listing.
 
 \begin{itemize}
 \item This works with pdflatex and lualatex. lualatex needs the extra code demonstrated in the document.
 \item It needs two or three compilations until every reference is correct.
-\item There is small typo in \pkg{pax.sty} which affects clipping, the patch shown in the listing correct this.
+\item There is a small typo in \pkg{pax.sty} which affects clipping, the patch shown in the listing correct this.
 \item Don't include PDFs with destinations twice as this will lead to duplicates.
 \item If annotations should not be reinserted remove the \texttt{.pax}-file. 
 \item When \pkg{hyperref} is detected you can change the color and style of link borders with hyperref options. 
 \end{itemize}
 
-\lstinputlisting[firstline=2]{doc-pax-test.tex}
+\lstinputlisting[firstline=2,caption=doc-pax-test.tex]{doc-pax-test.tex}
 
 \subsection[Alternative step two: Using the \texttt{.newpax}-file with \pkg{newpax.sty}]
-{\textcolor{red}{Experimental!!!}\\ Alternative step two: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
+{\textcolor{red}{Experimental!}: Variant of step two: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
 
 
-The style \pkg{newpax} is based on \texttt{pax.sty} but extended in various way. It is an experimental package which requires the experimental pdfresources code.
+The style \pkg{newpax} is based on \texttt{pax.sty} but extends in various way. It is an experimental package which requires the experimental pdfresources code.
 
 \begin{enumerate}
 \item clone \url{https://github.com/latex3/pdfresources}
@@ -85,8 +85,11 @@ The following listing shows how to use \pkg{newpax.sty}.
 \begin{itemize}
 \item It should work with pdflatex, lualatex and xelatex. (latex and dvips fails as this can't include PDF anyway).
 \item Some provision have been added to allow multiple inclusion of the same PDF, but if you insert different sets of pages of a PDF destinations can be missing. So better avoid it. 
-\item You can choose for every file if border color and styles of links are taken from the source PDF or from the hyperref settings. But you can adjust or changed colored links. 
+\item You can choose for every file if border color and styles of links are taken from the source PDF or from the hyperref settings. But you can't adjust or change colored links. 
 \end{itemize}
+
+
+\lstinputlisting[firstline=2,caption=doc-newpax-test.tex]{doc-newpax-test.tex}
 
 \subsection{Combining the steps}
 

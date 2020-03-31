@@ -1,14 +1,14 @@
 % !Mode:: "TeX:UTF-8:Main"
+%improves compability with tikz etc ...
+\PassOptionsToPackage{patches}{pdfresources}
 
 \documentclass{article}
 \usepackage{pdfpages,xcolor}
+
 % use a custom hyperref driver:
 \usepackage[customdriver=hgeneric-experimental]{hyperref}
 \hypersetup{linkbordercolor=blue}
 \hypupdateattribute %after \hypersetup
-
-%improves compability ...
-\PassOptionsToPackage{patches}{pdfresources}
 
 \usepackage{newpax}
 
