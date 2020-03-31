@@ -28,21 +28,43 @@ end
 
 -- builds a table "destination name -> obj reference (pdfedict) from the Names tree
 
+local function processnamesarray (pdfearray,targettable)
+  for i=1,#pdfearray do
+    type,value,detail= GETFROMARRAY(pdfearray,i)
+    if (i % 2 == 1) then
+     tkey = value
+    else
+      tvalue = value
+      targettable[tkey]=tvalue
+     -- print("ZZZZ",table.serialize(targettable))
+    end 
+  end
+end
+
+local function findallnamesarrays (pdfedict,table)
+  local namesarray  = GETARRAY(pdfedict,"Names")
+  if namesarray then
+     processnamesarray (namesarray,table)
+  else
+     local kidsarray = GETARRAY(pdfedict,"Kids")
+     if kidsarray then
+       for i=1,#kidsarray do
+         findallnamesarrays (kidsarray[i],table)
+       end
+     end
+  end  
+end
+
 local function getdestreferences (pdfedoc)
-  local desttable= {}
-  local catnames = GETDICTIONARY (pdfedoc.Catalog, "Names")
-  if catnames then
-    local namesarray  = GETARRAY(pdfedoc.Catalog.Names.Dests,"Names")
-      for i=0,#namesarray-1 do
-        if (i % 2 == 0) then
-          key = GETSTRING(namesarray,i)
-        else
-         value = GETDICTIONARY(namesarray,i)
-         desttable[key]=value
-        end 
+  local deststable= {}
+  local catnames  = GETDICTIONARY (pdfedoc.Catalog, "Names")
+  if catnames then 
+    local destsdict = GETDICTIONARY (catnames, "Dests")
+    if destsdict then 
+      findallnamesarrays (destsdict,deststable)   
     end
   end  
-  return desttable
+  return deststable
 end
 
 local function getdestdata (name)
