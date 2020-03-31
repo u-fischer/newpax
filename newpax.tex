@@ -22,9 +22,9 @@
 \usepackage[customdriver=hgeneric-experimental,
              pdfdisplaydoctitle=true,pdfusetitle,hyperfootnotes=false,
             ]{hyperref}
-\hypupdateattribute            
-\usepackage{ydoc-desc}            
-\hypupdateattribute   
+\hypupdateattribute
+\usepackage{ydoc-desc}
+\hypupdateattribute
 \usepackage{newpax}
 
 \newpaxsetup{usefileattributes}
@@ -41,51 +41,50 @@
 When including PDF-files in a document -- may it be with \verb+\includegraphics+ or with \verb+\includepdf+ -- clickable links and other annotations of these documents are lost.
 
 The  \pkg{newpax} package offers some tools to reinsert these annotations. It is based in large parts
-on the \pkg{pax} package from Heiko Oberdiek.
+on the \pkg{pax} package from Heiko Oberdiek. It consists of a lua script to extract annotations and a style to reinsert them in the target document. 
 
 \section{Quick use instructions}
-\subsection{First step: extract the annotations}
-The luacode offers two functions which take as argument the name of a PDF without the extension.
+\subsection{Step 1: extract the annotations}
+The lua script offers two functions which take as argument the name of a PDF without the extension.
 The functions can be used in some lua scripts but also in some document which then must be compiled
-with lualatex:
+with lualatex. You should create a \texttt{.pax} files if you want to use \pkg{pax.sty}, and the \texttt{.newpax} files if you want to use \pkg{newpax.sty} to reinsert the annotations.
 
 \lstinputlisting[caption=doc-extract.tex]{doc-extract.tex}
 
-\subsection{Step two: Using the \texttt{.pax}-file with \pkg{pax.sty}}
+\subsection{Step 2: Using the \texttt{.pax}-file with \pkg{pax.sty}}
 
-Ensure that the \texttt{.pax} file created in the first step can be found by your main document. You can then insert your
-PDF files together with their annotations like in the following listing.
+Ensure that the \texttt{.pax} file created in step 1 can be found by your main document. You can then insert your PDF files together with their annotations like in the following listing.
 
 \begin{itemize}
 \item This works with pdflatex and lualatex. lualatex needs the extra code demonstrated in the document.
 \item It needs two or three compilations until every reference is correct.
 \item There is a small typo in \pkg{pax.sty} which affects clipping, the patch shown in the listing correct this.
-\item Don't include PDFs with destinations twice as this will lead to duplicates.
-\item If annotations should not be reinserted remove the \texttt{.pax}-file. 
-\item When \pkg{hyperref} is detected you can change the color and style of link borders with hyperref options. 
+\item Don't include PDFs with destinations twice as this will lead to duplicate destinations and pdflatex will complain.
+\item If annotations should not be reinserted remove the \texttt{.pax}-file.
+\item If \pkg{hyperref} is loaded you can change the color and style of link borders with hyperref options.
 \end{itemize}
 
 \lstinputlisting[firstline=2,caption=doc-pax-test.tex]{doc-pax-test.tex}
 
-\subsection[Alternative step two: Using the \texttt{.newpax}-file with \pkg{newpax.sty}]
-{\textcolor{red}{Experimental!}: Variant of step two: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
+\subsection[Alternative Step 2: Using the \texttt{.newpax}-file with \pkg{newpax.sty}]
+{\textcolor{red}{Experimental!}: Variant of Step 2: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
 
 
-The style \pkg{newpax} is based on \texttt{pax.sty} but extends in various way. It is an experimental package which requires the experimental pdfresources code.
+The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various way. It is an experimental package which requires the experimental pdfresources code.
 
 \begin{enumerate}
 \item clone \url{https://github.com/latex3/pdfresources}
 \item In the main folder run \lstinline+ l3build install +. This will install the package in your texmfhome.
 \end{enumerate}
 
-\textbf{Attention!} \textcolor{red}{Experimental} means EXPERIMENTAL! The code is currently in full flow. And it is \emph{not} yet compatible with every other package.
+\textbf{Attention!} \textcolor{red}{Experimental} means EXPERIMENTAL! The code is currently in full flow. And it is \emph{not} compatible with every other package.
 
 The following listing shows how to use \pkg{newpax.sty}.
 
 \begin{itemize}
-\item It should work with pdflatex, lualatex and xelatex. (latex and dvips fails as this can't include PDF anyway).
-\item Some provision have been added to allow multiple inclusion of the same PDF, but if you insert different sets of pages of a PDF destinations can be missing. So better avoid it. 
-\item You can choose for every file if border color and styles of links are taken from the source PDF or from the hyperref settings. But you can't adjust or change colored links. 
+\item It should work with pdflatex, lualatex and xelatex. The latex/dvips route fails as this can't include PDF anyway.
+\item Some provision have been added to allow multiple inclusion of the same PDF, but if you insert different sets of pages from a PDF destinations can still be missing. So better avoid it.
+\item You can choose for every file if border color and styles of links are taken from the source PDF or from the hyperref settings. But you can't adjust or change colored links.
 \end{itemize}
 
 
@@ -93,9 +92,9 @@ The following listing shows how to use \pkg{newpax.sty}.
 
 \subsection{Combining the steps}
 
-When using lualatex the code to write the pax/newpax-files can be in the main document. 
+When using lualatex the code that extracts the annotations and writes the \texttt{.pax}/\texttt{.newpax}-files can be in the same document that uses the files later.
 
-In the future it would be nice if the luacode could like e.g. epstopdf be called on the fly by a document. 
+In the future it would be nice if the luacode could like e.g. epstopdf be called on the fly by a document.
 
 \section{Background}
 
@@ -113,13 +112,13 @@ Clickable links in a PDF are one example of an annotation. Annotations are areas
 endobj
 \end{lstlisting}
 This is an object of type \texttt{Annot} and subtype \texttt{Link}.
-The \texttt{/Rect} value describes the rectangle of this annotation.  The coordinates are absolute coordinates related to the current page. It is important to understand that an annotation is not connected to some page content!
-The \texttt{/Border} setting and the other values on this line describe the look and color of annotation. The \texttt{/A} value contains the action, in this case it is an url to an external website.
+The \texttt{/Rect} value describes the rectangle of this annotation. The coordinates are absolute coordinates related to the current page. It is important to understand that an annotation is not connected to some page content but only to a location!
+The \texttt{/Border} setting and the other values in this line describe the look and color of annotation. The \texttt{/A} value contains the action, in this case it is an url to an external website.
 
 
 To \enquote{reactivate} the annotations of an included pdf one has to do a number of tasks.
 \begin{itemize}
-\item One must \emph{retrieve and store} the annotations of the included pdf. For links to external links this requires to find only one object like the one shown above. But e.g. internal links point to a destination object and these must be found too.
+\item One must \emph{retrieve and store} the annotations of the included pdf. For links to external url this requires to find only one object like the one shown above. But e.g. internal links point to a destination object and these must be found too.
 \item One must \emph{recalculate} the rectangle coordinates to fit to the coordinate system of the target page: as the included pdf can be placed at various positions, scaled, rotated and even clipped this is not an easy task. Destinations have rectangles too that must be recalculated.
 \item  One must  \emph{reinsert} the annotation and related objects. This has to take into account the a pdf is perhaps not included completly, a link shouldn't point to a missing page or a clipped annotation. It also has to take into account that a pdf is perhaps inserted more than once or in steps.
 \end{itemize}
@@ -136,12 +135,14 @@ When it has been successfully install it works quite fine. Problems with this ap
 \item it is not extensible.
 \end{itemize}
 
-The \pkg{newpax} package comes with a lua-file. It uses the \texttt{pdfe} library embedded in luatex to extract the annotations and other needed information. \pkg{newpax} writes the information to a file with the extension \texttt{pax} or \texttt{newpax}. The content of the files is (nearly) identical to the content of the \texttt{pax}-file written by \texttt{PDFAnnotExtractor}. The lua code was written by looking at example outputs from \texttt{PDFAnnotExtractor} and reproducing it in lua. The ordering of element is a bit different and some strings are output in a different way but for the examples I used the resulting \texttt{pax}-files can be used together with the original \texttt{pax.sty}. It is possible that the lua code is not yet handling all objects or options that \texttt{PDFAnnotExtractor} outputs, but the code can rather easily be extended later.
+The \pkg{newpax} package comes with a lua-file. It uses the \texttt{pdfe} library embedded in luatex to extract the annotations and other needed information. \pkg{newpax} writes the information to a file with the extension \texttt{pax} or \texttt{newpax}. The content of the files is (nearly) identical to the content of the \texttt{pax}-file written by \texttt{PDFAnnotExtractor}. The lua code was written by looking at example outputs from \texttt{PDFAnnotExtractor} and reproducing it in lua. The ordering of element is a bit different and some strings are output in a different way but for the examples I used the resulting \texttt{pax}-files can be used together with the original \texttt{pax.sty}. But due to the fact that the code was written without real spec simply by looking at examples, it is quite probably that the lua code is not yet handling all objects or options that \texttt{PDFAnnotExtractor} outputs.  But the code can rather easily be extended when the needs arises.
+
+The code also doesn't handle structure elements, neither at the export nor at the import. I have yet no real idea what would be sensible here (and I'm quite sure that \texttt{PDFAnnotExtractor}  doesn't handle this either.)
 
 
-\section{Importing annotations with the \pkg{pax} package}
+\section{Importing annotations}
 
-The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted. It also patches the \verb+\includegraphics+ command to automate this. 
+The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted. It also patches the \verb+\includegraphics+ command to automate this.
 
 \pkg{newpax} reuses the core commands of \pkg{pax}. It adds a number of switches and changed primitive so that more engines and backend can be supported.
 
