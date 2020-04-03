@@ -3,12 +3,9 @@ local OPEN = pdfe.open
 local GETSIZE = pdfe.getsize
 local GETINFO = pdfe.getinfo
 local GETPAGE = pdfe.getpage
-local GETNUMBER = pdfe.getnumber
 local GETNAME  = pdfe.getname
-local GETINTEGER = pdfe.getinteger
 local GETARRAY = pdfe.getarray
 local GETDICTIONARY = pdfe.getdictionary
-local GETSTRING = pdfe.getstring
 local GETFROMDICTIONARY = pdfe.getfromdictionary
 local GETFROMARRAY = pdfe.getfromarray
 local PAGESTOTABLE = pdfe.pagestotable
@@ -16,10 +13,30 @@ local DICTIONARYTOTABLE = pdfe.dictionarytotable
 local ARRAYTOTABLE = pdfe.arraytotable
 local FILENAMEONLY=file.nameonly
 
+strENTRY_BEG = "\\["
+strENTRY_END = "\\\\\n"
+strCMD_BEG = "{"
+strCMD_END = "}"
+strARG_BEG = "{"
+strARG_END = "}"
+strKVS_BEG = "{"
+strKVS_END = "\n}"
+strKVS_EMPTY = "{}"
+strKV_BEG  = "\n  "
+strKV_END  = ","
+strKEY_BEG = ""
+strKEY_END = ""
+strVALUE_BEG = "={"
+strVALUE_END = "}"
+strHEX_STR_BEG = "\\<"
+strHEX_STR_END = "\\>"
+
+
+
 -- get/build data
 -- returns table,pagecount where table objref ->page number
 local function getpagesdata (pdfedoc)
-  local pagecount   = GETINTEGER (pdfedoc.Catalog.Pages,"Count")
+  local type,pagecount,detail   = GETFROMDICTIONARY (pdfedoc.Catalog.Pages,"Count")
   local pagestable  = PAGESTOTABLE (pdfedoc)
   local pagereferences ={}
   for i=1,#pagestable do
@@ -89,35 +106,40 @@ end
 local function outputfileinfo (filename,pdfedoc,pages)
   local bytes       = GETSIZE(pdfedoc)
   local date        = GETINFO(pdfedoc).CreationDate
-  local a="\\[{file}{(".. filename ..".pdf)}"
+  local a= strENTRY_BEG .. strCMD_BEG .. "file" .. strCMD_END 
+  a = a .. strARG_BEG .. "(" .. filename .. ".pdf)" ..  strARG_END
   a = a .. "{,\n" 
   a = a .. "  Size={".. bytes .. "},\n"
   a = a .. "  Date={" .. date .. "},"
-  a = a .. " \n}\\\\\n" 
-  a = a .. "\\[{pagenum}{"..pages.."}\\\\\n"
+  a = a .. " \n}" .. strENTRY_END 
+  a = a .. strENTRY_BEG .."{pagenum}{"..pages.."}" .. strENTRY_END
   return a
 end 
 
 local function outputpageinfo (pdfedoc,page) -- page=integer
-  local pagebox = GETPAGE(pdfedoc,page).MediaBox
+  -- trimbox, bleedbox, cropbox,artbox,rotate etc could be put in 
+  -- the second argument as keyval:
+  -- TrimBox={0 0 300 350},
+  -- but pax skips the argument anyway, so not really useful 
+  local mediabox = pdfe.getbox(GETPAGE(pdfedoc,page),"MediaBox")
   local a=""
-  if pagebox then
-    a = "\\[{page}{"..page.."}{"
-    a = a .. GETNUMBER(pagebox,0)
-    for j = 1, 3 do
-     a = a .. " "..GETNUMBER(pagebox,j)
+  if mediabox then
+    a = strENTRY_BEG .. "{page}{"..page.."}{"
+    a = a .. mediabox[1]
+    for j = 2, 4 do
+     a = a .. " "..mediabox[j]
     end
-     a= a .. "}{}\\\\\n"   
+     a= a .. "}{}" .. strENTRY_END   
   end
   return a
 end
 
 local function outputannotinfo (pdfedict,page,type)
-  local a = "\\[{annot}{"..page.."}{".. GETNAME(pdfedict,"Subtype") .."}{"
-  local rectangle =GETARRAY(pdfedict,"Rect")
-  a = a .. GETNUMBER(rectangle,0)
+  local a = strENTRY_BEG .. "{annot}{"..page.."}{".. GETNAME(pdfedict,"Subtype") .."}{"
+  local rectangle = ARRAYTOTABLE(GETARRAY(pdfedict,"Rect"))
+  a = a .. rectangle[1][2]
   for k = 1, 3 do
-    a = a.. " "..GETNUMBER(rectangle,k)
+    a = a.. " "..rectangle[k][2]
   end
   a = a .. "}{"
   a = a .. type .. "}"  
@@ -129,9 +151,10 @@ local function outputcolor (pdfedict)
   local color = GETARRAY(pdfedict,"C")
   local a =""
   if color then
+    local colortable = ARRAYTOTABLE(color)
     a = "  C={["
-    for i=0,#color-1 do
-      a=a.. GETNUMBER(color,i) .. " "
+    for i=1,#colortable do
+      a=a.. colortable[i][2] .. " "
     end
     a = a .."]},\n"
   end 
@@ -151,13 +174,16 @@ local function outputborder (pdfedict)
   local border = GETARRAY(pdfedict,"Border")
   local a =""
   if border then 
+    local bordertable = ARRAYTOTABLE(border)
+    -- print("CCC",table.serialize(bordertable))
     a = "  Border={["
-    for i=0,2 do
-      a = a .. GETNUMBER(border,i) .. " "
+    for i=1,3 do
+      a = a .. bordertable[i][2] .. " "
     end
   end 
- -- fourth argument later ...
+ -- fourth argument later, it is an array (type 7)
   a = a .."]},\n"
+  print("BBBBBB",a)
   return a
 end 
 
@@ -221,7 +247,7 @@ end
 local function outputdest (destcount,name)
  local pagenum, data = getdestdata(name)
  local a =""
- a =  "\\[{dest}{"..pagenum .. "}{" .. destcount .. "}"
+ a =  strENTRY_BEG .. "{dest}{"..pagenum .. "}{" .. destcount .. "}"
  -- name
  a = a .. "{".. data[2][2] .."}{"
  if data[2][2] == "XYZ" then   
@@ -259,7 +285,7 @@ local function outputdest (destcount,name)
    a = a .. data[5][2] .. " " 
    a = a .. data[6][2] .. "},"
  end
- a = a .. "\n}\\\\\n"   
+ a = a .. "\n}" .. strENTRY_END   
  return a
 end
 
@@ -284,51 +310,46 @@ local function __writepax (ext,file)
   -- build from names table:
   destreferencesVAR = getdestreferences (docVAR)
   -- output ...
-  WRITE("\\[{pax}{0.1l}\\\\", "\n")
+  WRITE(strENTRY_BEG .. "{pax}{0.1l}" .. strENTRY_END)
   WRITE(outputfileinfo (file,docVAR,pagecountVAR))
   for i=1, pagecountVAR do
     WRITE(outputpageinfo(docVAR,i))
     local annots=GETPAGE(docVAR,i).Annots
     if annots then
       for j = 0,#annots-1 do
-       local annot = GETDICTIONARY (annots,j)
-       local annotaction = GETDICTIONARY(annot,"A")
-       local annotactiontype =""
-       if annotaction then
+        local annot = GETDICTIONARY (annots,j)
+        local annotaction = GETDICTIONARY(annot,"A")
+        local annotactiontype =""
+        if annotaction then
           annotactiontype = GETNAME(annotaction,"S")
-       end          
-       if not annotaction then
-        -- e.g. widgets, ignored for now
-        -- local hash = DICTIONARYTOTABLE(annot)        
-        ---print ("XXXX", table.serialize(hash))
-       else
-        if annotactiontype then
-          WRITE(outputannotinfo(annot,i,annotactiontype)) 
-        end  
-       end
-       WRITE("{\n") -- begin data 
-         WRITE ( outputcolor(annot) )
-         WRITE ( outputname(annot,"H") )
-         WRITE ( outputborder (annot) )
-         WRITE ( outputBS (annot) )
-       if annotactiontype =="URI" then 
-         WRITE ( outputuri(annotaction) )
-         WRITE("}\\\\\n") -- end annot data   
-       elseif annotactiontype =="GoTo" then
-         destcountVAR=destcountVAR + 1
-         local annotactiongoto = GETSTRING(annotaction,"D")
-         WRITE ( outputgoto (destcountVAR) )
-         WRITE("}\\\\\n") -- end annot data   
-         WRITE ( outputdest(destcountVAR,annotactiongoto) )
-       elseif annotactiontype=="GoToR" then
-         WRITE ( outputgotor(annotaction) )
-         WRITE("}\\\\\n") -- end annot data  
-       elseif annotactiontype=="Named" then
-         WRITE ( outputnamed (annotaction) )
-         WRITE("}\\\\\n") -- end annot data        
-       end
-      end
-    end  
+          if annotactiontype then
+            WRITE(outputannotinfo(annot,i,annotactiontype)) 
+          end  
+          WRITE("{\n") -- begin data 
+          WRITE ( outputcolor(annot) )
+          WRITE ( outputname(annot,"H") )
+          WRITE ( outputborder (annot) )
+          WRITE ( outputBS (annot) )
+          if annotactiontype =="URI" then 
+            WRITE ( outputuri(annotaction) )
+            WRITE("}" .. strENTRY_END) -- end annot data   
+          elseif annotactiontype =="GoTo" then
+            destcountVAR=destcountVAR + 1
+            local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
+            -- print (annotactiongoto, type,annotactiongoto,hex)
+            WRITE ( outputgoto (destcountVAR) )
+            WRITE("}" .. strENTRY_END) -- end annot data   
+            WRITE (outputdest(destcountVAR,annotactiongoto) )
+          elseif annotactiontype=="GoToR" then
+            WRITE ( outputgotor(annotaction) )
+            WRITE("}" .. strENTRY_END) -- end annot data  
+          elseif annotactiontype=="Named" then
+            WRITE ( outputnamed (annotaction) )
+            WRITE("}" .. strENTRY_END) -- end annot data        
+          end
+        end
+      end  
+    end
   end 
   io.close(writeVAR)
 end

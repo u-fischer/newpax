@@ -1,13 +1,23 @@
 % !Mode:: "TeX:UTF-8:Main"
 
 \documentclass{article}
-\usepackage{hyperref}
+\usepackage{hyperref,pdfresources}
 \usepackage{l3pdf}
-\hypersetup{pdfborderstyle={/S/U/W 1},pdfview={FitR 0 0 400 400}
-}
+\hypersetup{pdfborderstyle={/S/U/W 1},pdfview={FitR 0 0 400 400},pdfauthor=Author,pdftitle=title,pdfcreator=creator}
+
 \ExplSyntaxOn
 \pdf_uncompress:
+\pdf_pageattr_gput:nn {TrimBox}{[0~0~300~350]}
+\pdf_pageattr_gput:nn {BleedBox}{[0~0~300~350]}
+\pdf_pageattr_gput:nn {Rotate}{90}
 \ExplSyntaxOff
+%
+%Rotate";
+%    public String KEY_MEDIA_BOX = "MediaBox";
+%    public String KEY_CROP_BOX  = "CropBox";
+%    public String KEY_BLEED_BOX = "BleedBox";
+%    public String KEY_TRIM_BOX  = "TrimBox";
+%    public String KEY_ART_BOX   = "ArtBox"
 \begin{document}
 
 \url{https://www.latex-project.org}
@@ -30,4 +40,7 @@
 \newpage
 
 \Acrobatmenu{FirstPage}{Go to first page}
+\newpage 
+
+blub
 \end{document} 

@@ -289,7 +289,8 @@
     \PackageWarning{pax}{Unsupported value for option angle}%
   \fi
   \filename@parse{#2}%
-  \def\PAX@file{\filename@area\filename@base.\PAX@fileextension }%
+  \def\PAX@file{%\filename@area
+  \filename@base.\PAX@fileextension }%
   \let\[\PAX@parser
   \def\<{<}%
   \def\>{>}%

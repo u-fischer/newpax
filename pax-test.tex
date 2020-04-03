@@ -19,7 +19,8 @@
  %newpax.writepax("pax-input")
 % newpax.writenewpax("figure/pax-input2")
 % newpax.writenewpax("example-image-a")
- newpax.writenewpax("C:/texlive/2020/texmf-dist/doc/latex/biblatex/biblatex")
+ %newpax.writenewpax("C:/texlive/2020/texmf-dist/doc/latex/biblatex/biblatex")
+ %newpax.writenewpax("C:/texlive/2020/texmf-dist/doc/latex/pgfplots/pgfplots")
  }
 \fi
 
@@ -29,7 +30,10 @@
 
 
 \begin{document}\raggedright
+%\includepdf[pages=-]{C:/texlive/2020/texmf-dist/doc/latex/pgfplots/pgfplots}
 included graphic:
+\tracingmacros=1
+\fbox{\includegraphics{pax-input}}
 \end{document}
 \fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
 
