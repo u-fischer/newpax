@@ -3,13 +3,16 @@
 \documentclass{article}
 \usepackage{hyperref,pdfresources}
 \usepackage{l3pdf}
-\hypersetup{pdfborderstyle={/S/U/W 1},pdfview={FitR 0 0 400 400},pdfauthor=Author,pdftitle=title,pdfcreator=creator}
+\hypersetup{pdfborderstyle={/S/U/W 1},
+pdfview={FitR 0 0 400 400},
+%pdfview={FitH 400},
+pdfauthor=Author,pdftitle=title,pdfcreator=creator}
 
 \ExplSyntaxOn
 \pdf_uncompress:
 \pdf_pageattr_gput:nn {TrimBox}{[0~0~300~350]}
 \pdf_pageattr_gput:nn {BleedBox}{[0~0~300~350]}
-\pdf_pageattr_gput:nn {Rotate}{90}
+%\pdf_pageattr_gput:nn {Rotate}{90}
 \ExplSyntaxOff
 %
 %Rotate";
@@ -40,7 +43,7 @@
 \newpage
 
 \Acrobatmenu{FirstPage}{Go to first page}
-\newpage 
+\newpage
 
 blub
 \end{document} 

@@ -109,8 +109,8 @@ local function outputfileinfo (filename,pdfedoc,pages)
   local a= strENTRY_BEG .. strCMD_BEG .. "file" .. strCMD_END 
   a = a .. strARG_BEG .. "(" .. filename .. ".pdf)" ..  strARG_END
   a = a .. "{,\n" 
-  a = a .. "  Size={".. bytes .. "},\n"
-  a = a .. "  Date={" .. date .. "},"
+  a = a .. "  Size" .. strVALUE_BEG .. bytes .. strVALUE_END .. ",\n"
+  a = a .. "  Date" .. strVALUE_BEG .. date .. strVALUE_END.. ","
   a = a .. " \n}" .. strENTRY_END 
   a = a .. strENTRY_BEG .."{pagenum}{"..pages.."}" .. strENTRY_END
   return a
@@ -152,11 +152,11 @@ local function outputcolor (pdfedict)
   local a =""
   if color then
     local colortable = ARRAYTOTABLE(color)
-    a = "  C={["
+    a = "  C" .. strVALUE_BEG .. "["
     for i=1,#colortable do
       a=a.. colortable[i][2] .. " "
     end
-    a = a .."]},\n"
+    a = a .."]" .. strVALUE_END .. ",\n"
   end 
   return a
 end 
@@ -165,7 +165,7 @@ local function outputname (pdfedict,key)
   local name = GETNAME(pdfedict,key)
   local a = ""
   if name then
-    a = "  "..key.."={/" .. name .."},\n"
+    a = "  "..key .. strVALUE_BEG .. "/" .. name .. strVALUE_END .. ",\n"
   end 
   return a
 end 
@@ -176,14 +176,14 @@ local function outputborder (pdfedict)
   if border then 
     local bordertable = ARRAYTOTABLE(border)
     -- print("CCC",table.serialize(bordertable))
-    a = "  Border={["
+    a = "  Border" .. strVALUE_BEG .. "["
     for i=1,3 do
       a = a .. bordertable[i][2] .. " "
     end
   end 
  -- fourth argument later, it is an array (type 7)
-  a = a .."]},\n"
-  print("BBBBBB",a)
+  a = a .."]" .. strVALUE_END .. ",\n"
+ -- print("BBBBBB",a)
   return a
 end 
 
@@ -192,7 +192,7 @@ local function outputBS (pdfedict)
   local a =""
   if bsstyle then 
     local bsstyledict = DICTIONARYTOTABLE(bsstyle)
-    a = "  BS={<<"
+    a = "  BS" .. strVALUE_BEG .."<<"
     for k,v in pairs (bsstyledict) do
       a = a .. "/".. k 
       if v[1]== 5 then
@@ -201,7 +201,7 @@ local function outputBS (pdfedict)
        a = a .." " .. v[2]
       end  
     end
-    a = a ..">>},\n" 
+    a = a ..">>" .. strVALUE_END .. ",\n" 
   end 
   return a
 end 
@@ -209,38 +209,39 @@ end
 
 local function outputuri (pdfedict)
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"URI")
-  local a="  URI={"
+  local a="  URI" .. strVALUE_BEG 
   if hex then 
-    a = a .. "\\<"..value.."\\>},\n"
+    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END 
   else
-    a = a .. "("..value ..")},\n"
+    a = a .. "("..value ..")" 
   end
+    a = a .. strVALUE_END .. ",\n"
   return a
 end 
 
 local function outputnamed (pdfedict)
   local name = GETNAME(pdfedict,"N")
-  local a="  Name={" .. name .. "},\n"
+  local a="  Name" .. strVALUE_BEG .. name .. strVALUE_END .. ",\n"
   return a
 end 
 
 local function outputgotor (pdfedict) -- action dictionary
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"F")
-  local a = "  File={"
+  local a = "  File" .. strVALUE_BEG
   if hex then
-    a = a .. "\\<"..value.."\\>},\n"
+    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_end .. "},\n"
   else
     a = a .. "("..value ..")},\n"
   end
   local type, pagenum = GETFROMARRAY(GETARRAY (pdfedict,"D"),1)
   local type, fittype = GETFROMARRAY(GETARRAY (pdfedict,"D"),2)
-  a = a .. "  DestPage={" .. pagenum .. "},\n"
-  a = a .. "  DestView={/".. fittype .. "},\n"
+  a = a .. "  DestPage" .. strVALUE_BEG .. pagenum .. "},\n"
+  a = a .. "  DestView" .. strVALUE_BEG .. "/".. fittype .. "},\n"
   return a    
 end
 
 local function outputgoto (count)
-  local a="  DestLabel={" .. count .. "},\n"
+  local a="  DestLabel" .. strVALUE_BEG .. count .. "},\n"
   return a
 end 
 
@@ -252,7 +253,7 @@ local function outputdest (destcount,name)
  a = a .. "{".. data[2][2] .."}{"
  if data[2][2] == "XYZ" then   
    if data[3][2] then 
-    a = a .. "\n  DestX={" .. data[3][2] .. "},"
+    a = a .. "\n  DestX" .. strVALUE_BEG .. data[3][2] .. "},"
    end
    if data[4][2] then 
     a = a .. "\n  DestY={" .. data[4][2] .. "},"
@@ -279,7 +280,7 @@ local function outputdest (destcount,name)
     a = a .. "\n  DestX={" .. data[3][2] .. "},"
    end   
  elseif data[2][2] == "FitR" and data[6] then   
-   a = a .. "\n  Rect={" 
+   a = a .. "\n  DestRect={" 
    a = a .. data[3][2] .. " "
    a = a .. data[4][2] .. " " 
    a = a .. data[5][2] .. " " 

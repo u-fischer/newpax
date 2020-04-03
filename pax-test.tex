@@ -1,7 +1,8 @@
 % !Mode:: "TeX:UTF-8:Main"
 
 \documentclass{article}
-\usepackage{l3pdf,pdfresources}
+\usepackage{l3pdf}
+\usepackage{pdfresources}
 \ExplSyntaxOn
 \pdf_uncompress:
 \ExplSyntaxOff
@@ -32,8 +33,11 @@
 \begin{document}\raggedright
 %\includepdf[pages=-]{C:/texlive/2020/texmf-dist/doc/latex/pgfplots/pgfplots}
 included graphic:
-\tracingmacros=1
+%\tracingmacros=1
 \fbox{\includegraphics{pax-input}}
+\fbox{\includegraphics[page=2]{pax-input}}
+
+%\includepdf{pax-input}
 \end{document}
 \fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
 
