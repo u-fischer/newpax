@@ -293,8 +293,19 @@ local function __writepax (ext,file)
       for j = 0,#annots-1 do
        local annot = GETDICTIONARY (annots,j)
        local annotaction = GETDICTIONARY(annot,"A")
-       local annotactiontype = GETNAME(annotaction,"S")
-       WRITE(outputannotinfo(annot,i,annotactiontype)) 
+       local annotactiontype =""
+       if annotaction then
+          annotactiontype = GETNAME(annotaction,"S")
+       end          
+       if not annotaction then
+        -- e.g. widgets, ignored for now
+        -- local hash = DICTIONARYTOTABLE(annot)        
+        ---print ("XXXX", table.serialize(hash))
+       else
+        if annotactiontype then
+          WRITE(outputannotinfo(annot,i,annotactiontype)) 
+        end  
+       end
        WRITE("{\n") -- begin data 
          WRITE ( outputcolor(annot) )
          WRITE ( outputname(annot,"H") )
