@@ -13,6 +13,8 @@ local GETFROMDICTIONARY = pdfe.getfromdictionary
 local GETFROMARRAY = pdfe.getfromarray
 local PAGESTOTABLE = pdfe.pagestotable
 local DICTIONARYTOTABLE = pdfe.dictionarytotable
+local ARRAYTOTABLE = pdfe.arraytotable
+local FILENAMEONLY=file.nameonly
 
 -- get/build data
 -- returns table,pagecount where table objref ->page number
@@ -70,16 +72,16 @@ end
 local function getdestdata (name)
    local destdict = destreferencesVAR[name] 
    local type,ref,pagenum,destx,desty = nil, nil, 1,0,0
+   local data = {0, "XYZ"}
    if destdict then
      local destarray = GETARRAY(destdict,"D")
      if destarray then
+       data = ARRAYTOTABLE(destarray)
        type, ref, pageref = GETFROMARRAY(destarray,1)
        pagenum = pagereferencesVAR[pageref]
-       destx = GETNUMBER(destarray,2)
-       desty = GETNUMBER(destarray,3)
      end
   end 
-  return pagenum, destx, desty
+  return pagenum, data
 end
 
 -- output functions 
@@ -173,8 +175,8 @@ local function outputBS (pdfedict)
        a = a .." " .. v[2]
       end  
     end
+    a = a ..">>},\n" 
   end 
-  a = a ..">>},\n"
   return a
 end 
 
@@ -217,12 +219,47 @@ local function outputgoto (count)
 end 
 
 local function outputdest (destcount,name)
- local pagenum, destx, desty = getdestdata(name)
+ local pagenum, data = getdestdata(name)
  local a =""
- local a =  "\\[{dest}{"..pagenum .. "}{" .. destcount .. "}{XYZ}{"
- a = a .. "\n  DestY={" .. desty .. "},"
- a = a .. "\n  DestX={" .. destx .. "},"
- a = a .. "\n}\\\\\n"
+ a =  "\\[{dest}{"..pagenum .. "}{" .. destcount .. "}"
+ -- name
+ a = a .. "{".. data[2][2] .."}{"
+ if data[2][2] == "XYZ" then   
+   if data[3][2] then 
+    a = a .. "\n  DestX={" .. data[3][2] .. "},"
+   end
+   if data[4][2] then 
+    a = a .. "\n  DestY={" .. data[4][2] .. "},"
+   end
+   if data[5][2] then 
+    a = a .. "\n  DestZoom={" .. data[5][2] .. "},"
+   end 
+ elseif data[2][2] == "Fit"  then -- nothing to do
+ elseif data[2][2] == "FitB" then -- nothing to do
+ elseif data[2][2] == "FitH" then
+   if data[3][2] then 
+    a = a .. "\n  DestY={" .. data[3][2] .. "},"
+   end
+ elseif data[2][2] == "FitBH" then
+   if data[3][2] then 
+    a = a .. "\n  DestY={" .. data[3][2] .. "},"
+   end   
+ elseif data[2][2] == "FitV" then
+   if data[3][2] then 
+    a = a .. "\n  DestX={" .. data[3][2] .. "},"
+   end
+ elseif data[2][2] == "FitBV" then
+   if data[3][2] then 
+    a = a .. "\n  DestX={" .. data[3][2] .. "},"
+   end   
+ elseif data[2][2] == "FitR" and data[6] then   
+   a = a .. "\n  Rect={" 
+   a = a .. data[3][2] .. " "
+   a = a .. data[4][2] .. " " 
+   a = a .. data[5][2] .. " " 
+   a = a .. data[6][2] .. "},"
+ end
+ a = a .. "\n}\\\\\n"   
  return a
 end
 
@@ -236,9 +273,11 @@ end
 -- the main function
 
 local function __writepax (ext,file)
-  local fileVAR = kpse.find_file(file ..".pdf")
+  local fileVAR = assert(kpse.find_file(file ..".pdf"),"file not found")  
+  local fileBASE = FILENAMEONLY(fileVAR)
+  print(fileBASE)
   -- getting the data for the concrete document:
-  writeVAR = io.open (file .."."..ext,"w") -- do we need to strip path parts??
+  writeVAR = io.open (fileBASE .."."..ext,"w") -- always in current directory
   docVAR   = OPEN (fileVAR)
   pagereferencesVAR, pagecountVAR = getpagesdata (docVAR)
   destcountVAR   = 0 
