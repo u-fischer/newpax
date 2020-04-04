@@ -64,7 +64,7 @@ local constKEY_H      = "H"
 
 -- cmd annot/link/URI
 local constKEY_URI = "URI"
-local constKEY_IS_MAP = "IsMap" -- handle!
+local constKEY_IS_MAP = "IsMap" -- not handled by pax, consider later
 
 
 -- cmd annot/link/GoToR
