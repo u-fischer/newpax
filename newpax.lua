@@ -31,9 +31,14 @@ local strVALUE_END = "}"
 local strHEX_STR_BEG = "\\<"
 local strHEX_STR_END = "\\>"
 
+
+local strLIT_STR_BEG = "("
+local strLIT_STR_END = ")"
 local strDICT_BEG= "<<"
 local strDICT_END= ">>"
 local strNAME= "/"
+local strARRAY_BEG= "["
+local strARRAY_END= "]"
 
 -- get/build data
 -- returns table,pagecount where table objref ->page number
@@ -105,20 +110,31 @@ end
 
 -- output functions 
 -- write the info 
-local function outputfileinfo (filename,pdfedoc,pages)
+-- XXXXXX encode/escape the file name?
+local function outputENTRY_file (file, pdfedoc)
   local bytes       = GETSIZE(pdfedoc)
   local date        = GETINFO(pdfedoc).CreationDate
-  local a= strENTRY_BEG .. strCMD_BEG .. "file" .. strCMD_END 
-  a = a .. strARG_BEG .. "(" .. filename .. ".pdf)" ..  strARG_END
-  a = a .. "{," 
-  a = a .. strKV_BEG .. "Size" .. strVALUE_BEG .. bytes .. strVALUE_END .. strKV_END
-  a = a .. strKV_BEG .. "Date" .. strVALUE_BEG .. date .. strVALUE_END.. strKV_END
-  a = a .. " \n}" .. strENTRY_END 
-  a = a .. strENTRY_BEG ..strCMD_BEG .. "pagenum" .. strCMD_END .. "{"..pages.."}" .. strENTRY_END
+  -- file
+  local a = strENTRY_BEG
+  a = a .. strCMD_BEG .. "file" .. strCMD_END 
+  a = a .. strARG_BEG .. strLIT_STR_BEG .. file .. strLIT_STR_END ..  strARG_END
+  a = a .. strKVS_BEG 
+   a = a .. strKV_BEG .. "Size" .. strVALUE_BEG .. bytes .. strVALUE_END .. strKV_END
+   a = a .. strKV_BEG .. "Date" .. strVALUE_BEG .. date .. strVALUE_END.. strKV_END
+  a = a .. strKVS_END 
+  a = a .. strENTRY_END 
   return a
 end 
 
-local function outputpageinfo (pdfedoc,page) -- page=integer
+local function outputENTRY_pagenum (pages)
+  local a = strENTRY_BEG 
+  a = a .. strCMD_BEG .. "pagenum" .. strCMD_END 
+  a = a .. strARG_BEG .. pages .. strARG_END 
+  a = a .. strENTRY_END
+  return a
+end 
+
+local function outputENTRY_page (pdfedoc,page) -- page=integer
   -- trimbox, bleedbox, cropbox,artbox,rotate etc could be put in 
   -- the second argument as keyval:
   -- TrimBox={0 0 300 350},
@@ -126,71 +142,78 @@ local function outputpageinfo (pdfedoc,page) -- page=integer
   local mediabox = pdfe.getbox(GETPAGE(pdfedoc,page),"MediaBox")
   local a=""
   if mediabox then
-    a = strENTRY_BEG .. strCMD_BEG .. "page" .. strCMD_END .. "{"..page.."}{"
-    a = a .. mediabox[1]
-    for j = 2, 4 do
-     a = a .. " "..mediabox[j]
-    end
-     a= a .. "}{}" .. strENTRY_END   
+    a = strENTRY_BEG 
+    a = a .. strCMD_BEG .. "page" .. strCMD_END 
+    a = a .. strARG_BEG .. page .. strARG_END 
+    a = a .. strARG_BEG
+      a = a .. mediabox[1]
+      for j = 2, 4 do
+       a = a .. " ".. mediabox[j]
+      end
+    a = a .. strARG_END 
+    a = a .. strKVS_EMPTY
+    a = a .. strENTRY_END   
   end
   return a
 end
 
-local function outputannotinfo (pdfedict,page,type)
-  local a = strENTRY_BEG .. strCMD_BEG .. "annot" .. strCMD_END 
-  a = a .. "{"..page.."}{".. GETNAME(pdfedict,"Subtype") .."}{"
+-- XXXXX: move entry_beg 
+local function outputCMD_annot (pdfedict,page,type)
   local rectangle = ARRAYTOTABLE(GETARRAY(pdfedict,"Rect"))
-  a = a .. rectangle[1][2]
-  for k = 1, 3 do
-    a = a.. " "..rectangle[k][2]
-  end
-  a = a .. "}{"
-  a = a .. type .. "}"  
+  local a = strCMD_BEG .. "annot" .. strCMD_END 
+      a = a .. strARG_BEG .. page .. strARG_END 
+      a = a .. strARG_BEG .. GETNAME(pdfedict,"Subtype") .. strARG_END
+      a = a .. strARG_BEG
+       a = a .. rectangle[1][2]
+        for k = 1, 3 do
+         a = a.. " "..rectangle[k][2]
+        end
+      a = a .. strARG_END 
+      a = a .. strARG_BEG .. type .. strARG_END  
   return a
 end
 
 
-local function outputcolor (pdfedict)
+local function outputKV_color (pdfedict)
   local color = GETARRAY(pdfedict,"C")
   local a =""
   if color then
     local colortable = ARRAYTOTABLE(color)
-    a = strKV_BEG .. "C" .. strVALUE_BEG .. "["
-    for i=1,#colortable do
-      a=a.. colortable[i][2] .. " "
-    end
-    a = a .."]" .. strVALUE_END .. ",\n"
+    a = strKV_BEG .. "C" .. strVALUE_BEG .. strARRAY_BEG
+      for i=1,#colortable do
+        a = a.. colortable[i][2] .. " "
+      end
+    a = a .. strARRAY_END .. strVALUE_END .. strKV_END
   end 
   return a
 end 
 
-local function outputname (pdfedict,key)
+local function outputKV_key (pdfedict,key)
   local name = GETNAME(pdfedict,key)
   local a = ""
   if name then
-    a = strKV_BEG ..key .. strVALUE_BEG .. strNAME .. name .. strVALUE_END .. ",\n"
+    a = strKV_BEG .. key .. strVALUE_BEG .. strNAME .. name .. strVALUE_END .. strKV_END
   end 
   return a
 end 
 
-local function outputborder (pdfedict)
+-- XXX handle fourth argument
+local function outputKV_Border (pdfedict)
   local border = GETARRAY(pdfedict,"Border")
   local a =""
   if border then 
     local bordertable = ARRAYTOTABLE(border)
-    -- print("CCC",table.serialize(bordertable))
-    a = strKV_BEG .. "Border" .. strVALUE_BEG .. "["
+    a = strKV_BEG .. "Border" .. strVALUE_BEG .. strARRAY_BEG
     for i=1,3 do
       a = a .. bordertable[i][2] .. " "
     end
   end 
  -- fourth argument later, it is an array (type 7)
-  a = a .."]" .. strVALUE_END .. strKV_END
- -- print("BBBBBB",a)
+  a = a ..strARRAY_END .. strVALUE_END .. strKV_END
   return a
 end 
 
-local function outputBS (pdfedict)
+local function outputKV_BS (pdfedict)
   local bsstyle = GETDICTIONARY(pdfedict,"BS")
   local a =""
   if bsstyle then 
@@ -210,50 +233,55 @@ local function outputBS (pdfedict)
 end 
 
 
-local function outputuri (pdfedict)
+local function outputKV_uri (pdfedict)
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"URI")
   local a= strKV_BEG .. "URI" .. strVALUE_BEG 
   if hex then 
     a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END 
   else
-    a = a .. "("..value ..")" 
+    a = a .. strLIT_STR_BEG ..value .. strLIT_STR_END 
   end
     a = a .. strVALUE_END .. strKV_END
   return a
 end 
 
-local function outputnamed (pdfedict)
+local function outputKV_N (pdfedict)
   local name = GETNAME(pdfedict,"N")
   local a= strKV_BEG .. "Name" .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
   return a
 end 
 
-local function outputgotor (pdfedict) -- action dictionary
+local function outputKV_gotor (pdfedict) -- action dictionary
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"F")
+  local type, pagenum    = GETFROMARRAY(GETARRAY (pdfedict,"D"),1)
+  local type, fittype    = GETFROMARRAY(GETARRAY (pdfedict,"D"),2)  
   local a =  strKV_BEG .."File" .. strVALUE_BEG
   if hex then
-    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_end .. strVALUE_END .. strKV_END
+    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_end
   else
-    a = a .. "(".. value ..")" ..  strVALUE_END .. strKV_END
+    a = a .. strLIT_STR_BEG .. value .. strLIT_STR_END
   end
-  local type, pagenum = GETFROMARRAY(GETARRAY (pdfedict,"D"),1)
-  local type, fittype = GETFROMARRAY(GETARRAY (pdfedict,"D"),2)
+  a = a .. strVALUE_END .. strKV_END 
   a = a .. strKV_BEG .. "DestPage" .. strVALUE_BEG .. pagenum .. strVALUE_END .. strKV_END
-  a = a .. strKV_BEG .. "DestView" .. strVALUE_BEG .. strNAME.. fittype .. strVALUE_END .. strKV_END
+  a = a .. strKV_BEG .. "DestView" .. strVALUE_BEG .. strNAME .. fittype .. strVALUE_END .. strKV_END
   return a    
 end
 
-local function outputgoto (count)
-  local a="  DestLabel" .. strVALUE_BEG .. count .. strVALUE_END .. strKV_END
+
+local function outputKV_goto (count)
+  local a = strKV_BEG .. "DestLabel" .. strVALUE_BEG .. count .. strVALUE_END .. strKV_END
   return a
 end 
 
-local function outputdest (destcount,name)
+local function outputENTRY_dest (destcount,name)
  local pagenum, data = getdestdata(name)
- local a =""
- a =  strENTRY_BEG .. "{dest}{"..pagenum .. "}{" .. destcount .. "}"
+ local a = strENTRY_BEG
+ a = a .. strCMD_BEG .. "dest" .. strCMD_END
+ a = a .. strARG_BEG .. pagenum .. strARG_END 
+ a = a .. strARG_BEG .. destcount .. strARG_END
  -- name
- a = a .. "{".. data[2][2] .."}{"
+ a = a .. strARG_BEG .. data[2][2] .. strARG_END 
+ a = a .. strKVS_BEG
  if data[2][2] == "XYZ" then   
    if data[3][2] then 
     a = a .. strKV_BEG .. "DestX" .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
@@ -289,7 +317,7 @@ local function outputdest (destcount,name)
    a = a .. data[5][2] .. " " 
    a = a .. data[6][2] .. strVALUE_END .. strKV_END
  end
- a = a .. "\n}" .. strENTRY_END   
+ a = a .. strKVS_END .. strENTRY_END   
  return a
 end
 
@@ -305,7 +333,6 @@ end
 local function __writepax (ext,file)
   local fileVAR = assert(kpse.find_file(file ..".pdf"),"file not found")  
   local fileBASE = FILENAMEONLY(fileVAR)
-  print(fileBASE)
   -- getting the data for the concrete document:
   writeVAR = io.open (fileBASE .."."..ext,"w") -- always in current directory
   docVAR   = OPEN (fileVAR)
@@ -315,9 +342,10 @@ local function __writepax (ext,file)
   destreferencesVAR = getdestreferences (docVAR)
   -- output ...
   WRITE(strENTRY_BEG .. "{pax}{0.1l}" .. strENTRY_END)
-  WRITE(outputfileinfo (file,docVAR,pagecountVAR))
+  WRITE(outputENTRY_file(fileVAR,docVAR))
+  WRITE(outputENTRY_pagenum(pagecountVAR))
   for i=1, pagecountVAR do
-    WRITE(outputpageinfo(docVAR,i))
+    WRITE(outputENTRY_page(docVAR,i))
     local annots=GETPAGE(docVAR,i).Annots
     if annots then
       for j = 0,#annots-1 do
@@ -326,30 +354,28 @@ local function __writepax (ext,file)
         local annotactiontype =""
         if annotaction then
           annotactiontype = GETNAME(annotaction,"S")
-          if annotactiontype then
-            WRITE(outputannotinfo(annot,i,annotactiontype)) 
-          end  
-          WRITE("{\n") -- begin data 
-          WRITE ( outputcolor(annot) )
-          WRITE ( outputname(annot,"H") )
-          WRITE ( outputborder (annot) )
-          WRITE ( outputBS (annot) )
+          WRITE (strENTRY_BEG)
+          WRITE (outputCMD_annot(annot,i,annotactiontype)) 
+          WRITE (strKVS_BEG) -- begin KVS data 
+          WRITE ( outputKV_color(annot) )
+          WRITE ( outputKV_key(annot,"H") )
+          WRITE ( outputKV_Border (annot) )
+          WRITE ( outputKV_BS (annot) )
           if annotactiontype =="URI" then 
-            WRITE ( outputuri(annotaction) )
-            WRITE("}" .. strENTRY_END) -- end annot data   
+            WRITE ( outputKV_uri(annotaction) )
           elseif annotactiontype =="GoTo" then
             destcountVAR=destcountVAR + 1
-            local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
-            -- print (annotactiongoto, type,annotactiongoto,hex)
-            WRITE ( outputgoto (destcountVAR) )
-            WRITE("}" .. strENTRY_END) -- end annot data   
-            WRITE (outputdest(destcountVAR,annotactiongoto) )
+            WRITE ( outputKV_goto (destcountVAR) )
           elseif annotactiontype=="GoToR" then
-            WRITE ( outputgotor(annotaction) )
-            WRITE("}" .. strENTRY_END) -- end annot data  
+            WRITE ( outputKV_gotor(annotaction) )
           elseif annotactiontype=="Named" then
-            WRITE ( outputnamed (annotaction) )
-            WRITE("}" .. strENTRY_END) -- end annot data        
+            WRITE ( outputKV_N (annotaction) )
+          end
+          WRITE(strKVS_END)   -- end KVS
+          WRITE(strENTRY_END) -- end annot data     
+          if annotactiontype =="GoTo" then
+            local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
+            WRITE ( outputENTRY_dest(destcountVAR,annotactiongoto) )
           end
         end
       end  
