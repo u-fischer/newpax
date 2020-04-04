@@ -13,25 +13,27 @@ local DICTIONARYTOTABLE = pdfe.dictionarytotable
 local ARRAYTOTABLE = pdfe.arraytotable
 local FILENAMEONLY=file.nameonly
 
-strENTRY_BEG = "\\["
-strENTRY_END = "\\\\\n"
-strCMD_BEG = "{"
-strCMD_END = "}"
-strARG_BEG = "{"
-strARG_END = "}"
-strKVS_BEG = "{"
-strKVS_END = "\n}"
-strKVS_EMPTY = "{}"
-strKV_BEG  = "\n  "
-strKV_END  = ","
-strKEY_BEG = ""
-strKEY_END = ""
-strVALUE_BEG = "={"
-strVALUE_END = "}"
-strHEX_STR_BEG = "\\<"
-strHEX_STR_END = "\\>"
+local strENTRY_BEG = "\\["
+local strENTRY_END = "\\\\\n"
+local strCMD_BEG = "{"
+local strCMD_END = "}"
+local strARG_BEG = "{"
+local strARG_END = "}"
+local strKVS_BEG = "{"
+local strKVS_END = "\n}"
+local strKVS_EMPTY = "{}"
+local strKV_BEG  = "\n  "
+local strKV_END  = ","
+local strKEY_BEG = ""
+local strKEY_END = ""
+local strVALUE_BEG = "={"
+local strVALUE_END = "}"
+local strHEX_STR_BEG = "\\<"
+local strHEX_STR_END = "\\>"
 
-
+local strDICT_BEG= "<<"
+local strDICT_END= ">>"
+local strNAME= "/"
 
 -- get/build data
 -- returns table,pagecount where table objref ->page number
@@ -112,7 +114,7 @@ local function outputfileinfo (filename,pdfedoc,pages)
   a = a .. strKV_BEG .. "Size" .. strVALUE_BEG .. bytes .. strVALUE_END .. strKV_END
   a = a .. strKV_BEG .. "Date" .. strVALUE_BEG .. date .. strVALUE_END.. strKV_END
   a = a .. " \n}" .. strENTRY_END 
-  a = a .. strENTRY_BEG .."{pagenum}{"..pages.."}" .. strENTRY_END
+  a = a .. strENTRY_BEG ..strCMD_BEG .. "pagenum" .. strCMD_END .. "{"..pages.."}" .. strENTRY_END
   return a
 end 
 
@@ -124,7 +126,7 @@ local function outputpageinfo (pdfedoc,page) -- page=integer
   local mediabox = pdfe.getbox(GETPAGE(pdfedoc,page),"MediaBox")
   local a=""
   if mediabox then
-    a = strENTRY_BEG .. "{page}{"..page.."}{"
+    a = strENTRY_BEG .. strCMD_BEG .. "page" .. strCMD_END .. "{"..page.."}{"
     a = a .. mediabox[1]
     for j = 2, 4 do
      a = a .. " "..mediabox[j]
@@ -135,7 +137,8 @@ local function outputpageinfo (pdfedoc,page) -- page=integer
 end
 
 local function outputannotinfo (pdfedict,page,type)
-  local a = strENTRY_BEG .. "{annot}{"..page.."}{".. GETNAME(pdfedict,"Subtype") .."}{"
+  local a = strENTRY_BEG .. strCMD_BEG .. "annot" .. strCMD_END 
+  a = a .. "{"..page.."}{".. GETNAME(pdfedict,"Subtype") .."}{"
   local rectangle = ARRAYTOTABLE(GETARRAY(pdfedict,"Rect"))
   a = a .. rectangle[1][2]
   for k = 1, 3 do
@@ -165,7 +168,7 @@ local function outputname (pdfedict,key)
   local name = GETNAME(pdfedict,key)
   local a = ""
   if name then
-    a = strKV_BEG ..key .. strVALUE_BEG .. "/" .. name .. strVALUE_END .. ",\n"
+    a = strKV_BEG ..key .. strVALUE_BEG .. strNAME .. name .. strVALUE_END .. ",\n"
   end 
   return a
 end 
@@ -192,16 +195,16 @@ local function outputBS (pdfedict)
   local a =""
   if bsstyle then 
     local bsstyledict = DICTIONARYTOTABLE(bsstyle)
-    a = strKV_BEG .. "BS" .. strVALUE_BEG .."<<"
+    a = strKV_BEG .. "BS" .. strVALUE_BEG ..strDICT_BEG
     for k,v in pairs (bsstyledict) do
-      a = a .. "/".. k 
+      a = a .. strNAME.. k 
       if v[1]== 5 then
-       a = a .. "/" .. v[2] 
+       a = a .. strNAME .. v[2] 
       else 
        a = a .." " .. v[2]
       end  
     end
-    a = a ..">>" .. strVALUE_END .. strKV_END 
+    a = a .. strDICT_END .. strVALUE_END .. strKV_END 
   end 
   return a
 end 
@@ -215,13 +218,13 @@ local function outputuri (pdfedict)
   else
     a = a .. "("..value ..")" 
   end
-    a = a .. strVALUE_END .. ",\n"
+    a = a .. strVALUE_END .. strKV_END
   return a
 end 
 
 local function outputnamed (pdfedict)
   local name = GETNAME(pdfedict,"N")
-  local a= strKV_BEG .. "Name" .. strVALUE_BEG .. name .. strVALUE_END .. ",\n"
+  local a= strKV_BEG .. "Name" .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
   return a
 end 
 
@@ -229,19 +232,19 @@ local function outputgotor (pdfedict) -- action dictionary
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"F")
   local a =  strKV_BEG .."File" .. strVALUE_BEG
   if hex then
-    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_end .. "},\n"
+    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_end .. strVALUE_END .. strKV_END
   else
-    a = a .. "("..value ..")},\n"
+    a = a .. "(".. value ..")" ..  strVALUE_END .. strKV_END
   end
   local type, pagenum = GETFROMARRAY(GETARRAY (pdfedict,"D"),1)
   local type, fittype = GETFROMARRAY(GETARRAY (pdfedict,"D"),2)
   a = a .. strKV_BEG .. "DestPage" .. strVALUE_BEG .. pagenum .. strVALUE_END .. strKV_END
-  a = a .. strKV_BEG .. "DestView" .. strVALUE_BEG .. "/".. fittype .. strVALUE_END .. strKV_END
+  a = a .. strKV_BEG .. "DestView" .. strVALUE_BEG .. strNAME.. fittype .. strVALUE_END .. strKV_END
   return a    
 end
 
 local function outputgoto (count)
-  local a="  DestLabel" .. strVALUE_BEG .. count .. "},\n"
+  local a="  DestLabel" .. strVALUE_BEG .. count .. strVALUE_END .. strKV_END
   return a
 end 
 
