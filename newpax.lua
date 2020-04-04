@@ -309,7 +309,6 @@ end
 local function outputKV_gotor (pdfedict) -- action dictionary
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"F")
   local desttype, destvalue, destdetail =  GETFROMDICTIONARY(pdfedict,"D")
-  print("XXXX",desttype,destvalue,destdetail)
   local a = strKV_BEG .. constKEY_FILE .. strVALUE_BEG
   a =  strKV_BEG .. constKEY_FILE .. strVALUE_BEG
   if hex then
@@ -336,8 +335,9 @@ local function outputKV_goto (count)
   return a
 end 
 
-local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref)
+local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref,pdfedoc)
  local pagenum, data = getdestdata(name,pagereftonum,destnamestoref)
+ local mediabox = pdfe.getbox(GETPAGE(pdfedoc,pagenum),"MediaBox")
  local a = strENTRY_BEG
  a = a .. strCMD_BEG .. constCMD_DEST .. strCMD_END
  a = a .. strARG_BEG .. pagenum .. strARG_END 
@@ -345,12 +345,16 @@ local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref)
  -- name
  a = a .. strARG_BEG .. data[2][2] .. strARG_END 
  a = a .. strKVS_BEG
- if data[2][2] == CONSTDEST_XYZ then   
+ if data[2][2] == constDEST_XYZ then   
    if data[3][2] then 
     a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
+   else
+    a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. mediabox[1] .. strVALUE_END .. strKV_END 
    end
    if data[4][2] then 
     a = a .. strKV_BEG .. constKEY_DEST_Y .. strVALUE_BEG .. data[4][2] .. strVALUE_END .. strKV_END
+   else
+    a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. mediabox[4] .. strVALUE_END .. strKV_END   
    end
    if data[5][2] then 
     a = a .. strKV_BEG .. constKEY_DEST_ZOOM .. strVALUE_BEG .. data[5][2] .. strVALUE_END .. strKV_END
@@ -439,7 +443,7 @@ local function __writepax (ext,file)
           WRITE(strENTRY_END) -- end annot data     
           if annotactiontype =="GoTo" then
             local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
-            WRITE ( outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR) )
+            WRITE ( outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR,docVAR) )
           end
         end
       end  

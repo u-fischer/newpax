@@ -36,6 +36,16 @@
 \RequirePackage{auxhook}[2011/03/04]
 \RequirePackage{etexcmds}[2011/02/16]
 \RequirePackage{pdftexcmds}
+\RequirePackage{etoolbox}
+% patch für pdfpages:
+\AtBeginDocument{%
+ \@ifpackageloaded{pdfpages}
+   {%
+     \@ifundefined{AM@typesetting}
+       {\newcount\AM@typesetting}{}%
+       \pretocmd\AM@hyper@begin@ii{\noexpand\AM@typesetting=1 }{}{\fail}%
+   }{}}
+
 \ExplSyntaxOn
 \prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
 \bool_new:N \l__pax_use_attributes_bool
@@ -207,14 +217,33 @@
     \leavevmode
     \hbox to \wd0{%
       \rlap{\copy0}%
-      \bool_if:NT \l__pax_addannots_bool
+      \bool_if:nT
+        { \l__pax_addannots_bool
+           &&
+           (
+            \int_compare_p:nNn
+             {
+               \int_if_exist:NTF \AM@typesetting {\AM@typesetting}{1}
+             }
+             =
+             {1}
+            ||
+            \int_compare_p:nNn
+              {
+                \int_if_exist:NTF \AM@pagecnt {\AM@pagecnt}{0}
+              }
+              =
+              {0}
+           )
+        }
         {
-          \raise-\dp0\hbox{%
-            \PAX@AddAnnots{#1}{#2}%
-           }%
+          \raise-\dp0\hbox
+            {
+              \PAX@AddAnnots{#1}{#2}%
+            }
         }
       \hfill
-    }%
+    }
   \endgroup
 }
 \ExplSyntaxOff
