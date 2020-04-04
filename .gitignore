@@ -7,3 +7,5 @@ test-utf8.pdf
 *.prj
 *.prj.bak
 .DAV
+fail.pdf
+work.pdf

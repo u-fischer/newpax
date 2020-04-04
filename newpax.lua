@@ -109,8 +109,9 @@ end
 -- builds a table destination name -> obj reference (pdfedict) from the Names tree
 
 local function processnamesarray (pdfearray,targettable)
+  local tkey={}
   for i=1,#pdfearray do
-    type,value,detail= GETFROMARRAY(pdfearray,i)
+    local type,value,detail= GETFROMARRAY(pdfearray,i)
     if (i % 2 == 1) then
      tkey = value
     else
@@ -219,7 +220,7 @@ local function outputCMD_annot (pdfedict,page,type)
       a = a .. strARG_BEG .. GETNAME(pdfedict,"Subtype") .. strARG_END
       a = a .. strARG_BEG
        a = a .. rectangle[1][2]
-        for k = 1, 3 do
+        for k = 2, 4 do
          a = a.. strRECT_SEP..rectangle[k][2]
         end
       a = a .. strARG_END 
@@ -301,23 +302,31 @@ end
 
 local function outputKV_N (pdfedict)
   local name = GETNAME(pdfedict,"N")
-  local a= strKV_BEG .. ConstKEY_NAME .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
+  local a= strKV_BEG .. constKEY_NAME .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
   return a
 end 
 
 local function outputKV_gotor (pdfedict) -- action dictionary
   local type, value, hex = GETFROMDICTIONARY(pdfedict,"F")
-  local type, pagenum    = GETFROMARRAY(GETARRAY (pdfedict,"D"),1)
-  local type, fittype    = GETFROMARRAY(GETARRAY (pdfedict,"D"),2)  
-  local a =  strKV_BEG .. constKEY_FILE .. strVALUE_BEG
+  local desttype, destvalue, destdetail =  GETFROMDICTIONARY(pdfedict,"D")
+  print("XXXX",desttype,destvalue,destdetail)
+  local a = strKV_BEG .. constKEY_FILE .. strVALUE_BEG
+  a =  strKV_BEG .. constKEY_FILE .. strVALUE_BEG
   if hex then
     a = a .. strHEX_STR_BEG .. value .. strHEX_STR_end
   else
     a = a .. strLIT_STR_BEG .. value .. strLIT_STR_END
   end
   a = a .. strVALUE_END .. strKV_END 
-  a = a .. strKV_BEG .. constKEY_DEST_PAGE .. strVALUE_BEG .. pagenum .. strVALUE_END .. strKV_END
-  a = a .. strKV_BEG .. constKEY_DEST_VIEW .. strVALUE_BEG .. strNAME .. fittype .. strVALUE_END .. strKV_END
+  if desttype == 7 then 
+    local type, pagenum    = GETFROMARRAY(GETARRAY (pdfedict,"D"),1)
+    local type, fittype    = GETFROMARRAY(GETARRAY (pdfedict,"D"),2)  
+    a = a .. strKV_BEG .. constKEY_DEST_PAGE .. strVALUE_BEG .. pagenum .. strVALUE_END .. strKV_END
+    a = a .. strKV_BEG .. constKEY_DEST_VIEW .. strVALUE_BEG .. strNAME .. fittype .. strVALUE_END .. strKV_END
+  elseif desttype == 6 then
+   a = a .. strKV_BEG .. constKEY_DEST_NAME .. strVALUE_BEG .. 
+          strLIT_STR_BEG .. destvalue .. strLIT_STR_END .. strVALUE_END .. strKV_END 
+  end
   return a    
 end
 

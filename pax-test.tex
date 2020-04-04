@@ -26,16 +26,19 @@
 \fi
 
 \usepackage{newpax}
-
-\newpaxsetup{usefileattributes}
+%\makeatletter
+%\patchcmd\PAX@pdf@annot{\PAX@pagellx}{\PAX@page@llx}{}{\fail}
+%\makeatother
+\newpaxsetup{paxextension=newpax}
 
 
 \begin{document}\raggedright
 %\includepdf[pages=-]{C:/texlive/2020/texmf-dist/doc/latex/pgfplots/pgfplots}
 included graphic:
-%\tracingmacros=1
-\fbox{\includegraphics{pax-input}}
-\fbox{\includegraphics[page=2]{pax-input}}
+\tracingifs=1 \tracingmacros=1
+%\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
+\fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
+%\fbox{\includegraphics[page=2]{pax-input}}
 
 %\includepdf{pax-input}
 \end{document}

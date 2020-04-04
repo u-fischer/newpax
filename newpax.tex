@@ -31,7 +31,7 @@
 \directlua
   {
     newpax.writenewpax("pax-input")
-  }  
+  }
 \newpaxsetup{usefileattributes}
 \title{The \pkg{newpax} package, v\csname UlrikeFischer@package@version\endcsname}
 \subtitle{Reinserting annotations from included pdf file}
@@ -46,7 +46,7 @@
 When including PDF-files in a document -- may it be with \verb+\includegraphics+ or with \verb+\includepdf+ -- clickable links and other annotations of these documents are lost.
 
 The  \pkg{newpax} package offers some tools to reinsert these annotations. It is based in large parts
-on the \pkg{pax} package from Heiko Oberdiek. It consists of a lua script to extract annotations and a style to reinsert them in the target document. 
+on the \pkg{pax} package from Heiko Oberdiek. It consists of a lua script to extract annotations and a style to reinsert them in the target document.
 
 \section{Quick use instructions}
 \subsection{Step 1: extract the annotations}
@@ -81,6 +81,7 @@ The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various wa
 \item clone \url{https://github.com/latex3/pdfresources}
 \item In the main folder run \lstinline+ l3build install +. This will install the package in your texmfhome.
 \end{enumerate}
+
 
 \textbf{Attention!} \textcolor{red}{Experimental} means EXPERIMENTAL! The code is currently in full flow. And it is \emph{not} compatible with every other package.
 
