@@ -39,17 +39,22 @@ local strDICT_END= ">>"
 local strNAME= "/"
 local strARRAY_BEG= "["
 local strARRAY_END= "]"
+local strARRAY_SEP = " " 
+local strRECT_SEP = " "
+
+local constDEST_XYZ = "XYZ"
+
 
 -- get/build data
 -- returns table,pagecount where table objref ->page number
 local function getpagesdata (pdfedoc)
   local type,pagecount,detail   = GETFROMDICTIONARY (pdfedoc.Catalog.Pages,"Count")
   local pagestable  = PAGESTOTABLE (pdfedoc)
-  local pagereferences ={}
+  local pagereftonum ={}
   for i=1,#pagestable do
-   pagereferences[pagestable[i][3]]=i
+   pagereftonum[pagestable[i][3]]=i
   end
-  return pagereferences, pagecount
+  return pagereftonum, pagecount
 end
 
 -- builds a table "destination name -> obj reference (pdfedict) from the Names tree
@@ -81,6 +86,7 @@ local function findallnamesarrays (pdfedict,table)
   end  
 end
 
+-- returns destnames -> objref table
 local function getdestreferences (pdfedoc)
   local deststable= {}
   local catnames  = GETDICTIONARY (pdfedoc.Catalog, "Names")
@@ -93,16 +99,16 @@ local function getdestreferences (pdfedoc)
   return deststable
 end
 
-local function getdestdata (name)
-   local destdict = destreferencesVAR[name] 
+local function getdestdata (name,pagereftonum,destnamestoref)
+   local destdict = destnamestoref[name] 
    local type,ref,pagenum,destx,desty = nil, nil, 1,0,0
-   local data = {0, "XYZ"}
+   local data = {0, CONSTDEST_XYZ}
    if destdict then
      local destarray = GETARRAY(destdict,"D")
      if destarray then
        data = ARRAYTOTABLE(destarray)
        type, ref, pageref = GETFROMARRAY(destarray,1)
-       pagenum = pagereferencesVAR[pageref]
+       pagenum = pagereftonum[pageref]
      end
   end 
   return pagenum, data
@@ -148,7 +154,7 @@ local function outputENTRY_page (pdfedoc,page) -- page=integer
     a = a .. strARG_BEG
       a = a .. mediabox[1]
       for j = 2, 4 do
-       a = a .. " ".. mediabox[j]
+       a = a .. strRECT_SEP.. mediabox[j]
       end
     a = a .. strARG_END 
     a = a .. strKVS_EMPTY
@@ -157,7 +163,7 @@ local function outputENTRY_page (pdfedoc,page) -- page=integer
   return a
 end
 
--- XXXXX: move entry_beg 
+
 local function outputCMD_annot (pdfedict,page,type)
   local rectangle = ARRAYTOTABLE(GETARRAY(pdfedict,"Rect"))
   local a = strCMD_BEG .. "annot" .. strCMD_END 
@@ -166,7 +172,7 @@ local function outputCMD_annot (pdfedict,page,type)
       a = a .. strARG_BEG
        a = a .. rectangle[1][2]
         for k = 1, 3 do
-         a = a.. " "..rectangle[k][2]
+         a = a.. strRECT_SEP..rectangle[k][2]
         end
       a = a .. strARG_END 
       a = a .. strARG_BEG .. type .. strARG_END  
@@ -181,7 +187,7 @@ local function outputKV_color (pdfedict)
     local colortable = ARRAYTOTABLE(color)
     a = strKV_BEG .. "C" .. strVALUE_BEG .. strARRAY_BEG
       for i=1,#colortable do
-        a = a.. colortable[i][2] .. " "
+        a = a.. colortable[i][2] .. strARRAY_SEP
       end
     a = a .. strARRAY_END .. strVALUE_END .. strKV_END
   end 
@@ -205,7 +211,7 @@ local function outputKV_Border (pdfedict)
     local bordertable = ARRAYTOTABLE(border)
     a = strKV_BEG .. "Border" .. strVALUE_BEG .. strARRAY_BEG
     for i=1,3 do
-      a = a .. bordertable[i][2] .. " "
+      a = a .. bordertable[i][2] .. strARRAY_SEP
     end
   end 
  -- fourth argument later, it is an array (type 7)
@@ -224,7 +230,7 @@ local function outputKV_BS (pdfedict)
       if v[1]== 5 then
        a = a .. strNAME .. v[2] 
       else 
-       a = a .." " .. v[2]
+       a = a ..strRECT_SEP .. v[2]
       end  
     end
     a = a .. strDICT_END .. strVALUE_END .. strKV_END 
@@ -273,8 +279,8 @@ local function outputKV_goto (count)
   return a
 end 
 
-local function outputENTRY_dest (destcount,name)
- local pagenum, data = getdestdata(name)
+local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref)
+ local pagenum, data = getdestdata(name,pagereftonum,destnamestoref)
  local a = strENTRY_BEG
  a = a .. strCMD_BEG .. "dest" .. strCMD_END
  a = a .. strARG_BEG .. pagenum .. strARG_END 
@@ -282,7 +288,7 @@ local function outputENTRY_dest (destcount,name)
  -- name
  a = a .. strARG_BEG .. data[2][2] .. strARG_END 
  a = a .. strKVS_BEG
- if data[2][2] == "XYZ" then   
+ if data[2][2] == CONSTDEST_XYZ then   
    if data[3][2] then 
     a = a .. strKV_BEG .. "DestX" .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
    end
@@ -312,9 +318,9 @@ local function outputENTRY_dest (destcount,name)
    end   
  elseif data[2][2] == "FitR" and data[6] then   
    a = a ..  strKV_BEG .. "DestRect" .. strVALUE_BEG  
-   a = a .. data[3][2] .. " "
-   a = a .. data[4][2] .. " " 
-   a = a .. data[5][2] .. " " 
+   a = a .. data[3][2] .. strRECT_SEP
+   a = a .. data[4][2] .. strRECT_SEP 
+   a = a .. data[5][2] .. strRECT_SEP 
    a = a .. data[6][2] .. strVALUE_END .. strKV_END
  end
  a = a .. strKVS_END .. strENTRY_END   
@@ -322,24 +328,25 @@ local function outputENTRY_dest (destcount,name)
 end
 
 
-local function WRITE(content)
-  writeVAR:write(content)
-end
+
 
 
 
 -- the main function
 
 local function __writepax (ext,file)
-  local fileVAR = assert(kpse.find_file(file ..".pdf"),"file not found")  
-  local fileBASE = FILENAMEONLY(fileVAR)
+  local fileVAR     = assert(kpse.find_file(file ..".pdf"),"file not found")  
+  local filebaseVAR = FILENAMEONLY(fileVAR)
   -- getting the data for the concrete document:
-  writeVAR = io.open (fileBASE .."."..ext,"w") -- always in current directory
-  docVAR   = OPEN (fileVAR)
-  pagereferencesVAR, pagecountVAR = getpagesdata (docVAR)
-  destcountVAR   = 0 
+  local writeVAR = io.open (filebaseVAR .."."..ext,"w") -- always in current directory
+  local function WRITE(content)
+    writeVAR:write(content)
+  end
+  local docVAR   = OPEN (fileVAR)
+  local pagereftonumVAR, pagecountVAR = getpagesdata (docVAR)
+  local destcountVAR   = 0 
   -- build from names table:
-  destreferencesVAR = getdestreferences (docVAR)
+  local destnamestorefVAR = getdestreferences (docVAR)
   -- output ...
   WRITE(strENTRY_BEG .. "{pax}{0.1l}" .. strENTRY_END)
   WRITE(outputENTRY_file(fileVAR,docVAR))
@@ -375,7 +382,7 @@ local function __writepax (ext,file)
           WRITE(strENTRY_END) -- end annot data     
           if annotactiontype =="GoTo" then
             local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
-            WRITE ( outputENTRY_dest(destcountVAR,annotactiongoto) )
+            WRITE ( outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR) )
           end
         end
       end  
