@@ -1,0 +1,57 @@
+% !Mode:: "TeX:UTF-8:Main"
+
+\documentclass{article}
+\usepackage{hyperref,pdfresources}
+\usepackage{l3pdf}
+\hypersetup{pdfborderstyle={/S/U/W 1},
+%pdfview={FitR 0 0 400 400},
+%pdfview={FitH 400},
+pdfauthor=Author,pdftitle=title,pdfcreator=creator}
+
+\ExplSyntaxOn
+\pdf_uncompress:
+\pdf_pageattr_gput:nn {TrimBox}{[0~0~300~350]}
+\pdf_pageattr_gput:nn {BleedBox}{[0~0~300~350]}
+%\pdf_pageattr_gput:nn {Rotate}{90}
+\ExplSyntaxOff
+\usepackage{lipsum}
+\begin{document}
+\ExplSyntaxOn
+x\pdf_link_begin_user:nnw {URI}
+      {
+       /Subtype /Link
+       /Dest (section.2)
+     }
+    link text
+ \pdf_link_end:n{URI}
+\ExplSyntaxOff
+
+\ref{sec}
+\url{https://www.latex-project.org}
+
+\href[ismap=true]{https://www.latex-project.org}{\lipsum[1]}
+
+\href{file:/c/texlive/2020/texmf-dist/doc/latex/base/doc.pdf#chapter.1}{pdf}
+
+\section{abc}\label{sec}
+
+\section{abc}\label{sec2}
+
+\section{abc}\label{sec3}
+
+\href{example-image.pdf}{file}
+
+%\Acrobatmenu{LastPage}{Go to last page}
+\newpage
+
+\url{https://www.latex-project.org}
+
+
+\ref{sec} \quad  \ref{sec2} \quad \ref{sec3}
+\newpage
+
+\Acrobatmenu{FirstPage}{Go to first page}
+\newpage
+
+blub
+\end{document} 

@@ -1,0 +1,33 @@
+% !Mode:: "TeX:UTF-8:Main"
+\input{regression-test}
+\documentclass{article}
+\usepackage{l3pdf}
+\usepackage{pdfresources}
+\ExplSyntaxOn
+\pdf_uncompress:
+\ExplSyntaxOff
+
+\usepackage{ifluatex,graphicx}
+\usepackage{pdfpages,xcolor}
+\usepackage[customdriver=hgeneric-experimental]{hyperref}
+\hypersetup{linkbordercolor=red}
+\hypupdateattribute
+
+\ifluatex
+\directlua{
+  require("newpax")
+  newpax.writenewpax("newpax-input")
+ }
+\fi
+
+\usepackage{newpax}
+\newpaxsetup{paxextension=newpax}
+
+\begin{document}
+
+included graphic:
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
+\fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
+
+\includepdf{pax-input}
+\end{document}
