@@ -273,9 +273,9 @@ local function outputKV_Border (pdfedict)
     for i=1,3 do
       a = a .. bordertable[i][2] .. strARRAY_SEP
     end
-  end 
  -- fourth argument later, it is an array (type 7)
-  a = a ..strARRAY_END .. strVALUE_END .. strKV_END
+   a = a ..strARRAY_END .. strVALUE_END .. strKV_END
+  end  
   return a
 end 
 
@@ -430,34 +430,52 @@ local function __writepax (ext,file)
     if annots then
       for j = 0,#annots-1 do
         local annot = GETDICTIONARY (annots,j)
-        local annotaction = GETDICTIONARY(annot,"A")
-        local annotactiontype =""
-        if annotaction then
-          annotactiontype = GETNAME(annotaction,"S")
+        annottable = DICTIONARYTOTABLE (annot)
+        if annottable.Dest then 
+          destcountVAR=destcountVAR + 1
           WRITE (strENTRY_BEG)
-          WRITE (outputCMD_annot(annot,i,annotactiontype)) 
+          WRITE (outputCMD_annot(annot,i,"XXXX")) 
           WRITE (strKVS_BEG) -- begin KVS data 
           WRITE ( outputKV_color(annot) )
           WRITE ( outputKV_key(annot,constKEY_H) )
           WRITE ( outputKV_Border (annot) )
           WRITE ( outputKV_BS (annot) )
-          if annotactiontype == constKEY_URI then 
-            WRITE ( outputKV_uri(annotaction) )
-          elseif annotactiontype =="GoTo" then
-            destcountVAR=destcountVAR + 1
-            WRITE ( outputKV_goto (destcountVAR) )
-          elseif annotactiontype=="GoToR" then
-            WRITE ( outputKV_gotor(annotaction) )
-          elseif annotactiontype=="Named" then
-            WRITE ( outputKV_N (annotaction) )
-          end
+          WRITE ( outputKV_goto (destcountVAR) )
           WRITE(strKVS_END)   -- end KVS
-          WRITE(strENTRY_END) -- end annot data     
-          if annotactiontype =="GoTo" then
-            local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
-            table.insert(collected_destinations, outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR,docVAR))
+          WRITE(strENTRY_END) -- end annot data  
+          local type,annotgoto,hex = GETFROMDICTIONARY(annot,"Dest")
+          table.insert(collected_destinations, outputENTRY_dest(destcountVAR,
+               annotgoto,pagereftonumVAR,destnamestorefVAR,docVAR))  
+        else
+          local annotaction = GETDICTIONARY(annot,"A")
+          local annotactiontype =""
+          if annotaction then
+            annotactiontype = GETNAME(annotaction,"S")
+            WRITE (strENTRY_BEG)
+            WRITE (outputCMD_annot(annot,i,annotactiontype)) 
+            WRITE (strKVS_BEG) -- begin KVS data 
+            WRITE ( outputKV_color(annot) )
+            WRITE ( outputKV_key(annot,constKEY_H) )
+            WRITE ( outputKV_Border (annot) )
+            WRITE ( outputKV_BS (annot) )
+            if annotactiontype == constKEY_URI then 
+              WRITE ( outputKV_uri(annotaction) )
+            elseif annotactiontype =="GoTo" then
+              destcountVAR=destcountVAR + 1
+              WRITE ( outputKV_goto (destcountVAR) )
+            elseif annotactiontype=="GoToR" then
+              WRITE ( outputKV_gotor(annotaction) )
+            elseif annotactiontype=="Named" then
+              WRITE ( outputKV_N (annotaction) )
+            end
+            WRITE(strKVS_END)   -- end KVS
+            WRITE(strENTRY_END) -- end annot data     
+            if annotactiontype =="GoTo" then
+              local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
+              table.insert(collected_destinations, outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR,docVAR))
+            end
           end
-        end
+        end  
       end  
     end
   end 
