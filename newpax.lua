@@ -434,7 +434,7 @@ local function __writepax (ext,file)
         if annottable.Dest then 
           destcountVAR=destcountVAR + 1
           WRITE (strENTRY_BEG)
-          WRITE (outputCMD_annot(annot,i,"XXXX")) 
+          WRITE (outputCMD_annot(annot,i,"GoTo")) 
           WRITE (strKVS_BEG) -- begin KVS data 
           WRITE ( outputKV_color(annot) )
           WRITE ( outputKV_key(annot,constKEY_H) )
