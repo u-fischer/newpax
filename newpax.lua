@@ -1,19 +1,32 @@
+local ProvidesLuaModule = {
+    name          = "newpax",
+    version       = "0.1 ",       --TAGVERSION
+    date          = "2020-04-05", --TAGDATE
+    description   = "newpax lua code",
+    license       = "The LATEX Project Public License 1.3c"
+}
 
-local OPEN = pdfe.open
-local GETSIZE = pdfe.getsize
-local GETINFO = pdfe.getinfo
-local GETPAGE = pdfe.getpage
-local GETNAME  = pdfe.getname
-local GETARRAY = pdfe.getarray
-local GETDICTIONARY = pdfe.getdictionary
+if luatexbase and luatexbase.provides_module then
+  luatexbase.provides_module (ProvidesLuaModule)
+end
+
+
+
+local OPEN              = pdfe.open
+local GETSIZE           = pdfe.getsize
+local GETINFO           = pdfe.getinfo
+local GETPAGE           = pdfe.getpage
+local GETNAME           = pdfe.getname
+local GETARRAY          = pdfe.getarray
+local GETDICTIONARY     = pdfe.getdictionary
 local GETFROMDICTIONARY = pdfe.getfromdictionary
-local GETFROMARRAY = pdfe.getfromarray
-local PAGESTOTABLE = pdfe.pagestotable
+local GETFROMARRAY      = pdfe.getfromarray
+local PAGESTOTABLE      = pdfe.pagestotable
 local DICTIONARYTOTABLE = pdfe.dictionarytotable
-local ARRAYTOTABLE = pdfe.arraytotable
-local TYPE = pdfe.type
-local GETFROMREFERENCE = pdfe.getfromreference
-local FILENAMEONLY=file.nameonly
+local ARRAYTOTABLE      = pdfe.arraytotable
+local TYPE              = pdfe.type
+local GETFROMREFERENCE  = pdfe.getfromreference
+local FILENAMEONLY      = file.nameonly
 
 local strENTRY_BEG = "\\["
 local strENTRY_END = "\\\\\n"
@@ -65,12 +78,12 @@ local constKEY_BS     = "BS"
 local constKEY_H      = "H"
 
 -- cmd annot/link/URI
-local constKEY_URI = "URI"
+local constKEY_URI    = "URI"
 local constKEY_IS_MAP = "IsMap" -- not handled by pax, consider later
 
 
 -- cmd annot/link/GoToR
-local constKEY_FILE = "File"
+local constKEY_FILE      = "File"
 local constKEY_DEST_NAME = "DestName" -- handle??
 local constKEY_DEST_PAGE = "DestPage" --ok 
 local constKEY_DEST_VIEW = "DestView" --ok

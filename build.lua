@@ -58,20 +58,20 @@ checksuppfiles = {"newpax-input.pdf"}
 
 
 -- ctan setup
-docfiles = {"doc/*tagpdf.tex",
+docfiles = {"doc/*tagpdf.tex"}
 textfiles= {"doc/CTANREADME.md"}
 ctanreadme= "CTANREADME.md"
 
 typesetexe = "lualatex"
 packtdszip   = false
 installfiles = {
-                "**/*.sty",
-                "**/*.lua"
+                "newpax.sty",
+                "newpax.lua"
                }  
                
 sourcefiles  = {
-                "**/*.sty",
-                "**/*.lua"
+                "newpax.sty",
+                "newpax.lua"
                }
                             
 typesetfiles = {"doc/newpax.tex"}
