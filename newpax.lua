@@ -169,7 +169,6 @@ local function getdestdata (name,pagereftonum,destnamestoref)
         data = ARRAYTOTABLE(value)
         type, ref, pageref = GETFROMARRAY(value,1)
         pagenum = pagereftonum[pageref] 
-        print(table.serialize(data),pagenum)  
      end
    end 
   return pagenum, data
