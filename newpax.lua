@@ -420,6 +420,7 @@ local function __writepax (ext,file)
   local destcountVAR   = 0 
   -- build from names table:
   local destnamestorefVAR = getdestreferences (docVAR)
+  local collected_destinations = {}
   -- output ...
   WRITE(strENTRY_BEG .. "{pax}{0.1l}" .. strENTRY_END)
   WRITE(outputENTRY_file(fileVAR,docVAR))
@@ -455,11 +456,14 @@ local function __writepax (ext,file)
           WRITE(strENTRY_END) -- end annot data     
           if annotactiontype =="GoTo" then
             local type,annotactiongoto,hex = GETFROMDICTIONARY(annotaction,"D")
-            WRITE ( outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR,docVAR) )
+            table.insert(collected_destinations, outputENTRY_dest(destcountVAR,annotactiongoto,pagereftonumVAR,destnamestorefVAR,docVAR))
           end
         end
       end  
     end
+  end 
+  for i=1,#collected_destinations do
+   WRITE (collected_destinations[i])
   end 
   io.close(writeVAR)
 end

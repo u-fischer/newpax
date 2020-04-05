@@ -23,6 +23,7 @@
  %newpax.writenewpax("C:/texlive/2020/texmf-dist/doc/latex/biblatex/biblatex")
  %newpax.writenewpax("C:/texlive/2020/texmf-dist/doc/latex/pgfplots/pgfplots")
  newpax.writenewpax("C:/texlive/2020/texmf-dist/doc/latex/tools/longtable")
+ %newpax.writenewpax("Y:/documentationen/Software/pdf/pdf_reference_1-7")
  }
 \fi
 
@@ -32,14 +33,16 @@
 %\makeatother
 \newpaxsetup{paxextension=newpax}
 
-
+\errorcontextlines200
 \begin{document}\raggedright
 \includepdf[pages=-]{C:/texlive/2020/texmf-dist/doc/latex/tools/longtable}
 %\includepdf[pages=-]{C:/texlive/2020/texmf-dist/doc/latex/pgfplots/pgfplots}
+%\includepdf[pages=-]{Y:/documentationen/Software/pdf/pdf_reference_1-7}
+
 included graphic:
-\tracingifs=1 \tracingmacros=1
+%\tracingifs=1 \tracingmacros=1
 %\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
-\fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
+%\fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip]{pax-input}}
 %\fbox{\includegraphics[page=2]{pax-input}}
 
 %\includepdf{pax-input}
