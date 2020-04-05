@@ -11,6 +11,8 @@ local GETFROMARRAY = pdfe.getfromarray
 local PAGESTOTABLE = pdfe.pagestotable
 local DICTIONARYTOTABLE = pdfe.dictionarytotable
 local ARRAYTOTABLE = pdfe.arraytotable
+local TYPE = pdfe.type
+local GETFROMREFERENCE = pdfe.getfromreference
 local FILENAMEONLY=file.nameonly
 
 local strENTRY_BEG = "\\["
@@ -121,15 +123,15 @@ local function processnamesarray (pdfearray,targettable)
   end
 end
 
-local function findallnamesarrays (pdfedict,table)
+local function findallnamesarrays (pdfedict,deststable)
   local namesarray  = GETARRAY(pdfedict,"Names")
   if namesarray then
-     processnamesarray (namesarray,table)
+     processnamesarray (namesarray,deststable)
   else
      local kidsarray = GETARRAY(pdfedict,"Kids")
      if kidsarray then
        for i=1,#kidsarray do
-         findallnamesarrays (kidsarray[i],table)
+         findallnamesarrays (kidsarray[i],deststable)
        end
      end
   end  
@@ -148,18 +150,28 @@ local function getdestreferences (pdfedoc)
   return deststable
 end
 
+-- destinations can be an dict (/D [array]) or only an array! 
+
 local function getdestdata (name,pagereftonum,destnamestoref)
-   local destdict = destnamestoref[name] 
-   local type,ref,pagenum,destx,desty = nil, nil, 1,0,0
-   local data = {0, CONSTDEST_XYZ}
-   if destdict then
-     local destarray = GETARRAY(destdict,"D")
-     if destarray then
-       data = ARRAYTOTABLE(destarray)
-       type, ref, pageref = GETFROMARRAY(destarray,1)
-       pagenum = pagereftonum[pageref]
+   local destref = destnamestoref[name]
+   local type,ref,pagenum,destx,desty = nil, nil, 1,0,0 
+   local data = {{0,0}, {5,constDEST_XYZ}}
+   if destref then
+     type,value,detail = GETFROMREFERENCE(destref)
+     if TYPE(value) == "pdfe.dictionary" then
+       local destarray = GETARRAY(value,"D")
+       if destarray then
+         data = ARRAYTOTABLE(destarray)
+         type, ref, pageref = GETFROMARRAY(destarray,1)
+         pagenum = pagereftonum[pageref]
+       end 
+     elseif TYPE(value) == "pdfe.array" then  
+        data = ARRAYTOTABLE(value)
+        type, ref, pageref = GETFROMARRAY(value,1)
+        pagenum = pagereftonum[pageref] 
+        print(table.serialize(data),pagenum)  
      end
-  end 
+   end 
   return pagenum, data
 end
 
