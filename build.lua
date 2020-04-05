@@ -56,10 +56,11 @@ checkconfigs = {"build"}
 checkruns = 3
 checksuppfiles = {"newpax-input.pdf"}
 
+docfiledir = "./doc"
 
 -- ctan setup
-docfiles = {"doc/*tagpdf.tex"}
-textfiles= {"doc/CTANREADME.md"}
+docfiles = {"newpax.tex"}
+textfiles= {"CTANREADME.md"}
 ctanreadme= "CTANREADME.md"
 
 typesetexe = "lualatex"
@@ -74,8 +75,8 @@ sourcefiles  = {
                 "newpax.lua"
                }
                             
-typesetfiles = {"doc/newpax.tex"}
-typesetdemofiles = {"doc/doc-extract.tex","doc/doc-pax-test.tex","doc/doc-newpax-test.tex"}
+typesetfiles = {"newpax.tex"}
+typesetdemofiles = {"doc-extract.tex","doc-pax-test.tex","doc-newpax-test.tex"}
 
 typesetruns = 4
 
