@@ -41,10 +41,12 @@
 \AtBeginDocument{%
  \@ifpackageloaded{pdfpages}
    {%
-     \@ifundefined{AM@typesetting}
-       {\newcount\AM@typesetting}{}%
-       \pretocmd\AM@hyper@begin@ii{\noexpand\AM@typesetting=1 }{}{\fail}%
-   }{}}
+     \@ifundefined{AM@includegraphics@status}
+       {\newcount\AM@includegraphics@status%
+       \pretocmd\AM@hyper@begin@ii{\noexpand\AM@includegraphics@status=1 }{}{\fail}}
+       {}%
+   }{}%
+   }
 
 \ExplSyntaxOn
 \prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
@@ -223,17 +225,10 @@
            (
             \int_compare_p:nNn
              {
-               \int_if_exist:NTF \AM@typesetting {\AM@typesetting}{1}
+               \int_if_exist:NTF \AM@includegraphics@status {\AM@includegraphics@status}{1}
              }
-             =
-             {1}
-            ||
-            \int_compare_p:nNn
-              {
-                \int_if_exist:NTF \AM@pagecnt {\AM@pagecnt}{0}
-              }
-              =
-              {0}
+             <
+             {2}
            )
         }
         {
