@@ -1,5 +1,6 @@
-%% pax.sty
+%% newpax.sty
 %% Copyright 2006-2008, 2011, 2012 Heiko Oberdiek
+% 2020 Ulrike Fischer
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -11,22 +12,15 @@
 %
 % This work has the LPPL maintenance status `maintained'.
 %
-% The Current Maintainer of this work is Heiko Oberdiek.
+% The Current Maintainer of this work is Ulrike Fischer
 %
-% This work consists of the file pax.sty.
+% This work consists of the file newpax.sty.
 % See README for more details and documentation.
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{newpax}%
-  [2020/02/29 v0.1 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
+  [2020/04/14 v0.2 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
 \RequirePackage{ifpdf}
-%\ifpdf
-%\else
-%  \PackageError{pax}{Missing pdfTeX in PDF mode}{%
-%    Other drivers are not supported.%
-%  }%
-%  \expandafter\endinput
-%\fi
 \RequirePackage{pdfresources}
 \RequirePackage{xparse}
 \RequirePackage{graphicx}
@@ -52,7 +46,7 @@
 \prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
 \bool_new:N \l__pax_use_attributes_bool
 \bool_new:N \l__pax_addannots_bool
-\tl_new:N \l__pax_destsuffix_tl
+\tl_new:N   \l__pax_destsuffix_tl
 \tl_new:N \PAX@fileextension
 
 \NewDocumentCommand\newpaxsetup { m }
@@ -65,58 +59,55 @@
     usefileattributes .bool_set:N = \l__pax_use_attributes_bool,
     destsuffix        .tl_set:N = \l__pax_destsuffix_tl,
     addannots         .bool_set:N = \l__pax_addannots_bool,
-    addannots .default:n = true,
-    addannots .initial:n = true,
-    paxextension .choices:nn =
-     {pax,newpax}
-     {\tl_set:Nn \PAX@fileextension {#1}},
+    addannots         .default:n = true,
+    addannots         .initial:n = true,
+    paxextension      .choices:nn =
+       {pax,newpax}
+       {\tl_set:Nn \PAX@fileextension {#1}},
     paxextension .initial:n = newpax
   }
+
 \cs_new_protected:Npn \@PAX@setattributes@n #1 %link type
   {
     \bool_if:NT \l__pax_use_attributes_bool
       {
         \tl_if_empty:NTF  \PAX@key@C
           {
-            \hook_remove:nnn { pdf } { link_#1_attr } { C }
+            \pdfdict_remove:nn {annot/Link/#1} { C }
           }
           {
-            \hook_put:nnnn
-             { pdf }
-             { link_#1_attr }
-             { C }
-             { \PAX@key@C }
+            \pdfdict_put:nnx
+              {annot/Link/#1}
+              { C }
+              { \PAX@key@C }
           }
         \tl_if_empty:NTF \PAX@key@Border
           {
-            \hook_remove:nnn { pdf } { link_#1_attr } { Border }
+            \pdfdict_remove:nn {annot/Link/#1} { Border }
           }
           {
-            \hook_put:nnnn
-              { pdf }
-              { link_#1_attr }
+            \pdfdict_put:nnx
+              {annot/Link/#1}
               { Border }
               { \PAX@key@Border }
           }
         \tl_if_empty:NTF \PAX@key@BS
           {
-            \hook_remove:nnn { pdf } { link_#1_attr } { BS }
+            \pdfdict_remove:nn {annot/Link/#1} { BS }
           }
           {
-            \hook_put:nnnn
-              { pdf }
-              { link_#1_attr }
+            \pdfdict_put:nnx
+              {annot/Link/#1}
               { BS }
               { \PAX@key@BS }
           }
         \tl_if_empty:NTF \PAX@key@H
           {
-            \hook_remove:nnn { pdf } { link_#1_attr } { H }
+            \pdfdict_remove:nn {annot/Link/#1} { H }
           }
           {
-            \hook_put:nnnn
-              { pdf }
-              { link_#1_attr }
+            \pdfdict_put:nnx
+              {annot/Link/#1}
               { H }
               { \PAX@key@H }
           }
@@ -124,27 +115,27 @@
   }
 
 
-\cs_set_eq:NN \@PAX@annotation@nnnn \pdf_annotation:nnnn
+\cs_set_eq:NN \@PAX@annotation@nnnn \pdfannot_box:nnnn
 
 \cs_new_protected:Npn \@PAX@linkgoto@xnn #1 #2 #3  %#1 dest #2 width #3 height
   {
     \group_begin:
       \exp_args:Nx\@PAX@setattributes@n {GoTo}
       \leavevmode
-      \exp_args:Nx\pdf_link_goto_begin:nw
+      \exp_args:Nx\pdfannot_link_goto_begin:nw
         { #1 }
         \hbox_to_wd:nn {#2}{\@PAX@ensurelinkbox@n { \rule{0pt}{#3} }\hfill}
-      \pdf_link_goto_end:
+      \pdfannot_link_goto_end:
     \group_end:
   }
 
-\cs_generate_variant:Nn \pdf_annotation:nnnnn {xnnnx}
+\cs_generate_variant:Nn \pdfannot_box:nnnnn {xnnnx}
 
 \cs_new_protected:Npn \@PAX@annotboxlink@xnnx #1 #2 #3 #4  %#1 type, #2 width #3 height #4 spec
   {
     \group_begin:
       \exp_args:Nx\@PAX@setattributes@n {#1}
-      \leavevmode\pdf_annotation:xnnnx {link_#1}{#2}{#3}{0pt}{#4}
+      \leavevmode\pdfannot_box:xnnnx {Link/#1}{#2}{#3}{0pt}{#4}
     \group_end:
   }
 
@@ -153,15 +144,6 @@
     \exp_args:Nxx \pdf_destination:nn {#1}{#2}
   }
 
-\prop_const_from_keyval:Nn \c__pax_map_linktypes_prop
-  {
-    URI   = url,
-    GoTo  = link,
-    GotoR = file,
-    Named = menu
-  }
-
-\cs_new:Npn \@PAX@maplinktype@V #1 { \exp_args:NNV \prop_item:Nn \c__pax_map_linktypes_prop {#1}}
 
 \cs_new:Npn \@PAX@tempa
 \cs_new_protected:Npn \@PAX@escapename@NV #1 #2
