@@ -1,5 +1,7 @@
 % !Mode:: "TeX:UTF-8:Main"
 \input{regression-test}
+\RequirePackage{pdfresources}
+\DeclareDocumentMetadata{}
 \documentclass{article}
 \usepackage{l3pdf}
 \usepackage{pdfresources}
@@ -26,8 +28,8 @@
 \begin{document}
 
 included graphic:
-\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
-\fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{newpax-input}}
+\fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip,page=2]{newpax-input}}
 
-\includepdf{pax-input}
+\includepdf{newpax-input}
 \end{document}
