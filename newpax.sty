@@ -145,19 +145,19 @@
   }
 
 
-\cs_new:Npn \@PAX@tempa
-\cs_new_protected:Npn \@PAX@escapename@NV #1 #2
-  {
-    \sys_if_engine_pdftex:TF
-      { %pdftex. Should we assume utf8 or allow other input encodings?
-        \exp_args:NNx
-          \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{utf8}{utf8/name} %
-      }
-      { %luatex,xetex
-        \exp_args:NNx
-        \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{}{utf8/name} %utf8 because of hyperref
-      }
-  }
+%\cs_new:Npn \@PAX@tempa
+%\cs_new_protected:Npn \@PAX@escapename@NV #1 #2
+%  {
+%    \sys_if_engine_pdftex:TF
+%      { %pdftex. Should we assume utf8 or allow other input encodings?
+%        \exp_args:NNx
+%          \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{utf8}{utf8/name} %
+%      }
+%      { %luatex,xetex
+%        \exp_args:NNx
+%        \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{}{utf8/name} %utf8 because of hyperref
+%      }
+%  }
 
 % only defined if hyperref is loaded ...
 \sys_if_engine_xetex:TF
@@ -386,9 +386,9 @@
       \let\PAX@annot@ury\PAX@page@ury
     \fi
     \PAX@okfalse
-    \ifdim\PAX@annot@llx<\PAX@annot@urx
-      \ifdim\PAX@annot@lly<\PAX@annot@ury
-        \relax\PAX@oktrue
+    \ifdim\PAX@annot@llx<\PAX@annot@urx\relax
+      \ifdim\PAX@annot@lly<\PAX@annot@ury\relax
+        \PAX@oktrue
       \fi
     \fi
   \else
@@ -490,7 +490,7 @@
 }
 \def\PAX@link@Named{%
   \PAX@pdf@annot{%
-    /N/\PAX@key@Name %the value is from a pdf so we can assume it is correctly escaped??
+    /N \pdf_text_convert:nn{name-print}{\PAX@key@Name} %the value is from a pdf so we can assume it is correctly escaped??
   }%
 }
 \def\PAX@link@GoToR{%
