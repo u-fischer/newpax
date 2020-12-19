@@ -19,10 +19,30 @@
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{newpax}%
-  [2020/04/14 v0.2 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
+  [2020/12/19 v0.3 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
 \RequirePackage{ifpdf}
-\RequirePackage{pdfresources}
-\RequirePackage{xparse}
+\ExplSyntaxOn
+\bool_if:nF
+  {
+    \bool_lazy_and_p:nn
+      {\cs_if_exist_p:N \pdfmanagement_if_active_p:}
+      { \pdfmanagement_if_active_p: }
+  }
+  {  %error for now, perhaps warning later.
+    \PackageError{newpax}
+     {
+       PDF~resource~management~is~no~active!\MessageBreak
+       newpage~will~no~work.
+     }
+     {
+       Activate~it~with \MessageBreak
+       \string\RequirePackage{pdfmanagement}\MessageBreak
+       \string\DeclareDocumentMetadata{<options>}\MessageBreak
+       before~loading~the~class
+     }
+  }
+
+\ExplSyntaxOff
 \RequirePackage{graphicx}
 \RequirePackage{ltxcmds}[2011/04/18]
 \RequirePackage{kvsetkeys}[2011/04/07]
@@ -46,9 +66,11 @@
 \prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
 \bool_new:N \l__pax_use_attributes_bool
 \bool_new:N \l__pax_addannots_bool
+
 \tl_new:N   \l__pax_destsuffix_tl
 \tl_new:N \PAX@fileextension
 
+\cs_generate_variant:Nn \pdfannot_dict_put:nnn {nnx}
 \NewDocumentCommand\newpaxsetup { m }
   {
     \keys_set:nn {pax}{ #1}
@@ -73,41 +95,41 @@
       {
         \tl_if_empty:NTF  \PAX@key@C
           {
-            \pdfdict_remove:nn {annot/Link/#1} { C }
+            \pdfannot_dict_remove:nn {link/#1} { C }
           }
           {
-            \pdfdict_put:nnx
-              {annot/Link/#1}
+            \pdfannot_dict_put:nnx
+              {link/#1}
               { C }
               { \PAX@key@C }
           }
         \tl_if_empty:NTF \PAX@key@Border
           {
-            \pdfdict_remove:nn {annot/Link/#1} { Border }
+            \pdfannot_dict_remove:nn {link/#1} { Border }
           }
           {
-            \pdfdict_put:nnx
-              {annot/Link/#1}
+            \pdfannot_dict_put:nnx
+              {link/#1}
               { Border }
               { \PAX@key@Border }
           }
         \tl_if_empty:NTF \PAX@key@BS
           {
-            \pdfdict_remove:nn {annot/Link/#1} { BS }
+            \pdfannot_dict_remove:nn {link/#1} { BS }
           }
           {
-            \pdfdict_put:nnx
-              {annot/Link/#1}
+            \pdfannot_dict_put:nnx
+              {link/#1}
               { BS }
               { \PAX@key@BS }
           }
         \tl_if_empty:NTF \PAX@key@H
           {
-            \pdfdict_remove:nn {annot/Link/#1} { H }
+            \pdfannot_dict_remove:nn {link/#1} { H }
           }
           {
-            \pdfdict_put:nnx
-              {annot/Link/#1}
+            \pdfannot_dict_put:nnx
+              {link/#1}
               { H }
               { \PAX@key@H }
           }
@@ -135,7 +157,7 @@
   {
     \group_begin:
       \exp_args:Nx\@PAX@setattributes@n {#1}
-      \leavevmode\pdfannot_box:xnnnx {Link/#1}{#2}{#3}{0pt}{#4}
+      \leavevmode\pdfannot_box:xnnnx {link/#1}{#2}{#3}{0pt}{#4}
     \group_end:
   }
 
