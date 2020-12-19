@@ -1,7 +1,8 @@
 % !Mode:: "TeX:UTF-8:Main"
 %improves compability with tikz etc ...
-\PassOptionsToPackage{patches}{pdfresources}
-
+\IfFileExists{pdfmanagement.sty}
+{\RequirePackage[patches]{pdfmanagement}
+\DeclareDocumentMetadata{uncompress}}{}
 \documentclass{article}
 \usepackage{pdfpages,xcolor}
 
@@ -22,7 +23,7 @@
 \includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
 
 %set a unique suffix is the pdf is imported twice
-\newpaxsetup{destsuffix=B} 
+\newpaxsetup{destsuffix=B}
 \includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}
 \includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
 

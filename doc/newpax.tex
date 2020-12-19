@@ -3,8 +3,10 @@
 \def\UlrikeFischer@package@version{0.1}
 \def\UlrikeFischer@package@date{2020-03-30}
 \makeatother
-\RequirePackage[patches]{pdfresources}
-\DeclareDocumentMetaData{pdfversion=1.7,lang=en-UK}
+\IfFileExists{pdfmanagement.sty}
+{\RequirePackage{pdfmanagement}
+\DeclareDocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}}{}
+
 \documentclass[DIV=12,parskip=half-,bibliography=totoc]{scrartcl}
 \usepackage{scrlayer-scrpage}
 \usepackage{fontspec}
@@ -75,7 +77,7 @@ Ensure that the \texttt{.pax} file created in step 1 can be found by your main d
 {\textcolor{red}{Experimental!}: Variant of Step 2: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
 
 
-The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various way. It is an experimental package which requires the experimental pdfresources code.
+The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various way. It is an experimental package which requires the experimental pdfmanagement code.
 
 \begin{enumerate}
 \item clone \url{https://github.com/latex3/pdfresources}
@@ -91,6 +93,14 @@ The following listing shows how to use \pkg{newpax.sty}.
 \item It should work with pdflatex, lualatex and xelatex. The latex/dvips route fails as this can't include PDF anyway.
 \item Some provision have been added to allow multiple inclusion of the same PDF, but if you insert different sets of pages from a PDF destinations can still be missing. So better avoid it.
 \item You can choose for every file if border color and styles of links are taken from the source PDF or from the hyperref settings. But you can't adjust or change colored links.
+\item You can add additional settings to the annotations, for example an \texttt{/F} flag, with 
+
+\begin{lstlisting}
+\ExplSyntaxOn
+\pdfannot_dict_put:nnn {link/URI}{F}{4}
+\ExplSyntaxOff
+\end{lstlisting}
+    
 \end{itemize}
 
 
