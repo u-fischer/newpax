@@ -1,6 +1,6 @@
 %% newpax.sty
 %% Copyright 2006-2008, 2011, 2012 Heiko Oberdiek
-% 2020 Ulrike Fischer
+% 2021 Ulrike Fischer
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -19,25 +19,21 @@
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{newpax}%
-  [2020/12/19 v0.3 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
-\RequirePackage{ifpdf}
+  [2021/01/09 v0.4 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
 \ExplSyntaxOn
 \bool_if:nF
   {
-    \bool_lazy_and_p:nn
-      {\cs_if_exist_p:N \pdfmanagement_if_active_p:}
-      { \pdfmanagement_if_active_p: }
+    \cs_if_exist_p:N \pdfmanagement_if_active_p:
   }
   {  %error for now, perhaps warning later.
     \PackageError{newpax}
      {
-       PDF~resource~management~is~no~active!\MessageBreak
+       PDF~resource~management~code~not~found!\MessageBreak
        newpage~will~no~work.
      }
      {
-       Activate~it~with \MessageBreak
+       Load~it~with \MessageBreak
        \string\RequirePackage{pdfmanagement}\MessageBreak
-       \string\DeclareDocumentMetadata{<options>}\MessageBreak
        before~loading~the~class
      }
   }
@@ -51,8 +47,9 @@
 \RequirePackage{etexcmds}[2011/02/16]
 \RequirePackage{pdftexcmds}
 \RequirePackage{etoolbox}
+\RequirePackage{xfp}
 % patch für pdfpages:
-\AtBeginDocument{%
+\AddToHook{begindocument}{%
  \@ifpackageloaded{pdfpages}
    {%
      \@ifundefined{AM@includegraphics@status}
@@ -79,10 +76,10 @@
 \keys_define:nn {pax}
   {
     usefileattributes .bool_set:N = \l__pax_use_attributes_bool,
-    destsuffix        .tl_set:N = \l__pax_destsuffix_tl,
+    destsuffix        .tl_set:N   = \l__pax_destsuffix_tl,
     addannots         .bool_set:N = \l__pax_addannots_bool,
-    addannots         .default:n = true,
-    addannots         .initial:n = true,
+    addannots         .default:n  = true,
+    addannots         .initial:n  = true,
     paxextension      .choices:nn =
        {pax,newpax}
        {\tl_set:Nn \PAX@fileextension {#1}},
@@ -166,20 +163,6 @@
     \exp_args:Nxx \pdf_destination:nn {#1}{#2}
   }
 
-
-%\cs_new:Npn \@PAX@tempa
-%\cs_new_protected:Npn \@PAX@escapename@NV #1 #2
-%  {
-%    \sys_if_engine_pdftex:TF
-%      { %pdftex. Should we assume utf8 or allow other input encodings?
-%        \exp_args:NNx
-%          \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{utf8}{utf8/name} %
-%      }
-%      { %luatex,xetex
-%        \exp_args:NNx
-%        \str_gset_convert:Nnnn #1 {\tl_to_str:V{#2}}{}{utf8/name} %utf8 because of hyperref
-%      }
-%  }
 
 % only defined if hyperref is loaded ...
 \sys_if_engine_xetex:TF
@@ -314,7 +297,7 @@
           \ifnum\PAX@Gin@angle=90 1\fi
           \ifnum\PAX@Gin@angle=180 1\fi
           \ifnum\PAX@Gin@angle=270 1\fi
-    \PackageWarning{pax}{Unsupported value for option angle}%
+    \PackageWarning{newpax}{Unsupported value for option angle}%
   \fi
   \filename@parse{#2}%
   \def\PAX@file{%\filename@area
@@ -664,9 +647,7 @@
           \ifx\PAX@key@DestZoom\@empty
           \else
             \edef\PAX@type{%
-              \PAX@type
-              zoom\numexpr1000*\number\dimexpr\PAX@key@DestZoom pt\relax
-              /\number\p@\relax
+              \fpeval{\PAX@key@DestZoom *100}%
             }%
           \fi
         \fi
