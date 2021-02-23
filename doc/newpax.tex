@@ -3,9 +3,8 @@
 \def\UlrikeFischer@package@version{0.1}
 \def\UlrikeFischer@package@date{2020-03-30}
 \makeatother
-\IfFileExists{pdfmanagement.sty}
-{\RequirePackage{pdfmanagement}
-\DeclareDocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}}{}
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}
 
 \documentclass[DIV=12,parskip=half-,bibliography=totoc]{scrartcl}
 \usepackage{scrlayer-scrpage}
@@ -15,18 +14,14 @@
 \usepackage[english]{babel}
 \usepackage[autostyle]{csquotes}
 \usepackage{microtype}
-
-
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily, columns=fullflexible,language=[LaTeX]TeX,
         escapechar=*,
         commentstyle=\color{green!50!black}\bfseries}
-\usepackage[customdriver=hgeneric-experimental,
-             pdfdisplaydoctitle=true,pdfusetitle,hyperfootnotes=false,
-            ]{hyperref}
-\hypupdateattribute
+\usepackage[pdfdisplaydoctitle=true,hyperfootnotes=false]{hyperref}
+\hypersetup{pdftitle=The newpax package,pdfauthor=Ulrike Fischer}
 \usepackage{ydoc-desc}
-\hypupdateattribute
+
 \usepackage{newpax}
 \directlua{require("newpax")}
 % write .newpax files for newpax.sty
@@ -35,6 +30,7 @@
     newpax.writenewpax("pax-input")
   }
 \newpaxsetup{usefileattributes}
+
 \title{The \pkg{newpax} package, v\csname UlrikeFischer@package@version\endcsname}
 \subtitle{Reinserting annotations from included pdf file}
 \date{\csname UlrikeFischer@package@date\endcsname}
@@ -47,14 +43,16 @@
 
 When including PDF-files in a document -- may it be with \verb+\includegraphics+ or with \verb+\includepdf+ -- clickable links and other annotations of these documents are lost.
 
-The  \pkg{newpax} package offers some tools to reinsert these annotations. It is based in large parts
-on the \pkg{pax} package from Heiko Oberdiek. It consists of a lua script to extract annotations and a style to reinsert them in the target document.
+The  \pkg{newpax} package offers some tools to reinsert these annotations. 
+It is based in large parts on the \pkg{pax} package from Heiko Oberdiek. 
+It consists of a lua script to extract annotations and a style to reinsert them in the target document.
 
 \section{Quick use instructions}
 \subsection{Step 1: extract the annotations}
-The lua script offers two functions which take as argument the name of a PDF without the extension.
-The functions can be used in some lua scripts but also in some document which then must be compiled
-with lualatex. You should create a \texttt{.pax} files if you want to use \pkg{pax.sty}, and the \texttt{.newpax} files if you want to use \pkg{newpax.sty} to reinsert the annotations.
+The lua script offers two functions which take as argument the name of a PDF (without the extension).
+The functions can be used in some lua scripts but also in a document which then must be compiled
+with lualatex. You should create a \texttt{.pax} files if you want to use \pkg{pax.sty}, 
+and the \texttt{.newpax} files if you want to use \pkg{newpax.sty} to reinsert the annotations.
 
 \lstinputlisting[caption=doc-extract.tex]{doc-extract.tex}
 
@@ -77,30 +75,25 @@ Ensure that the \texttt{.pax} file created in step 1 can be found by your main d
 {\textcolor{red}{Experimental!}: Variant of Step 2: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
 
 
-The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various way. It is an experimental package which requires the experimental pdfmanagement code.
+The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various way. It is an experimental package which requires the new \LaTeX{} PDF management testphase code.
 
-\begin{enumerate}
-\item clone \url{https://github.com/latex3/pdfresources}
-\item In the main folder run \lstinline+ l3build install +. This will install the package in your texmfhome.
-\end{enumerate}
-
-
-\textbf{Attention!} \textcolor{red}{Experimental} means EXPERIMENTAL! The code is currently in full flow. And it is \emph{not} compatible with every other package.
+\textbf{Attention!} \textcolor{red}{testphase} means TEST PHASE! The code is under development and is 
+yet \emph{not} compatible with every other package.
 
 The following listing shows how to use \pkg{newpax.sty}.
 
 \begin{itemize}
 \item It should work with pdflatex, lualatex and xelatex. The latex/dvips route fails as this can't include PDF anyway.
-\item Some provision have been added to allow multiple inclusion of the same PDF, but if you insert different sets of pages from a PDF destinations can still be missing. So better avoid it.
+\item Some provision have been added to allow multiple inclusion of the same PDF, but if you insert different sets of pages from a PDF some destinations can still be missing. So better avoid it.
 \item You can choose for every file if border color and styles of links are taken from the source PDF or from the hyperref settings. But you can't adjust or change colored links.
-\item You can add additional settings to the annotations, for example an \texttt{/F} flag, with 
+\item You can add additional settings to the annotations, for example an \texttt{/F} flag, with
 
 \begin{lstlisting}
 \ExplSyntaxOn
 \pdfannot_dict_put:nnn {link/URI}{F}{4}
 \ExplSyntaxOff
 \end{lstlisting}
-    
+
 \end{itemize}
 
 

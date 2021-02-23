@@ -1,15 +1,13 @@
 % !Mode:: "TeX:UTF-8:Main"
-%improves compability with tikz etc ...
-\IfFileExists{pdfmanagement.sty}
-{\RequirePackage[patches]{pdfmanagement}
-\DeclareDocumentMetadata{uncompress}}{}
+
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{uncompress}
 \documentclass{article}
+
 \usepackage{pdfpages,xcolor}
 
-% use a custom hyperref driver:
-\usepackage[customdriver=hgeneric-experimental]{hyperref}
+\usepackage{hyperref}
 \hypersetup{linkbordercolor=blue}
-\hypupdateattribute %after \hypersetup
 
 \usepackage{newpax}
 
@@ -22,7 +20,7 @@
 \includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}
 \includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
 
-%set a unique suffix is the pdf is imported twice
+%set a unique suffix if the pdf is imported twice
 \newpaxsetup{destsuffix=B}
 \includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}
 \includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
