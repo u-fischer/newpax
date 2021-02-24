@@ -1,0 +1,12 @@
+\documentclass{article}
+% load the lua code
+\directlua{require("newpax")}
+
+% and/or write .pax files for pax.sty
+\directlua
+  {
+    newpax.writepax("pax-input")
+    newpax.writepax("figure/pax-input2")
+  }
+\begin{document}
+\end{document} 

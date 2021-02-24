@@ -1,0 +1,57 @@
+% !Mode:: "TeX:UTF-8:Main"
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{uncompress}
+\documentclass{article}
+\usepackage{hyperref}
+
+\hypersetup{pdfborderstyle={/S/U/W 1},
+   pdfauthor=Author,pdftitle=title,pdfcreator=creator}
+
+\ExplSyntaxOn
+\pdfmanagement_add:nnn {Page} {TrimBox}{[0~0~300~350]}
+\pdfmanagement_add:nnn {Page} {BleedBox}{[0~0~300~350]}
+\ExplSyntaxOff
+%
+%Rotate";
+%    public String KEY_MEDIA_BOX = "MediaBox";
+%    public String KEY_CROP_BOX  = "CropBox";
+%    public String KEY_BLEED_BOX = "BleedBox";
+%    public String KEY_TRIM_BOX  = "TrimBox";
+%    public String KEY_ART_BOX   = "ArtBox"
+\usepackage{kantlipsum}
+\begin{document}
+\ExplSyntaxOn
+x\pdfannot_link_goto_begin:nw {section.2}
+    link text
+ \pdfannot_link_goto_end:
+\ExplSyntaxOff
+
+\ref{sec}
+\url{https://www.latex-project.org}
+
+\href[ismap=true]{https://www.latex-project.org}{\kant*[1]}
+
+\href{file:/c/texlive/2020/texmf-dist/doc/latex/base/doc.pdf#chapter.1}{pdf}
+
+\section{abc}\label{sec}
+
+\section{abc}\label{sec2}
+
+\section{abc}\label{sec3}
+
+\href{example-image.pdf}{file}
+
+%\Acrobatmenu{LastPage}{Go to last page}
+\newpage
+
+\url{https://www.latex-project.org}
+
+
+\ref{sec} \quad  \ref{sec2} \quad \ref{sec3}
+\newpage
+
+\Acrobatmenu{FirstPage}{Go to first page}
+\newpage
+
+blub
+\end{document} 
