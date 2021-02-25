@@ -1,0 +1,7 @@
+\contentsline {table}{\numberline {1}{An optional table caption (used in the list of tables)}}{2}{table.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces A floating table}}{4}{table.2}%
+\contentsline {table}{\numberline {3}{A difficult {\cs {multicolumn}} combination: pass 1}}{6}{table.3}%
+\contentsline {table}{\numberline {4}{A difficult {\cs {multicolumn}} combination: pass 2}}{6}{table.4}%
+\contentsline {table}{\numberline {5}{A difficult {\cs {multicolumn}} combination: pass 3}}{6}{table.5}%
+\contentsline {table}{\numberline {6}{A difficult {\cs {multicolumn}} combination: pass 4}}{6}{table.6}%
+\contentsline {table}{\numberline {7}{A summary of \textsf {longtable} commands}}{9}{table.7}%
