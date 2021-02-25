@@ -44,12 +44,15 @@
 \RequirePackage{kvsetkeys}[2011/04/07]
 \RequirePackage{kvoptions}[2010/12/23]
 \RequirePackage{auxhook}[2011/03/04]
-\RequirePackage{etexcmds}[2011/02/16]
-\RequirePackage{pdftexcmds}
+%\RequirePackage{etexcmds}[2011/02/16]
+%\RequirePackage{pdftexcmds}
 \RequirePackage{etoolbox}
 \RequirePackage{xfp}
 
 \ExplSyntaxOn
+%to replace \pdf@strcmp
+\cs_set_eq:NN \newpax@str@if@eq@@nnT\str_if_eq:nnT
+
 \prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
 \bool_new:N \l__pax_use_attributes_bool
 \bool_new:N \l__pax_addannots_bool
@@ -486,11 +489,13 @@
     /URI\PAX@key@URI
   }%
 }
+\ExplSyntaxOn
 \def\PAX@link@Named{%
   \PAX@pdf@annot{%
-    /N \pdf_text_convert:nn{name-print}{\PAX@key@Name} %the value is from a pdf so we can assume it is correctly escaped??
+    /N \pdf_name_from_unicode_e:n{\PAX@key@Name} %the value is from a pdf so we can assume it is correctly escaped??
   }%
 }
+\ExplSyntaxOff
 \def\PAX@link@GoToR{%
   \PAX@pdf@annot{%
     /F\PAX@key@File
@@ -632,36 +637,51 @@
         \fi
         \edef\PAX@name{PAX@\PAX@file @#2@\csname l__pax_destsuffix_tl\endcsname}%
         \let\PAX@type\@empty
-        \ifcase\pdf@strcmp{#3}{FITR}\relax
-          \def\PAX@type{xyz}% too lazy for now
-        \fi
-        \ifcase\pdf@strcmp{#3}{XYZ}\relax
-          \def\PAX@type{xyz}%
-          \ifx\PAX@key@DestZoom\@empty
-          \else
-            \edef\PAX@type{%
-              \fpeval{\PAX@key@DestZoom *100}%
-            }%
-          \fi
-        \fi
-        \ifcase\pdf@strcmp{#3}{FIT}\relax
-          \def\PAX@type{fit}%
-        \fi
-        \ifcase\pdf@strcmp{#3}{FITB}\relax
-          \def\PAX@type{fitb}%
-        \fi
-        \ifcase\pdf@strcmp{#3}{FITH}\relax
-          \def\PAX@type{fith}%
-        \fi
-        \ifcase\pdf@strcmp{#3}{FITBH}\relax
-          \def\PAX@type{fitbh}%
-        \fi
-        \ifcase\pdf@strcmp{#3}{FITV}\relax
-          \def\PAX@type{fitv}%
-        \fi
-        \ifcase\pdf@strcmp{#3}{FITBV}\relax
-          \def\PAX@type{fitbv}%
-        \fi
+        \newpax@str@if@eq@@nnT{#3}{FITR}{\def\PAX@type{xyz}}%too lazy for now for better fitr
+        %\ifcase\pdf@strcmp{#3}{FITR}\relax
+%          \def\PAX@type{xyz}% too lazy for now
+%        \fi
+        \newpax@str@if@eq@@nnT{#3}{XYZ}
+          {%
+            \def\PAX@type{xyz}%
+            \ifx\PAX@key@DestZoom\@empty
+            \else
+             \edef\PAX@type{\fpeval{\PAX@key@DestZoom *100}}%
+            \fi
+          }
+      %  \ifcase\pdf@strcmp{#3}{XYZ}\relax
+%          \def\PAX@type{xyz}%
+%          \ifx\PAX@key@DestZoom\@empty
+%          \else
+%            \edef\PAX@type{%
+%              \fpeval{\PAX@key@DestZoom *100}%
+%            }%
+%          \fi
+%        \fi
+       \newpax@str@if@eq@@nnT{#3}{FIT}{\def\PAX@type{fit}}
+        %\ifcase\pdf@strcmp{#3}{FIT}\relax
+%          \def\PAX@type{fit}%
+%        \fi
+        \newpax@str@if@eq@@nnT{#3}{FITB}{\def\PAX@type{fitb}}
+%        \ifcase\pdf@strcmp{#3}{FITB}\relax
+%          \def\PAX@type{fitb}%
+%        \fi
+        \newpax@str@if@eq@@nnT{#3}{FITH}{\def\PAX@type{fith}}
+%        \ifcase\pdf@strcmp{#3}{FITH}\relax
+%          \def\PAX@type{fith}%
+%        \fi
+        \newpax@str@if@eq@@nnT{#3}{FITBH}{\def\PAX@type{fitbh}}
+%        \ifcase\pdf@strcmp{#3}{FITBH}\relax
+%          \def\PAX@type{fitbh}%
+%        \fi
+        \newpax@str@if@eq@@nnT{#3}{FITV}{\def\PAX@type{fitv}}
+%        \ifcase\pdf@strcmp{#3}{FITV}\relax
+%          \def\PAX@type{fitv}%
+%        \fi
+        \newpax@str@if@eq@@nnT{#3}{FITBV}{\def\PAX@type{fitbv}}
+%        \ifcase\pdf@strcmp{#3}{FITBV}\relax
+%          \def\PAX@type{fitbv}%
+%        \fi
         \ifx\PAX@type\@empty
           \def\PAX@type{xyz}%
         \fi

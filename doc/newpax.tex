@@ -113,9 +113,10 @@ In the future it would be nice if the luacode could like e.g. epstopdf be called
 This command allows to change the behaviour inclusion. It knows the following keys:
 
 \begin{description}
-  \item[\PrintKeyName{usefileattributes}] This is a boolean key. If set to true, the reinserted annotations will use the linkborder settings of the included file, if set to false, the settings of the receiving PDF will take precendence.
+  \item[\PrintKeyName{usefileattributes}] This is a boolean key. If set to true, the reinserted annotations will use the linkborder settings (color and style) of the included file, if set to false, the settings of the receiving PDF will take precendence.
       
-  \item[\PrintKeyName{destsuffix}] This allows to add a suffix to the destination names. This is needed if a file is included more than once, to avoid to get multiple destinations.
+  \item[\PrintKeyName{destsuffix}] This allows to add a suffix to the destination names. This is needed if a file with destinations 
+  is included more than once, to avoid to get multiple destinations.
       
  \item[\PrintKeyName{addannots}] This is a boolean key. It allows to switch on and off the reinserting of the annotations.
       
@@ -171,7 +172,6 @@ The code also doesn't handle structure elements, neither at the export nor at th
 The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted. It also patches the \cs{includegraphics} command to automate this.
 \pkg{newpax} reuses the core commands of \pkg{pax}. It only adds a number of switches and changes primitive to support more engines and backends.
 
-\
 
 
 \section{Example input}

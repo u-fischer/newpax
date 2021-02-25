@@ -29,7 +29,7 @@
 \newpaxsetup{addannots=false}
 \includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{doc-input1}
 
-%reactivate
-\newpaxsetup{addannots=true}
+%reactivate, don't use file attributes
+\newpaxsetup{addannots=true,usefileattributes=false}
 \includepdf[pages=-]{doc-input2}
 \end{document}
