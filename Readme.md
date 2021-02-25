@@ -1,12 +1,17 @@
 # newpax
 
-![Version: 0.10](https://img.shields.io/badge/current_version-0.10-blue.svg?style=flat-square)
-![Date: 2020-04-05](https://img.shields.io/badge/date-2020-04-05-blue.svg?style=flat-square)
+![Version: 0.4](https://img.shields.io/badge/current_version-0.4-blue.svg?style=flat-square)
+![Date: 2021-02-10](https://img.shields.io/badge/date-2021-02-10-blue.svg?style=flat-square)
 [![License: LPPL1.3c ](https://img.shields.io/badge/license-LPPL1.3c-blue.svg?style=flat-square)](https://ctan.org/license/lppl1.3c)
 
 The package is based on the pax package from Heiko Oberdiek. 
-  If offers a lua-based alternative to the java based pax.jar to extract the annotations from a PDF. The resulting file
-  can then be used together with pax.sty. It also offers an extended style which works with all three major engines.
+If offers a lua-based alternative to the java based pax.jar to extract the annotations from a PDF. The resulting file
+ can then be used together with pax.sty. It also offers an extended style which works with all three major engines.
+ 
+## Requirements 
+
+The style requires the new LaTeX PDF management code from the pdfmanagement-testphase package and so also
+a current LaTeX and a current L3 layer.
 
 
 ##  Structure

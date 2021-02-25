@@ -26,9 +26,10 @@
 %
 %    \begin{macrocode}
 %<*package>
+%<@@=newpax>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{newpax}%
-  [2021/01/09 v0.4 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
+  [2021-02-10 v0.4 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
 \ExplSyntaxOn
 \bool_if:nF
   {
@@ -60,37 +61,36 @@
 %to replace \pdf@strcmp
 \cs_set_eq:NN \newpax@str@if@eq@@nnT\str_if_eq:nnT
 
-\prop_gput:Nnn \g_msg_module_name_prop { pax }{ newpax }
-\bool_new:N \l__pax_use_attributes_bool
-\bool_new:N \l__pax_addannots_bool
+\bool_new:N \l_@@_use_attributes_bool
+\bool_new:N \l_@@_addannots_bool
 
-\tl_new:N   \l__pax_destsuffix_tl
-\tl_new:N \PAX@fileextension
+\tl_new:N   \l_@@_destsuffix_tl
+\tl_new:N \NEWPAX@fileextension
 
 \cs_generate_variant:Nn \pdfannot_dict_put:nnn {nnx}
 \NewDocumentCommand\newpaxsetup { m }
   {
-    \keys_set:nn {pax}{ #1}
+    \keys_set:nn {newpax}{ #1}
   }
 
-\keys_define:nn {pax}
+\keys_define:nn {newpax}
   {
-    usefileattributes .bool_set:N = \l__pax_use_attributes_bool,
-    destsuffix        .tl_set:N   = \l__pax_destsuffix_tl,
-    addannots         .bool_set:N = \l__pax_addannots_bool,
+    usefileattributes .bool_set:N = \l_@@_use_attributes_bool,
+    destsuffix        .tl_set:N   = \l_@@_destsuffix_tl,
+    addannots         .bool_set:N = \l_@@_addannots_bool,
     addannots         .default:n  = true,
     addannots         .initial:n  = true,
     paxextension      .choices:nn =
        {pax,newpax}
-       {\tl_set:Nn \PAX@fileextension {#1}},
+       {\tl_set:Nn \NEWPAX@fileextension {#1}},
     paxextension .initial:n = newpax
   }
 
-\cs_new_protected:Npn \@PAX@setattributes@n #1 %link type
+\cs_new_protected:Npn \@NEWPAX@setattributes@n #1 %link type
   {
-    \bool_if:NT \l__pax_use_attributes_bool
+    \bool_if:NT \l_@@_use_attributes_bool
       {
-        \tl_if_empty:NTF  \PAX@key@C
+        \tl_if_empty:NTF  \NEWPAX@key@C
           {
             \pdfannot_dict_remove:nn {link/#1} { C }
           }
@@ -98,9 +98,9 @@
             \pdfannot_dict_put:nnx
               {link/#1}
               { C }
-              { \PAX@key@C }
+              { \NEWPAX@key@C }
           }
-        \tl_if_empty:NTF \PAX@key@Border
+        \tl_if_empty:NTF \NEWPAX@key@Border
           {
             \pdfannot_dict_remove:nn {link/#1} { Border }
           }
@@ -108,9 +108,9 @@
             \pdfannot_dict_put:nnx
               {link/#1}
               { Border }
-              { \PAX@key@Border }
+              { \NEWPAX@key@Border }
           }
-        \tl_if_empty:NTF \PAX@key@BS
+        \tl_if_empty:NTF \NEWPAX@key@BS
           {
             \pdfannot_dict_remove:nn {link/#1} { BS }
           }
@@ -118,9 +118,9 @@
             \pdfannot_dict_put:nnx
               {link/#1}
               { BS }
-              { \PAX@key@BS }
+              { \NEWPAX@key@BS }
           }
-        \tl_if_empty:NTF \PAX@key@H
+        \tl_if_empty:NTF \NEWPAX@key@H
           {
             \pdfannot_dict_remove:nn {link/#1} { H }
           }
@@ -128,37 +128,37 @@
             \pdfannot_dict_put:nnx
               {link/#1}
               { H }
-              { \PAX@key@H }
+              { \NEWPAX@key@H }
           }
       }
   }
 
 
-\cs_set_eq:NN \@PAX@annotation@nnnn \pdfannot_box:nnnn
+\cs_set_eq:NN \@NEWPAX@annotation@nnnn \pdfannot_box:nnnn
 
-\cs_new_protected:Npn \@PAX@linkgoto@xnn #1 #2 #3  %#1 dest #2 width #3 height
+\cs_new_protected:Npn \@NEWPAX@linkgoto@xnn #1 #2 #3  %#1 dest #2 width #3 height
   {
     \group_begin:
-      \exp_args:Nx\@PAX@setattributes@n {GoTo}
+      \exp_args:Nx\@NEWPAX@setattributes@n {GoTo}
       \leavevmode
       \exp_args:Nx\pdfannot_link_goto_begin:nw
         { #1 }
-        \hbox_to_wd:nn {#2}{\@PAX@ensurelinkbox@n { \rule{0pt}{#3} }\hfill}
+        \hbox_to_wd:nn {#2}{\@NEWPAX@ensurelinkbox@n { \rule{0pt}{#3} }\hfill}
       \pdfannot_link_goto_end:
     \group_end:
   }
 
 \cs_generate_variant:Nn \pdfannot_box:nnnnn {xnnnx}
 
-\cs_new_protected:Npn \@PAX@annotboxlink@xnnx #1 #2 #3 #4  %#1 type, #2 width #3 height #4 spec
+\cs_new_protected:Npn \@NEWPAX@annotboxlink@xnnx #1 #2 #3 #4  %#1 type, #2 width #3 height #4 spec
   {
     \group_begin:
-      \exp_args:Nx\@PAX@setattributes@n {#1}
+      \exp_args:Nx\@NEWPAX@setattributes@n {#1}
       \leavevmode\pdfannot_box:xnnnx {link/#1}{#2}{#3}{0pt}{#4}
     \group_end:
   }
 
-\cs_new_protected:Npn \@PAX@destination@xx #1 #2
+\cs_new_protected:Npn \@NEWPAX@destination@xx #1 #2
   {
     \exp_args:Nxx \pdf_destination:nn {#1}{#2}
   }
@@ -167,47 +167,47 @@
 % only defined if hyperref is loaded ...
 \sys_if_engine_xetex:TF
   {
-    \cs_set_eq:NN \@PAX@ensurelinkbox@n \XeTeXLinkBox
+    \cs_set_eq:NN \@NEWPAX@ensurelinkbox@n \XeTeXLinkBox
   }
   {
-    \cs_set_eq:NN \@PAX@ensurelinkbox@n \use:n
+    \cs_set_eq:NN \@NEWPAX@ensurelinkbox@n \use:n
   }
 \ExplSyntaxOff
 % Hook into \includegraphics of graphicx with one optional
 % star, one optional argument with key value pairs and
 % the graphics name
-\let\PAX@ORG@includegraphics\includegraphics
+\let\NEWPAX@ORG@includegraphics\includegraphics
 \def\includegraphics{%
   \@ifstar{%
     \@ifnextchar[{%
       \begingroup
         \def\x{\endgroup
-           \PAX@includegraphics[clip,%
+           \NEWPAX@includegraphics[clip,%
         }%
       \expandafter\x\@gobble
     }{%
-      \PAX@includegraphics[clip]%
+      \NEWPAX@includegraphics[clip]%
     }%
   }{%
     \@ifnextchar[{%
-      \PAX@includegraphics
+      \NEWPAX@includegraphics
     }{%
-      \PAX@includegraphics[]%
+      \NEWPAX@includegraphics[]%
     }%
   }%
 }
 
 \ExplSyntaxOn
-\def\PAX@includegraphics[#1]#2{%
+\def\NEWPAX@includegraphics[#1]#2{%
   \begingroup
-    \sbox0{\PAX@ORG@includegraphics[{#1}]{#2}}%
-    \edef\PAX@inc@width{\the\wd0}%
-    \edef\PAX@inc@height{\the\dimexpr\dp0+\ht0}%
+    \sbox0{\NEWPAX@ORG@includegraphics[{#1}]{#2}}%
+    \edef\NEWPAX@inc@width{\the\wd0}%
+    \edef\NEWPAX@inc@height{\the\dimexpr\dp0+\ht0}%
     \leavevmode
     \hbox to \wd0{%
       \rlap{\copy0}%
       \bool_if:nT
-        { \l__pax_addannots_bool
+        { \l_@@_addannots_bool
            &&
            (
             \int_compare_p:nNn
@@ -224,7 +224,7 @@
         {
           \raise-\dp0\hbox
             {
-              \PAX@AddAnnots{#1}{#2}%
+              \NEWPAX@AddAnnots{#1}{#2}%
             }
         }
       \hfill
@@ -232,47 +232,47 @@
   \endgroup
 }
 \ExplSyntaxOff
-\SetupKeyvalOptions{family=PAX@Gin,prefix=PAX@Gin@}
+\SetupKeyvalOptions{family=NEWPAX@Gin,prefix=NEWPAX@Gin@}
 \DeclareStringOption[1]{page}
 \DeclareStringOption[0]{angle}
 \DeclareBoolOption{clip}
-\define@key{PAX@Gin}{viewport}{%
-  \ltx@LocalAppendToMacro\PAX@Gin@box@opts{%
-    \PAX@viewport#1\\%
+\define@key{NEWPAX@Gin}{viewport}{%
+  \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts{%
+    \NEWPAX@viewport#1\\%
   }%
 }
-\define@key{PAX@Gin}{trim}{%
-  \ltx@LocalAppendToMacro\PAX@Gin@box@opts{%
-    \PAX@trim#1\\%
+\define@key{NEWPAX@Gin}{trim}{%
+  \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts{%
+    \NEWPAX@trim#1\\%
   }%
 }
-\let\PAX@Gin@box@opts\@empty
+\let\NEWPAX@Gin@box@opts\@empty
 
-\def\PAX@viewport#1 #2 #3 #4\\{%
-  \PAX@defaultbp\PAX@vllx{#1}%
-  \PAX@defaultbp\PAX@vlly{#2}%
-  \PAX@defaultbp\PAX@vurx{#3}%
-  \PAX@defaultbp\PAX@vury{#4}%
-  \edef\PAX@page@llx{\dimexpr\PAX@page@llx+\PAX@vllx\relax}%
-  \edef\PAX@page@lly{\dimexpr\PAX@page@lly+\PAX@vlly\relax}%
-  \edef\PAX@page@urx{\dimexpr\PAX@page@llx+\PAX@vlly\relax}%
-  \edef\PAX@page@ury{\dimexpr\PAX@page@lly+\PAX@vury\relax}%
+\def\NEWPAX@viewport#1 #2 #3 #4\\{%
+  \NEWPAX@defaultbp\NEWPAX@vllx{#1}%
+  \NEWPAX@defaultbp\NEWPAX@vlly{#2}%
+  \NEWPAX@defaultbp\NEWPAX@vurx{#3}%
+  \NEWPAX@defaultbp\NEWPAX@vury{#4}%
+  \edef\NEWPAX@page@llx{\dimexpr\NEWPAX@page@llx+\NEWPAX@vllx\relax}%
+  \edef\NEWPAX@page@lly{\dimexpr\NEWPAX@page@lly+\NEWPAX@vlly\relax}%
+  \edef\NEWPAX@page@urx{\dimexpr\NEWPAX@page@llx+\NEWPAX@vlly\relax}%
+  \edef\NEWPAX@page@ury{\dimexpr\NEWPAX@page@lly+\NEWPAX@vury\relax}%
 }
-\def\PAX@trim#1 #2 #3 #4\\{%
-  \PAX@defaultbp\PAX@tllx{#1}%
-  \PAX@defaultbp\PAX@tlly{#2}%
-  \PAX@defaultbp\PAX@turx{#3}%
-  \PAX@defaultbp\PAX@tury{#4}%
-  \edef\PAX@page@llx{\dimexpr\PAX@page@llx+\PAX@tllx\relax}%
-  \edef\PAX@page@lly{\dimexpr\PAX@page@lly+\PAX@tlly\relax}%
-  \edef\PAX@page@urx{\dimexpr\PAX@page@urx-\PAX@turx\relax}%
-  \edef\PAX@page@ury{\dimexpr\PAX@page@ury-\PAX@tury\relax}%
+\def\NEWPAX@trim#1 #2 #3 #4\\{%
+  \NEWPAX@defaultbp\NEWPAX@tllx{#1}%
+  \NEWPAX@defaultbp\NEWPAX@tlly{#2}%
+  \NEWPAX@defaultbp\NEWPAX@turx{#3}%
+  \NEWPAX@defaultbp\NEWPAX@tury{#4}%
+  \edef\NEWPAX@page@llx{\dimexpr\NEWPAX@page@llx+\NEWPAX@tllx\relax}%
+  \edef\NEWPAX@page@lly{\dimexpr\NEWPAX@page@lly+\NEWPAX@tlly\relax}%
+  \edef\NEWPAX@page@urx{\dimexpr\NEWPAX@page@urx-\NEWPAX@turx\relax}%
+  \edef\NEWPAX@page@ury{\dimexpr\NEWPAX@page@ury-\NEWPAX@tury\relax}%
 }
 
-\def\PAX@defaultbp#1#2{%
-  \afterassignment\PAX@def@bp\dimen@#2bp\relax{#1}{#2}%
+\def\NEWPAX@defaultbp#1#2{%
+  \afterassignment\NEWPAX@def@bp\dimen@#2bp\relax{#1}{#2}%
 }
-\def\PAX@def@bp#1\relax#2#3{%
+\def\NEWPAX@def@bp#1\relax#2#3{%
   \if!#1!%
     \edef#2{#3bp}%
   \else
@@ -280,201 +280,201 @@
   \fi
 }
 
-% ignore unknown options in family `PAX@Gin'
-\kv@set@family@handler{PAX@Gin}{}
+% ignore unknown options in family `NEWPAX@Gin'
+\kv@set@family@handler{NEWPAX@Gin}{}
 
-\def\PAX@AddAnnots#1#2{%
-  \kvsetkeys{PAX@Gin}{#1}%
-  \Grot@setangle{\PAX@Gin@angle}%
+\def\NEWPAX@AddAnnots#1#2{%
+  \kvsetkeys{NEWPAX@Gin}{#1}%
+  \Grot@setangle{\NEWPAX@Gin@angle}%
   % a little careful, is type of angle int or real?
   \loop
-  \ifdim\PAX@Gin@angle\p@<360\p@
+  \ifdim\NEWPAX@Gin@angle\p@<360\p@
   \else
-    \edef\PAX@Gin@angle{\the\numexpr-360+\number\PAX@Gin@angle}%
+    \edef\NEWPAX@Gin@angle{\the\numexpr-360+\number\NEWPAX@Gin@angle}%
   \repeat
   \loop
-  \ifdim\PAX@Gin@angle\p@<\z@
-    \edef\PAX@Gin@angle{\strip@pt\dimexpr\PAX@Gin@angle\p@+360\p@}%
+  \ifdim\NEWPAX@Gin@angle\p@<\z@
+    \edef\NEWPAX@Gin@angle{\strip@pt\dimexpr\NEWPAX@Gin@angle\p@+360\p@}%
   \repeat
-  \ifcase0\ifnum\PAX@Gin@angle=0 1\fi
-          \ifnum\PAX@Gin@angle=90 1\fi
-          \ifnum\PAX@Gin@angle=180 1\fi
-          \ifnum\PAX@Gin@angle=270 1\fi
+  \ifcase0\ifnum\NEWPAX@Gin@angle=0 1\fi
+          \ifnum\NEWPAX@Gin@angle=90 1\fi
+          \ifnum\NEWPAX@Gin@angle=180 1\fi
+          \ifnum\NEWPAX@Gin@angle=270 1\fi
     \PackageWarning{newpax}{Unsupported value for option angle}%
   \fi
   \filename@parse{#2}%
-  \def\PAX@file{%\filename@area
-  \filename@base.\PAX@fileextension }%
-  \let\[\PAX@parser
+  \def\NEWPAX@file{%\filename@area
+  \filename@base.\NEWPAX@fileextension }%
+  \let\[\NEWPAX@parser
   \def\<{<}%
   \def\>{>}%
   \endlinechar=-1 %
-  \InputIfFileExists\PAX@file{%
+  \InputIfFileExists\NEWPAX@file{%
   }{%
-    \typeout{* Missing: \PAX@file}%
+    \typeout{* Missing: \NEWPAX@file}%
   }%
 }
-\def\PAX@parser#1{\PAX@call{cmd}{#1}{}}%
-\def\PAX@call#1#2#3{%
-  \@ifundefined{PAX@#1@#2}\PAX@skip{#3\csname PAX@#1@#2\endcsname}%
+\def\NEWPAX@parser#1{\NEWPAX@call{cmd}{#1}{}}%
+\def\NEWPAX@call#1#2#3{%
+  \@ifundefined{NEWPAX@#1@#2}\NEWPAX@skip{#3\csname NEWPAX@#1@#2\endcsname}%
 }
-\def\PAX@skip#1\\{}
-\def\PAX@stop#1\\{}
+\def\NEWPAX@skip#1\\{}
+\def\NEWPAX@stop#1\\{}
 
-\def\PAX@cmd@page#1#2{%
-  \PAX@filter@page{#1}{%
-    \PAX@getrect{page}#2\@nil
-    \PAX@Gin@box@opts
-    \ifcase0\ifnum\PAX@Gin@angle=90 1\fi
-            \ifnum\PAX@Gin@angle=270 1\fi
+\def\NEWPAX@cmd@page#1#2{%
+  \NEWPAX@filter@page{#1}{%
+    \NEWPAX@getrect{page}#2\@nil
+    \NEWPAX@Gin@box@opts
+    \ifcase0\ifnum\NEWPAX@Gin@angle=90 1\fi
+            \ifnum\NEWPAX@Gin@angle=270 1\fi
     \else
-      \let\PAX@temp\PAX@inc@width
-      \let\PAX@inc@width\PAX@inc@height
-      \let\PAX@inc@height\PAX@temp
+      \let\NEWPAX@temp\NEWPAX@inc@width
+      \let\NEWPAX@inc@width\NEWPAX@inc@height
+      \let\NEWPAX@inc@height\NEWPAX@temp
     \fi
-    \Gscale@div\PAX@scale@x\PAX@inc@width{%
-      \dimexpr\PAX@page@urx-\PAX@page@llx\relax
+    \Gscale@div\NEWPAX@scale@x\NEWPAX@inc@width{%
+      \dimexpr\NEWPAX@page@urx-\NEWPAX@page@llx\relax
     }%
-    \Gscale@div\PAX@scale@y\PAX@inc@height{%
-      \dimexpr\PAX@page@ury-\PAX@page@lly\relax
+    \Gscale@div\NEWPAX@scale@y\NEWPAX@inc@height{%
+      \dimexpr\NEWPAX@page@ury-\NEWPAX@page@lly\relax
     }%
-    \PAX@skip
+    \NEWPAX@skip
   }%
 }
-\def\PAX@filter@page#1{%
-  \ifnum\PAX@Gin@page=#1 %
+\def\NEWPAX@filter@page#1{%
+  \ifnum\NEWPAX@Gin@page=#1 %
     \expandafter\@firstofone
   \else
-    \ifnum\PAX@Gin@page<#1 %
+    \ifnum\NEWPAX@Gin@page<#1 %
       \csname fi\endcsname
       \csname fi\endcsname
-      \expandafter\PAX@stop\@gobblefour
+      \expandafter\NEWPAX@stop\@gobblefour
     \fi
-    \expandafter\PAX@skip
+    \expandafter\NEWPAX@skip
   \fi
 }
-\def\PAX@getrect#1#2 #3 #4 #5\@nil{%
-  \@namedef{PAX@#1@llx}{#2bp}%
-  \@namedef{PAX@#1@lly}{#3bp}%
-  \@namedef{PAX@#1@urx}{#4bp}%
-  \@namedef{PAX@#1@ury}{#5bp}%
+\def\NEWPAX@getrect#1#2 #3 #4 #5\@nil{%
+  \@namedef{NEWPAX@#1@llx}{#2bp}%
+  \@namedef{NEWPAX@#1@lly}{#3bp}%
+  \@namedef{NEWPAX@#1@urx}{#4bp}%
+  \@namedef{NEWPAX@#1@ury}{#5bp}%
 }
 
-\def\PAX@cmd@annot#1#2{%
-  \PAX@filter@page{#1}{%
-    \PAX@call{annot}{#2}{}%
+\def\NEWPAX@cmd@annot#1#2{%
+  \NEWPAX@filter@page{#1}{%
+    \NEWPAX@call{annot}{#2}{}%
   }%
 }
-\def\PAX@annot@Link#1#2#3{%
-  \def\PAX@link@type{#2}%
-  \PAX@call{link}{#2}{%
+\def\NEWPAX@annot@Link#1#2#3{%
+  \def\NEWPAX@link@type{#2}%
+  \NEWPAX@call{link}{#2}{%
     \begingroup
-    \PAX@getrect{annot}#1\@nil
-    \kvsetkeys{PAX}{#3}%
+    \NEWPAX@getrect{annot}#1\@nil
+    \kvsetkeys{NEWPAX}{#3}%
   }%
-  \PAX@skip
+  \NEWPAX@skip
 }
-\newif\ifPAX@ok
-\PAX@oktrue
+\newif\ifNEWPAX@ok
+\NEWPAX@oktrue
 
-\newif\ifPAX@GoTo
+\newif\ifNEWPAX@GoTo
 
-\def\PAX@pdf@annot#1{%
-  \ifPAX@Gin@clip
-    \ifdim\PAX@annot@llx<\PAX@page@llx
-      \let\PAX@annot@llx\PAX@page@llx
+\def\NEWPAX@pdf@annot#1{%
+  \ifNEWPAX@Gin@clip
+    \ifdim\NEWPAX@annot@llx<\NEWPAX@page@llx
+      \let\NEWPAX@annot@llx\NEWPAX@page@llx
     \fi
-    \ifdim\PAX@annot@lly<\PAX@page@lly
-      \let\PAX@annot@lly\PAX@page@lly
+    \ifdim\NEWPAX@annot@lly<\NEWPAX@page@lly
+      \let\NEWPAX@annot@lly\NEWPAX@page@lly
     \fi
-    \ifdim\PAX@annot@urx>\PAX@page@urx
-      \let\PAX@annot@urx\PAX@page@urx
+    \ifdim\NEWPAX@annot@urx>\NEWPAX@page@urx
+      \let\NEWPAX@annot@urx\NEWPAX@page@urx
     \fi
-    \ifdim\PAX@annot@ury>\PAX@page@ury
-      \let\PAX@annot@ury\PAX@page@ury
+    \ifdim\NEWPAX@annot@ury>\NEWPAX@page@ury
+      \let\NEWPAX@annot@ury\NEWPAX@page@ury
     \fi
-    \PAX@okfalse
-    \ifdim\PAX@annot@llx<\PAX@annot@urx\relax
-      \ifdim\PAX@annot@lly<\PAX@annot@ury\relax
-        \PAX@oktrue
+    \NEWPAX@okfalse
+    \ifdim\NEWPAX@annot@llx<\NEWPAX@annot@urx\relax
+      \ifdim\NEWPAX@annot@lly<\NEWPAX@annot@ury\relax
+        \NEWPAX@oktrue
       \fi
     \fi
   \else
-    \PAX@oktrue
+    \NEWPAX@oktrue
   \fi
-  \ifPAX@ok
-    \ifcase 0\ifnum\PAX@Gin@angle=90 1\fi
-             \ifnum\PAX@Gin@angle=180 2\fi
-             \ifnum\PAX@Gin@angle=270 3\fi\space
+  \ifNEWPAX@ok
+    \ifcase 0\ifnum\NEWPAX@Gin@angle=90 1\fi
+             \ifnum\NEWPAX@Gin@angle=180 2\fi
+             \ifnum\NEWPAX@Gin@angle=270 3\fi\space
       % angle = 0
-      \def\PAX@raise{%
-        \PAX@scale@y\dimexpr\PAX@annot@lly-\PAX@page@lly\relax
+      \def\NEWPAX@raise{%
+        \NEWPAX@scale@y\dimexpr\NEWPAX@annot@lly-\NEWPAX@page@lly\relax
       }%
-      \def\PAX@right{%
-        \PAX@scale@x\dimexpr\PAX@annot@llx-\PAX@page@llx\relax
+      \def\NEWPAX@right{%
+        \NEWPAX@scale@x\dimexpr\NEWPAX@annot@llx-\NEWPAX@page@llx\relax
       }%
     \or % angle = 90
-      \def\PAX@raise{%
-        \PAX@scale@x\dimexpr\PAX@annot@llx-\PAX@page@llx\relax
+      \def\NEWPAX@raise{%
+        \NEWPAX@scale@x\dimexpr\NEWPAX@annot@llx-\NEWPAX@page@llx\relax
       }%
-      \def\PAX@right{%
-        \PAX@scale@y\dimexpr\PAX@page@ury-\PAX@annot@ury\relax
+      \def\NEWPAX@right{%
+        \NEWPAX@scale@y\dimexpr\NEWPAX@page@ury-\NEWPAX@annot@ury\relax
       }%
     \or % angle = 180
-      \def\PAX@raise{%
-        \PAX@scale@y\dimexpr\PAX@page@ury-\PAX@annot@ury\relax
+      \def\NEWPAX@raise{%
+        \NEWPAX@scale@y\dimexpr\NEWPAX@page@ury-\NEWPAX@annot@ury\relax
       }%
-      \def\PAX@right{%
-        \PAX@scale@x\dimexpr\PAX@page@urx-\PAX@annot@urx\relax
+      \def\NEWPAX@right{%
+        \NEWPAX@scale@x\dimexpr\NEWPAX@page@urx-\NEWPAX@annot@urx\relax
       }%
     \or % angle = 270
-      \def\PAX@raise{%
-        \PAX@scale@x\dimexpr\PAX@page@urx-\PAX@annot@urx\relax
+      \def\NEWPAX@raise{%
+        \NEWPAX@scale@x\dimexpr\NEWPAX@page@urx-\NEWPAX@annot@urx\relax
       }%
-      \def\PAX@right{%
-        \PAX@scale@y\dimexpr\PAX@annot@lly-\PAX@page@lly\relax
+      \def\NEWPAX@right{%
+        \NEWPAX@scale@y\dimexpr\NEWPAX@annot@lly-\NEWPAX@page@lly\relax
       }%
     \fi
     \@namedef{%
-      PAX@%
-      \ifcase0\ifnum\PAX@Gin@angle=90 1\fi
-              \ifnum\PAX@Gin@angle=270 1\fi\space
+      NEWPAX@%
+      \ifcase0\ifnum\NEWPAX@Gin@angle=90 1\fi
+              \ifnum\NEWPAX@Gin@angle=270 1\fi\space
         width%
       \else
         height%
       \fi
     }{%
-      \PAX@scale@x\dimexpr\PAX@annot@urx-\PAX@annot@llx\relax
+      \NEWPAX@scale@x\dimexpr\NEWPAX@annot@urx-\NEWPAX@annot@llx\relax
     }%
     \@namedef{%
-      PAX@%
-      \ifcase0\ifnum\PAX@Gin@angle=90 1\fi
-              \ifnum\PAX@Gin@angle=270 1\fi\space
+      NEWPAX@%
+      \ifcase0\ifnum\NEWPAX@Gin@angle=90 1\fi
+              \ifnum\NEWPAX@Gin@angle=270 1\fi\space
         height%
       \else
         width%
       \fi
     }{%
-      \PAX@scale@y\dimexpr\PAX@annot@ury-\PAX@annot@lly\relax
+      \NEWPAX@scale@y\dimexpr\NEWPAX@annot@ury-\NEWPAX@annot@lly\relax
     }%
-    \raise\PAX@raise\hb@xt@\z@{%
-      \kern\PAX@right
-      \ifPAX@GoTo
+    \raise\NEWPAX@raise\hb@xt@\z@{%
+      \kern\NEWPAX@right
+      \ifNEWPAX@GoTo
         %additional box for lualatex ...
         \hbox{%
-          \@PAX@linkgoto@xnn
-            {PAX@\PAX@file @\PAX@key@DestLabel @\csname l__pax_destsuffix_tl\endcsname}%
-            {\PAX@width}%
-            {\PAX@height}%
+          \@NEWPAX@linkgoto@xnn
+            {NEWPAX@\NEWPAX@file @\NEWPAX@key@DestLabel @\csname l_@@_destsuffix_tl\endcsname}%
+            {\NEWPAX@width}%
+            {\NEWPAX@height}%
             }%
       \else
         \hbox{%
-        \@PAX@annotboxlink@xnnx {\PAX@link@type}{\PAX@width}{\PAX@height}
+        \@NEWPAX@annotboxlink@xnnx {\NEWPAX@link@type}{\NEWPAX@width}{\NEWPAX@height}
           {
             /Subtype/Link%
             /A<<%
               /Type/Action%
-              /S/\PAX@link@type
+              /S/\NEWPAX@link@type
               #1%
              >>%
          }}%
@@ -486,31 +486,31 @@
 }
 
 
-\def\PAX@htype@GoToR{file}
-\def\PAX@htype@GoTo{link}
-\def\PAX@htype@Named{link}
-\def\PAX@htype@URI{url}
+\def\NEWPAX@htype@GoToR{file}
+\def\NEWPAX@htype@GoTo{link}
+\def\NEWPAX@htype@Named{link}
+\def\NEWPAX@htype@URI{url}
 
-\def\PAX@link@URI{%
-  \PAX@pdf@annot{%
-    /URI\PAX@key@URI
+\def\NEWPAX@link@URI{%
+  \NEWPAX@pdf@annot{%
+    /URI\NEWPAX@key@URI
   }%
 }
 \ExplSyntaxOn
-\def\PAX@link@Named{%
-  \PAX@pdf@annot{%
-    /N \pdf_name_from_unicode_e:n{\PAX@key@Name} %the value is from a pdf so we can assume it is correctly escaped??
+\def\NEWPAX@link@Named{%
+  \NEWPAX@pdf@annot{%
+    /N \pdf_name_from_unicode_e:n{\NEWPAX@key@Name} %the value is from a pdf so we can assume it is correctly escaped??
   }%
 }
 \ExplSyntaxOff
-\def\PAX@link@GoToR{%
-  \PAX@pdf@annot{%
-    /F\PAX@key@File
+\def\NEWPAX@link@GoToR{%
+  \NEWPAX@pdf@annot{%
+    /F\NEWPAX@key@File
     /D%
-    \ifx\PAX@key@DestName\@empty
-      [\PAX@key@DestPage\space\PAX@key@DestView]%
+    \ifx\NEWPAX@key@DestName\@empty
+      [\NEWPAX@key@DestPage\space\NEWPAX@key@DestView]%
     \else
-      \PAX@key@DestName
+      \NEWPAX@key@DestName
     \fi
   }%
 }
@@ -518,24 +518,24 @@
 % GoTo
 
 \AddLineBeginAux{%
-  \string\providecommand{\string\PAX@DestReq}[2]{}%
+  \string\providecommand{\string\NEWPAX@DestReq}[2]{}%
 }
 \AddLineBeginAux{%
-  \string\providecommand{\string\PAX@DestProv}[2]{}%
+  \string\providecommand{\string\NEWPAX@DestProv}[2]{}%
 }
 \AtBeginDocument{%
-  \let\PAX@DestReq\@gobbletwo
-  \let\PAX@DestProv\@gobbletwo
+  \let\NEWPAX@DestReq\@gobbletwo
+  \let\NEWPAX@DestProv\@gobbletwo
 }
-\def\PAX@DestReq#1#2{%
-  \expandafter\gdef\csname PAX@REQ@#1@#2\endcsname{}%
+\def\NEWPAX@DestReq#1#2{%
+  \expandafter\gdef\csname NEWPAX@REQ@#1@#2\endcsname{}%
 }
-\def\PAX@DestProv#1#2{%
-  \expandafter\gdef\csname PAX@PROV@#1@#2\endcsname{}%
+\def\NEWPAX@DestProv#1#2{%
+  \expandafter\gdef\csname NEWPAX@PROV@#1@#2\endcsname{}%
 }
 
-\def\PAX@link@GoTo{%
-  \ifnum0<0\PAX@key@DestLabel\relax
+\def\NEWPAX@link@GoTo{%
+  \ifnum0<0\NEWPAX@key@DestLabel\relax
     \expandafter\@firstofone
   \else
     \endgroup
@@ -544,136 +544,136 @@
   {%
     \if@filesw
       \protected@write\@auxout{}{%
-        \string\PAX@DestReq{\PAX@file}{\PAX@key@DestLabel}%
+        \string\NEWPAX@DestReq{\NEWPAX@file}{\NEWPAX@key@DestLabel}%
       }%
     \fi
     % Generate link, if destination exists
-    \@ifundefined{PAX@PROV@\PAX@file @\PAX@key@DestLabel}{%
+    \@ifundefined{NEWPAX@PROV@\NEWPAX@file @\NEWPAX@key@DestLabel}{%
       \endgroup
     }{%
-      \PAX@GoTotrue
-      \PAX@pdf@annot{}%
+      \NEWPAX@GoTotrue
+      \NEWPAX@pdf@annot{}%
     }%
   }%
 }
 
 % Read destinations
-\def\PAX@cmd@dest#1#2#3#4{%
-  \PAX@filter@page{#1}{%
+\def\NEWPAX@cmd@dest#1#2#3#4{%
+  \NEWPAX@filter@page{#1}{%
     \if@filesw
       \protected@write\@auxout{}{%
-        \string\PAX@DestProv{\PAX@file}{#2}%
+        \string\NEWPAX@DestProv{\NEWPAX@file}{#2}%
       }%
     \fi
-    \@ifundefined{PAX@REQ@\PAX@file @#2}{%
+    \@ifundefined{NEWPAX@REQ@\NEWPAX@file @#2}{%
     }{%
       \begingroup
-        \let\PAX@key@DestY\PAX@page@ury
-        \let\PAX@key@DestX\PAX@page@llx
-        \kvsetkeys{PAX}{#4}%
-        \let\PAX@dest@llx\PAX@key@DestX
-        \let\PAX@dest@urx\PAX@key@DestX
-        \let\PAX@dest@lly\PAX@key@DestY
-        \let\PAX@dest@ury\PAX@key@DestY
-        \ifx\PAX@key@DestRect\@empty
+        \let\NEWPAX@key@DestY\NEWPAX@page@ury
+        \let\NEWPAX@key@DestX\NEWPAX@page@llx
+        \kvsetkeys{NEWPAX}{#4}%
+        \let\NEWPAX@dest@llx\NEWPAX@key@DestX
+        \let\NEWPAX@dest@urx\NEWPAX@key@DestX
+        \let\NEWPAX@dest@lly\NEWPAX@key@DestY
+        \let\NEWPAX@dest@ury\NEWPAX@key@DestY
+        \ifx\NEWPAX@key@DestRect\@empty
         \else
-          \def\PAX@temp{dest}%
-          \expandafter\PAX@getrect\expandafter\PAX@temp
-          \PAX@key@DestRect\@nil
+          \def\NEWPAX@temp{dest}%
+          \expandafter\NEWPAX@getrect\expandafter\NEWPAX@temp
+          \NEWPAX@key@DestRect\@nil
         \fi
-        \ifPAX@Gin@clip
-          \ifx\PAX@dest@llx<\PAX@page@llx
-            \let\PAX@dest@llx\PAX@page@llx
+        \ifNEWPAX@Gin@clip
+          \ifx\NEWPAX@dest@llx<\NEWPAX@page@llx
+            \let\NEWPAX@dest@llx\NEWPAX@page@llx
           \fi
-          \ifx\PAX@dest@lly<\PAX@page@lly
-            \let\PAX@dest@lly\PAX@page@lly
+          \ifx\NEWPAX@dest@lly<\NEWPAX@page@lly
+            \let\NEWPAX@dest@lly\NEWPAX@page@lly
           \fi
-          \ifx\PAX@dest@urx>\PAX@page@urx
-            \let\PAX@dest@urx\PAX@page@urx
+          \ifx\NEWPAX@dest@urx>\NEWPAX@page@urx
+            \let\NEWPAX@dest@urx\NEWPAX@page@urx
           \fi
-          \ifx\PAX@dest@ury>\PAX@page@ury
-            \let\PAX@dest@ury\PAX@page@ury
+          \ifx\NEWPAX@dest@ury>\NEWPAX@page@ury
+            \let\NEWPAX@dest@ury\NEWPAX@page@ury
           \fi
           % at least prevent destinations outside the window
-          \ifx\PAX@dest@llx>\PAX@page@urx
-            \PAX@dest@llx\PAX@page@urx
+          \ifx\NEWPAX@dest@llx>\NEWPAX@page@urx
+            \NEWPAX@dest@llx\NEWPAX@page@urx
           \fi
-          \ifx\PAX@dest@lly>\PAX@page@ury
-            \PAX@dest@lly\PAX@page@ury
+          \ifx\NEWPAX@dest@lly>\NEWPAX@page@ury
+            \NEWPAX@dest@lly\NEWPAX@page@ury
           \fi
-          \ifx\PAX@dest@urx<\PAX@page@llx
-            \PAX@dest@urx\PAX@page@llx
+          \ifx\NEWPAX@dest@urx<\NEWPAX@page@llx
+            \NEWPAX@dest@urx\NEWPAX@page@llx
           \fi
-          \ifx\PAX@dest@ury<\PAX@page@lly
-            \PAX@dest@ury\PAX@page@lly
+          \ifx\NEWPAX@dest@ury<\NEWPAX@page@lly
+            \NEWPAX@dest@ury\NEWPAX@page@lly
           \fi
         \fi
         % I don't know, what is the best idea for rotated stuff,
         % perhaps using the corner llx/ury
-        \ifcase 0\ifnum\PAX@Gin@angle=90 1\fi
-                 \ifnum\PAX@Gin@angle=180 2\fi
-                 \ifnum\PAX@Gin@angle=270 3\fi\space
+        \ifcase 0\ifnum\NEWPAX@Gin@angle=90 1\fi
+                 \ifnum\NEWPAX@Gin@angle=180 2\fi
+                 \ifnum\NEWPAX@Gin@angle=270 3\fi\space
           % angle = 0
-          \def\PAX@raise{%
-            \PAX@scale@y\dimexpr\PAX@dest@lly-\PAX@page@lly\relax
+          \def\NEWPAX@raise{%
+            \NEWPAX@scale@y\dimexpr\NEWPAX@dest@lly-\NEWPAX@page@lly\relax
           }%
-          \def\PAX@right{%
-            \PAX@scale@x\dimexpr\PAX@dest@llx-\PAX@page@llx\relax
+          \def\NEWPAX@right{%
+            \NEWPAX@scale@x\dimexpr\NEWPAX@dest@llx-\NEWPAX@page@llx\relax
           }%
         \or % angle = 90
-          \def\PAX@raise{%
-            \PAX@scale@x\dimexpr\PAX@dest@llx-\PAX@page@llx\relax
+          \def\NEWPAX@raise{%
+            \NEWPAX@scale@x\dimexpr\NEWPAX@dest@llx-\NEWPAX@page@llx\relax
           }%
-          \def\PAX@right{%
-            \PAX@scale@y\dimexpr\PAX@page@ury-\PAX@dest@ury\relax
+          \def\NEWPAX@right{%
+            \NEWPAX@scale@y\dimexpr\NEWPAX@page@ury-\NEWPAX@dest@ury\relax
           }%
         \or % angle = 180
-          \def\PAX@raise{%
-            \PAX@scale@y\dimexpr\PAX@page@ury-\PAX@dest@ury\relax
+          \def\NEWPAX@raise{%
+            \NEWPAX@scale@y\dimexpr\NEWPAX@page@ury-\NEWPAX@dest@ury\relax
           }%
-          \def\PAX@right{%
-            \PAX@scale@x\dimexpr\PAX@page@urx-\PAX@dest@urx\relax
+          \def\NEWPAX@right{%
+            \NEWPAX@scale@x\dimexpr\NEWPAX@page@urx-\NEWPAX@dest@urx\relax
           }%
         \or % angle = 270
-          \def\PAX@raise{%
-            \PAX@scale@x\dimexpr\PAX@page@urx-\PAX@dest@urx\relax
+          \def\NEWPAX@raise{%
+            \NEWPAX@scale@x\dimexpr\NEWPAX@page@urx-\NEWPAX@dest@urx\relax
           }%
-          \def\PAX@right{%
-            \PAX@scale@y\dimexpr\PAX@dest@lly-\PAX@page@lly\relax
+          \def\NEWPAX@right{%
+            \NEWPAX@scale@y\dimexpr\NEWPAX@dest@lly-\NEWPAX@page@lly\relax
           }%
         \fi
-        \edef\PAX@name{PAX@\PAX@file @#2@\csname l__pax_destsuffix_tl\endcsname}%
-        \let\PAX@type\@empty
-        \newpax@str@if@eq@@nnT{#3}{FITR}{\def\PAX@type{xyz}}%too lazy for now for better fitr
+        \edef\NEWPAX@name{NEWPAX@\NEWPAX@file @#2@\csname l_@@_destsuffix_tl\endcsname}%
+        \let\NEWPAX@type\@empty
+        \newpax@str@if@eq@@nnT{#3}{FITR}{\def\NEWPAX@type{xyz}}%too lazy for now for better fitr
         \newpax@str@if@eq@@nnT{#3}{XYZ}
           {%
-            \def\PAX@type{xyz}%
-            \ifx\PAX@key@DestZoom\@empty
+            \def\NEWPAX@type{xyz}%
+            \ifx\NEWPAX@key@DestZoom\@empty
             \else
-             \edef\PAX@type{\fpeval{\PAX@key@DestZoom *100}}%
+             \edef\NEWPAX@type{\fpeval{\NEWPAX@key@DestZoom *100}}%
             \fi
           }
-        \newpax@str@if@eq@@nnT{#3}{FIT}{\def\PAX@type{fit}}
-        \newpax@str@if@eq@@nnT{#3}{FITB}{\def\PAX@type{fitb}}
-        \newpax@str@if@eq@@nnT{#3}{FITH}{\def\PAX@type{fith}}
-        \newpax@str@if@eq@@nnT{#3}{FITBH}{\def\PAX@type{fitbh}}
-        \newpax@str@if@eq@@nnT{#3}{FITV}{\def\PAX@type{fitv}}
-        \newpax@str@if@eq@@nnT{#3}{FITBV}{\def\PAX@type{fitbv}}
-        \ifx\PAX@type\@empty
-          \def\PAX@type{xyz}%
+        \newpax@str@if@eq@@nnT{#3}{FIT}{\def\NEWPAX@type{fit}}
+        \newpax@str@if@eq@@nnT{#3}{FITB}{\def\NEWPAX@type{fitb}}
+        \newpax@str@if@eq@@nnT{#3}{FITH}{\def\NEWPAX@type{fith}}
+        \newpax@str@if@eq@@nnT{#3}{FITBH}{\def\NEWPAX@type{fitbh}}
+        \newpax@str@if@eq@@nnT{#3}{FITV}{\def\NEWPAX@type{fitv}}
+        \newpax@str@if@eq@@nnT{#3}{FITBV}{\def\NEWPAX@type{fitbv}}
+        \ifx\NEWPAX@type\@empty
+          \def\NEWPAX@type{xyz}%
         \fi
-        \raise\PAX@raise\hb@xt@\z@{%
-          \kern\PAX@right
-          \hbox{\@PAX@destination@xx {\PAX@name}{\PAX@type}}%
+        \raise\NEWPAX@raise\hb@xt@\z@{%
+          \kern\NEWPAX@right
+          \hbox{\@NEWPAX@destination@xx {\NEWPAX@name}{\NEWPAX@type}}%
           \hss
         }%
       \endgroup
     }%
-    \PAX@skip
+    \NEWPAX@skip
   }%
 }
 
-\SetupKeyvalOptions{family=PAX,prefix=PAX@key@}
+\SetupKeyvalOptions{family=NEWPAX,prefix=NEWPAX@key@}
 \DeclareStringOption{URI}
 \DeclareStringOption{Name}
 \DeclareStringOption{DestName}
@@ -687,19 +687,19 @@
 \DeclareStringOption{DestLabel}
 \DeclareStringOption{DestRect}
 \DeclareStringOption{DestZoom}
-\define@key{PAX}{DestX}{%
-  \PAX@defaultbp\PAX@key@DestX{#1}%
+\define@key{NEWPAX}{DestX}{%
+  \NEWPAX@defaultbp\NEWPAX@key@DestX{#1}%
 }
-\define@key{PAX}{DestY}{%
-  \PAX@defaultbp\PAX@key@DestY{#1}%
+\define@key{NEWPAX}{DestY}{%
+  \NEWPAX@defaultbp\NEWPAX@key@DestY{#1}%
 }
 %    \end{macrocode}
 %    \begin{macrocode}
 %<*lua>
 local ProvidesLuaModule = {
     name          = "newpax",
-    version       = "0.1 ",       --TAGVERSION
-    date          = "2020-04-05", --TAGDATE
+    version       = "0.4",       --TAGVERSION
+    date          = "2021-02-10", --TAGDATE
     description   = "newpax lua code",
     license       = "The LATEX Project Public License 1.3c"
 }

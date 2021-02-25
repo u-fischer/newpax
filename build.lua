@@ -1,6 +1,6 @@
 -- Build script for newpax
-packageversion="0.2"
-packagedate="2021-02-25"
+packageversion="0.4"
+packagedate="2021-02-10"
 
 module   = "newpax"
 ctanpkg  = "newpax"
@@ -47,15 +47,10 @@ ctanreadme= "CTANREADME.md"
 
 typesetexe = "lualatex-dev"
 packtdszip   = false
-installfiles = {
-                "newpax.sty",
-                "newpax.lua"
-               }  
+installfiles = { "*.sty", "*.lua" }  
                
-sourcefiles  = {
-                "newpax.sty",
-                "newpax.lua"
-               }
+sourcefiles  = {"*.dtx","*.ins","*.sty","newpax.lua"}
+
                             
 typesetfiles     = {"newpax.tex","doc-use-newpax.tex","doc-use-pax.tex"}
 typesetdemofiles = {"doc-input1.tex","doc-input2.tex"}
@@ -63,3 +58,44 @@ typesetdemofiles = {"doc-input1.tex","doc-input2.tex"}
 typesetruns = 4
 
 
+tagfiles = {"Readme.md",
+            "newpax.dtx",
+            "newpax.ins"
+            }
+
+
+
+function update_tag (file,content,tagname,tagdate)
+ tagdate = packagedate
+ if string.match (file, "%.dtx$" ) then
+  content = string.gsub (content,
+                         "%d%d%d%d%-%d%d%-%d%d v%d%.%d ",
+                         packagedate.. " v"..packageversion .. " ")
+  content = string.gsub (content,
+                         '(version%s*=%s*")%d%.%d+(",%s*--TAGVERSION)',
+                         "%1"..packageversion.."%2")
+  content = string.gsub (content,
+                         '(date%s*=%s*")%d%d%d%d%-%d%d%-%d%d(",%s*--TAGDATE)',
+                         "%1"..packagedate.."%2")                         
+  return content
+ elseif string.match (file, "^Readme.md$") then
+   content = string.gsub (content,
+                         "Version: %d%.%d+",
+                         "Version: " .. packageversion )
+   content = string.gsub (content,
+                         "version%-%d%.%d+",
+                         "version-" .. packageversion )
+   content = string.gsub (content,
+                         "for %d%.%d+",
+                         "for " .. packageversion )
+   content = string.gsub (content,
+                         "%d%d%d%d%-%d%d%-%d%d",
+                         packagedate )
+   local imgpackagedate = string.gsub (packagedate,"%-","--")
+   content = string.gsub (content,
+                         "%d%d%d%d%-%-%d%d%-%-%d%d",
+                         imgpackagedate)
+   return content
+ end
+ return content
+ end
