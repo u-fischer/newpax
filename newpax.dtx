@@ -59,7 +59,7 @@
 
 \ExplSyntaxOn
 %to replace \pdf@strcmp
-\cs_set_eq:NN \newpax@str@if@eq@@nnT\str_if_eq:nnT
+\cs_set_eq:NN \newpax@str@if@eq@@@@nnT\str_if_eq:nnT
 
 \bool_new:N \l_@@_use_attributes_bool
 \bool_new:N \l_@@_addannots_bool
@@ -644,8 +644,8 @@
         \fi
         \edef\NEWPAX@name{NEWPAX@\NEWPAX@file @#2@\csname l_@@_destsuffix_tl\endcsname}%
         \let\NEWPAX@type\@empty
-        \newpax@str@if@eq@@nnT{#3}{FITR}{\def\NEWPAX@type{xyz}}%too lazy for now for better fitr
-        \newpax@str@if@eq@@nnT{#3}{XYZ}
+        \newpax@str@if@eq@@@@nnT{#3}{FITR}{\def\NEWPAX@type{xyz}}%too lazy for now for better fitr
+        \newpax@str@if@eq@@@@nnT{#3}{XYZ}
           {%
             \def\NEWPAX@type{xyz}%
             \ifx\NEWPAX@key@DestZoom\@empty
@@ -653,12 +653,12 @@
              \edef\NEWPAX@type{\fpeval{\NEWPAX@key@DestZoom *100}}%
             \fi
           }
-        \newpax@str@if@eq@@nnT{#3}{FIT}{\def\NEWPAX@type{fit}}
-        \newpax@str@if@eq@@nnT{#3}{FITB}{\def\NEWPAX@type{fitb}}
-        \newpax@str@if@eq@@nnT{#3}{FITH}{\def\NEWPAX@type{fith}}
-        \newpax@str@if@eq@@nnT{#3}{FITBH}{\def\NEWPAX@type{fitbh}}
-        \newpax@str@if@eq@@nnT{#3}{FITV}{\def\NEWPAX@type{fitv}}
-        \newpax@str@if@eq@@nnT{#3}{FITBV}{\def\NEWPAX@type{fitbv}}
+        \newpax@str@if@eq@@@@nnT{#3}{FIT}{\def\NEWPAX@type{fit}}
+        \newpax@str@if@eq@@@@nnT{#3}{FITB}{\def\NEWPAX@type{fitb}}
+        \newpax@str@if@eq@@@@nnT{#3}{FITH}{\def\NEWPAX@type{fith}}
+        \newpax@str@if@eq@@@@nnT{#3}{FITBH}{\def\NEWPAX@type{fitbh}}
+        \newpax@str@if@eq@@@@nnT{#3}{FITV}{\def\NEWPAX@type{fitv}}
+        \newpax@str@if@eq@@@@nnT{#3}{FITBV}{\def\NEWPAX@type{fitbv}}
         \ifx\NEWPAX@type\@empty
           \def\NEWPAX@type{xyz}%
         \fi
@@ -693,6 +693,7 @@
 \define@key{NEWPAX}{DestY}{%
   \NEWPAX@defaultbp\NEWPAX@key@DestY{#1}%
 }
+%</package>
 %    \end{macrocode}
 %    \begin{macrocode}
 %<*lua>

@@ -3,13 +3,13 @@
 \DeclareDocumentMetadata{}
 \RequirePackage{newpax-regressiontest}
 \documentclass{article}
-\usepackage{l3pdf}
+
 
 \usepackage{ifluatex,graphicx}
 \usepackage{pdfpages,xcolor}
 \usepackage{hyperref}
 \hypersetup{linkbordercolor=red}
-\hypupdateattribute
+
 
 \ifluatex
 \directlua{
@@ -26,6 +26,6 @@
 included graphic:
 \fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{newpax-input}}
 \fbox{\includegraphics[trim=4cm 15cm 8cm 3cm,clip,page=2]{newpax-input}}
-
+\newpaxsetup{destsuffix=B}
 \includepdf{newpax-input}
 \end{document}

@@ -18,19 +18,16 @@ pdfauthor=Author,pdftitle=title,pdfcreator=creator}
 \usepackage{kantlipsum}
 \begin{document}
 \ExplSyntaxOn
-x\pdf_link_begin_user:nnw {URI}
-      {
-       /Subtype /Link
-       /Dest (section.2)
-     }
+
+x\pdfannot_link_goto_begin:nw {section.2}
     link text
- \pdf_link_end:n{URI}
+ \pdfannot_link_goto_end:
 \ExplSyntaxOff
 
 \ref{sec}
 \url{https://www.latex-project.org}
 
-\href[ismap=true]{https://www.latex-project.org}{\kant[1]}
+\href[ismap=true]{https://www.latex-project.org}{\kant*[1]}
 
 \href{file:/c/texlive/2020/texmf-dist/doc/latex/base/doc.pdf#chapter.1}{pdf}
 
