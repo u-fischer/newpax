@@ -1,0 +1,37 @@
+% !Mode:: "TeX:UTF-8:Main"
+%improves compability with tikz etc ...
+\PassOptionsToPackage{patches}{pdfresources}
+\RequirePackage{luatex85}
+\RequirePackage{pdfresources}
+\documentclass{article}
+\usepackage{pdfpages,xcolor}
+
+% use a custom hyperref driver:
+\usepackage[customdriver=hgeneric-experimental]{hyperref}
+\hypersetup{linkbordercolor=blue}
+\hypupdateattribute %after \hypersetup
+
+\usepackage{newpax}
+
+%use the link border color and style of the imported pdf
+%and not hyperref colors
+\newpaxsetup{usefileattributes=true}
+
+\begin{document}
+abc
+\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{newpax-input}
+\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{newpax-input}
+%
+%%set a unique suffix is the pdf is imported twice
+\newpaxsetup{destsuffix=B}
+\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{newpax-input}
+\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{newpax-input}
+
+% suppress the adding of annotations
+\newpaxsetup{addannots=false}
+\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{newpax-input}
+
+%reactivate
+\newpaxsetup{addannots=true}
+%\includepdf[pages=-]{figure/pax-input2}
+\end{document}

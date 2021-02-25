@@ -1,6 +1,6 @@
 -- Build script for newpax
-packageversion="0.1"
-packagedate="2020-04-05"
+packageversion="0.2"
+packagedate="2021-02-25"
 
 module   = "newpax"
 ctanpkg  = "newpax"
@@ -31,24 +31,6 @@ uploadconfig = {
   announcement_file="ctan.ann"              
 }
 
---specialformats = specialformats or {}
---
---if string.find(status.banner,"2019") then
---  print("TL2019")
---  TL2019bool=true
---else 
---  -- tl2020
---  print("TL2020 or later")
---
---  specialformats["latex"] = specialformats["latex"] or 
---   {
---    luatex     = {binary="luahbtex",format = "lualatex"},
---   }
---  specialformats["latex-dev"] = specialformats["latex-dev"] or 
---   {
---    luatex = {binary="luahbtex",format = "lualatex-dev"}
---   }
---end
 
 checkengines = {"luatex","pdftex","xetex"}
 checkconfigs = {"build"}
@@ -59,11 +41,11 @@ checksuppfiles = {"newpax-input.pdf"}
 docfiledir = "./doc"
 
 -- ctan setup
-docfiles = {"newpax.tex"}
-textfiles= {"CTANREADME.md"}
+docfiles =  {"*.tex"}
+textfiles=  {"CTANREADME.md"}
 ctanreadme= "CTANREADME.md"
 
-typesetexe = "lualatex"
+typesetexe = "lualatex-dev"
 packtdszip   = false
 installfiles = {
                 "newpax.sty",
@@ -75,8 +57,8 @@ sourcefiles  = {
                 "newpax.lua"
                }
                             
-typesetfiles = {"newpax.tex"}
-typesetdemofiles = {"doc-extract.tex","doc-pax-test.tex","doc-newpax-test.tex"}
+typesetfiles     = {"newpax.tex","doc-use-newpax.tex","doc-use-pax.tex"}
+typesetdemofiles = {"doc-input1.tex","doc-input2.tex"}
 
 typesetruns = 4
 

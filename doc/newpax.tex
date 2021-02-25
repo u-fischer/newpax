@@ -1,7 +1,7 @@
 % !Mode:: "TeX:UTF-8:Main"
 \makeatletter
-\def\UlrikeFischer@package@version{0.1}
-\def\UlrikeFischer@package@date{2020-03-30}
+\def\UlrikeFischer@package@version{0.2}
+\def\UlrikeFischer@package@date{2021-02-25}
 \makeatother
 \RequirePackage{pdfmanagement-testphase}
 \DeclareDocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}
@@ -24,11 +24,13 @@
 
 \usepackage{newpax}
 \directlua{require("newpax")}
-% write .newpax files for newpax.sty
+% write pax and .newpax files 
 \directlua
   {
-    newpax.writenewpax("pax-input")
-    newpax.writenewpax("figure/pax-input2")
+    newpax.writenewpax("doc-input1")
+    newpax.writenewpax("doc-input2")
+    newpax.writepax("doc-input1")
+    newpax.writepax("doc-input2")
   }
 \newpaxsetup{usefileattributes}
 
@@ -43,19 +45,21 @@
 \section{Introduction}
 
 Links in a PDF are created with annotation objects. Such an object is not connected to the content
-or text, but simply describes an (rectangular) area on the package and defines an action if the 
-cursor is in the area. The coordinates of the area are given in absolute coordinates of the page.
-The action of such an annotation can be an external url, but also an internal destination. Such destination are objects describing a page and some instructions how to display the page---again using absolute coordinates.
+or text, but simply describes an (rectangular) area on the page and defines an action if the
+cursor is in the area. The coordinates of the area are given in absolute page coordinates.
+The action of such an annotation can be an external URL, but also an internal destination. 
+Such destination are objects describing a page and some instructions how to display the page---again using absolute coordinates.
 
-When a PDF is included in another PDF -- may it be with \verb+\includegraphics+ or with \verb+\includepdf+ -- 
-the annotation coordinates no longer make sense as they don't refer to the receiving page (and often the action of an annotation doesn't make sense either), so all TeX-engines and backends strip them away when including a PDF: the net effect is that external and internal links are lost.
+When a PDF is included in another PDF---may it be with \cs{includegraphics} or with \cs{includepdf}--the annotation coordinates no longer make sense as they don't refer to the receiving page (and often the action of an annotation doesn't make sense either), so all TeX-engines and backends strip them away when including a PDF: the net effect is that external and internal links are lost.
 
-The \pkg{pax} package from Heiko Oberdiek offered a solution for this problem: if collected all the annotations
-and destinations of the included PDF, did some clever coordinate calculations and reinserted them.
+The \pkg{pax} package from Heiko Oberdiek offers a solution for this problem: it collects all the annotations
+and destinations of the included PDF, does some clever recalculations of their coordinates and reinserts them.
+The package works basically fine but has a few drawbacks: To collect the annotation one has to run an external
+java program which relies on an now outdated library, and it works only with pdf\LaTeX{}.
 
-The package works basically fine but has a few drawbacks: To collect the annotation one has to run an external java program which relies on an now outdated library, and it works only with pdf\LaTeX{}.
-
-The \pkg{newpax} tries to address this problems. If offers a lua script to collect the annotations which can be run with luatex, and it works with all engines and backends. The package is based in large parts on the \pkg{pax} package: it uses its data structure and the original code to calculate the coordinates (with a few minor bug corrections), only the pdf\LaTeX{} primitives have been replaced by commands from the new \LaTeX{} PDF management in \pkg{pdfmanagement-testphase}.   
+The \pkg{newpax} tries to address these problems. It offers a lua script to collect the annotations which can be run with luatex,
+so the extraction can be done without external tools. The code to reinsert the annotations is based in large parts on the \pkg{pax} package: it uses its data structure and the original code to calculate the coordinates (with a few minor bug corrections), but the pdf\LaTeX{} primitives have been replaced by commands from the new \LaTeX{} PDF management in \pkg{pdfmanagement-testphase} so
+it should works with all major engines and backends (with the exception of dvips).
 
 
 \section{Quick use instructions}
@@ -64,20 +68,20 @@ The \pkg{newpax} tries to address this problems. If offers a lua script to colle
 
 The lua script offers a function which take as argument the name of a PDF (without the extension).
 The function can be used in some lua scripts but also in a document which then must be compiled
-with lualatex. 
+with lualatex.
 
 \lstinputlisting[caption=doc-extract-newpax.tex]{doc-extract-newpax.tex}
 
-\subsection[Step 2: Using the \texttt{.newpax}-file with \pkg{newpax.sty}]
-{Step 2: Using the \texttt{.newpax}-file with \pkg{newpax.sty}}
+Running this document will create the files \file{doc-input1.newpax} and \file{doc-input2.newpax}
 
-The style \pkg{newpax} is based on \texttt{pax.sty} but extends it in various way. 
-It is still an experimental package which requires the new \LaTeX{} PDF management testphase code.
 
-\textbf{Attention!} \textcolor{red}{testphase} means TEST PHASE! The code is under development and is
-yet \emph{not} compatible with every other package.
+\subsection{Step 2: Using the \texttt{.newpax}-file with \texorpdfstring{\pkg{newpax}}{newpax}}
 
-The following listing shows how to use \pkg{newpax.sty}.
+The package \pkg{newpax} is based on the package \pkg{pax} but extends it in various way.
+It is still an experimental package, and it requires the new \LaTeX{} PDF management 
+code in \pkg{pdfmanagement-testphase} package. This new code is---as the name implies---currently in the testphase and \emph{not} compatible with every package!
+
+The following listing shows how to use \pkg{newpax}.
 
 \begin{itemize}
 \item It should work with pdflatex, lualatex and xelatex. The latex/dvips route fails as this can't include PDF anyway.
@@ -93,13 +97,30 @@ The following listing shows how to use \pkg{newpax.sty}.
 
 \end{itemize}
 
-\lstinputlisting[firstline=2,caption=doc-newpax-test.tex]{doc-newpax-test.tex}
+\lstinputlisting[firstline=2,caption=doc-use-newpax.tex]{doc-use-newpax.tex}
 
 \subsection{Combining the steps}
 
 When using lualatex the code that extracts the annotations and writes \texttt{.newpax}-files can be in the same document that uses the files later.
 
 In the future it would be nice if the luacode could like e.g. epstopdf be called on the fly by a document.
+
+
+\section{Setup options}
+
+\DescribeMacro\newpaxsetup{key-val option list}
+
+This command allows to change the behaviour inclusion. It knows the following keys:
+
+\begin{description}
+  \item[\PrintKeyName{usefileattributes}] This is a boolean key. If set to true, the reinserted annotations will use the linkborder settings of the included file, if set to false, the settings of the receiving PDF will take precendence.
+      
+  \item[\PrintKeyName{destsuffix}] This allows to add a suffix to the destination names. This is needed if a file is included more than once, to avoid to get multiple destinations.
+      
+ \item[\PrintKeyName{addannots}] This is a boolean key. It allows to switch on and off the reinserting of the annotations.
+      
+\end{description}
+
 
 \section{More Background}
 
@@ -123,7 +144,7 @@ The \texttt{/Border} setting and the other values in this line describe the look
 
 To \enquote{reactivate} the annotations of an included pdf one has to do a number of tasks.
 \begin{itemize}
-\item One must \emph{retrieve and store} the annotations of the included pdf. For links to external url's this requires to find only one object like the one shown above. But e.g. internal links point to a destination object and these must be found too.
+\item One must \emph{retrieve and store} the annotations of the included pdf. For links to external url's this requires to find only one object like the one shown above. But e.g. internal links point to destination objects and these must be found too.
 \item One must \emph{recalculate} the rectangle coordinates to fit to the coordinate system of the target page: as the included pdf can be placed at various positions, scaled, rotated and even clipped this is not an easy task. Destinations have rectangles too that must be recalculated.
 \item  One must  \emph{reinsert} the annotation and related objects. This has to take into account that a pdf is perhaps not included completely, a link shouldn't point to a missing page or a clipped annotation. It also has to take into account that a pdf is perhaps inserted more than once or in steps.
 \end{itemize}
@@ -133,39 +154,42 @@ To \enquote{reactivate} the annotations of an included pdf one has to do a numbe
 Theoretically one can do it manually: Uncompress the PDF (or when using \LaTeX, create directly an uncompressed one), open it in an editor and copy and paste all needed objects. Practically one naturally want some tool.
 
 The \pkg{pax} package from Heiko Oberdiek consists of a perl script and a java-jar file \texttt{PDFAnnotExtractor} which can extract the necessary objects. It writes the information to a file with the extension \texttt{pax}.
-When it has been successfully install it works quite fine. Problems with this approach are
+When it has been successfully installed it works quite fine. Problems with this approach are
 \begin{itemize}
-\item \texttt{PDFAnnotExtractor} requires an external, old version of the java library of PDFbox which must be installed manually.
-\item It requires a java installation and
+\item \texttt{PDFAnnotExtractor} requires an external, old version of the java library of PDFbox which must be installed manually;
+\item it requires a java installation and
 \item it is not extensible.
 \end{itemize}
 
-The \pkg{newpax} package comes with a lua-file. It uses the \texttt{pdfe} library embedded in luatex to extract the annotations and other needed information. \pkg{newpax} writes the information to a file with the extension \texttt{pax} or \texttt{newpax}. The content of the files is (nearly) identical to the content of the \texttt{pax}-file written by \texttt{PDFAnnotExtractor}. The lua code was written by looking at example outputs from \texttt{PDFAnnotExtractor} and reproducing it in lua. The ordering of element is a bit different and some strings are output in a different way but for the examples I used the resulting \texttt{pax}-files can be used together with the original \texttt{pax.sty}. But due to the fact that the code was written without real spec simply by looking at examples, it is quite probably that the lua code is not yet handling all objects or options that \texttt{PDFAnnotExtractor} outputs.  But the code can rather easily be extended when the needs arises.
+The \pkg{newpax} package comes with a lua-file. It uses the \texttt{pdfe} library embedded in luatex to extract the annotations and other needed information. \pkg{newpax} writes the information to a file with the extension \texttt{pax} or \texttt{newpax}. The content of the files is (nearly) identical to the content of the \file{pax}-file written by \texttt{PDFAnnotExtractor}. The lua code was written by looking at example outputs from \texttt{PDFAnnotExtractor} and reproducing it in lua. The ordering of some elements is a bit different and some strings are output in a different way but for the examples I used the resulting \texttt{pax}-files can be used together with the original \texttt{pax.sty}. But due to the fact that the code was written without real spec simply by looking at examples, it is quite probably that the lua code is not yet handling all objects or options that \texttt{PDFAnnotExtractor} outputs.  But the code can rather easily be extended when the needs arises.
 
 The code also doesn't handle structure elements, neither at the export nor at the import. I have yet no real idea what would be sensible here (and I'm quite sure that \texttt{PDFAnnotExtractor}  doesn't handle this either.)
 
 
 \section{Importing annotations}
 
-The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted. It also patches the \verb+\includegraphics+ command to automate this.
+The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted. It also patches the \cs{includegraphics} command to automate this.
+\pkg{newpax} reuses the core commands of \pkg{pax}. It only adds a number of switches and changes primitive to support more engines and backends.
 
-\pkg{newpax} reuses the core commands of \pkg{pax}. It adds a number of switches and changed primitive so that more engines and backend can be supported.
+\
 
 
-\section{Example}
+\section{Example input}
 
-\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}}
-\fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}}
+\fbox{\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{doc-input1}}
+\fbox{\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{doc-input1}}
+
+Check also the output of the listing above, \file{doc-use-newpax.pdf}.
 
 \section{Support for the \pkg{pax} package}
 
 \subsection{Step 1: Extracting the annotations}
-The lua script is also able to write \texttt{pax} files for the \pkg{pax} package (and so can be used to replace the java application). 
+The lua script is also able to write \texttt{pax} files for the \pkg{pax} package (and so can be used to replace the java application).
 
 For this extract the annotations like this:
 
 \lstinputlisting[caption=doc-extract-pax.tex]{doc-extract-pax.tex}
- 
+
 \subsection{Step 2: Using the \texttt{.pax}-file with \pkg{pax.sty}}
 
 Ensure that the \texttt{.pax} file created in step 1 can be found by your main document. You can then insert your PDF files together with their annotations like in the following listing.
@@ -179,6 +203,6 @@ Ensure that the \texttt{.pax} file created in step 1 can be found by your main d
 \item If \pkg{hyperref} is loaded you can change the color and style of link borders with hyperref options.
 \end{itemize}
 
-\lstinputlisting[firstline=2,caption=doc-pax-test.tex]{doc-pax-test.tex}
- 
+\lstinputlisting[firstline=2,caption=doc-use-pax.tex]{doc-use-pax.tex}
+
 \end{document}

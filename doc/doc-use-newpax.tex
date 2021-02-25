@@ -17,19 +17,19 @@
 
 \begin{document}
 
-\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}
-\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
+\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{doc-input1}
+\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{doc-input1}
 
 %set a unique suffix if the pdf is imported twice
 \newpaxsetup{destsuffix=B}
-\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}
-\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{pax-input}
+\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{doc-input1}
+\includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{doc-input1}
 
 % suppress the adding of annotations
 \newpaxsetup{addannots=false}
-\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{pax-input}
+\includegraphics[scale=0.5,trim=4cm 15cm 8cm 3cm,clip,page=1]{doc-input1}
 
 %reactivate
 \newpaxsetup{addannots=true}
-\includepdf[pages=-]{figure/pax-input2}
+\includepdf[pages=-]{doc-input2}
 \end{document}

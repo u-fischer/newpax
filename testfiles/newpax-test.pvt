@@ -1,17 +1,13 @@
 % !Mode:: "TeX:UTF-8:Main"
-\input{regression-test}
-\RequirePackage{pdfresources}
+\RequirePackage{pdfmanagement-testphase}
 \DeclareDocumentMetadata{}
+\RequirePackage{newpax-regressiontest}
 \documentclass{article}
 \usepackage{l3pdf}
-\usepackage{pdfresources}
-\ExplSyntaxOn
-\pdf_uncompress:
-\ExplSyntaxOff
 
 \usepackage{ifluatex,graphicx}
 \usepackage{pdfpages,xcolor}
-\usepackage[customdriver=hgeneric-experimental]{hyperref}
+\usepackage{hyperref}
 \hypersetup{linkbordercolor=red}
 \hypupdateattribute
 
@@ -23,7 +19,7 @@
 \fi
 
 \usepackage{newpax}
-\newpaxsetup{paxextension=newpax}
+
 
 \begin{document}
 

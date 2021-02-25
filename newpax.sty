@@ -202,7 +202,10 @@
            (
             \int_compare_p:nNn
              {
-               \pdfpages@includegraphics@status
+               \cs_if_exist:NTF\pdfpages@includegraphics@status
+                 {
+                    \pdfpages@includegraphics@status
+                 }{0}
              }
              <
              {2}
