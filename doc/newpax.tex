@@ -1,7 +1,7 @@
 % !Mode:: "TeX:UTF-8:Main"
 \makeatletter
-\def\UlrikeFischer@package@version{0.2}
-\def\UlrikeFischer@package@date{2021-02-25}
+\def\UlrikeFischer@package@version{0.5}
+\def\UlrikeFischer@package@date{2021-02-26}
 \makeatother
 \RequirePackage{pdfmanagement-testphase}
 \DeclareDocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}
@@ -15,6 +15,9 @@
 \usepackage[autostyle]{csquotes}
 \usepackage{microtype}
 \usepackage{listings}
+\def\lstlanguagefiles
+    {lstlang0.sty,lstlang1.sty,lstlang2.sty,lstlang3.sty}
+
 \lstset{basicstyle=\ttfamily, columns=fullflexible,language=[LaTeX]TeX,
         escapechar=*,
         commentstyle=\color{green!50!black}\bfseries}
@@ -24,7 +27,7 @@
 
 \usepackage{newpax}
 \directlua{require("newpax")}
-% write pax and .newpax files 
+% write pax and .newpax files
 \directlua
   {
     newpax.writenewpax("doc-input1")
@@ -47,19 +50,19 @@
 Links in a PDF are created with annotation objects. Such an object is not connected to the content
 or text, but simply describes an (rectangular) area on the page and defines an action if the
 cursor is in the area. The coordinates of the area are given in absolute page coordinates.
-The action of such an annotation can be an external URL, but also an internal destination. 
+The action of such an annotation can be an external URL, but also an internal destination.
 Such destination are objects describing a page and some instructions how to display the page---again using absolute coordinates.
 
 When a PDF is included in another PDF---may it be with \cs{includegraphics} or with \cs{includepdf}--the annotation coordinates no longer make sense as they don't refer to the receiving page (and often the action of an annotation doesn't make sense either), so all TeX-engines and backends strip them away when including a PDF: the net effect is that external and internal links are lost.
 
-The \pkg{pax} package from Heiko Oberdiek offers a solution for this problem: it collects all the annotations
-and destinations of the included PDF, does some clever recalculations of their coordinates and reinserts them.
+The \pkg{pax} package from Heiko Oberdiek offers a solution for this problem: it extracts all the annotations
+and destinations of the included PDF in a text file, does some clever recalculations of their coordinates and reinserts them.
 The package works basically fine but has a few drawbacks: To collect the annotation one has to run an external
 java program which relies on an now outdated library, and it works only with pdf\LaTeX{}.
 
-The \pkg{newpax} tries to address these problems. It offers a lua script to collect the annotations which can be run with luatex,
-so the extraction can be done without external tools. The code to reinsert the annotations is based in large parts on the \pkg{pax} package: it uses its data structure and the original code to calculate the coordinates (with a few minor bug corrections), but the pdf\LaTeX{} primitives have been replaced by commands from the new \LaTeX{} PDF management in \pkg{pdfmanagement-testphase} so
-it should works with all major engines and backends (with the exception of dvips).
+The \pkg{newpax} tries to address these problems. It offers a lua script to extract the annotations.
+The script can be used with lua(la)tex  and no external tools are needed. The annotations can
+then be reinserted either with the \pkg{pax.sty} or with the new \pkg{newpax.sty} whose code based in large parts on the \pkg{pax} package: it uses its data structure and the original code to calculate the coordinates (with a few minor bug corrections), but the pdf\LaTeX{} primitives have been replaced by commands from the new \LaTeX{} PDF management in \pkg{pdfmanagement-testphase} so it should works with all major engines and backends (with the exception of dvips).
 
 
 \section{Quick use instructions}
@@ -72,13 +75,14 @@ with lualatex.
 
 \lstinputlisting[caption=doc-extract-newpax.tex]{doc-extract-newpax.tex}
 
-Running this document will create the files \file{doc-input1.newpax} and \file{doc-input2.newpax}
+Running this document will create the files \file{doc-input1.newpax} and \file{doc-input2.newpax}.
+
 
 
 \subsection{Step 2: Using the \texttt{.newpax}-file with \texorpdfstring{\pkg{newpax}}{newpax}}
 
 The package \pkg{newpax} is based on the package \pkg{pax} but extends it in various way.
-It is still an experimental package, and it requires the new \LaTeX{} PDF management 
+It is still an experimental package, and it requires the new \LaTeX{} PDF management
 code in \pkg{pdfmanagement-testphase} package. This new code is---as the name implies---currently in the testphase and \emph{not} compatible with every package!
 
 The following listing shows how to use \pkg{newpax}.
@@ -101,9 +105,9 @@ The following listing shows how to use \pkg{newpax}.
 
 \subsection{Combining the steps}
 
-When using lualatex the code that extracts the annotations and writes \texttt{.newpax}-files can be in the same document that uses the files later.
+When using lualatex both step can be simply in the same document.
+With other engines you can use \pkg{ifluatex}.
 
-In the future it would be nice if the luacode could like e.g. epstopdf be called on the fly by a document.
 
 
 \section{Setup options}
@@ -114,12 +118,13 @@ This command allows to change the behaviour inclusion. It knows the following ke
 
 \begin{description}
   \item[\PrintKeyName{usefileattributes}] This is a boolean key. If set to true, the reinserted annotations will use the linkborder settings (color and style) of the included file, if set to false, the settings of the receiving PDF will take precendence.
-      
-  \item[\PrintKeyName{destsuffix}] This allows to add a suffix to the destination names. This is needed if a file with destinations 
+
+  \item[\PrintKeyName{destsuffix}] This allows to add a suffix to the destination names. This is needed if a file with destinations
   is included more than once, to avoid to get multiple destinations.
-      
- \item[\PrintKeyName{addannots}] This is a boolean key. It allows to switch on and off the reinserting of the annotations.
-      
+
+ \item[\PrintKeyName{addannots}] This is a boolean key. It allows to switch on and off the reinserting of the annotations. When set to false  it also suppress warnings in the log if the \file{.newpax} file is not found.
+     It is recommended to set it to false for graphics which don't have links.
+
 \end{description}
 
 
@@ -181,7 +186,7 @@ The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the 
 
 Check also the output of the listing above, \file{doc-use-newpax.pdf}.
 
-\section{Support for the \pkg{pax} package}
+\section{Support for the \texorpdfstring{\pkg{pax}}{pax} package}
 
 \subsection{Step 1: Extracting the annotations}
 The lua script is also able to write \texttt{pax} files for the \pkg{pax} package (and so can be used to replace the java application).
