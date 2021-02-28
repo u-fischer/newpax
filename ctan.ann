@@ -1,0 +1,10 @@
+newpax allows to insert PDF in a document while preserving
+internal and external links. With lualatex it works in the document
+directly, other engines require to run a compilaton with lualatex or to call
+a lua script first.
+
+The package is based on and uses code from [pax](https://ctan.org/pkg/pax) by Heiko Oberdiek.
+
+It requires the new LaTeX PDF management from the pdfmanagement-testphase package.
+
+Issues, comments, etc https://github.com/u-fischer/newpax

@@ -16,7 +16,7 @@ uploadconfig = {
   author  = mydata.name,
   license = "lppl1.3c",
   summary = "Experimental package to extract and reinsert PDF annotations",
-  -- ctanPath = "????????",
+  ctanPath = "/macros/latex/contrib/newpax",
   repository = mydata.github .. "newpax",
   bugtracker = mydata.github .. "newpax/issues",
   support    = mydata.github .. "newpax/issues",
@@ -42,7 +42,7 @@ docfiledir = "./doc"
 
 -- ctan setup
 docfiles =  {"*.tex"}
-textfiles=  {"CTANREADME.md"}
+textfiles=  {"doc/CTANREADME.md"}
 ctanreadme= "CTANREADME.md"
 
 typesetexe = "lualatex-dev"
