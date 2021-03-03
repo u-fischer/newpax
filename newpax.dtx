@@ -67,7 +67,7 @@
 \tl_new:N   \l_@@_destsuffix_tl
 \tl_new:N \NEWPAX@fileextension
 
-\cs_generate_variant:Nn \pdfannot_dict_put:nnn {nnx}
+\cs_generate_variant:Nn \pdfannot_dict_put:nnn {nnx,xnx,xnn}
 \NewDocumentCommand\newpaxsetup { m }
   {
     \keys_set:nn {newpax}{ #1}
@@ -134,7 +134,7 @@
   }
 
 
-\cs_set_eq:NN \@NEWPAX@annotation@nnnn \pdfannot_box:nnnn
+
 
 \cs_new_protected:Npn \@NEWPAX@linkgoto@xnn #1 #2 #3  %#1 dest #2 width #3 height
   {
@@ -143,18 +143,27 @@
       \leavevmode
       \exp_args:Nx\pdfannot_link_goto_begin:nw
         { #1 }
-        \hbox_to_wd:nn {#2}{\@NEWPAX@ensurelinkbox@n { \rule{0pt}{#3} }\hfill}
+        \@NEWPAX@ensurelinkbox@n{\hbox_to_wd:nn {#2}{ { \rule{0pt}{#3} }\hfill}}
       \pdfannot_link_goto_end:
     \group_end:
   }
 
-\cs_generate_variant:Nn \pdfannot_box:nnnnn {xnnnx}
+\cs_new_protected:Npn \@NEWPAX@link@setaction@nn #1 #2
+ {
+    \pdfannot_dict_put:nnn{link/#1}{Subtype}{/Link}
+    \pdfannot_dict_put:nnx{link/#1}{A}
+       {<</Type/Action/S/#1 #2>>}
+ }
 
-\cs_new_protected:Npn \@NEWPAX@annotboxlink@xnnx #1 #2 #3 #4  %#1 type, #2 width #3 height #4 spec
+
+
+\cs_new_protected:Npn \@NEWPAX@annotboxlink@nnn #1 #2 #3   %#1 type, #2 width #3 height
   {
     \group_begin:
       \exp_args:Nx\@NEWPAX@setattributes@n {#1}
-      \leavevmode\pdfannot_box:xnnnx {link/#1}{#2}{#3}{0pt}{#4}
+      \leavevmode
+      \pdfannot_box:nnnx {#2}{#3}{0pt}
+         {\pdfannot_dict_use:n{link/#1}}
     \group_end:
   }
 
@@ -162,7 +171,6 @@
   {
     \exp_args:Nxx \pdf_destination:nn {#1}{#2}
   }
-
 
 % only defined if hyperref is loaded ...
 \sys_if_engine_xetex:TF
@@ -469,15 +477,10 @@
             }%
       \else
         \hbox{%
-        \@NEWPAX@annotboxlink@xnnx {\NEWPAX@link@type}{\NEWPAX@width}{\NEWPAX@height}
-          {
-            /Subtype/Link%
-            /A<<%
-              /Type/Action%
-              /S/\NEWPAX@link@type
-              #1%
-             >>%
-         }}%
+        \expandafter\@NEWPAX@link@setaction@nn\expandafter{\NEWPAX@link@type}{#1}%
+        \expandafter
+         \@NEWPAX@annotboxlink@nnn
+         \expandafter {\NEWPAX@link@type}{\NEWPAX@width}{\NEWPAX@height}{}}%
       \fi
       \hss
     }%
