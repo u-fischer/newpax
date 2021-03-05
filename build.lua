@@ -4,7 +4,7 @@ packagedate="2021-02-26"
 
 module   = "newpax"
 ctanpkg  = "newpax"
-
+tdsroot = "lualatex"
 local ok, mydata = pcall(require, "ulrikefischerdata.lua")
 if not ok then
   mydata= {email="XXX",github="XXX",name="XXX"}

@@ -317,10 +317,9 @@
   \def\<{<}%
   \def\>{>}%
   \endlinechar=-1 %
-  \InputIfFileExists\NEWPAX@file{%
-  }{%
-    \typeout{* Missing: \NEWPAX@file}%
-  }%
+  \begingroup
+  \catcode`\#=12 \catcode`\%=12
+  \InputIfFileExists\NEWPAX@file{}{\typeout{* Missing: \NEWPAX@file}}\endgroup
 }
 \def\NEWPAX@parser#1{\NEWPAX@call{cmd}{#1}{}}%
 \def\NEWPAX@call#1#2#3{%

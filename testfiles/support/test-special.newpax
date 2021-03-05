@@ -1,0 +1,19 @@
+\[{pax}{0.1l}\\
+\[{file}{(./test-special.pdf)}{
+  Size={27232},
+  Date={D:20210305233643+01'00'},
+}\\
+\[{pagenum}{1}\\
+\[{page}{1}{0.0 0.0 595.276 841.89}{}\\
+\[{annot}{1}{Link}{147.716 703.915 386.568 715.04}{URI}{
+  C={[0.724708 0.4 0.717646 ]},
+  H={/I},
+  Border={[0 0 1 ]},
+  URI={(https://xxxx.zzzz/#configure-the-service-task)},
+}\\
+\[{annot}{1}{Link}{147.716 691.96 386.568 703.085}{URI}{
+  C={[0.724708 0.4 0.717646 ]},
+  H={/I},
+  Border={[0 0 1 ]},
+  URI={(https://xxxx.zzzz/%25configure-the-service-task)},
+}\\

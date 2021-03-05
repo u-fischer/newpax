@@ -1,0 +1,9 @@
+\RequirePackage{pdfmanagement-testphase}
+\DeclareDocumentMetadata{uncompress}
+\RequirePackage{newpax-regressiontest}
+\documentclass{article}
+\usepackage{newpax}
+\usepackage{graphicx}
+\begin{document}
+\includegraphics[scale=0.5]{test-special}
+\end{document}

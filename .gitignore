@@ -10,8 +10,10 @@ test-utf8.pdf
 fail.pdf
 work.pdf
 *.newpax
+!testfiles/support/*.newpax
 pax-test.pdf
 tests
 *.pdf
+!testfiles/support/*.pdf
 build
 *.curlopt
