@@ -1121,7 +1121,7 @@ end
 -- the main function
 
 local function __writepax (ext,file)
-  local fileVAR     = assert(kpse.find_file(file ..".pdf"),"file not found")
+  local fileVAR     = assert(kpse.find_file(file ..".pdf"),"file `"..file..".pdf` not found")
   local filebaseVAR = FILENAMEONLY(fileVAR)
   -- getting the data for the concrete document:
   local writeVAR = io.open (filebaseVAR .."."..ext,"w") -- always in current directory
