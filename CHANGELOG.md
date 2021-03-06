@@ -7,6 +7,8 @@ this project uses date-based 'snapshot' version identifiers.
 
 ## [Unreleased]
 
+## [2021-03-07]
+
 ### Added
 
 ### Changed
@@ -16,7 +18,8 @@ this project uses date-based 'snapshot' version identifiers.
   
 ### Fixed
 - allow # and % in url: issue #3
-- better error message if pdf is not found by luascript issue #1   
+- better error message if pdf is not found by luascript issue #1  
+- some documentation clarifications 
 
 ## [2021-02-23]
 
