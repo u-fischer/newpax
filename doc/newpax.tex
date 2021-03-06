@@ -77,6 +77,12 @@ with lualatex.
 
 Running this document will create the files \file{doc-input1.newpax} and \file{doc-input2.newpax}.
 
+To find the graphics \texttt{kpathsea} is used, that means that graphics in texmf trees will work,
+you can also use pathes to directories, but settings in \cs{graphicspath} are ignored. The newpax
+file is currently written into the current directory, that means that graphics with the same name
+in different locations won't work easily (with lualatex you could create the newpax file in the document
+just before it is needed). Later versions of the package will probably add some options for this case,
+but for now use at best distinct file names.
 
 
 \subsection{Step 2: Using the \texttt{.newpax}-file with \texorpdfstring{\pkg{newpax}}{newpax}}
