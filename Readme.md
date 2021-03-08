@@ -16,13 +16,11 @@ a current LaTeX and a current L3 layer.
 
 ##  Structure
 
-- newpax.lua and newpax.sty are in the main folder. 
-
-- The doc folder contains the documentation 
-    
+- `newpax.lua` and `newpax.sty` are in the main folder.
+- The doc folder contains the documentation.
 - testfiles contains tests for the l3build system. 
       
-## Rules for contribuations
+## Rules for contributions
 
 Comments, feedback, examples are welcome. 
 
