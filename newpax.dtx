@@ -493,12 +493,12 @@
 \def\NEWPAX@htype@Named{link}
 \def\NEWPAX@htype@URI{url}
 
+\ExplSyntaxOn
 \def\NEWPAX@link@URI{%
   \NEWPAX@pdf@annot{%
-    /URI\NEWPAX@key@URI
+    /URI\tl_to_str:V\NEWPAX@key@URI
   }%
 }
-\ExplSyntaxOn
 \def\NEWPAX@link@Named{%
   \NEWPAX@pdf@annot{%
     /N \pdf_name_from_unicode_e:n{\NEWPAX@key@Name} %the value is from a pdf so we can assume it is correctly escaped??
