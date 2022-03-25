@@ -1071,35 +1071,35 @@ local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref,pdfe
  a = a .. strARG_BEG .. data[2][2] .. strARG_END
  a = a .. strKVS_BEG
  if data[2][2] == constDEST_XYZ then
-   if data[3][2] then
+   if data[3] and data[3][2] then
     a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
    else
     a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. mediabox[1] .. strVALUE_END .. strKV_END
    end
-   if data[4][2] then
+   if data[4] and data[4][2] then
     a = a .. strKV_BEG .. constKEY_DEST_Y .. strVALUE_BEG .. data[4][2] .. strVALUE_END .. strKV_END
    else
     a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. mediabox[4] .. strVALUE_END .. strKV_END
    end
-   if data[5][2] then
+   if data[5] and data[5][2] then
     a = a .. strKV_BEG .. constKEY_DEST_ZOOM .. strVALUE_BEG .. data[5][2] .. strVALUE_END .. strKV_END
    end
  elseif data[2][2] == constDEST_FIT  then -- nothing to do
  elseif data[2][2] == constDEST_FITB then -- nothing to do
  elseif data[2][2] == constDEST_FITH then
-   if data[3][2] then
+   if data[3] and data[3][2] then
     a = a .. strKV_BEG .. constKEY_DEST_Y .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
    end
  elseif data[2][2] == constDEST_FITBH then
-   if data[3][2] then
+   if data[3] and data[3][2] then
     a = a .. strKV_BEG .. constKEY_DEST_Y .. strVALUE_BEG  .. data[3][2] .. strVALUE_END .. strKV_END
    end
  elseif data[2][2] == constDEST_FITV then
-   if data[3][2] then
+   if data[3] and data[3][2] then
     a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
    end
  elseif data[2][2] == constDEST_FITBV then
-   if data[3][2] then
+   if data[3] and data[3][2] then
     a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. data[3][2] .. strVALUE_END .. strKV_END
    end
  elseif data[2][2] == constDEST_FITR and data[6] then
