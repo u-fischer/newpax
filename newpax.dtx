@@ -1019,6 +1019,8 @@ local function outputKV_uri (pdfedict)
   if hex then
     a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END
   else
+    value = string.gsub(value, [[%\%(]], "(")
+    value = string.gsub(value, [[%\%)]], ")")
     a = a .. strLIT_STR_BEG ..value .. strLIT_STR_END
   end
     a = a .. strVALUE_END .. strKV_END
