@@ -33,6 +33,7 @@ uploadconfig = {
 
 
 checkengines = {"luatex","pdftex","xetex"}
+stdengine = "luatex"
 checkconfigs = {"build"}
 
 checkruns = 3
