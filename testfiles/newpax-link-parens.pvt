@@ -1,0 +1,8 @@
+\DocumentMetadata{uncompress}
+\input{regression-test}
+\documentclass{article}
+\usepackage{newpax}
+\usepackage{graphicx}
+\begin{document}
+\includegraphics{test-link-parens}
+\end{document}
