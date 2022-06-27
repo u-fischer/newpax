@@ -7,6 +7,11 @@ this project uses date-based 'snapshot' version identifiers.
 
 ## [Unreleased]
 
+### Fixed 
+ - add a missing test, issue #10
+ - handle escaped parentheses in url's, issue #9
+ - handle filespec dictionaries
+ 
 ## [2021-03-07]
 
 ### Added
