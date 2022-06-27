@@ -16,6 +16,10 @@
 %correct a bug in pax affecting clipping
 \makeatletter
 \patchcmd\PAX@pdf@annot{\PAX@pagellx}{\PAX@page@llx}{}{\fail}
+%allow hashes and percent in the pax file
+\patchcmd\PAX@AddAnnots{\InputIfFileExists\PAX@file{}{\typeout{* Missing: \PAX@file}}}
+ {\begingroup \catcode`\#=12 \catcode`\%=12
+  \InputIfFileExists\PAX@file{}{\typeout{* Missing: \PAX@file}}\endgroup}{}{\fail}
 \makeatother
 \begin{document}
 \includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{doc-input1}
