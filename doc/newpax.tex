@@ -52,7 +52,7 @@ cursor is in the area. The coordinates of the area are given in absolute page co
 The action of such an annotation can be an external URL, but also an internal destination.
 Such destination are objects describing a page and some instructions how to display the page---again using absolute coordinates.
 
-When a PDF is included in another PDF---may it be with \cs{includegraphics} or with \cs{includepdf}--the annotation coordinates no longer make sense as they don't refer to the receiving page (and often the action of an annotation doesn't make sense either), so all TeX-engines and backends strip them away when including a PDF: the net effect is that external and internal links are lost.
+When a PDF is included in another PDF---may it be with \cs{includegraphics} or with \cs{includepdf}\hspace{0pt}---\hspace{0pt}the annotation coordinates no longer make sense as they don't refer to the receiving page (and often the action of an annotation doesn't make sense either), so all TeX-engines and backends strip them away when including a PDF: the net effect is that external and internal links are lost.
 
 The \pkg{pax} package from Heiko Oberdiek offers a solution for this problem: it extracts all the annotations
 and destinations of the included PDF in a text file, does some clever recalculations of their coordinates and reinserts them.
@@ -208,11 +208,12 @@ Ensure that the \texttt{.pax} file created in step 1 can be found by your main d
 \item This works with pdflatex and lualatex. lualatex needs the extra code demonstrated in the document.
 \item It needs two or three compilations until every reference is correct.
 \item There is a small typo in \pkg{pax.sty} which affects clipping, the patch shown in the listing correct this.
+\item In some cases the catcode of \# and \% must be set to letter to avoid errors. 
 \item Don't include PDFs with destinations twice as this will lead to duplicate destinations and pdflatex will complain.
 \item If annotations should not be reinserted remove the \texttt{.pax}-file.
 \item If \pkg{hyperref} is loaded you can change the color and style of link borders with hyperref options.
 \end{itemize}
-
-\lstinputlisting[firstline=2,caption=doc-use-pax.tex]{doc-use-pax.tex}
+\enlargethispage{\baselineskip}
+\lstinputlisting[firstline=2,caption=doc-use-pax.tex,escapechar={}]{doc-use-pax.tex}
 
 \end{document}
