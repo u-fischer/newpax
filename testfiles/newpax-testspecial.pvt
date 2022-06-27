@@ -1,6 +1,5 @@
-\RequirePackage{pdfmanagement-testphase}
-\DeclareDocumentMetadata{uncompress}
-\RequirePackage{newpax-regressiontest}
+\DocumentMetadata{uncompress}
+\input{regression-test}
 \documentclass{article}
 \usepackage{newpax}
 \usepackage{graphicx}
