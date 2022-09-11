@@ -893,7 +893,7 @@ end
 -- XXXXXX encode/escape the file name?
 local function outputENTRY_file (file, pdfedoc)
   local bytes       = GETSIZE(pdfedoc)
-  local date        = GETINFO(pdfedoc).CreationDate or "D:22222222222222"
+  local date        = (GETINFO(pdfedoc) and GETINFO(pdfedoc).CreationDate) or  "D:22222222222222"
   -- file
   local a = strENTRY_BEG
   a = a .. strCMD_BEG .. constCMD_FILE .. strCMD_END

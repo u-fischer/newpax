@@ -9,6 +9,7 @@ this project uses date-based 'snapshot' version identifiers.
 
 ### Fixed
  - error is not CreationDate found, issue #15
+ - error if there no info dictionary at all, issue #17
 
 ## [2021-03-07]
 
