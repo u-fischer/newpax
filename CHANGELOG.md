@@ -5,11 +5,12 @@ first release 0.5, 2021-02-23 will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project uses date-based 'snapshot' version identifiers.
 
-## [Unreleased]
+## [2022-09-11]
 
 ### Fixed
- - error is not CreationDate found, issue #15
+ - error if CreationDate not  found, issue #15
  - error if there no info dictionary at all, issue #17
+ - fixed error if F in GoToR is an indirect object
 
 ## [2021-03-07]
 

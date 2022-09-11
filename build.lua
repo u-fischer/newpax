@@ -1,6 +1,6 @@
 -- Build script for newpax
-packageversion="0.51"
-packagedate="2021-03-07"
+packageversion="0.52"
+packagedate="2022-09-11"
 
 module   = "newpax"
 ctanpkg  = "newpax"
@@ -50,7 +50,7 @@ typesetexe = "lualatex-dev"
 packtdszip   = false
 installfiles = { "*.sty", "*.lua" }  
                
-sourcefiles  = {"*.dtx","*.ins","*.sty","newpax.lua"}
+sourcefiles  = {"*.dtx","*.ins","*.sty"}
 
                             
 typesetfiles     = {"newpax.tex","doc-use-newpax.tex","doc-use-pax.tex"}
