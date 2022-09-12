@@ -16,6 +16,7 @@
 %correct a bug in pax affecting clipping
 \makeatletter
 \patchcmd\PAX@pdf@annot{\PAX@pagellx}{\PAX@page@llx}{}{\fail}
+\patchcmd\PAX@AddAnnots{\endlinechar=-1}{\endlinechar=-1 \catcode`\#=12 \catcode`\%=12 }{}{\fail}
 \makeatother
 \begin{document}
 \includegraphics[scale=0.5,trim=5cm 15cm 8cm 3cm,clip,page=2]{doc-input1}

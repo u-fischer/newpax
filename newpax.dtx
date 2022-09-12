@@ -1031,24 +1031,48 @@ local function outputKV_N (pdfedict)
   return a
 end
 
+-- if a gotoR has a filespec filespec we use this
+-- to output the reference. It is rather crude and handles only names and strings
+local function outputDICT (dictionary)
+ local dict = DICTIONARYTOTABLE(dictionary)
+ local a = "<<"
+ for k,v in pairs (dict) do
+   a = a .. strNAME.. k
+      if v[1]== 5 then -- it is a name
+       b = string.gsub(v[2], "/", "#2F")
+       a = a .. strNAME .. b
+      elseif v[1] == 6 then -- it is a string
+       local b
+       if v[3] then
+         b = "<" .. v[2] .. ">"
+       else
+         b = "(" .. v[2] .. ")"
+       end
+       a = a ..strRECT_SEP .. b
+       -- everything else is ignored for now!
+      end
+    end
+ a = a .. ">>"
+ return a
+end
+
 local function outputKV_gotor (pdfedict) -- action dictionary
-  local type, value, desttype, destvalue, hex
-  local checktype, checkvalue, checkhex  = GETFROMDICTIONARY(pdfedict,"F")
-  if checktype==10 then
-  -- TODO resolve reference deeper!!
-      local a,b,c= GETFROMREFERENCE(checkvalue)
-      type, value, hex = GETFROMDICTIONARY(b,"F")
-      desttype,destvalue   = GETFROMDICTIONARY(b,"D")
-  else
-      value=checkvalue
-      desttype,destvalue =  GETFROMDICTIONARY(pdfedict,"D")
-  end
+  local type, value, hex = GETFROMDICTIONARY(pdfedict,"F")
+  local desttype, destvalue, destdetail =  GETFROMDICTIONARY(pdfedict,"D")
   local a = strKV_BEG .. constKEY_FILE .. strVALUE_BEG
-  a =  strKV_BEG .. constKEY_FILE .. strVALUE_BEG
-  if hex then
-    a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END
+  if TYPE(value) == "pdfe.reference" then
+     local x,dictionary  = GETFROMREFERENCE(value)
+     if TYPE(dictionary) == "pdfe.dictionary" then
+       a = a .. outputDICT (dictionary)
+     else
+      print("ERROR!? this is not a dictionary!!")
+     end
   else
-    a = a .. strLIT_STR_BEG .. value .. strLIT_STR_END
+   if hex then
+     a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END
+   else
+     a = a .. strLIT_STR_BEG .. value .. strLIT_STR_END
+   end
   end
   a = a .. strVALUE_END .. strKV_END
   if desttype == 7 then
