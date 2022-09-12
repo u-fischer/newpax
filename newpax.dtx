@@ -39,7 +39,7 @@
     \PackageError{newpax}
      {
        PDF~resource~management~code~not~found!\MessageBreak
-       newpage~will~no~work.
+       newpax~will~no~work.
      }
      {
        Load~it~with \MessageBreak
@@ -1015,6 +1015,9 @@ end
 
 local function outputKV_uri (pdfedict)
   local type, value, hex = GETFROMDICTIONARY(pdfedict,constKEY_URI)
+  if TYPE(value) == "pdfe.reference" then
+   type,value,hex  = GETFROMREFERENCE(value)
+  end
   local a= strKV_BEG .. constKEY_URI .. strVALUE_BEG
   if hex then
     a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END
