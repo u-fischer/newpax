@@ -72,7 +72,7 @@ function update_tag (file,content,tagname,tagdate)
  tagdate = packagedate
  if string.match (file, "%.dtx$" ) then
   content = string.gsub (content,
-                         "%d%d%d%d%-%d%d%-%d%d v%d%.%d ",
+                         "%d%d%d%d%-%d%d%-%d%d v%d%.%d+ ",
                          packagedate.. " v"..packageversion .. " ")
   content = string.gsub (content,
                          '(version%s*=%s*")%d%.%d+(",%s*--TAGVERSION)',
