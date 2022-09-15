@@ -3,8 +3,6 @@ Version 0.52
 ## [2022-09-11]
 
 ### Fixed
- - error if CreationDate not  found, issue #15
- - error if there no info dictionary at all, issue #17
- - error if F in GoToR is an indirect object
+- URI values given as indirect object (issue #18)
 
 Issues, comments, etc https://github.com/u-fischer/newpax
