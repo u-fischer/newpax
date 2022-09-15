@@ -1,6 +1,6 @@
-Version 0.52
+Version 0.53
 
-## [2022-09-11]
+## [2022-09-15]
 
 ### Fixed
 - URI values given as indirect object (issue #18)

@@ -1037,9 +1037,15 @@ end
 -- if a gotoR has a filespec filespec we use this
 -- to output the reference. It is rather crude and handles only names and strings
 local function outputDICT (dictionary)
+ local tkeys = {}
  local dict = DICTIONARYTOTABLE(dictionary)
+ for name,value in pairs(dict) do
+  table.insert(tkeys,name)
+ end
+ table.sort(tkeys)
  local a = "<<"
- for k,v in pairs (dict) do
+ for _,k in ipairs (tkeys) do
+   v=dict[k]
    a = a .. strNAME.. k
       if v[1]== 5 then -- it is a name
        b = string.gsub(v[2], "/", "#2F")
