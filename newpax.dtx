@@ -39,7 +39,7 @@
     \PackageError{newpax}
      {
        PDF~resource~management~code~not~found!\MessageBreak
-       newpage~will~no~work.
+       newpax~will~no~work.
      }
      {
        Load~it~with \MessageBreak
@@ -702,7 +702,7 @@
 local ProvidesLuaModule = {
     name          = "newpax",
     version       = "0.52",       --TAGVERSION
-    date          = "2022-06-27", --TAGDATE
+    date          = "2022-09-11", --TAGDATE
     description   = "newpax lua code",
     license       = "The LATEX Project Public License 1.3c"
 }
@@ -893,7 +893,7 @@ end
 -- XXXXXX encode/escape the file name?
 local function outputENTRY_file (file, pdfedoc)
   local bytes       = GETSIZE(pdfedoc)
-  local date        = GETINFO(pdfedoc).CreationDate
+  local date        = (GETINFO(pdfedoc) and GETINFO(pdfedoc).CreationDate) or  "D:22222222222222"
   -- file
   local a = strENTRY_BEG
   a = a .. strCMD_BEG .. constCMD_FILE .. strCMD_END
@@ -1015,6 +1015,9 @@ end
 
 local function outputKV_uri (pdfedict)
   local type, value, hex = GETFROMDICTIONARY(pdfedict,constKEY_URI)
+  if TYPE(value) == "pdfe.reference" then
+   type,value,hex  = GETFROMREFERENCE(value)
+  end
   local a= strKV_BEG .. constKEY_URI .. strVALUE_BEG
   if hex then
     a = a .. strHEX_STR_BEG .. value .. strHEX_STR_END
@@ -1086,7 +1089,6 @@ local function outputKV_gotor (pdfedict) -- action dictionary
   end
   return a
 end
-
 
 local function outputKV_goto (count)
   local a = strKV_BEG .. constKEY_DEST_LABEL .. strVALUE_BEG .. count .. strVALUE_END .. strKV_END

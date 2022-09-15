@@ -1,7 +1,7 @@
 % !Mode:: "TeX:UTF-8:Main"
 \makeatletter
 \def\UlrikeFischer@package@version{0.52}
-\def\UlrikeFischer@package@date{2022-06-27}
+\def\UlrikeFischer@package@date{2022-09-11}
 \makeatother
 \DocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}
 
@@ -208,7 +208,7 @@ Ensure that the \texttt{.pax} file created in step 1 can be found by your main d
 \item This works with pdflatex and lualatex. lualatex needs the extra code demonstrated in the document.
 \item It needs two or three compilations until every reference is correct.
 \item There is a small typo in \pkg{pax.sty} which affects clipping, the patch shown in the listing correct this.
-\item In some cases the catcode of \# and \% must be set to letter to avoid errors. 
+\item In some cases the catcode of \# and \% must be set to letter to avoid errors.
 \item Don't include PDFs with destinations twice as this will lead to duplicate destinations and pdflatex will complain.
 \item If annotations should not be reinserted remove the \texttt{.pax}-file.
 \item If \pkg{hyperref} is loaded you can change the color and style of link borders with hyperref options.

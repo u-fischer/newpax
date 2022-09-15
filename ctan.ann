@@ -1,9 +1,10 @@
 Version 0.52
 
-### Fixed 
- - add a missing test, issue #10
- - handle escaped parentheses in url's, issue #9
- - handle filespec dictionaries
+## [2022-09-11]
 
+### Fixed
+ - error if CreationDate not  found, issue #15
+ - error if there no info dictionary at all, issue #17
+ - error if F in GoToR is an indirect object
 
 Issues, comments, etc https://github.com/u-fischer/newpax

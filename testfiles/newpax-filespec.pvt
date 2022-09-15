@@ -1,0 +1,31 @@
+% !Mode:: "TeX:UTF-8:Main"
+\DocumentMetadata{}
+\input{regression-test}
+\documentclass{article}
+
+
+\usepackage{iftex,graphicx}
+\usepackage{pdfpages,xcolor}
+\usepackage{hyperref}
+\hypersetup{linkbordercolor=red}
+
+
+\ifluatex
+\directlua{
+  require("newpax")
+  newpax.writenewpax("test-gotoR")
+  newpax.writenewpax("test-gotoR-filespec")
+ }
+\fi
+
+\usepackage{newpax}
+
+
+\begin{document}
+
+included graphic:
+\includegraphics{test-gotoR}
+
+\includegraphics{test-gotoR-filespec}
+
+\end{document}

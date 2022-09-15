@@ -1,0 +1,28 @@
+% !Mode:: "TeX:UTF-8:Main"
+\DocumentMetadata{}
+\input{regression-test}
+\documentclass{article}
+
+
+\usepackage{iftex,graphicx}
+\usepackage{pdfpages,xcolor}
+\usepackage{hyperref}
+\hypersetup{linkbordercolor=red}
+
+
+\ifluatex
+\directlua{
+  require("newpax")
+  newpax.writenewpax("no_metadata")
+ }
+\fi
+
+\usepackage{newpax}
+
+
+\begin{document}
+
+included graphic:
+\includegraphics{no_metadata}
+
+\end{document}
