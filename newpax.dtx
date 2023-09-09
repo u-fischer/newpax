@@ -345,7 +345,8 @@
 % \subsection{Handling the newpax file}
 % The following keys were previously defined
 % with kvoptions, the names of the internal commands are kept for now.
-% The keys are used when processing the newpax-file.
+% The keys are used in the optional argument of \cs{includegraphics} 
+% and extend their functions.
 %    \begin{macrocode}
 \keys_define:nn {newpax/Gin}
  {
@@ -442,14 +443,21 @@
 %    \end{macrocode}
 % \end{macro}
 % The parsing commands
+% With \cs{NEWPAX@parser}  normally \cs{NEWPAX@cmd@XXX} is called, where
+% XXX is file, pagenum, annot, page or dest.  
 %    \begin{macrocode}
 \def\NEWPAX@parser#1{\NEWPAX@call{cmd}{#1}{}}%
+%    \end{macrocode}
+%    \begin{macrocode}
 \def\NEWPAX@call#1#2#3{%
   \@ifundefined{NEWPAX@#1@#2}\NEWPAX@skip{#3\csname NEWPAX@#1@#2\endcsname}%
 }
 \def\NEWPAX@skip#1\\{}
 \def\NEWPAX@stop#1\\{}
 
+%    \end{macrocode}
+% The command to handle the page entry.
+%    \begin{macrocode}
 \def\NEWPAX@cmd@page#1#2{%
   \NEWPAX@filter@page{#1}{%
     \NEWPAX@getrect{page}#2\@nil
