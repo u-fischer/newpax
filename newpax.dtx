@@ -91,7 +91,20 @@
 \tl_new:N \NEWPAX@fileextension
 %    \end{macrocode}
 % \end{variable}
+%
+% \begin{variable}{\NEWPAX@Gin@box@opts}
+% this hold the options of a annotation
+%    \begin{macrocode}
+\tl_new:N \NEWPAX@Gin@box@opts
+%    \end{macrocode}
+% \end{variable}
 % 
+% \begin{macro}{\ifNEWPAX@Gin@clip}
+%    \begin{macrocode}
+\newif\ifNEWPAX@Gin@clip
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsection{Variants}
 % 
 % \begin{macro}{\newpax@str@if@eq@@@@nnT}
@@ -284,10 +297,9 @@
 % \end{macro}
 %
 % \begin{macro}{\NEWPAX@includegraphics}
-% 
 %    \begin{macrocode}
 \def\NEWPAX@includegraphics[#1]#2{%
-  \begingroup
+  \group_begin:
     \hbox_set:Nn \l_@@_tmpa_box {\NEWPAX@ORG@includegraphics[{#1}]{#2}}%
     \tl_set:Nx \NEWPAX@inc@width  
       { \dim_eval:n { \box_wd:N \l_@@_tmpa_box } }%
@@ -325,18 +337,16 @@
         }
       \hfill
     }
-  \endgroup
+  \group_end:
 }
-% \end{macro}
-\ExplSyntaxOff
 %    \end{macrocode}
+% \end{macro}
+% 
+% \subsection{Handling the newpax file}
 % The following keys were previously defined
-% with kvoptions, the names are kept for now.
+% with kvoptions, the names of the internal commands are kept for now.
+% The keys are used when processing the newpax-file.
 %    \begin{macrocode}
-\ExplSyntaxOn
-\newif\ifNEWPAX@Gin@clip
-\newcommand\NEWPAX@Gin@box@opts{}
-
 \keys_define:nn {newpax/Gin}
  {
    ,page  .tl_set:N = \NEWPAX@Gin@page
@@ -358,8 +368,11 @@
  }
 \ExplSyntaxOff
 
-
-
+%    \end{macrocode}
+%
+% Calculate coordinates 
+% \begin{macro}{\NEWPAX@viewport,\NEWPAX@trim,\NEWPAX@defaultbp,\NEWPAX@def@bp}
+%    \begin{macrocode}
 \def\NEWPAX@viewport#1 #2 #3 #4\\{%
   \NEWPAX@defaultbp\NEWPAX@vllx{#1}%
   \NEWPAX@defaultbp\NEWPAX@vlly{#2}%
@@ -380,7 +393,6 @@
   \edef\NEWPAX@page@urx{\dimexpr\NEWPAX@page@urx-\NEWPAX@turx\relax}%
   \edef\NEWPAX@page@ury{\dimexpr\NEWPAX@page@ury-\NEWPAX@tury\relax}%
 }
-
 \def\NEWPAX@defaultbp#1#2{%
   \afterassignment\NEWPAX@def@bp\dimen@#2bp\relax{#1}{#2}%
 }
@@ -391,8 +403,12 @@
     \edef#2{#3}%
   \fi
 }
-
-
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\NEWPAX@AddAnnots}
+% This command is the main command that reads and parses the newpax file. 
+%    \begin{macrocode}
 \def\NEWPAX@AddAnnots#1#2{%
   \SetKeys[newpax/Gin]{#1}%
   \Grot@setangle{\NEWPAX@Gin@angle}%
@@ -423,6 +439,10 @@
   \catcode`\#=12 \catcode`\%=12
   \InputIfFileExists\NEWPAX@file{}{\typeout{* Missing: \NEWPAX@file}}\endgroup
 }
+%    \end{macrocode}
+% \end{macro}
+% The parsing commands
+%    \begin{macrocode}
 \def\NEWPAX@parser#1{\NEWPAX@call{cmd}{#1}{}}%
 \def\NEWPAX@call#1#2#3{%
   \@ifundefined{NEWPAX@#1@#2}\NEWPAX@skip{#3\csname NEWPAX@#1@#2\endcsname}%
@@ -483,6 +503,12 @@
   }%
   \NEWPAX@skip
 }
+
+%    \end{macrocode}
+
+% Now the main command which inserts annotations. 
+% \begin{macro}{\NEWPAX@pdf@annot}
+%    \begin{macrocode}
 \newif\ifNEWPAX@ok
 \NEWPAX@oktrue
 
@@ -588,8 +614,10 @@
   \fi
   \endgroup
 }
-
-
+%    \end{macrocode}
+% \end{macro}
+% 
+%    \begin{macrocode}
 \def\NEWPAX@htype@GoToR{file}
 \def\NEWPAX@htype@GoTo{link}
 \def\NEWPAX@htype@Named{link}
@@ -618,9 +646,16 @@
     \fi
   }%
 }
-
-% GoTo
-
+%    \end{macrocode}
+%
+% Goto links are the most challenging: here it is not enough to create an 
+% link annotation, one also have to ensure that the destination they point to exist 
+% and are correctly created. The destinations can be on previous (or later) 
+% pages that means that one has to use the aux to record what exists and what 
+% is needed.
+%  
+% At first ensure that the commands are defined to avoid errors if newpax is removed
+%    \begin{macrocode}
 \AddToHook{begindocument}
   {
    \immediate\write\@mainaux{\string\providecommand{\string\NEWPAX@DestReq}[2]{}}
@@ -632,18 +667,35 @@
    \immediate\write\@partaux{\string\providecommand{\string\NEWPAX@DestReq}[2]{}}
    \immediate\write\@partaux{\string\providecommand{\string\NEWPAX@DestProv}[2]{}}
   }
-
+%    \end{macrocode}
+%
+% After the aux file has been read the commands should do nothing:
+%    \begin{macrocode}
 \AtBeginDocument{%
   \let\NEWPAX@DestReq\@gobbletwo
   \let\NEWPAX@DestProv\@gobbletwo
 }
+%    \end{macrocode}
+
+% \begin{macro}{\NEWPAX@DestReq}
+% This command records the destinations that are required and should be reinserted.
+%    \begin{macrocode}
 \def\NEWPAX@DestReq#1#2{%
   \expandafter\gdef\csname NEWPAX@REQ@#1@#2\endcsname{}%
 }
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\NEWPAX@DestProv}
+% This records the destinations that are provided.
+%    \begin{macrocode}
 \def\NEWPAX@DestProv#1#2{%
   \expandafter\gdef\csname NEWPAX@PROV@#1@#2\endcsname{}%
 }
-
+%    \end{macrocode}
+% \end{macro}
+% 
+%    \begin{macrocode}
 \def\NEWPAX@link@GoTo{%
   \ifnum0<0\NEWPAX@key@DestLabel\relax
     \expandafter\@firstofone
@@ -666,8 +718,9 @@
     }%
   }%
 }
-
-% Read destinations
+%    \end{macrocode}
+% This is the command which reads the destination info.
+%    \begin{macrocode}
 \def\NEWPAX@cmd@dest#1#2#3#4{%
   \NEWPAX@filter@page{#1}{%
     \if@filesw
@@ -782,13 +835,12 @@
     \NEWPAX@skip
   }%
 }
-
 %    \end{macrocode}
 % These are keys used in the newpax file. The command names are inherited from kvoptions.
 %    \begin{macrocode}
 \ExplSyntaxOn
 \keys_define:nn {newpax/key}
- {
+  {
    ,URI      .tl_set:N = \NEWPAX@key@URI
    ,Name     .tl_set:N = \NEWPAX@key@Name
    ,DestName .tl_set:N = \NEWPAX@key@DestName
@@ -803,9 +855,8 @@
    ,DestRect .tl_set:N = \NEWPAX@key@DestRect
    ,DestZoom .tl_set:N = \NEWPAX@key@DestZoom
    ,DestX    .code:n = { \NEWPAX@defaultbp\NEWPAX@key@DestX{#1} }
-   ,DestY    .code:n = { \NEWPAX@defaultbp\NEWPAX@key@DestY{#1} }
-    
- }
+   ,DestY    .code:n = { \NEWPAX@defaultbp\NEWPAX@key@DestY{#1} }    
+  }
 \ExplSyntaxOff
 
 %</package>
