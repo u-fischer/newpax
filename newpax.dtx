@@ -58,6 +58,12 @@
 % \subsection{Variables}
 % Variables inherited from the pax code use \cs{NEWPAX}
 % as prefix.
+% \begin{variable}{\l_@@_tmpa_box}
+%    \begin{macrocode}
+\box_new:N \l_@@_tmpa_box
+%    \end{macrocode}
+% \end{variable}
+
 % \begin{variable}{ \l_@@_use_attributes_bool}
 % Used by the \texttt{usefileattributes} key.
 %    \begin{macrocode}
@@ -252,44 +258,46 @@
         \cs_set_eq:NN \@NEWPAX@ensurelinkbox@n \XeTeXLinkBox
       }
   } 
-\ExplSyntaxOff
 %    \end{macrocode}
 % \end{macro}
 %
+% \subsection{Handling graphics commands}
+% We must redefine \cs{includegraphics} to inject the code which
+% reinserts the annotation. This can't be done with hooks as the 
+% standard code splits everything too much.
+% 
+% \begin{macro}{\NEWPAX@ORG@includegraphics}
+%  At first we redefine \cs{includegraphics} to use our new command.
 %    \begin{macrocode}
-% Hook into \includegraphics of graphicx with one optional
-% star, one optional argument with key value pairs and
-% the graphics name
-\let\NEWPAX@ORG@includegraphics\includegraphics
-\def\includegraphics{%
-  \@ifstar{%
-    \@ifnextchar[{%
-      \begingroup
-        \def\x{\endgroup
-           \NEWPAX@includegraphics[clip,%
-        }%
-      \expandafter\x\@gobble
-    }{%
-      \NEWPAX@includegraphics[clip]%
-    }%
-  }{%
-    \@ifnextchar[{%
-      \NEWPAX@includegraphics
-    }{%
-      \NEWPAX@includegraphics[]%
-    }%
-  }%
-}
-
-\ExplSyntaxOn
+\NewCommandCopy\NEWPAX@ORG@includegraphics\includegraphics
+\RenewDocumentCommand\includegraphics{sO{}m}
+  {
+    \IfBooleanTF {#1}
+      {
+        \NEWPAX@includegraphics[clip,#2]{#3} 
+      }
+      {
+        \NEWPAX@includegraphics[#2]{#3} 
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\NEWPAX@includegraphics}
+% 
+%    \begin{macrocode}
 \def\NEWPAX@includegraphics[#1]#2{%
   \begingroup
-    \sbox0{\NEWPAX@ORG@includegraphics[{#1}]{#2}}%
-    \edef\NEWPAX@inc@width{\the\wd0}%
-    \edef\NEWPAX@inc@height{\the\dimexpr\dp0+\ht0}%
-    \leavevmode
-    \hbox to \wd0{%
-      \rlap{\copy0}%
+    \hbox_set:Nn \l_@@_tmpa_box {\NEWPAX@ORG@includegraphics[{#1}]{#2}}%
+    \tl_set:Nx \NEWPAX@inc@width  
+      { \dim_eval:n { \box_wd:N \l_@@_tmpa_box } }%
+    \tl_set:Nx \NEWPAX@inc@height 
+      { \dim_eval:n { \box_dp:N \l_@@_tmpa_box + \box_ht:N \l_@@_tmpa_box } }%
+    \mode_leave_vertical:
+    \hbox_to_wd:nn 
+     { \box_wd:N \l_@@_tmpa_box }
+     { 
+      \hbox_overlap_right:n { \box_use:N \l_@@_tmpa_box }
       \bool_if:nT
         { \l_@@_addannots_bool
            &&
@@ -306,15 +314,20 @@
            )
         }
         {
-          \raise-\dp0\hbox
-            {
-              \NEWPAX@AddAnnots{#1}{#2}%
-            }
+          \box_move_down:nn 
+           {\box_dp:N \l_@@_tmpa_box } 
+           {
+             \hbox:n
+               {
+                \NEWPAX@AddAnnots{#1}{#2}%
+               }
+           } 
         }
       \hfill
     }
   \endgroup
 }
+% \end{macro}
 \ExplSyntaxOff
 %    \end{macrocode}
 % The following keys were previously defined
