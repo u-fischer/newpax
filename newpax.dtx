@@ -30,11 +30,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{newpax}%
   [2022-09-15 v0.53 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
+%    \end{macrocode}
+% Test if the pdfmanagement is loaded:
+%    \begin{macrocode}
 \ExplSyntaxOn
-\bool_if:nF
-  {
-    \cs_if_exist_p:N \pdfmanagement_if_active_p:
-  }
+\IfDocumentMetadataTF 
+  {} 
   {  %error for now, perhaps warning later.
     \PackageError{newpax}
      {
@@ -43,7 +44,7 @@
      }
      {
        Load~it~with \MessageBreak
-       \string\RequirePackage{pdfmanagement-testphase}\MessageBreak
+       \string\DocumentMetadata{}\MessageBreak
        before~loading~the~class
      }
   }
@@ -51,8 +52,6 @@
 \ExplSyntaxOff
 \RequirePackage{graphicx}
 \RequirePackage{ltxcmds}[2011/04/18]
-\RequirePackage{kvsetkeys}[2011/04/07]
-\RequirePackage{kvoptions}[2010/12/23]
 \RequirePackage{etoolbox}
 \RequirePackage{xfp}
 
@@ -239,20 +238,34 @@
   \endgroup
 }
 \ExplSyntaxOff
-\SetupKeyvalOptions{family=NEWPAX@Gin,prefix=NEWPAX@Gin@}
-\DeclareStringOption[1]{page}
-\DeclareStringOption[0]{angle}
-\DeclareBoolOption{clip}
-\define@key{NEWPAX@Gin}{viewport}{%
-  \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts{%
-    \NEWPAX@viewport#1\\%
-  }%
-}
-\define@key{NEWPAX@Gin}{trim}{%
-  \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts{%
-    \NEWPAX@trim#1\\%
-  }%
-}
+%    \end{macrocode}
+% The following keys were previously defined
+% with kvoptions, the names are kept for now.
+%    \begin{macrocode}
+\ExplSyntaxOn
+\newif\ifNEWPAX@Gin@clip
+
+\keys_define:nn {newpax/Gin}
+ {
+   ,page  .tl_set:N = \NEWPAX@Gin@page
+   ,page  .initial:n = 1
+   ,angle .tl_set:N = \NEWPAX@Gin@angle
+   ,angle .initial:n = 0
+   ,clip  .legacy_if_set:n = NEWPAX@Gin@clip
+   ,viewport .code:n = 
+     {
+       \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts
+        {\NEWPAX@viewport#1\\}
+     }
+   ,trim .code:n = 
+     {
+       \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts
+        {\NEWPAX@trim#1\\}
+     } 
+   ,unknown .code:n = {}     
+ }
+\ExplSyntaxOff
+
 \let\NEWPAX@Gin@box@opts\@empty
 
 \def\NEWPAX@viewport#1 #2 #3 #4\\{%
@@ -287,11 +300,9 @@
   \fi
 }
 
-% ignore unknown options in family `NEWPAX@Gin'
-\kv@set@family@handler{NEWPAX@Gin}{}
 
 \def\NEWPAX@AddAnnots#1#2{%
-  \kvsetkeys{NEWPAX@Gin}{#1}%
+  \SetKeys[newpax/Gin]{#1}%
   \Grot@setangle{\NEWPAX@Gin@angle}%
   % a little careful, is type of angle int or real?
   \loop
@@ -376,7 +387,7 @@
   \NEWPAX@call{link}{#2}{%
     \begingroup
     \NEWPAX@getrect{annot}#1\@nil
-    \kvsetkeys{NEWPAX}{#3}%
+    \SetKeys[newpax/key]{#3}%
   }%
   \NEWPAX@skip
 }
@@ -577,7 +588,7 @@
       \begingroup
         \let\NEWPAX@key@DestY\NEWPAX@page@ury
         \let\NEWPAX@key@DestX\NEWPAX@page@llx
-        \kvsetkeys{NEWPAX}{#4}%
+        \SetKeys[newpax/key]{#4}%
         \let\NEWPAX@dest@llx\NEWPAX@key@DestX
         \let\NEWPAX@dest@urx\NEWPAX@key@DestX
         \let\NEWPAX@dest@lly\NEWPAX@key@DestY
@@ -680,26 +691,31 @@
   }%
 }
 
-\SetupKeyvalOptions{family=NEWPAX,prefix=NEWPAX@key@}
-\DeclareStringOption{URI}
-\DeclareStringOption{Name}
-\DeclareStringOption{DestName}
-\DeclareStringOption{DestPage}
-\DeclareStringOption{DestView}
-\DeclareStringOption{File}
-\DeclareStringOption{C}
-\DeclareStringOption{Border}
-\DeclareStringOption{BS}
-\DeclareStringOption{H}
-\DeclareStringOption{DestLabel}
-\DeclareStringOption{DestRect}
-\DeclareStringOption{DestZoom}
-\define@key{NEWPAX}{DestX}{%
-  \NEWPAX@defaultbp\NEWPAX@key@DestX{#1}%
-}
-\define@key{NEWPAX}{DestY}{%
-  \NEWPAX@defaultbp\NEWPAX@key@DestY{#1}%
-}
+%    \end{macrocode}
+% These are keys used in the newpax file. The command names are inherited from kvoptions.
+%    \begin{macrocode}
+\ExplSyntaxOn
+\keys_define:nn {newpax/key}
+ {
+   ,URI      .tl_set:N = \NEWPAX@key@URI
+   ,Name     .tl_set:N = \NEWPAX@key@Name
+   ,DestName .tl_set:N = \NEWPAX@key@DestName
+   ,DestPage .tl_set:N = \NEWPAX@key@DestPage
+   ,DestView .tl_set:N = \NEWPAX@key@DestView
+   ,File     .tl_set:N = \NEWPAX@key@File
+   ,C        .tl_set:N = \NEWPAX@key@C
+   ,Border   .tl_set:N = \NEWPAX@key@Border
+   ,BS       .tl_set:N = \NEWPAX@key@BS
+   ,H        .tl_set:N = \NEWPAX@key@H
+   ,DestLabel .tl_set:N = \NEWPAX@key@DestLabel
+   ,DestRect .tl_set:N = \NEWPAX@key@DestRect
+   ,DestZoom .tl_set:N = \NEWPAX@key@DestZoom
+   ,DestX    .code:n = { \NEWPAX@defaultbp\NEWPAX@key@DestX{#1} }
+   ,DestY    .code:n = { \NEWPAX@defaultbp\NEWPAX@key@DestY{#1} }
+    
+ }
+\ExplSyntaxOff
+
 %</package>
 %    \end{macrocode}
 %    \begin{macrocode}
