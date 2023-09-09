@@ -1,0 +1,15 @@
+\documentclass{article}
+\input{regression-test}
+
+\begin{document}
+\showoutput
+\START
+
+abc
+\special{papersize}
+\special{paper}
+\special{xpapersize}
+\special{paxersize}
+
+
+\end{document}

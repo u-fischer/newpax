@@ -2,6 +2,7 @@
 *.aux
 *.out
 *.synctex.gz
+*.synctex
 test-utf8.tex
 test-utf8.pdf
 *.prj
