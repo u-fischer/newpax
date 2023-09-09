@@ -53,7 +53,6 @@
 \RequirePackage{ltxcmds}[2011/04/18]
 \RequirePackage{kvsetkeys}[2011/04/07]
 \RequirePackage{kvoptions}[2010/12/23]
-\RequirePackage{auxhook}[2011/03/04]
 \RequirePackage{etoolbox}
 \RequirePackage{xfp}
 
@@ -519,12 +518,18 @@
 
 % GoTo
 
-\AddLineBeginAux{%
-  \string\providecommand{\string\NEWPAX@DestReq}[2]{}%
-}
-\AddLineBeginAux{%
-  \string\providecommand{\string\NEWPAX@DestProv}[2]{}%
-}
+\AddToHook{begindocument}
+  {
+   \immediate\write\@mainaux{\string\providecommand{\string\NEWPAX@DestReq}[2]{}}
+   \immediate\write\@mainaux{\string\providecommand{\string\NEWPAX@DestProv}[2]{}}
+  }
+\AddToHook
+  {include/before}
+  {
+   \immediate\write\@partaux{\string\providecommand{\string\NEWPAX@DestReq}[2]{}}
+   \immediate\write\@partaux{\string\providecommand{\string\NEWPAX@DestProv}[2]{}}
+  }
+
 \AtBeginDocument{%
   \let\NEWPAX@DestReq\@gobbletwo
   \let\NEWPAX@DestProv\@gobbletwo
