@@ -51,7 +51,6 @@
 
 \ExplSyntaxOff
 \RequirePackage{graphicx}
-\RequirePackage{ltxcmds}[2011/04/18]
 \RequirePackage{etoolbox}
 \RequirePackage{xfp}
 
@@ -244,6 +243,7 @@
 %    \begin{macrocode}
 \ExplSyntaxOn
 \newif\ifNEWPAX@Gin@clip
+\newcommand\NEWPAX@Gin@box@opts{}
 
 \keys_define:nn {newpax/Gin}
  {
@@ -254,19 +254,19 @@
    ,clip  .legacy_if_set:n = NEWPAX@Gin@clip
    ,viewport .code:n = 
      {
-       \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts
-        {\NEWPAX@viewport#1\\}
+       \tl_put_right:Nn\NEWPAX@Gin@box@opts
+         {\NEWPAX@viewport#1\\}
      }
    ,trim .code:n = 
      {
-       \ltx@LocalAppendToMacro\NEWPAX@Gin@box@opts
+       \tl_put_right:Nn\NEWPAX@Gin@box@opts
         {\NEWPAX@trim#1\\}
      } 
    ,unknown .code:n = {}     
  }
 \ExplSyntaxOff
 
-\let\NEWPAX@Gin@box@opts\@empty
+
 
 \def\NEWPAX@viewport#1 #2 #3 #4\\{%
   \NEWPAX@defaultbp\NEWPAX@vllx{#1}%
