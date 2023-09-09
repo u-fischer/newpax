@@ -1,52 +1,7 @@
 %PDF-1.5
-%äðíø
+%ÌÕÁÔÅØÐÄÆ
 7 0 obj
-<</Type/XObject/Subtype/Form/FormType 1/BBox[0 0 22.690624 27.706249]/Matrix[1 0
-0 1 0 0]/Resources<</ExtGState<</a0<</CA 1/ca 1>>>>>>/Length 1273>>
-stream
-q
-0 0 0.756863 RG /a0 gs
-0.8 w
-1 J
-1 j
-[] 0.0 d
-4 M q 1 0 0 -1 0 27.706249 cm
-22.289 23.898 m 21.32 25 20.652 25.715 20.289 26.039 c 19.352 26.883 
-18.508 27.305 17.762 27.305 c 16.871 27.305 15.348 26.406 13.184 24.617 
-c 10.789 22.625 9.152 21.438 8.281 21.039 c 7.977 20.906 7.68 20.836 
-7.391 20.836 c 6.578 20.836 5.496 21.523 4.145 22.898 c 4.145 21.934 l 
-4.629 21.25 5.152 20.676 5.707 20.207 c 4.012 19.512 2.695 18.379 1.762 
-16.813 c 0.852 15.316 0.398 13.629 0.398 11.75 c 0.398 7.668 2.293 
-4.414 6.086 1.992 c 7.762 0.93 9.648 0.398 11.742 0.398 c 15.313 0.398 
-18.047 1.863 19.945 4.789 c 20.852 6.207 21.305 7.891 21.305 9.836 c 
-21.305 12.516 20.43 14.906 18.68 17.008 c 16.93 19.117 14.734 20.434 
-12.098 20.961 c 12.867 21.152 14.02 21.875 15.551 23.141 c 17.082 
-24.402 18.219 25.035 18.961 25.039 c 19.699 25.035 20.809 24.324 22.289 
-22.898 c h
-18.727 12.523 m 18.727 10.652 18.309 8.871 17.48 7.18 c 16.59 5.402 
-15.383 4.043 13.859 3.102 c 12.414 2.219 11.027 1.777 9.699 1.773 c 
-7.676 1.777 6.039 2.52 4.785 4.008 c 3.598 5.414 3.004 7.145 3.008 
-9.195 c 3.004 13.113 4.504 16.156 7.5 18.32 c 8.883 19.324 10.41 19.824 
-12.082 19.82 c 14.047 19.824 15.656 19.09 16.918 17.617 c 18.121 16.227 
-18.727 14.527 18.727 12.523 c h
-18.727 12.523 m S Q
-Q
-endstream
-endobj
-9 0 obj
-<</Length 302>>
-stream
- q 1 0 0 1 72 720 cm 0 G 0 g 0 G 0 g 0 G 0 g 0 G 0 g BT /F1 9.9626 Tf 76.712 -80.508 Td[<0042004d002b0048006d002f0032002f>-333<003b0060001c0054003f0042002b002c>]TJ ET 0 G 0 g q q 1 0 0 1 155.905 -80.508 cm /Fm0 Do Q Q 0 G 0 g 0 G 0 g 0 G 0 g BT /F1 9.9626 Tf 231.133 -630.635 Td[<0052>]TJ ET 0 G 0 g Q
-endstream
-endobj
-10 0 obj
-<</ExtGState 4 0 R/Font<</F1 5 0 R>>/XObject<</Fm0 7 0 R>>/ProcSet[/PDF/Text/ImageC/ImageB/ImageI]>>
-endobj
-4 0 obj
-<</opacity1<</ca 1/CA 1>>>>
-endobj
-8 0 obj
-<</Type/Metadata/Subtype/XML/Length 11387>>
+<< /Type /Metadata /Subtype /XML /Length 11390 >>      
 stream
 <?xpacket begin="ï»¿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -240,7 +195,7 @@ stream
      </rdf:li>
     </rdf:Bag>
    </pdfaExtension:schemas>
-   <pdf:Producer>xetex-NN.NN.NN</pdf:Producer>
+   <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
    <pdf:PDFVersion>1.5</pdf:PDFVersion>
    <dc:type>
     <rdf:Bag>
@@ -273,47 +228,117 @@ stream
 <?xpacket end="w"?>
 endstream
 endobj
-13 0 obj
-<</Names[(Doc-Start)11 0 R(page.1)12 0 R]>>
+9 0 obj
+<< /Length 293 >>        
+stream
+/opacity1 gs
+0 g 0 G
+0 g 0 G
+0 g 0 G
+BT
+/F15 9.96264 Tf
+1 0 0 1 148.712 639.492 Tm [<0042004D002B0048006D002F0032002F>-333<003B0060001C0054003F0042002B002C>]TJ
+0 g 0 G
+ET
+q
+1 0 0 1 227.905 639.492 cm
+/Im1 Do
+Q
+0 g 0 G
+0 g 0 G
+BT
+/F15 9.96264 Tf
+1 0 0 1 303.133 89.365 Tm [<0052>]TJ
+0 g 0 G
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Contents 9 0 R /Resources 8 0 R /MediaBox [ 0 0 612 792 ] /Parent 13 0 R >>
+endobj
+6 0 obj
+<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 22.690624 27.706249 ] /Group << /S /Transparency /Type /Group /CS /DeviceRGB >> /Resources << /ExtGState << /a0 << /CA 1 /ca 1 >> >> >> /Length 1273 >>       
+stream
+q
+0 0 0.756863 RG /a0 gs
+0.8 w
+1 J
+1 j
+[] 0.0 d
+4 M q 1 0 0 -1 0 27.706249 cm
+22.289 23.898 m 21.32 25 20.652 25.715 20.289 26.039 c 19.352 26.883 
+18.508 27.305 17.762 27.305 c 16.871 27.305 15.348 26.406 13.184 24.617 
+c 10.789 22.625 9.152 21.438 8.281 21.039 c 7.977 20.906 7.68 20.836 
+7.391 20.836 c 6.578 20.836 5.496 21.523 4.145 22.898 c 4.145 21.934 l 
+4.629 21.25 5.152 20.676 5.707 20.207 c 4.012 19.512 2.695 18.379 1.762 
+16.813 c 0.852 15.316 0.398 13.629 0.398 11.75 c 0.398 7.668 2.293 
+4.414 6.086 1.992 c 7.762 0.93 9.648 0.398 11.742 0.398 c 15.313 0.398 
+18.047 1.863 19.945 4.789 c 20.852 6.207 21.305 7.891 21.305 9.836 c 
+21.305 12.516 20.43 14.906 18.68 17.008 c 16.93 19.117 14.734 20.434 
+12.098 20.961 c 12.867 21.152 14.02 21.875 15.551 23.141 c 17.082 
+24.402 18.219 25.035 18.961 25.039 c 19.699 25.035 20.809 24.324 22.289 
+22.898 c h
+18.727 12.523 m 18.727 10.652 18.309 8.871 17.48 7.18 c 16.59 5.402 
+15.383 4.043 13.859 3.102 c 12.414 2.219 11.027 1.777 9.699 1.773 c 
+7.676 1.777 6.039 2.52 4.785 4.008 c 3.598 5.414 3.004 7.145 3.008 
+9.195 c 3.004 13.113 4.504 16.156 7.5 18.32 c 8.883 19.324 10.41 19.824 
+12.082 19.82 c 14.047 19.824 15.656 19.09 16.918 17.617 c 18.121 16.227 
+18.727 14.527 18.727 12.523 c h
+18.727 12.523 m S Q
+Q
+endstream
+endobj
+10 0 obj
+<< /D [ 5 0 R /XYZ 132.768 705.06 null ] >>
 endobj
 11 0 obj
-[3 0 R/XYZ 133.77 667.2 null]
+<< /D [ 5 0 R /XYZ 133.768 667.198 null ] >>
 endobj
-12 0 obj
-[3 0 R/XYZ 132.77 705.06 null]
-endobj
-14 0 obj
-<</Dests 13 0 R>>
-endobj
-3 0 obj
-<</Resources 10 0 R/Type/Page/Parent 15 0 R/Contents[9 0 R]>>
-endobj
-15 0 obj
-<</Type/Pages/Count 1/Kids[3 0 R]/MediaBox[0 0 612 792]>>
-endobj
-2 0 obj
-<</Creator<feff004c006100540065005800200077006900740068002000680079007000650072007200650066>/Producer(xetex)/CreationDate(D:20160520090000Z)/ModDate(D:20160520090000Z)>>
+8 0 obj
+<< /ExtGState 1 0 R /Font << /F15 12 0 R >> /XObject << /Im1 6 0 R >> /ProcSet [ /PDF /Text ] >>
 endobj
 1 0 obj
-<</Lang(en-US)/PageMode/UseOutlines/OpenAction[3 0 R/Fit]/PageLabels<</Nums[0<</S/D>>]>>/Metadata
-8 0 R/Names 14 0 R/Pages 15 0 R/Type/Catalog>>
+<< /opacity1 <</ca 1/CA 1>>  >>
+endobj
+14 0 obj
+[ 28 [ 500 ] 43 [ 444 278 ] 47 [ 556 ] 50 [ 444 ] 59 [ 500 ] 63 [ 556 ] 66 [ 278 ] 72 [ 278 ] 77 [ 556 ] 82 [ 500 ] 84 [ 556 ] 96 [ 392 ] 109 [ 556 ] ]
 endobj
 16 0 obj
-<</Length 539>>
+<< /Length 14 >>         
+[BINARY STREAM]
+endobj
+17 0 obj
+<< /Subtype /CIDFontType0C /Length 2114 >>       
+[BINARY STREAM]
+endobj
+15 0 obj
+<< /Type /FontDescriptor /FontName /HZIORD+LMRoman10-Regular /Flags 4 /FontBBox [ -430 -290 1417 1127 ] /Ascent 1127 /CapHeight 683 /Descent -290 /ItalicAngle 0 /StemV 93 /XHeight 431 /FontFile3 17 0 R /CIDSet 16 0 R >>
+endobj
+18 0 obj
+<< /Length 875 >>        
 stream
+%!PS-Adobe-3.0 Resource-CMap
+%%DocumentNeededResources: ProcSet (CIDInit)
+%%IncludeResource: ProcSet (CIDInit)
+%%BeginResource: CMap (TeX-HZIORD-LMRoman10-Regular-0)
+%%Title: (TeX-HZIORD-LMRoman10-Regular-0 TeX HZIORD-LMRoman10-Regular 0)
+%%Version: 1.000
+%%EndComments
 /CIDInit /ProcSet findresource begin
 12 dict begin
 begincmap
-/CMapName /EXQIVM+LMRoman10-Regular-UTF16 def
-/CMapType 2 def
-/CIDSystemInfo <<
-  /Registry (Adobe)
-  /Ordering (UCS)
-  /Supplement 0
+/CIDSystemInfo
+<< /Registry (TeX)
+/Ordering (HZIORD-LMRoman10-Regular)
+/Supplement 0
 >> def
+/CMapName /TeX-Identity-HZIORD-LMRoman10-Regular def
+/CMapType 2 def
 1 begincodespacerange
 <0000> <FFFF>
 endcodespacerange
+0 beginbfrange
+endbfrange
 14 beginbfchar
 <001C> <0061>
 <002B> <0063>
@@ -334,58 +359,59 @@ endcmap
 CMapName currentdict /CMap defineresource pop
 end
 end
+%%EndResource
+%%EOF
 endstream
 endobj
-18 0 obj
-<</Subtype/CIDFontType0C/Length 2093>>
-[BINARY STREAM]
+12 0 obj
+<< /Type /Font /Subtype /Type0 /Encoding /Identity-H /BaseFont /HZIORD+LMRoman10-Regular /DescendantFonts [ 19 0 R ] /ToUnicode 18 0 R >>
 endobj
 19 0 obj
-[28[500]43[444 278]47[556]50[444]59[500]63[556]66[278]72[278]77[556]82[500]84[556]96[392]109[556]]
+<< /Type /Font /Subtype /CIDFontType0 /BaseFont /HZIORD+LMRoman10-Regular /FontDescriptor 15 0 R /W 14 0 R /CIDSystemInfo << /Registry (Adobe) /Ordering (Identity) /Supplement 0 >> >>
+endobj
+13 0 obj
+<< /Type /Pages  /Count 1 /Kids [ 5 0 R ] >>
 endobj
 20 0 obj
-<</Length 14>>
-[BINARY STREAM]
+<< /Names [ (Doc-Start) 11 0 R (page.1) 10 0 R ] /Limits [ (Doc-Start) (page.1) ] >>
 endobj
-6 0 obj
-<</Type/Font/Subtype/CIDFontType0/BaseFont/EXQIVM+LMRoman10-Regular/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement
-0>>/FontDescriptor 17 0 R/DW 280/W 19 0 R>>
+21 0 obj
+<< /Dests 20 0 R >>
 endobj
-17 0 obj
-<</Type/FontDescriptor/Ascent 806/Descent -194/StemV 69/CapHeight 806/AvgWidth 549/FontBBox[-430
--290 1417 1127]/ItalicAngle 0/Flags 6/Style<</Panose<000000000500000000000000>>>/FontName/EXQIVM+LMRoman10-Regular/FontFile3
-18 0 R/CIDSet 20 0 R>>
+22 0 obj
+<< /Type /Catalog /Pages 13 0 R /Names 21 0 R /Lang (en-US)/PageMode /UseOutlines/OpenAction [5 0 R /Fit]/PageLabels <</Nums[0<</S/D>>]>>/Metadata 7 0 R >>
 endobj
-5 0 obj
-<</Type/Font/Subtype/Type0/BaseFont/EXQIVM+LMRoman10-Regular-Identity-H/Encoding/Identity-H/DescendantFonts[6 0 R]/ToUnicode
-16 0 R>>
+23 0 obj
+<< /Producer (LuaTeX)/Creator <FEFF004C006100540065005800200077006900740068002000680079007000650072007200650066>/CreationDate (D:20160520090000Z)/ModDate (D:20160520090000Z) /Trapped /False >>
 endobj
 xref
-0 21
-0000000000 65535 f 
-0000013968 00000 n 
-0000013783 00000 n 
-0000013632 00000 n 
-0000001938 00000 n 
-0000017511 00000 n 
-0000017061 00000 n 
-0000000015 00000 n 
-0000001981 00000 n 
-0000001470 00000 n 
-0000001821 00000 n 
-0000013505 00000 n 
-0000013551 00000 n 
-0000013445 00000 n 
-0000013598 00000 n 
-0000013709 00000 n 
-0000014128 00000 n 
-0000017250 00000 n 
-0000014717 00000 n 
-0000016883 00000 n 
-0000016998 00000 n 
+0 24
+0000000002 65535 f 
+0000013713 00000 n 
+0000000003 00000 f 
+0000000004 00000 f 
+0000000000 00000 f 
+0000011851 00000 n 
+0000011958 00000 n 
+0000000020 00000 n 
+0000013601 00000 n 
+0000011499 00000 n 
+0000013480 00000 n 
+0000013540 00000 n 
+0000017371 00000 n 
+0000017725 00000 n 
+0000013760 00000 n 
+0000016200 00000 n 
+0000013928 00000 n 
+0000014002 00000 n 
+0000016436 00000 n 
+0000017525 00000 n 
+0000017786 00000 n 
+0000017887 00000 n 
+0000017923 00000 n 
+0000018095 00000 n 
 trailer
-<</ID[<ID-STRING><ID-STRING>]/Root
-1 0 R/Info 2 0 R/Size 21>>
+<< /Size 24 /Root 22 0 R /Info 23 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-17660
+18304
 %%EOF
