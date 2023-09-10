@@ -131,7 +131,7 @@
 \keys_define:nn {newpax}
   {
     usefileattributes .bool_set:N = \l_@@_use_attributes_bool,
-    destsuffix        .tl_set:N   = \l_@@_destsuffix_tl,
+    destsuffix        .code:n     = {\tl_set:Nn \l_@@_destsuffix_tl{@#1}},
     addannots         .bool_set:N = \l_@@_addannots_bool,
     addannots         .default:n  = true,
     addannots         .initial:n  = true,
@@ -606,7 +606,7 @@
         %additional box for lualatex ...
         \hbox{%
           \@NEWPAX@linkgoto@xnn
-            {NEWPAX@\NEWPAX@file @\NEWPAX@key@DestLabel @\csname l_@@_destsuffix_tl\endcsname}%
+            {NEWPAX@\NEWPAX@file @\NEWPAX@DestName}%
             {\NEWPAX@width}%
             {\NEWPAX@height}%
             }%
@@ -702,7 +702,22 @@
 }
 %    \end{macrocode}
 % \end{macro}
-% 
+
+% \begin{macro}[EXP]{\NEWPAX@DestName}
+% This command expands either to the number or the name if it exists. 
+%    \begin{macrocode}
+\ExplSyntaxOn
+\cs_new:Npn \NEWPAX@DestName
+  {
+    \tl_if_empty:eTF 
+      { \NEWPAX@key@DestName }
+      { \NEWPAX@key@DestLabel}
+      { \NEWPAX@key@DestName }
+    \l_@@_destsuffix_tl
+  }
+% \cs_set:Npn \NEWPAX@DestName {  \NEWPAX@key@DestLabel }
+%    \end{macrocode}
+% \end{macro}
 %    \begin{macrocode}
 \def\NEWPAX@link@GoTo{%
   \ifnum0<0\NEWPAX@key@DestLabel\relax
@@ -714,11 +729,11 @@
   {%
     \if@filesw
       \protected@write\@auxout{}{%
-        \string\NEWPAX@DestReq{\NEWPAX@file}{\NEWPAX@key@DestLabel}%
+        \string\NEWPAX@DestReq{\NEWPAX@file}{\NEWPAX@DestName}%
       }%
     \fi
     % Generate link, if destination exists
-    \@ifundefined{NEWPAX@PROV@\NEWPAX@file @\NEWPAX@key@DestLabel}{%
+    \@ifundefined{NEWPAX@PROV@\NEWPAX@file @\NEWPAX@DestName}{%
       \endgroup
     }{%
       \NEWPAX@GoTotrue
@@ -730,13 +745,16 @@
 % This is the command which reads the destination info.
 %    \begin{macrocode}
 \def\NEWPAX@cmd@dest#1#2#3#4{%
+  \def\NEWPAX@key@DestLabel{#2}%
+  \def\NEWPAX@key@DestName{}%
+  \SetKeys[newpax/key]{#4}%
   \NEWPAX@filter@page{#1}{%
     \if@filesw
       \protected@write\@auxout{}{%
-        \string\NEWPAX@DestProv{\NEWPAX@file}{#2}%
+        \string\NEWPAX@DestProv{\NEWPAX@file}{\NEWPAX@DestName}%
       }%
     \fi
-    \@ifundefined{NEWPAX@REQ@\NEWPAX@file @#2}{%
+    \@ifundefined{NEWPAX@REQ@\NEWPAX@file @\NEWPAX@DestName}{%
     }{%
       \begingroup
         \let\NEWPAX@key@DestY\NEWPAX@page@ury
@@ -813,7 +831,8 @@
             \NEWPAX@scale@y\dimexpr\NEWPAX@dest@lly-\NEWPAX@page@lly\relax
           }%
         \fi
-        \edef\NEWPAX@name{NEWPAX@\NEWPAX@file @#2@\csname l_@@_destsuffix_tl\endcsname}%
+        \edef\NEWPAX@name
+          {NEWPAX@\NEWPAX@file @\NEWPAX@DestName}%
         \let\NEWPAX@type\@empty
         \newpax@str@if@eq@@@@nnT{#3}{FITR}{\def\NEWPAX@type{xyz}}%too lazy for now for better fitr
         \newpax@str@if@eq@@@@nnT{#3}{XYZ}
@@ -837,8 +856,9 @@
           \kern\NEWPAX@right
           \hbox{\@NEWPAX@destination@xx {\NEWPAX@name}{\NEWPAX@type}}%
           \hss
-        }%
+        }%      
       \endgroup
+      \ExpandArgs{Nc}\global\let{NEWPAX@REQ@\NEWPAX@file @\NEWPAX@DestName}\undefined
     }%
     \NEWPAX@skip
   }%
@@ -846,7 +866,6 @@
 %    \end{macrocode}
 % These are keys used in the newpax file. The command names are inherited from kvoptions.
 %    \begin{macrocode}
-\ExplSyntaxOn
 \keys_define:nn {newpax/key}
   {
    ,URI      .tl_set:N = \NEWPAX@key@URI
