@@ -606,7 +606,7 @@
         %additional box for lualatex ...
         \hbox{%
           \@NEWPAX@linkgoto@xnn
-            {NEWPAX@\NEWPAX@file @\NEWPAX@DestName}%
+            {\NEWPAX@file @\NEWPAX@DestName}%
             {\NEWPAX@width}%
             {\NEWPAX@height}%
             }%
@@ -747,7 +747,7 @@
 \def\NEWPAX@cmd@dest#1#2#3#4{%
   \def\NEWPAX@key@DestLabel{#2}%
   \def\NEWPAX@key@DestName{}%
-  \SetKeys[newpax/key]{#4}%
+  \keys_set_groups:nnn {newpax/key} {destinit} {#4}
   \NEWPAX@filter@page{#1}{%
     \if@filesw
       \protected@write\@auxout{}{%
@@ -759,7 +759,7 @@
       \begingroup
         \let\NEWPAX@key@DestY\NEWPAX@page@ury
         \let\NEWPAX@key@DestX\NEWPAX@page@llx
-        \SetKeys[newpax/key]{#4}%
+        \keys_set_filter:nnn {newpax/key} {destinit} {#4}
         \let\NEWPAX@dest@llx\NEWPAX@key@DestX
         \let\NEWPAX@dest@urx\NEWPAX@key@DestX
         \let\NEWPAX@dest@lly\NEWPAX@key@DestY
@@ -832,7 +832,7 @@
           }%
         \fi
         \edef\NEWPAX@name
-          {NEWPAX@\NEWPAX@file @\NEWPAX@DestName}%
+          {\NEWPAX@file @\NEWPAX@DestName}%
         \let\NEWPAX@type\@empty
         \newpax@str@if@eq@@@@nnT{#3}{FITR}{\def\NEWPAX@type{xyz}}%too lazy for now for better fitr
         \newpax@str@if@eq@@@@nnT{#3}{XYZ}
@@ -858,7 +858,10 @@
           \hss
         }%      
       \endgroup
-      \ExpandArgs{Nc}\global\let{NEWPAX@REQ@\NEWPAX@file @\NEWPAX@DestName}\undefined
+%    \end{macrocode}
+% we undefine the REQ-command to avoid that the dest is set again.
+%    \begin{macrocode}
+      \cs_undefine:c{NEWPAX@REQ@\NEWPAX@file @\NEWPAX@DestName}
     }%
     \NEWPAX@skip
   }%
@@ -871,6 +874,7 @@
    ,URI      .tl_set:N = \NEWPAX@key@URI
    ,Name     .tl_set:N = \NEWPAX@key@Name
    ,DestName .tl_set:N = \NEWPAX@key@DestName
+   ,DestName .groups:n = {destinit}
    ,DestPage .tl_set:N = \NEWPAX@key@DestPage
    ,DestView .tl_set:N = \NEWPAX@key@DestView
    ,File     .tl_set:N = \NEWPAX@key@File
@@ -879,6 +883,7 @@
    ,BS       .tl_set:N = \NEWPAX@key@BS
    ,H        .tl_set:N = \NEWPAX@key@H
    ,DestLabel .tl_set:N = \NEWPAX@key@DestLabel
+   ,DestLabel .groups:n = {destinit}
    ,DestRect .tl_set:N = \NEWPAX@key@DestRect
    ,DestZoom .tl_set:N = \NEWPAX@key@DestZoom
    ,DestX    .code:n = { \NEWPAX@defaultbp\NEWPAX@key@DestX{#1} }
