@@ -78,6 +78,14 @@
 %    \end{macrocode}
 % \end{variable}
 %
+% \begin{variable}{ \l_@@_dests_all_bool}
+% Used by the \texttt{dests} key. 
+% if true newpax will insert more destinations.
+%    \begin{macrocode}
+\bool_new:N \l_@@_dests_all_bool
+%    \end{macrocode}
+% \end{variable}
+
 % \begin{variable}{ \l_@@_destsuffic_tl}
 % Used by the \texttt{addannots} key. 
 %    \begin{macrocode}
@@ -138,7 +146,11 @@
     paxextension      .choices:nn =
        {pax,newpax}
        {\tl_set:Nn \NEWPAX@fileextension {#1}},
-    paxextension .initial:n = newpax
+    paxextension .initial:n = newpax,
+    dests             .choice:, 
+    dests/all         .code:n = {\bool_set_true:N \l_@@_dests_all_bool},
+    dests/used        .code:n = {\bool_set_false:N \l_@@_dests_all_bool},
+    dests             .initial:n = used
   }
 
 %    \end{macrocode}
@@ -625,12 +637,15 @@
 %    \end{macrocode}
 % \end{macro}
 % 
+% What do they do??
 %    \begin{macrocode}
 \def\NEWPAX@htype@GoToR{file}
 \def\NEWPAX@htype@GoTo{link}
 \def\NEWPAX@htype@Named{link}
 \def\NEWPAX@htype@URI{url}
-
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \ExplSyntaxOn
 \def\NEWPAX@link@URI{%
   \NEWPAX@pdf@annot{%
@@ -753,6 +768,13 @@
       \protected@write\@auxout{}{%
         \string\NEWPAX@DestProv{\NEWPAX@file}{\NEWPAX@DestName}%
       }%
+    \bool_if:NT\l_@@_dests_all_bool
+     {
+       \protected@write\@auxout{}
+        {
+          \string\NEWPAX@DestReq{\NEWPAX@file}{\NEWPAX@DestName}%
+        }
+     }  
     \fi
     \@ifundefined{NEWPAX@REQ@\NEWPAX@file @\NEWPAX@DestName}{%
     }{%
@@ -1324,7 +1346,7 @@ local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref,pdfe
    if data[4] and data[4][2] then
     a = a .. strKV_BEG .. constKEY_DEST_Y .. strVALUE_BEG .. data[4][2] .. strVALUE_END .. strKV_END
    else
-    a = a .. strKV_BEG .. constKEY_DEST_X .. strVALUE_BEG .. mediabox[4] .. strVALUE_END .. strKV_END
+    a = a .. strKV_BEG .. constKEY_DEST_Y .. strVALUE_BEG .. mediabox[4] .. strVALUE_END .. strKV_END
    end
    if data[5] and data[5][2] then
     a = a .. strKV_BEG .. constKEY_DEST_ZOOM .. strVALUE_BEG .. data[5][2] .. strVALUE_END .. strKV_END
