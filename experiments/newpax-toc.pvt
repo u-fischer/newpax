@@ -1,6 +1,6 @@
 % !Mode:: "TeX:UTF-8:Main"
-\DocumentMetadata{}
-\input{regression-test}
+\DocumentMetadata{uncompress}
+%\input{regression-test}
 \documentclass{article}
 
 
@@ -19,8 +19,15 @@
 
 \usepackage{newpax}
 
-
+\newpaxsetup{dests=all}
 \begin{document}
-
-\includepdf[pages={1,3}]{newpax-input-toc}
+%\makeatletter \if@filesw 
+%      \protected@write\@auxout{}{%
+%        \string\NEWPAX@DestReq{newpax-input-toc.newpax}{subsection.2.1}%
+%      }%
+%    \fi
+ 
+\def\HyperDestNameFilter#1{newpax-input-toc.newpax@#1}    
+\input{newpax-input-toc.toc}    
+\includepdf[pages={2-4}]{newpax-input-toc}
 \end{document}
