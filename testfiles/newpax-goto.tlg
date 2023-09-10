@@ -29,7 +29,7 @@ Don't change this file in any respect.
 }\\^^M
 \[{dest}{1}{1}{XYZ}{^^M
   DestX={0.0},^^M
-  DestX={792.0},^^M
+  DestY={792.0},^^M
 }\\^^M
 \[{dest}{1}{2}{XYZ}{^^M
   DestX={133.768},^^M
@@ -40,6 +40,26 @@ Don't change this file in any respect.
   DestX={133.768},^^M
   DestY={667.198},^^M
   DestName={section.2},^^M
+}\\^^M
+\[{dest}{2}{4}{XYZ}{^^M
+  DestX={132.768},^^M
+  DestY={705.06},^^M
+  DestName={page.2},^^M
+}\\^^M
+\[{dest}{3}{5}{XYZ}{^^M
+  DestX={132.768},^^M
+  DestY={705.06},^^M
+  DestName={page.3},^^M
+}\\^^M
+\[{dest}{1}{6}{XYZ}{^^M
+  DestX={132.768},^^M
+  DestY={705.06},^^M
+  DestName={page.1},^^M
+}\\^^M
+\[{dest}{1}{7}{XYZ}{^^M
+  DestX={133.768},^^M
+  DestY={667.198},^^M
+  DestName={Doc-Start},^^M
 }\\^^M
 -------- goto-input.newpax (end) -----------
 [1
