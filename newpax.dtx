@@ -1268,8 +1268,16 @@ local function outputKV_gotor (pdfedict) -- action dictionary
   return a
 end
 
+-- this outputs the key DestLabel with a count
+
 local function outputKV_goto (count)
   local a = strKV_BEG .. constKEY_DEST_LABEL .. strVALUE_BEG .. count .. strVALUE_END .. strKV_END
+  return a
+end
+
+-- this outputs the key DestName with a name
+local function outputKV_goto_name (name)
+  local a = strKV_BEG .. constKEY_DEST_NAME .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
   return a
 end
 
@@ -1322,6 +1330,11 @@ local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref,pdfe
    a = a .. data[5][2] .. strRECT_SEP
    a = a .. data[6][2] .. strVALUE_END .. strKV_END
  end
+  -- output also the name. This perhaps need a check if the name exists 
+  -- print("DEBUG TYPE name", TYPE(name))
+  if not (TYPE(name) == "pdfe.array") then    
+   a = a .. strKV_BEG .. constKEY_DEST_NAME .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
+  end 
  a = a .. strKVS_END .. strENTRY_END
  return a
 end
@@ -1375,6 +1388,7 @@ local function __writepax (ext,file)
                annotgoto,pagereftonumVAR,destnamestorefVAR,docVAR))
         else
           local annotaction = GETDICTIONARY(annot,"A")
+          --  print("DEBUG A:",table.serialize(DICTIONARYTOTABLE(annotaction)))
           local annotactiontype =""
           if annotaction then
             annotactiontype = GETNAME(annotaction,"S")
@@ -1388,8 +1402,14 @@ local function __writepax (ext,file)
             if annotactiontype == constKEY_URI then
               WRITE ( outputKV_uri(annotaction) )
             elseif annotactiontype =="GoTo" then
+              local desttype, destname, destdetail =  GETFROMDICTIONARY(annotaction,"D")
+              -- print("DEBUG annotaction", desttype, destname, destdetail)
               destcountVAR=destcountVAR + 1
               WRITE ( outputKV_goto (destcountVAR) )
+              -- this needs perhaps a check if destname actually exists.
+              if desttype == 6 then
+                WRITE ( outputKV_goto_name(destname) )
+              end  
             elseif annotactiontype=="GoToR" then
               WRITE ( outputKV_gotor(annotaction) )
             elseif annotactiontype=="Named" then
