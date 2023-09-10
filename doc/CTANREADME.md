@@ -2,14 +2,13 @@
 
 This package allows to insert PDF in a document while preserving
 internal and external links. With lualatex it works in the document
-directly, other engines require to run a compilaton with lualatex or to call
+directly, other engines require to run a compilation with lualatex or to call
 a lua script first.
 
 The package is based on and uses code from [pax](https://ctan.org/pkg/pax) by Heiko Oberdiek.
 
-Packageversion: 0.53 
-Packagedate: 2021-02-26
-Author: Ulrike Fischer
+Packageversion: 0.54 
+Packagedate: 2023-09-11 Author: Ulrike Fischer 
 
 ## License
 The newpax package may be modified and distributed under the terms and conditions of the 
