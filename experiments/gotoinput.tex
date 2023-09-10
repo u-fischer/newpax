@@ -1,0 +1,25 @@
+\DocumentMetadata{uncompress}
+\documentclass{article}
+\usepackage{hyperref}
+\begin{document}
+\section{Source a}\label{a}
+
+\newpage 
+\ExplSyntaxOn
+\pdfannot_link:nnn { Link }
+{
+ /Subtype /Link
+/A<<
+/Type/Action
+/S/GoTo
+/D [\pdf_pageobject_ref:n{3}~/Fit]
+>>
+}
+{ link text}
+\ExplSyntaxOff
+
+\newpage 
+\section{Source b}\label{b}
+
+\ref{a}, \ref{b} 
+\end{document}

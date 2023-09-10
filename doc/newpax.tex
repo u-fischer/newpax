@@ -179,8 +179,27 @@ The code also doesn't handle structure elements, neither at the export nor at th
 
 \section{Importing annotations}
 
-The \pkg{pax} package from Heiko Oberdiek does the hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted. It also patches the \cs{includegraphics} command to automate this.
-\pkg{newpax} reuses the core commands of \pkg{pax}. It only adds a number of switches and changes primitive to support more engines and backends.
+The import function has to handle two main problems: 
+\begin{itemize}
+\item Recalculation of coordinates if the imported PDF is scaled or moved
+\item Dropping of annotations and destinations if a PDF is only partially included, e.g. because the graphic is clipped, or because only a selection of pages are included. 
+\end{itemize}    
+
+The \pkg{pax} package from Heiko Oberdiek does here hard work to recalculate the annotation rectangles and to decide which annotation and which destination should be reinserted and patches \cs{includegraphics} command to automate this. \pkg{newpax} mostly reuses the core commands of \pkg{pax} and added only a number of switches and support for more engines and backends.
+
+\section{Internal links}
+
+Internal links (GoTo links in PDF speach) are more complicated than the other link types.
+
+At first they involve two objects: the link annotation and the target of the link (destination in PDF speach). If a PDF is included partially, it is therefore not enough to check if the link area is on the visible pages, one also has to check if the target of the link is there. As such a target can be on a later page the \pkg{pax}/\pkg{newpax} uses the \texttt{.aux} file to record which targets exists and which are required and in a second compilation decides which links and destinations should be reinserted. As an example: if you include from a PDF the table of contents (with links) and a few pages, only the links in the toc pointing to visible sections \emph{and} only the destinations needed for this links will be reinserted.
+
+At second the targets are normally „named destinations“, that means a link annotation points to a string like \texttt{section.1} and the name tree  \texttt{/Dests} contains a mapping for this string to an destination object. As names like \texttt{section.1} are used in many PDFs produced by \LaTeX{} they can not simply be reused when reinserting annotations. \pkg{newpax} tries to avoid name clashes by generating names consisting of a prefix with the file name and number or name. So e.g. the \texttt{section.1} destination would be called \texttt{NEWPAX@file.newpax@2@} in the receiving file.
+
+
+\subsection{Access from the „outside“}
+
+
+
 
 
 

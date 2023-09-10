@@ -1,0 +1,36 @@
+\DocumentMetadata{uncompress}
+\documentclass{article}
+\usepackage{hyperref}
+
+\hypersetup{pdfborderstyle={/S/U/W 1},
+   pdfauthor=Author,pdftitle=title,pdfcreator=creator}
+
+\usepackage{kantlipsum}
+\begin{document}
+
+\makeatletter
+% from \@starttoc, but without re-reading, creates toc file 
+\newwrite\tf@toc\immediate\openout\tf@toc\jobname.toc\relax
+\newwrite\tf@lof\immediate\openout\tf@lof\jobname.lof\relax
+\newwrite\tf@lot\immediate\openout\tf@lot\jobname.lot\relax
+\makeatother
+
+\setcounter{section}{2} % to ensure correct section numbers
+\setcounter{page}{3}    % ... and page numbers
+
+\section{Section 3}\label{sec}
+See Section~\ref{sec2}\par
+\kant[3-6]
+\section{Section 4}\label{sec2}
+\begin{figure}
+   \caption[input doc figure]{This is a figure in the input doc}
+\end{figure}
+\subsection{Section 4.1}\label{2-1}
+\kant[8]
+\section{Section 5}\label{sec3}
+\begin{table}
+   \caption[input doc table]{this is table in the input doc}
+\end{table}
+\kant[9]
+
+\end{document} 

@@ -1,0 +1,26 @@
+% !Mode:: "TeX:UTF-8:Main"
+\DocumentMetadata{}
+\input{regression-test}
+\documentclass{article}
+
+
+\usepackage{iftex,graphicx}
+\usepackage{pdfpages,xcolor}
+\usepackage{hyperref}
+\hypersetup{linkbordercolor=red}
+
+
+\ifluatex
+\directlua{
+  require("newpax")
+  newpax.writenewpax("grüße with space input")
+ }
+\fi
+
+\usepackage{newpax}
+
+
+\begin{document}
+
+\includepdf[pages={1,3}]{grüße with space input}
+\end{document}

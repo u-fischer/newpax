@@ -1,0 +1,28 @@
+% !Mode:: "TeX:UTF-8:Main"
+%improves compability with tikz etc ...
+\DocumentMetadata{uncompress}
+\documentclass{article}
+\usepackage{pdfpages,xcolor}
+
+% use a custom hyperref driver:
+\usepackage{hyperref}
+\hypersetup{linkbordercolor=blue}
+% load the lua code
+\directlua{require("newpax")}
+% write .newpax files for newpax.sty
+\directlua
+{
+  newpax.writenewpax("gotoinput")
+}
+
+\usepackage{newpax}
+
+%use the link border color and style of the imported pdf
+%and not hyperref colors
+\newpaxsetup{usefileattributes=true}
+
+\begin{document}
+abc
+
+
+\end{document}

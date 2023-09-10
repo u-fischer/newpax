@@ -1,0 +1,92 @@
+\DocumentMetadata{uncompress}
+\documentclass{article}
+
+\usepackage{pdfpages,xcolor}
+
+\usepackage{hyperref}
+\hypersetup{linkbordercolor=blue}
+\usepackage{kantlipsum}
+
+\usepackage{newpax}
+\directlua
+{
+  require("newpax")
+  newpax.writenewpax("doc-input")
+}
+
+\makeatletter
+
+%\def\@NEWPAX@TARGET@NAME#1{NEWPAX@\NEWPAX@file @#1@\csname l__newpax_destsuffix_tl\endcsname}
+%
+%\def\@contentsline@target@toc{toc}
+%\def\altcontentsline#1#2#3#4{
+%    \edef\@NEWPAX@PDFDEST@NAME{\@NEWPAX@TARGET@NAME{#4}}%
+%    \protected@write\@auxout{}{%
+%        \string\NEWPAX@DestReq{\NEWPAX@file}{#4}%
+%    }%
+%    \edef\addtocontentsX{{\string #1}{\string #2}{\string #3}{\@NEWPAX@PDFDEST@NAME}}%
+%    \addtocontents{\@contentsline@target}{\string\contentsline\addtocontentsX\protected@file@percent}%
+%    
+%    \ifx\@contentsline@target@toc\@contentsline@target%
+%      \edef\@itemlevel{\csname toclevel@#1\endcsname}% defined by hyperref
+%      \ifnum\@itemlevel>\c@tocdepth\else%
+%        \let\old@numberline\numberline%
+%        \let\numberline\@gobble%
+%        \expandafter\bookmark[dest=\@NEWPAX@PDFDEST@NAME, level=\@itemlevel]{#2}%
+%        \let\numberline\old@numberline%
+%      \fi
+%    \fi
+%}
+%
+%% #1 = file name, #2 = target file
+%\def\IncludeIncludedFileMeta#1#2{%
+%    \def\NEWPAX@file{#1.newpax}%
+%    \def\@contentsline@target{#2}%
+%    \let\old@contentsline\contentsline%
+%    \let\old@contentsfinish\contentsfinish%
+%    \let\contentsline\altcontentsline%
+%    \let\contentsfinish\relax%
+%    \input{#1.#2}%
+%    \let\contentsline\old@contentsline%
+%    \let\contentsfinish\old@contentsfinish%
+%}
+%
+%\gdef\@newlabel@parseaux@xx#1#2#3#4#5#6{
+%    \edef\@NEWPAX@PDFDEST@NAME{\@NEWPAX@TARGET@NAME{#5}}%
+%    \protected@write\@auxout{}{%
+%        \string\NEWPAX@DestReq{\NEWPAX@file}{#5}%
+%        \string\newlabel{\NEWPAX@ref@prefix#1}{{#2}{#3}{#4}{\@NEWPAX@PDFDEST@NAME}{#6}}%
+%    }%
+%}
+%
+%\gdef\@newlabel@parseaux#1#2{\@newlabel@parseaux@xx{#1}#2}
+%
+%\def\ParseAux#1{
+%  \makeatletter%
+%  \edef\NEWPAX@ref@prefix{#1:}%
+%  \def\NEWPAX@file{#1.newpax}%
+%%
+%  \let\old@writefile\@writefile%
+%  \let\old@BKM@entry\BKM@entry%
+%  \let\old@newlabel\newlabel%
+%%
+%  \let\@writefile\@gobbletwo%
+%  \let\BKM@entry\@gobble%
+%  \let\newlabel\@newlabel@parseaux%
+%%
+%  \input{#1.aux}%
+%%
+%  \let\newlabel\old@newlabel%
+%  \let\@writefile\old@writefile%
+%  \let\BKM@entry\old@BKM@entry%
+%  \makeatother%
+%}
+\makeatother
+
+\begin{document}
+blub 
+
+\includepdf[pages=-]{doc-input}
+
+
+\end{document}
