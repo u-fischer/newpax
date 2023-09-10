@@ -130,6 +130,13 @@ This command allows to change the behaviour inclusion. It knows the following ke
  \item[\PrintKeyName{addannots}] This is a boolean key. It allows to switch on and off the reinserting of the annotations. When set to false  it also suppress warnings in the log if the \file{.newpax} file is not found.
      It is recommended to set it to false for graphics which don't have links.
 
+ \item[\PrintKeyName{dests}] This is a choice key. Currently the values 
+     \texttt{used} (the default) and \texttt{all} are allowed. In the first 
+     case only destinations that are targets of links in the included PDF 
+     will be included, in the second case all destinations (if they are in 
+     the included pages) will be included. The second can be useful if you 
+     want to link to destinations \enquote{from the outside}, see below 
+     section~\ref{sec:outside}.  
 \end{description}
 
 
@@ -193,10 +200,50 @@ Internal links (GoTo links in PDF speach) are more complicated than the other li
 
 At first they involve two objects: the link annotation and the target of the link (destination in PDF speach). If a PDF is included partially, it is therefore not enough to check if the link area is on the visible pages, one also has to check if the target of the link is there. As such a target can be on a later page the \pkg{pax}/\pkg{newpax} uses the \texttt{.aux} file to record which targets exists and which are required and in a second compilation decides which links and destinations should be reinserted. As an example: if you include from a PDF the table of contents (with links) and a few pages, only the links in the toc pointing to visible sections \emph{and} only the destinations needed for this links will be reinserted.
 
-At second the targets are normally „named destinations“, that means a link annotation points to a string like \texttt{section.1} and the name tree  \texttt{/Dests} contains a mapping for this string to an destination object. As names like \texttt{section.1} are used in many PDFs produced by \LaTeX{} they can not simply be reused when reinserting annotations. \pkg{newpax} tries to avoid name clashes by generating names consisting of a prefix with the file name and number or name. So e.g. the \texttt{section.1} destination would be called \texttt{NEWPAX@file.newpax@2@} in the receiving file.
+At second the targets are normally „named destinations“, that means a link 
+annotation points to a string like \texttt{section.1} and the name tree  
+\texttt{/Dests} contains a mapping for this string to an destination object. 
+As names like \texttt{section.1} are used in many PDFs produced by \LaTeX{} 
+they can not simply be reused when reinserting annotations. \pkg{newpax} 
+tries to avoid name clashes by generating names consisting of a prefix with 
+the file name and number or name. So e.g. the \texttt{section.1} destination 
+would be called \texttt{file.newpax@section.1} in the receiving file. If you 
+set up a suffix, e.g. with \texttt{destsuffix=A}, it is appended with an @ 
+symbol, so the result would be \texttt{file.newpax@section.1@A}. If the 
+original destination has not name (this can happen if you include PDFs which 
+haven't been created by TeX), then a number is used, so you get 
+\texttt{file.newpax@1}. 
 
 
-\subsection{Access from the „outside“}
+\subsection{Access from the „outside“}\label{sec:outside}
+
+It is possible to link from the external document to destinations in the 
+included PDF, for example to build a table of contents with links. For this 
+you need  
+
+\begin{itemize}
+\item the included PDF must contain all destinations that you want to use. 
+    That means, \pkg{newpax} won't create destinations out of the blue.
+    
+\item You must ensure that the destinations you need are imported. This 
+    will be the case if they are targets of internal links in the imported 
+    PDF, if not you can force that all destinations of visible pages are 
+    there by using the option \texttt{dests=all}, see above. 
+
+\item You need the names of the destinations. If the imported PDF has been 
+    created with \LaTeX{} you can look in the \texttt{toc} or 
+    \texttt{aux}-file to find names. Then you can setup a filter to link to 
+    the names used by \pkg{newpax} and e.g. load the toc or copy some of 
+    the content lines: 
+    
+    \begin{lstlisting}
+    \newpaxsetup{dests=all}
+    \def\HyperDestNameFilter#1{myinput.newpax@#1}    
+    \input{myinput.toc} %load toc    
+    \includepdf[pages={2-4}]{myinput}
+    \end{lstlisting}
+   
+ \end{itemize}         
 
 
 
