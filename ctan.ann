@@ -1,8 +1,15 @@
-Version 0.53
+Version 0.54
 
-## [2022-09-15]
+## [2023-09-11]
+
+### Changed
+- destinations now use the names derived from the original names if possible. 
+- more destinations are extracted.
+
+Both allows to reference them from the "outside", see issue #20,
 
 ### Fixed
-- URI values given as indirect object (issue #18)
+- spurious spaces
+- wrong coordinate for unnamed destinations 
 
 Issues, comments, etc https://github.com/u-fischer/newpax
