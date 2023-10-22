@@ -1480,9 +1480,17 @@ local function __writepax (ext,file)
   for i=1,#collected_destinations do
    WRITE (collected_destinations[i])
   end
+  -- order must be constant
+  local destnames = {}
+  for destname, destval in pairs(destnamestorefVAR) do
+    table.insert(destnames, destname)
+  end
+  table.sort(destnames)
   -- write out the rest of the destinations.
-  for k,v in pairs (destnamestorefVAR) do
-   -- ignore use dests and page destinations. 
+  for i_dest = 1, #destnames do
+    k=destnames[i_dest]
+    v=destnamestorefVAR[k]
+   -- ignore use dests and page destinations.
     i=string.find(k,"page.",1) 
     if not useddestnames[k] and not i then
       destcountVAR=destcountVAR + 1
