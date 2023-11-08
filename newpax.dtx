@@ -29,7 +29,7 @@
 %<@@=newpax>
 \NeedsTeXFormat{LaTeX2e}[2022-11-01]
 \ProvidesPackage{newpax}%
-  [2023-09-11 v0.54 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
+  [2023-11-08 v0.55 Annotation support for PDF graphics based on pax.sty adapted by (UF)]%
 %    \end{macrocode}
 % Test if the pdfmanagement is loaded:
 %    \begin{macrocode}
@@ -919,8 +919,8 @@
 %<*lua>
 local ProvidesLuaModule = {
     name          = "newpax",
-    version       = "0.54",       --TAGVERSION
-    date          = "2023-09-11", --TAGDATE
+    version       = "0.55",       --TAGVERSION
+    date          = "2023-11-08", --TAGDATE
     description   = "newpax lua code",
     license       = "The LATEX Project Public License 1.3c"
 }
@@ -1085,9 +1085,17 @@ end
 -- destinations can be an dict (/D [array]) or only an array!
 
 local function getdestdata (name,pagereftonum,destnamestoref)
-   local destref = destnamestoref[name]
+   local destref
    local type,ref,pagenum,destx,desty = nil, nil, 1,0,0
    local data = {{0,0}, {5,constDEST_XYZ}}
+   -- if we get directly an array
+   if (TYPE(name) == "pdfe.array") then
+     data = ARRAYTOTABLE(name)
+     type, ref, pageref = GETFROMARRAY(name,1)
+     pagenum = pagereftonum[pageref]
+   else
+    destref = destnamestoref[name]
+   end   
    if destref then
      type,value,detail = GETFROMREFERENCE(destref)
      if TYPE(value) == "pdfe.dictionary" then
@@ -1103,8 +1111,10 @@ local function getdestdata (name,pagereftonum,destnamestoref)
         pagenum = pagereftonum[pageref]
      end
    end
+  -- print("XXXXXXXXXX",table.serialize(data),pagenum)
   return pagenum, data
 end
+
 
 -- output functions
 -- write the info
@@ -1481,14 +1491,22 @@ local function __writepax (ext,file)
    WRITE (collected_destinations[i])
   end
   -- write out the rest of the destinations.
+  -- We order first the table so that the newpax file doesn't change between 
+  -- compilations, see issue #25 and PR #25
+  local destnamessorted = {}
   for k,v in pairs (destnamestorefVAR) do
    -- ignore use dests and page destinations. 
     i=string.find(k,"page.",1) 
     if not useddestnames[k] and not i then
-      destcountVAR=destcountVAR + 1
-      WRITE(outputENTRY_dest(destcountVAR,k,pagereftonumVAR,destnamestorefVAR,docVAR))
+      table.insert (destnamessorted,k)
     end
   end  
+  table.sort(destnamessorted)
+  for i = 1, #destnamessorted do
+      k=destnamessorted[i]
+      destcountVAR=destcountVAR + 1
+      WRITE(outputENTRY_dest(destcountVAR,k,pagereftonumVAR,destnamestorefVAR,docVAR))
+  end    
   io.close(writeVAR)
 end
 

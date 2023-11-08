@@ -5,7 +5,28 @@ first release 0.5, 2021-02-23 will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project uses date-based 'snapshot' version identifiers.
 
-## [Unreleased]
+## [2023-11-08]
+Version 0.55
+
+### Fixed
+
+ - sort destinations by name (issue #26, PR #25)
+ - handling of inline /Dest entries, issue #24
+ 
+## [2023-09-11]
+Version 0.54
+
+### Changed
+- destinations now use the names derived from the original names if possible. 
+- more destinations are extracted.
+
+Both allows to reference them from the "outside", see issue #20,
+
+### Fixed
+- spurious spaces
+- wrong coordinate for unnamed destinations 
+ 
+## [2022-09-15]
 ### Fixed
 
 - URI values given as indirect object (issue #18)
