@@ -1,7 +1,7 @@
 # newpax
 
-![Version: 0.54](https://img.shields.io/badge/current_version-0.54-blue.svg?style=flat-square)
-![Date: 2023-09-11](https://img.shields.io/badge/date-2023-09-11-blue.svg?style=flat-square)
+![Version: 0.55](https://img.shields.io/badge/current_version-0.55-blue.svg?style=flat-square)
+![Date: 2023-11-08](https://img.shields.io/badge/date-2023-11-08-blue.svg?style=flat-square)
 [![License: LPPL1.3c ](https://img.shields.io/badge/license-LPPL1.3c-blue.svg?style=flat-square)](https://ctan.org/license/lppl1.3c)
 
 The package is based on the [pax package](https://ctan.org/pkg/pax) by Heiko Oberdiek. 
