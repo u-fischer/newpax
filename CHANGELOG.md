@@ -10,6 +10,7 @@ this project uses date-based 'snapshot' version identifiers.
 ### Fixed
 
  - sort destinations by name (issue #26, PR #25)
+ - handling of inline /Dest entries, issue #24
  
 ## [2023-09-11]
 Version 0.54

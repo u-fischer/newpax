@@ -3,33 +3,31 @@ Don't change this file in any respect.
 -------- goto-input.newpax (start) ---------
 (goto-input.newpax) \[{pax}{0.1l}\\^^M
 \[{file}{(goto-input.pdf)}{^^M
-  Size={41758},^^M
-  Date={D:20231108131451+01'00'},^^M
+  Size={23198},^^M
+  Date={D:20231108132521+01'00'},^^M
 }\\^^M
 \[{pagenum}{3}\\^^M
 \[{page}{1}{0.0 0.0 612.0 792.0}{}\\^^M
 \[{page}{2}{0.0 0.0 612.0 792.0}{}\\^^M
-\[{annot}{2}{Link}{147.716 656.239 183.471 665.15}{GoTo}{^^M
+\[{annot}{2}{Link}{147.716 656.13 183.482 665.146}{GoTo}{^^M
   DestLabel={1},^^M
 }\\^^M
 \[{page}{3}{0.0 0.0 612.0 792.0}{}\\^^M
-\[{annot}{3}{Link}{132.772 632.481 139.746 642.831}{GoTo}{^^M
+\[{annot}{3}{Link}{132.772 632.434 139.746 642.985}{GoTo}{^^M
   C={[0.701176 0.4 0.414118 ]},^^M
   H={/I},^^M
   Border={[0 0 1 ]},^^M
   DestLabel={2},^^M
   DestName={section.1},^^M
 }\\^^M
-\[{annot}{3}{Link}{143.842 632.481 150.816 642.831}{GoTo}{^^M
+\[{annot}{3}{Link}{143.841 632.434 150.814 642.985}{GoTo}{^^M
   C={[0.701176 0.4 0.414118 ]},^^M
   H={/I},^^M
   Border={[0 0 1 ]},^^M
   DestLabel={3},^^M
   DestName={section.2},^^M
 }\\^^M
-\[{dest}{1}{1}{XYZ}{^^M
-  DestX={0.0},^^M
-  DestY={792.0},^^M
+\[{dest}{3}{1}{Fit}{^^M
 }\\^^M
 \[{dest}{1}{2}{XYZ}{^^M
   DestX={133.768},^^M
@@ -47,12 +45,12 @@ Don't change this file in any respect.
   DestName={Doc-Start},^^M
 }\\^^M
 \[{dest}{2}{5}{XYZ}{^^M
-  DestX={182.475},^^M
+  DestX={182.486},^^M
   DestY={669.191},^^M
   DestName={footnote.0},^^M
 }\\^^M
 \[{dest}{2}{6}{XYZ}{^^M
-  DestX={182.475},^^M
+  DestX={182.486},^^M
   DestY={669.191},^^M
   DestName={table.1},^^M
 }\\^^M

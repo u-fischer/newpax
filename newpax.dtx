@@ -1085,9 +1085,17 @@ end
 -- destinations can be an dict (/D [array]) or only an array!
 
 local function getdestdata (name,pagereftonum,destnamestoref)
-   local destref = destnamestoref[name]
+   local destref
    local type,ref,pagenum,destx,desty = nil, nil, 1,0,0
    local data = {{0,0}, {5,constDEST_XYZ}}
+   -- if we get directly an array
+   if (TYPE(name) == "pdfe.array") then
+     data = ARRAYTOTABLE(name)
+     type, ref, pageref = GETFROMARRAY(name,1)
+     pagenum = pagereftonum[pageref]
+   else
+    destref = destnamestoref[name]
+   end   
    if destref then
      type,value,detail = GETFROMREFERENCE(destref)
      if TYPE(value) == "pdfe.dictionary" then
@@ -1103,8 +1111,10 @@ local function getdestdata (name,pagereftonum,destnamestoref)
         pagenum = pagereftonum[pageref]
      end
    end
+  -- print("XXXXXXXXXX",table.serialize(data),pagenum)
   return pagenum, data
 end
+
 
 -- output functions
 -- write the info

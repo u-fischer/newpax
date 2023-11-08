@@ -27,9 +27,7 @@ Don't change this file in any respect.
   DestLabel={3},^^M
   DestName={section.2},^^M
 }\\^^M
-\[{dest}{1}{1}{XYZ}{^^M
-  DestX={0.0},^^M
-  DestY={792.0},^^M
+\[{dest}{3}{1}{Fit}{^^M
 }\\^^M
 \[{dest}{1}{2}{XYZ}{^^M
   DestX={133.768},^^M
