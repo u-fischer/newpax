@@ -1481,14 +1481,22 @@ local function __writepax (ext,file)
    WRITE (collected_destinations[i])
   end
   -- write out the rest of the destinations.
+  -- We order first the table so that the newpax file doesn't change between 
+  -- compilations, see issue #25 and PR #25
+  local destnamessorted = {}
   for k,v in pairs (destnamestorefVAR) do
    -- ignore use dests and page destinations. 
     i=string.find(k,"page.",1) 
     if not useddestnames[k] and not i then
-      destcountVAR=destcountVAR + 1
-      WRITE(outputENTRY_dest(destcountVAR,k,pagereftonumVAR,destnamestorefVAR,docVAR))
+      table.insert (destnamessorted,k)
     end
   end  
+  table.sort(destnamessorted)
+  for i = 1, #destnamessorted do
+      k=destnamessorted[i]
+      destcountVAR=destcountVAR + 1
+      WRITE(outputENTRY_dest(destcountVAR,k,pagereftonumVAR,destnamestorefVAR,docVAR))
+  end    
   io.close(writeVAR)
 end
 

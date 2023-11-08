@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project uses date-based 'snapshot' version identifiers.
 
 ## [Unreleased]
+
+### Fixed
+
+ - sort destinations by name (issue #26, PR #25)
+ 
+## [2023-09-11]
+Version 0.54
+
+###  Added 
+ - support for named destination (issue #20)
+ 
+### Fixed 
+ - clean up code
+ 
+## [2022-09-15]
 ### Fixed
 
 - URI values given as indirect object (issue #18)
