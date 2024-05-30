@@ -1428,9 +1428,13 @@ local function __writepax (ext,file)
           WRITE ( outputKV_Border (annot) )
           WRITE ( outputKV_BS (annot) )
           WRITE ( outputKV_goto (destcountVAR) )
-          WRITE(strKVS_END)   -- end KVS
-          WRITE(strENTRY_END) -- end annot data
           local type,annotgoto,hex = GETFROMDICTIONARY(annot,"Dest")
+          -- if the Dest is a string add the string as a name: 
+          if type == 6 then
+          WRITE ( outputKV_goto_name(annotgoto) )
+          end                  
+          WRITE(strKVS_END)   -- end KVS
+          WRITE(strENTRY_END) -- end annot data         
           table.insert(collected_destinations, outputENTRY_dest(destcountVAR,
                annotgoto,pagereftonumVAR,destnamestorefVAR,docVAR))
         else
