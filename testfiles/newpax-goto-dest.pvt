@@ -1,0 +1,31 @@
+% !Mode:: "TeX:UTF-8:Main"
+%improves compability with tikz etc ...
+\DocumentMetadata{uncompress}
+\input{regression-test}
+\documentclass{article}
+\usepackage{pdfpages,xcolor}
+
+% use a custom hyperref driver:
+\usepackage{hyperref}
+\hypersetup{linkbordercolor=blue}
+% load the lua code
+\usepackage{iftex}
+\ifluatex
+\directlua{require("newpax")}
+% write .newpax files for newpax.sty
+\directlua
+{
+  newpax.writenewpax("goto-dest-input")
+}
+\fi
+\usepackage{newpax,pdfpages}
+
+%use the link border color and style of the imported pdf
+%and not hyperref colors
+\newpaxsetup{usefileattributes=true}
+
+\begin{document}
+
+\includepdf[pages=-]{goto-dest-input}
+
+\end{document}

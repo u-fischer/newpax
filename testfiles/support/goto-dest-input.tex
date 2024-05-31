@@ -1,0 +1,17 @@
+\DocumentMetadata{uncompress}
+\input{regression-test}
+\documentclass{article}
+\usepackage{hyperref}
+\begin{document}
+\section{Source a}
+
+\newpage 
+\ExplSyntaxOn
+\pdfannot_link:nnn { Link }
+{
+ /Subtype /Link
+ /Dest (section.1)
+}
+{ link text}
+\ExplSyntaxOff
+\end{document} 
