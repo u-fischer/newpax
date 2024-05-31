@@ -1,6 +1,6 @@
 -- Build script for newpax
-packageversion="0.54"
-packagedate="2023-09-11"
+packageversion="0.55"
+packagedate="2023-11-08"
 
 module   = "newpax"
 ctanpkg  = "newpax"
