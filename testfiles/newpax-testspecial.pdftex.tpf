@@ -1,9 +1,9 @@
-%PDF-1.5
+%PDF-1.7
 %–‘≈ÿ
 8 0 obj
 <<
 /Type /Metadata /Subtype /XML
-/Length 11370     
+/Length 10875     
 >>
 stream
 <?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
@@ -20,7 +20,6 @@ stream
     xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
     xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
     xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:pdfxid="http://www.npes.org/pdfx/ns/id/"
     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
     xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
     xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
@@ -58,6 +57,12 @@ stream
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Year of standard</pdfaProperty:description>
         </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
@@ -78,21 +83,6 @@ stream
          <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/X ID Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfxid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.npes.org/pdfx/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>GTS_PDFXVersion</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>ID of PDF/X standard</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -199,17 +189,12 @@ stream
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>pdftex-NN.NN.NN</pdf:Producer>
-   <pdf:PDFVersion>1.5</pdf:PDFVersion>
+   <pdf:PDFVersion>1.7</pdf:PDFVersion>
    <dc:type>
     <rdf:Bag>
      <rdf:li>Text</rdf:li>
     </rdf:Bag>
    </dc:type>
-   <dc:language>
-    <rdf:Bag>
-     <rdf:li>en-US</rdf:li>
-    </rdf:Bag>
-   </dc:language>
    <dc:date>
     <rdf:Seq>
      <rdf:li>2016-05-20T09:00:00Z</rdf:li>
@@ -247,7 +232,7 @@ Q
 Q
 1 0 0 1 -148.712 -246.254 cm
 BT
-/F28 9.9626 Tf 303.133 89.365 Td [(1)]TJ
+/F32 9.9626 Tf 303.133 89.365 Td [(1)]TJ
 ET
 endstream
 endobj
@@ -591,7 +576,7 @@ endobj
 9 0 obj
 <<
 /ExtGState 1 0 R 
-/Font << /F28 12 0 R >>
+/Font << /F32 12 0 R >>
 /XObject << /Im1 5 0 R >>
 /ProcSet [ /PDF /Text ]
 >>
@@ -801,7 +786,7 @@ endobj
 <<
 /Type /Catalog
 /Pages 13 0 R
-/Lang (en-US)/Metadata 8 0 R
+/Metadata 8 0 R
 >>
 endobj
 32 0 obj
@@ -813,43 +798,43 @@ endobj
 xref
 0 33
 0000000002 65535 f 
-0000017464 00000 n 
+0000016969 00000 n 
 0000000003 00000 f 
 0000000004 00000 f 
 0000000000 00000 f 
-0000011827 00000 n 
-0000017017 00000 n 
-0000017183 00000 n 
+0000011332 00000 n 
+0000016522 00000 n 
+0000016688 00000 n 
 0000000015 00000 n 
-0000017351 00000 n 
-0000011696 00000 n 
-0000011473 00000 n 
-0000039944 00000 n 
-0000040101 00000 n 
-0000012568 00000 n 
-0000037879 00000 n 
-0000012392 00000 n 
-0000012915 00000 n 
-0000024969 00000 n 
-0000012332 00000 n 
-0000013083 00000 n 
-0000013250 00000 n 
-0000013621 00000 n 
-0000037848 00000 n 
-0000015217 00000 n 
-0000015240 00000 n 
-0000024939 00000 n 
-0000017511 00000 n 
-0000017533 00000 n 
-0000025175 00000 n 
-0000038161 00000 n 
-0000040160 00000 n 
-0000040240 00000 n 
+0000016856 00000 n 
+0000011201 00000 n 
+0000010978 00000 n 
+0000039449 00000 n 
+0000039606 00000 n 
+0000012073 00000 n 
+0000037384 00000 n 
+0000011897 00000 n 
+0000012420 00000 n 
+0000024474 00000 n 
+0000011837 00000 n 
+0000012588 00000 n 
+0000012755 00000 n 
+0000013126 00000 n 
+0000037353 00000 n 
+0000014722 00000 n 
+0000014745 00000 n 
+0000024444 00000 n 
+0000017016 00000 n 
+0000017038 00000 n 
+0000024680 00000 n 
+0000037666 00000 n 
+0000039665 00000 n 
+0000039732 00000 n 
 trailer
 << /Size 33
 /Root 31 0 R
 /Info 32 0 R
 /ID [<9BD18DF3359C1216B83ADB4AA401CC9A> <9BD18DF3359C1216B83ADB4AA401CC9A>] >>
 startxref
-40372
+39864
 %%EOF
