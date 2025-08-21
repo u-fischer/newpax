@@ -1,11 +1,12 @@
-Version 0.55
+Version 0.56
 
-## [2023-11-08]
+## [2025-08-21]
 
 ### Fixed
+ - handle GoTo links which use /Dest (string), issue #27
 
- - sort destinations by name (issue #26, PR #25)
- - handling of inline /Dest entries, issue #24
+### Changed
+ - adapt to changes in LaTeX for \DocumentMetadata
 
 
 Issues, comments, etc https://github.com/u-fischer/newpax
