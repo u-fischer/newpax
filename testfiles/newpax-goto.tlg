@@ -1,59 +1,59 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 -------- goto-input.newpax (start) ---------
-(goto-input.newpax) \[{pax}{0.1l}\\^^M
-\[{file}{(goto-input.pdf)}{^^M
-  Size={23198},^^M
-  Date={D:20231108132521+01'00'},^^M
-}\\^^M
-\[{pagenum}{3}\\^^M
-\[{page}{1}{0.0 0.0 612.0 792.0}{}\\^^M
-\[{page}{2}{0.0 0.0 612.0 792.0}{}\\^^M
-\[{annot}{2}{Link}{147.716 656.13 183.482 665.146}{GoTo}{^^M
-  DestLabel={1},^^M
-}\\^^M
-\[{page}{3}{0.0 0.0 612.0 792.0}{}\\^^M
-\[{annot}{3}{Link}{132.772 632.434 139.746 642.985}{GoTo}{^^M
-  C={[0.701176 0.4 0.414118 ]},^^M
-  H={/I},^^M
-  Border={[0 0 1 ]},^^M
-  DestLabel={2},^^M
-  DestName={section.1},^^M
-}\\^^M
-\[{annot}{3}{Link}{143.841 632.434 150.814 642.985}{GoTo}{^^M
-  C={[0.701176 0.4 0.414118 ]},^^M
-  H={/I},^^M
-  Border={[0 0 1 ]},^^M
-  DestLabel={3},^^M
-  DestName={section.2},^^M
-}\\^^M
-\[{dest}{3}{1}{Fit}{^^M
-}\\^^M
-\[{dest}{1}{2}{XYZ}{^^M
-  DestX={133.768},^^M
-  DestY={667.198},^^M
-  DestName={section.1},^^M
-}\\^^M
-\[{dest}{3}{3}{XYZ}{^^M
-  DestX={133.768},^^M
-  DestY={667.198},^^M
-  DestName={section.2},^^M
-}\\^^M
-\[{dest}{1}{4}{XYZ}{^^M
-  DestX={133.768},^^M
-  DestY={667.198},^^M
-  DestName={Doc-Start},^^M
-}\\^^M
-\[{dest}{2}{5}{XYZ}{^^M
-  DestX={182.486},^^M
-  DestY={669.191},^^M
-  DestName={footnote.0},^^M
-}\\^^M
-\[{dest}{2}{6}{XYZ}{^^M
-  DestX={182.486},^^M
-  DestY={669.191},^^M
-  DestName={table.1},^^M
-}\\^^M
+(goto-input.newpax) \[{pax}{0.1l}\\[nl]
+\[{file}{(goto-input.pdf)}{[nl]
+  Size={23198},[nl]
+  Date={D:20231108132521+01'00'},[nl]
+}\\[nl]
+\[{pagenum}{3}\\[nl]
+\[{page}{1}{0.0 0.0 612.0 792.0}{}\\[nl]
+\[{page}{2}{0.0 0.0 612.0 792.0}{}\\[nl]
+\[{annot}{2}{Link}{147.716 656.13 183.482 665.146}{GoTo}{[nl]
+  DestLabel={1},[nl]
+}\\[nl]
+\[{page}{3}{0.0 0.0 612.0 792.0}{}\\[nl]
+\[{annot}{3}{Link}{132.772 632.434 139.746 642.985}{GoTo}{[nl]
+  C={[0.701176 0.4 0.414118 ]},[nl]
+  H={/I},[nl]
+  Border={[0 0 1 ]},[nl]
+  DestLabel={2},[nl]
+  DestName={section.1},[nl]
+}\\[nl]
+\[{annot}{3}{Link}{143.841 632.434 150.814 642.985}{GoTo}{[nl]
+  C={[0.701176 0.4 0.414118 ]},[nl]
+  H={/I},[nl]
+  Border={[0 0 1 ]},[nl]
+  DestLabel={3},[nl]
+  DestName={section.2},[nl]
+}\\[nl]
+\[{dest}{3}{1}{Fit}{[nl]
+}\\[nl]
+\[{dest}{1}{2}{XYZ}{[nl]
+  DestX={133.768},[nl]
+  DestY={667.198},[nl]
+  DestName={section.1},[nl]
+}\\[nl]
+\[{dest}{3}{3}{XYZ}{[nl]
+  DestX={133.768},[nl]
+  DestY={667.198},[nl]
+  DestName={section.2},[nl]
+}\\[nl]
+\[{dest}{1}{4}{XYZ}{[nl]
+  DestX={133.768},[nl]
+  DestY={667.198},[nl]
+  DestName={Doc-Start},[nl]
+}\\[nl]
+\[{dest}{2}{5}{XYZ}{[nl]
+  DestX={182.486},[nl]
+  DestY={669.191},[nl]
+  DestName={footnote.0},[nl]
+}\\[nl]
+\[{dest}{2}{6}{XYZ}{[nl]
+  DestX={182.486},[nl]
+  DestY={669.191},[nl]
+  DestName={table.1},[nl]
+}\\[nl]
 -------- goto-input.newpax (end) -----------
 [1
 ] (newpax-goto.aux)

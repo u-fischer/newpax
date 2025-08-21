@@ -34,7 +34,7 @@
 % Test if the pdfmanagement is loaded:
 %    \begin{macrocode}
 \ExplSyntaxOn
-\IfDocumentMetadataTF 
+\IfPDFManagementActiveTF 
   {} 
   {  %error for now, perhaps warning later.
     \PackageError{newpax}
@@ -44,7 +44,7 @@
      }
      {
        Load~it~with \MessageBreak
-       \string\DocumentMetadata{}\MessageBreak
+       \string\RequirePackage{pdfmanagement}\MessageBreak
        before~loading~the~class
      }
   }

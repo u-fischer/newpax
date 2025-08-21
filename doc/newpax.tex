@@ -3,7 +3,8 @@
 \def\UlrikeFischer@package@version{0.55}
 \def\UlrikeFischer@package@date{2023-11-08}
 \makeatother
-\DocumentMetadata{pdfversion=1.7,lang=en-UK, uncompress}
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7,lang=en-UK}
 
 \documentclass[DIV=12,parskip=half-,bibliography=totoc]{scrartcl}
 \usepackage{scrlayer-scrpage}
@@ -57,11 +58,11 @@ When a PDF is included in another PDF---may it be with \cs{includegraphics} or w
 The \pkg{pax} package from Heiko Oberdiek offers a solution for this problem: it extracts all the annotations
 and destinations of the included PDF in a text file, does some clever recalculations of their coordinates and reinserts them.
 The package works basically fine but has a few drawbacks: To collect the annotation one has to run an external
-java program which relies on an now outdated library, and it works only with pdf\LaTeX{}.
+java program which relies on a now outdated library, and it works only with pdf\LaTeX{}.
 
 The \pkg{newpax} tries to address these problems. It offers a lua script to extract the annotations.
 The script can be used with lua(la)tex  and no external tools are needed. The annotations can
-then be reinserted either with the \pkg{pax.sty} or with the new \pkg{newpax.sty} whose code based in large parts on the \pkg{pax} package: it uses its data structure and the original code to calculate the coordinates (with a few minor bug corrections), but the pdf\LaTeX{} primitives have been replaced by commands from the new \LaTeX{} PDF management in \pkg{pdfmanagement-testphase} so it should works with all major engines and backends (with the exception of dvips).
+then be reinserted either with the \pkg{pax.sty} or with the new \pkg{newpax.sty} whose code is based in large parts on the \pkg{pax} package: it uses its data structure and the original code to calculate the coordinates (with a few minor bug corrections), but the pdf\LaTeX{} primitives have been replaced by commands from the \LaTeX{} PDF management in \pkg{pdfmanagement-testphase} so it should works with all major engines and backends (with the exception of dvips).
 
 
 \section{Quick use instructions}
@@ -87,8 +88,8 @@ but for now use at best distinct file names.
 \subsection{Step 2: Using the \texttt{.newpax}-file with \texorpdfstring{\pkg{newpax}}{newpax}}
 
 The package \pkg{newpax} is based on the package \pkg{pax} but extends it in various way.
-It is still an experimental package, and it requires the new \LaTeX{} PDF management
-code in \pkg{pdfmanagement-testphase} package. This new code is---as the name implies---currently in the testphase and \emph{not} compatible with every package!
+It requires the \LaTeX{} PDF management
+code in the \pkg{pdfmanagement-testphase} package. The PDF management is \emph{not} compatible with every package, check its documentation!
 
 The following listing shows how to use \pkg{newpax}.
 

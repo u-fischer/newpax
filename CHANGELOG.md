@@ -8,9 +8,11 @@ this project uses date-based 'snapshot' version identifiers.
 ## [Unreleased]
 
 ### Fixed
-
  - handle GoTo links which use /Dest (string), issue #27
 
+### Changed
+ - adapt to changes in LaTeX for \DocumentMetadata
+ 
 ## [2023-11-08]
 Version 0.55
 

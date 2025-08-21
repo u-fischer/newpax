@@ -1,6 +1,6 @@
-%PDF-1.5
+%PDF-1.7
 %Ã’¡‘≈ÿ–ƒ∆
-33 0 obj
+32 0 obj
 << /Length 924 >>        
 stream
 /opacity1 gs
@@ -65,13 +65,13 @@ ET
 endstream
 endobj
 5 0 obj
-<< /Type /Page /Contents 33 0 R /Resources 32 0 R /MediaBox [ 0 0 612 792 ] /Parent 40 0 R /Annots 41 0 R >>
+<< /Type /Page /Contents 32 0 R /Resources 31 0 R /MediaBox [ 0 0 612 792 ] /Parent 39 0 R /Annots 40 0 R >>
 endobj
-41 0 obj
+40 0 obj
 [ 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 25 0 R 8 0 R 9 0 R 26 0 R 27 0 R 28 0 R ]
 endobj
 7 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 271.842 281.763 ] /Matrix [ 1 0 0 1 0 0 ] /Resources 42 0 R /Length 41 >>         
+<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 271.842 281.763 ] /Matrix [ 1 0 0 1 0 0 ] /Resources 41 0 R /Length 41 >>         
 stream
 q
 1 0 0 1 -113.386 -425.196 cm
@@ -80,7 +80,7 @@ Q
 endstream
 endobj
 6 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF00630072006500610074006F0072> /Author <FEFF0041007500740068006F0072> /Title <FEFF007400690074006C0065> /CreationDate (D:20230910151642+02'00') /ModDate (D:20230910151642+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 43 0 R /Font << /F28 44 0 R /F37 45 0 R /F39 46 0 R >> /ProcSet [ /PDF /Text ] >> /Length 2311 >>       
+<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF00630072006500610074006F0072> /Author <FEFF0041007500740068006F0072> /Title <FEFF007400690074006C0065> /CreationDate (D:20230910151642+02'00') /ModDate (D:20230910151642+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 42 0 R /Font << /F28 43 0 R /F37 44 0 R /F39 45 0 R >> /ProcSet [ /PDF /Text ] >> /Length 2311 >>       
 stream
 /opacity1 gs
 BT
@@ -88,25 +88,25 @@ BT
 ET
 endstream
 endobj
-43 0 obj
+42 0 obj
 << /opacity1 << /ca 1 /CA 1 >> >>
 endobj
+43 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /EXHNMT+CMR10 /FontDescriptor 46 0 R /FirstChar 12 /LastChar 121 /Widths 47 0 R /ToUnicode 48 0 R >>
+endobj
 44 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /EXHNMT+CMR10 /FontDescriptor 47 0 R /FirstChar 12 /LastChar 121 /Widths 48 0 R /ToUnicode 49 0 R >>
+<< /Type /Font /Subtype /Type1 /BaseFont /RFBMIU+CMTT10 /FontDescriptor 49 0 R /FirstChar 45 /LastChar 120 /Widths 50 0 R /ToUnicode 51 0 R >>
 endobj
 45 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /RFBMIU+CMTT10 /FontDescriptor 50 0 R /FirstChar 45 /LastChar 120 /Widths 51 0 R /ToUnicode 52 0 R >>
+<< /Type /Font /Subtype /Type1 /BaseFont /NNCBRZ+CMBX12 /FontDescriptor 52 0 R /FirstChar 49 /LastChar 99 /Widths 53 0 R /ToUnicode 54 0 R >>
 endobj
 46 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /NNCBRZ+CMBX12 /FontDescriptor 53 0 R /FirstChar 49 /LastChar 99 /Widths 54 0 R /ToUnicode 55 0 R >>
+<< /Type /FontDescriptor /FontName /EXHNMT+CMR10 /Flags 4 /FontBBox [ -40 -250 1009 750 ] /Ascent 694 /CapHeight 683 /Descent -194 /ItalicAngle 0 /StemV 69 /XHeight 431 /CharSet (/A/G/H/I/N/T/a/b/c/comma/d/e/f/fi/four/g/h/hyphen/i/j/k/l/m/n/o/one/p/period/r/s/semicolon/t/three/two/u/v/w/x/y) /FontFile 55 0 R >>
 endobj
 47 0 obj
-<< /Type /FontDescriptor /FontName /EXHNMT+CMR10 /Flags 4 /FontBBox [ -40 -250 1009 750 ] /Ascent 694 /CapHeight 683 /Descent -194 /ItalicAngle 0 /StemV 69 /XHeight 431 /CharSet (/A/G/H/I/N/T/a/b/c/comma/d/e/f/fi/four/g/h/hyphen/i/j/k/l/m/n/o/one/p/period/r/s/semicolon/t/three/two/u/v/w/x/y) /FontFile 56 0 R >>
-endobj
-48 0 obj
 [ 555.6 555.6 833.3 833.3 277.8 305.6 500 500 500 500 500 750 444.4 500 722.2 777.8 500 902.8 1013.9 777.8 277.8 277.8 500 833.3 500 833.3 777.8 277.8 388.9 388.9 500 777.8 277.8 333.3 277.8 500 500 500 500 500 500 500 500 500 500 500 277.8 277.8 277.8 777.8 472.2 472.2 777.8 750 708.3 722.2 763.9 680.6 652.8 784.7 750 361.1 513.9 777.8 625 916.7 750 777.8 680.6 777.8 736.1 555.6 722.2 750 750 1027.8 750 750 611.1 277.8 500 277.8 500 277.8 277.8 500 555.6 444.4 555.6 444.4 305.6 500 555.6 277.8 305.6 527.8 277.8 833.3 555.6 500 555.6 527.8 391.7 394.4 388.9 555.6 527.8 722.2 527.8 527.8 ]
 endobj
-49 0 obj
+48 0 obj
 << /Length 1724 >>
 stream
 %!PS-Adobe-3.0 Resource-CMap
@@ -226,13 +226,13 @@ end
 %%EOF
 endstream
 endobj
-50 0 obj
-<< /Type /FontDescriptor /FontName /RFBMIU+CMTT10 /Flags 4 /FontBBox [ -4 -233 537 696 ] /Ascent 611 /CapHeight 611 /Descent -222 /ItalicAngle 0 /StemV 69 /XHeight 431 /CharSet (/a/c/colon/e/g/h/hyphen/j/l/o/p/period/r/s/slash/t/w/x) /FontFile 57 0 R >>
+49 0 obj
+<< /Type /FontDescriptor /FontName /RFBMIU+CMTT10 /Flags 4 /FontBBox [ -4 -233 537 696 ] /Ascent 611 /CapHeight 611 /Descent -222 /ItalicAngle 0 /StemV 69 /XHeight 431 /CharSet (/a/c/colon/e/g/h/hyphen/j/l/o/p/period/r/s/slash/t/w/x) /FontFile 56 0 R >>
 endobj
-51 0 obj
+50 0 obj
 [ 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 525 ]
 endobj
-52 0 obj
+51 0 obj
 << /Length 1543 >>
 stream
 %!PS-Adobe-3.0 Resource-CMap
@@ -342,13 +342,13 @@ end
 %%EOF
 endstream
 endobj
-53 0 obj
-<< /Type /FontDescriptor /FontName /NNCBRZ+CMBX12 /Flags 4 /FontBBox [ -53 -251 1139 750 ] /Ascent 694 /CapHeight 686 /Descent -194 /ItalicAngle 0 /StemV 109 /XHeight 444 /CharSet (/a/b/c/one/three/two) /FontFile 58 0 R >>
+52 0 obj
+<< /Type /FontDescriptor /FontName /NNCBRZ+CMBX12 /Flags 4 /FontBBox [ -53 -251 1139 750 ] /Ascent 694 /CapHeight 686 /Descent -194 /ItalicAngle 0 /StemV 109 /XHeight 444 /CharSet (/a/b/c/one/three/two) /FontFile 57 0 R >>
 endobj
-54 0 obj
+53 0 obj
 [ 562.5 562.5 562.5 562.5 562.5 562.5 562.5 562.5 562.5 312.5 312.5 342.6 875 531.2 531.2 875 849.5 799.8 812.5 862.3 738.4 707.2 884.3 879.6 419 581 880.8 675.9 1067.1 879.6 844.9 768.5 844.9 839.1 625 782.4 864.6 849.5 1162 849.5 849.5 687.5 312.5 581 312.5 562.5 312.5 312.5 546.9 625 500 ]
 endobj
-55 0 obj
+54 0 obj
 << /Length 1729 >>
 stream
 %!PS-Adobe-3.0 Resource-CMap
@@ -468,23 +468,23 @@ end
 %%EOF
 endstream
 endobj
-56 0 obj
+55 0 obj
 << /Length1 1950 /Length2 15543 /Length3 0 /Length 17493 >>
 [BINARY STREAM]
 endobj
-57 0 obj
+56 0 obj
 << /Length1 1636 /Length2 9818 /Length3 0 /Length 11454 >>
 [BINARY STREAM]
 endobj
-58 0 obj
+57 0 obj
 << /Length1 1447 /Length2 6728 /Length3 0 /Length 8175 >>
 [BINARY STREAM]
 endobj
-42 0 obj
+41 0 obj
 << /XObject << /Im1 6 0 R >> /ProcSet [ /PDF ] >>
 endobj
 24 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 271.842 281.763 ] /Matrix [ 1 0 0 1 0 0 ] /Resources 59 0 R /Length 41 >>         
+<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 271.842 281.763 ] /Matrix [ 1 0 0 1 0 0 ] /Resources 58 0 R /Length 41 >>         
 stream
 q
 1 0 0 1 -113.386 -425.196 cm
@@ -493,7 +493,7 @@ Q
 endstream
 endobj
 23 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF00630072006500610074006F0072> /Author <FEFF0041007500740068006F0072> /Title <FEFF007400690074006C0065> /CreationDate (D:20230910151642+02'00') /ModDate (D:20230910151642+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 43 0 R /Font << /F37 45 0 R /F28 44 0 R >> /ProcSet [ /PDF /Text ] >> /Length 173 >>        
+<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF00630072006500610074006F0072> /Author <FEFF0041007500740068006F0072> /Title <FEFF007400690074006C0065> /CreationDate (D:20230910151642+02'00') /ModDate (D:20230910151642+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 42 0 R /Font << /F37 44 0 R /F28 43 0 R >> /ProcSet [ /PDF /Text ] >> /Length 173 >>        
 stream
 /opacity1 gs
 BT
@@ -501,7 +501,7 @@ BT
 ET
 endstream
 endobj
-59 0 obj
+58 0 obj
 << /XObject << /Im2 23 0 R >> /ProcSet [ /PDF ] >>
 endobj
 10 0 obj
@@ -561,26 +561,26 @@ endobj
 28 0 obj
 << /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [1.0 0.0 0.0]  /Rect [ 444.409 600.142 453.376 610.547 ]/A  << /S /GoTo /D (newpax-input.newpax@section.3) >> >>
 endobj
-34 0 obj
+33 0 obj
 << /D [ 5 0 R /XYZ 132.768 705.06 null ] >>
 endobj
-35 0 obj
+34 0 obj
 << /D [ 5 0 R /XYZ 133.768 667.198 null ] >>
 endobj
-37 0 obj
+36 0 obj
 << /D [ 5 0 R /XYZ 239.825 398.953 null ] >>
 endobj
-38 0 obj
+37 0 obj
 << /D [ 5 0 R /XYZ 239.825 411.883 null ] >>
 endobj
-39 0 obj
+38 0 obj
 << /D [ 5 0 R /XYZ 239.825 385.053 null ] >>
 endobj
-32 0 obj
-<< /ExtGState 1 0 R /Font << /F15 36 0 R >> /XObject << /Fm1 7 0 R /Fm2 24 0 R >> /ProcSet [ /PDF /Text ] >>
+31 0 obj
+<< /ExtGState 1 0 R /Font << /F15 35 0 R >> /XObject << /Fm1 7 0 R /Fm2 24 0 R >> /ProcSet [ /PDF /Text ] >>
 endobj
-76 0 obj
-<< /Type /Metadata /Subtype /XML /Length 11379 >>      
+75 0 obj
+<< /Type /Metadata /Subtype /XML /Length 10884 >>      
 stream
 <?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -596,7 +596,6 @@ stream
     xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
     xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
     xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:pdfxid="http://www.npes.org/pdfx/ns/id/"
     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
     xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
     xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
@@ -634,6 +633,12 @@ stream
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Year of standard</pdfaProperty:description>
         </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
@@ -654,21 +659,6 @@ stream
          <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/X ID Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfxid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.npes.org/pdfx/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>GTS_PDFXVersion</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>ID of PDF/X standard</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -775,17 +765,12 @@ stream
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
-   <pdf:PDFVersion>1.5</pdf:PDFVersion>
+   <pdf:PDFVersion>1.7</pdf:PDFVersion>
    <dc:type>
     <rdf:Bag>
      <rdf:li>Text</rdf:li>
     </rdf:Bag>
    </dc:type>
-   <dc:language>
-    <rdf:Bag>
-     <rdf:li>en-US</rdf:li>
-    </rdf:Bag>
-   </dc:language>
    <dc:date>
     <rdf:Seq>
      <rdf:li>2016-05-20T09:00:00Z</rdf:li>
@@ -807,7 +792,7 @@ stream
 <?xpacket end="w"?>
 endstream
 endobj
-79 0 obj
+78 0 obj
 << /Length 128 >>        
 stream
 /opacity1 gs
@@ -825,91 +810,91 @@ Q
 0 g 0 G
 endstream
 endobj
-78 0 obj
-<< /Type /Page /Contents 79 0 R /Resources 77 0 R /MediaBox [ 0 0 612 792 ] /Parent 40 0 R /Annots 83 0 R >>
-endobj
-83 0 obj
-[ 62 0 R 63 0 R 64 0 R 65 0 R 66 0 R 67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R 73 0 R 74 0 R 75 0 R 60 0 R 61 0 R ]
-endobj
-62 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 155.957 642.207 310.211 653.338 ] >>
-endobj
-63 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 147.651 630.523 478.588 641.377 ] >>
-endobj
-64 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 618.561 478.588 629.415 ] >>
-endobj
-65 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 606.6 478.588 617.453 ] >>
-endobj
-66 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 594.639 478.588 605.492 ] >>
-endobj
-67 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 582.678 478.588 593.531 ] >>
-endobj
-68 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 570.717 478.588 581.57 ] >>
-endobj
-69 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 558.756 478.588 569.609 ] >>
-endobj
-70 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 546.794 478.588 557.648 ] >>
-endobj
-71 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 534.833 478.588 545.686 ] >>
-endobj
-72 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 522.872 478.588 533.725 ] >>
-endobj
-73 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 510.911 396.131 521.764 ] >>
-endobj
-74 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.444706 0.456472 0.680002] /A <</Type/Action/S/GoToR/F<</AFRelationship/Unspecified/F <FEFF002F0063002F007400650078006C006900760065002F0032003000320030002F007400650078006D0066002D0064006900730074002F0064006F0063002F006C0061007400650078002F0062006100730065002F0064006F0063002E007000640066>/Subtype/application#2Fpdf/Type/Filespec/UF <FEFF002F0063002F007400650078006C006900760065002F0032003000320030002F007400650078006D0066002D0064006900730074002F0064006F0063002F006C0061007400650078002F0062006100730065002F0064006F0063002E007000640066>>>/D(chapter.1)>>  /Rect [ 147.651 498.95 164.043 509.803 ] >>
-endobj
-75 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.444706 0.456472 0.680002] /A <</Type/Action/S/GoToR/F<</AFRelationship/Unspecified/F <FEFF006500780061006D0070006C0065002D0069006D006100670065002E007000640066>/Subtype/application#2Fpdf/Type/Filespec/UF <FEFF006500780061006D0070006C0065002D0069006D006100670065002E007000640066>>>/D[0 /Fit]>>  /Rect [ 132.699 390.468 147.43 399.384 ] >>
-endobj
-60 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [1.0 0.0 0.0]  /Rect [ 151.915 655.387 189.682 666.295 ]/A  << /S /GoTo /D (newpax-input.newpax@section.2@B) >> >>
-endobj
-61 0 obj
-<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [1.0 0.0 0.0]  /Rect [ 146.655 641.211 155.625 654.334 ]/A  << /S /GoTo /D (newpax-input.newpax@section.1@B) >> >>
-endobj
-80 0 obj
-<< /D [ 78 0 R /XYZ 133.695 459.052 null ] >>
-endobj
-81 0 obj
-<< /D [ 78 0 R /XYZ 133.695 484.926 null ] >>
+77 0 obj
+<< /Type /Page /Contents 78 0 R /Resources 76 0 R /MediaBox [ 0 0 612 792 ] /Parent 39 0 R /Annots 82 0 R >>
 endobj
 82 0 obj
-<< /D [ 78 0 R /XYZ 132.768 705.06 null ] >>
+[ 61 0 R 62 0 R 63 0 R 64 0 R 65 0 R 66 0 R 67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R 73 0 R 74 0 R 59 0 R 60 0 R ]
 endobj
-77 0 obj
+61 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 155.957 642.207 310.211 653.338 ] >>
+endobj
+62 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 147.651 630.523 478.588 641.377 ] >>
+endobj
+63 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 618.561 478.588 629.415 ] >>
+endobj
+64 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 606.6 478.588 617.453 ] >>
+endobj
+65 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 594.639 478.588 605.492 ] >>
+endobj
+66 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 582.678 478.588 593.531 ] >>
+endobj
+67 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 570.717 478.588 581.57 ] >>
+endobj
+68 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 558.756 478.588 569.609 ] >>
+endobj
+69 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 546.794 478.588 557.648 ] >>
+endobj
+70 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 534.833 478.588 545.686 ] >>
+endobj
+71 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 522.872 478.588 533.725 ] >>
+endobj
+72 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.724708 0.4 0.717646] /A <</Type/Action/S/URI/URI(https://www.latex-project.org)>>  /Rect [ 132.699 510.911 396.131 521.764 ] >>
+endobj
+73 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.444706 0.456472 0.680002] /A <</Type/Action/S/GoToR/F<</AFRelationship/Unspecified/F <FEFF002F0063002F007400650078006C006900760065002F0032003000320030002F007400650078006D0066002D0064006900730074002F0064006F0063002F006C0061007400650078002F0062006100730065002F0064006F0063002E007000640066>/Subtype/application#2Fpdf/Type/Filespec/UF <FEFF002F0063002F007400650078006C006900760065002F0032003000320030002F007400650078006D0066002D0064006900730074002F0064006F0063002F006C0061007400650078002F0062006100730065002F0064006F0063002E007000640066>>>/D(chapter.1)>>  /Rect [ 147.651 498.95 164.043 509.803 ] >>
+endobj
+74 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [0.444706 0.456472 0.680002] /A <</Type/Action/S/GoToR/F<</AFRelationship/Unspecified/F <FEFF006500780061006D0070006C0065002D0069006D006100670065002E007000640066>/Subtype/application#2Fpdf/Type/Filespec/UF <FEFF006500780061006D0070006C0065002D0069006D006100670065002E007000640066>>>/D[0 /Fit]>>  /Rect [ 132.699 390.468 147.43 399.384 ] >>
+endobj
+59 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [1.0 0.0 0.0]  /Rect [ 151.915 655.387 189.682 666.295 ]/A  << /S /GoTo /D (newpax-input.newpax@section.2@B) >> >>
+endobj
+60 0 obj
+<< /Type /Annot /Subtype /Link /Border [0 0 1] /H /I /C [1.0 0.0 0.0]  /Rect [ 146.655 641.211 155.625 654.334 ]/A  << /S /GoTo /D (newpax-input.newpax@section.1@B) >> >>
+endobj
+79 0 obj
+<< /D [ 77 0 R /XYZ 133.695 459.052 null ] >>
+endobj
+80 0 obj
+<< /D [ 77 0 R /XYZ 133.695 484.926 null ] >>
+endobj
+81 0 obj
+<< /D [ 77 0 R /XYZ 132.768 705.06 null ] >>
+endobj
+76 0 obj
 << /ExtGState 1 0 R /XObject << /Im1 6 0 R >> /ProcSet [ /PDF ] >>
 endobj
 1 0 obj
 << /opacity1 <</ca 1/CA 1>>  >>
 endobj
-84 0 obj
+83 0 obj
 [ 28 [ 500 ] 43 [ 444 278 ] 47 [ 556 ] 50 [ 444 ] 59 [ 500 ] 63 [ 556 ] 66 [ 278 ] 72 [ 278 ] 77 [ 556 ] 82 [ 500 ] 84 [ 556 ] 96 [ 392 ] 109 [ 556 ] ]
 endobj
-86 0 obj
+85 0 obj
 << /Length 14 >>         
 [BINARY STREAM]
 endobj
-87 0 obj
+86 0 obj
 << /Subtype /CIDFontType0C /Length 2114 >>       
 [BINARY STREAM]
 endobj
-85 0 obj
-<< /Type /FontDescriptor /FontName /HZIORD+LMRoman10-Regular /Flags 4 /FontBBox [ -430 -290 1417 1127 ] /Ascent 1127 /CapHeight 683 /Descent -290 /ItalicAngle 0 /StemV 93 /XHeight 431 /FontFile3 87 0 R /CIDSet 86 0 R >>
+84 0 obj
+<< /Type /FontDescriptor /FontName /HZIORD+LMRoman10-Regular /Flags 4 /FontBBox [ -430 -290 1417 1127 ] /Ascent 1127 /CapHeight 683 /Descent -290 /ItalicAngle 0 /StemV 93 /XHeight 431 /FontFile3 86 0 R /CIDSet 85 0 R >>
 endobj
-88 0 obj
-<< /Length 875 >>        
+87 0 obj
+<< /Length 849 >>        
 stream
 %!PS-Adobe-3.0 Resource-CMap
 %%DocumentNeededResources: ProcSet (CIDInit)
@@ -931,8 +916,6 @@ begincmap
 1 begincodespacerange
 <0000> <FFFF>
 endcodespacerange
-0 beginbfrange
-endbfrange
 14 beginbfchar
 <001C> <0061>
 <002B> <0063>
@@ -957,31 +940,31 @@ end
 %%EOF
 endstream
 endobj
-36 0 obj
-<< /Type /Font /Subtype /Type0 /Encoding /Identity-H /BaseFont /HZIORD+LMRoman10-Regular /DescendantFonts [ 89 0 R ] /ToUnicode 88 0 R >>
+35 0 obj
+<< /Type /Font /Subtype /Type0 /Encoding /Identity-H /BaseFont /HZIORD+LMRoman10-Regular /DescendantFonts [ 88 0 R ] /ToUnicode 87 0 R >>
+endobj
+88 0 obj
+<< /Type /Font /Subtype /CIDFontType0 /BaseFont /HZIORD+LMRoman10-Regular /FontDescriptor 84 0 R /W 83 0 R /CIDSystemInfo << /Registry (Adobe) /Ordering (Identity) /Supplement 0 >> >>
+endobj
+39 0 obj
+<< /Type /Pages  /Count 2 /Kids [ 5 0 R 77 0 R ] >>
 endobj
 89 0 obj
-<< /Type /Font /Subtype /CIDFontType0 /BaseFont /HZIORD+LMRoman10-Regular /FontDescriptor 85 0 R /W 84 0 R /CIDSystemInfo << /Registry (Adobe) /Ordering (Identity) /Supplement 0 >> >>
-endobj
-40 0 obj
-<< /Type /Pages  /Count 2 /Kids [ 5 0 R 78 0 R ] >>
+<< /Names [ (Doc-Start) 34 0 R (newpax-input.newpax@section.1) 37 0 R (newpax-input.newpax@section.1@B) 80 0 R (newpax-input.newpax@section.2) 36 0 R (newpax-input.newpax@section.2@B) 79 0 R (newpax-input.newpax@section.3) 38 0 R (page.1) 33 0 R (page.2) 81 0 R ] /Limits [ (Doc-Start) (page.2) ] >>
 endobj
 90 0 obj
-<< /Names [ (Doc-Start) 35 0 R (newpax-input.newpax@section.1) 38 0 R (newpax-input.newpax@section.1@B) 81 0 R (newpax-input.newpax@section.2) 37 0 R (newpax-input.newpax@section.2@B) 80 0 R (newpax-input.newpax@section.3) 39 0 R (page.1) 34 0 R (page.2) 82 0 R ] /Limits [ (Doc-Start) (page.2) ] >>
+<< /Dests 89 0 R >>
 endobj
 91 0 obj
-<< /Dests 90 0 R >>
+<< /Type /Catalog /Pages 39 0 R /Names 90 0 R /PageMode /UseOutlines/OpenAction [5 0 R /Fit]/PageLabels <</Nums[0<</S/D>>]>>/Metadata 75 0 R >>
 endobj
 92 0 obj
-<< /Type /Catalog /Pages 40 0 R /Names 91 0 R /Lang (en-US)/PageMode /UseOutlines/OpenAction [5 0 R /Fit]/PageLabels <</Nums[0<</S/D>>]>>/Metadata 76 0 R >>
-endobj
-93 0 obj
 << /Producer (LuaTeX)/Creator <FEFF004C006100540065005800200077006900740068002000680079007000650072007200650066>/CreationDate (D:20160520090000Z)/ModDate (D:20160520090000Z) /Trapped /False >>
 endobj
 xref
-0 94
+0 93
 0000000002 65535 f 
-0000071164 00000 n 
+0000070669 00000 n 
 0000000003 00000 f 
 0000000004 00000 f 
 0000000029 00000 f 
@@ -1010,17 +993,16 @@ xref
 0000054294 00000 n 
 0000054478 00000 n 
 0000000030 00000 f 
-0000000031 00000 f 
 0000000000 00000 f 
 0000054967 00000 n 
 0000000020 00000 n 
 0000054663 00000 n 
 0000054723 00000 n 
-0000074822 00000 n 
+0000074301 00000 n 
 0000054784 00000 n 
 0000054845 00000 n 
 0000054906 00000 n 
-0000075176 00000 n 
+0000074655 00000 n 
 0000001128 00000 n 
 0000049447 00000 n 
 0000004282 00000 n 
@@ -1040,42 +1022,42 @@ xref
 0000029633 00000 n 
 0000041180 00000 n 
 0000050368 00000 n 
-0000070522 00000 n 
-0000070709 00000 n 
-0000067006 00000 n 
-0000067209 00000 n 
-0000067412 00000 n 
-0000067615 00000 n 
-0000067816 00000 n 
-0000068019 00000 n 
-0000068222 00000 n 
-0000068424 00000 n 
-0000068627 00000 n 
-0000068830 00000 n 
-0000069033 00000 n 
-0000069236 00000 n 
-0000069439 00000 n 
-0000070110 00000 n 
+0000070027 00000 n 
+0000070214 00000 n 
+0000066511 00000 n 
+0000066714 00000 n 
+0000066917 00000 n 
+0000067120 00000 n 
+0000067321 00000 n 
+0000067524 00000 n 
+0000067727 00000 n 
+0000067929 00000 n 
+0000068132 00000 n 
+0000068335 00000 n 
+0000068538 00000 n 
+0000068741 00000 n 
+0000068944 00000 n 
+0000069615 00000 n 
 0000055092 00000 n 
-0000071081 00000 n 
-0000066749 00000 n 
-0000066561 00000 n 
-0000070896 00000 n 
+0000070586 00000 n 
+0000066254 00000 n 
+0000066066 00000 n 
+0000070401 00000 n 
+0000070463 00000 n 
+0000070525 00000 n 
+0000066379 00000 n 
+0000070716 00000 n 
+0000073156 00000 n 
+0000070884 00000 n 
 0000070958 00000 n 
-0000071020 00000 n 
-0000066874 00000 n 
-0000071211 00000 n 
-0000073651 00000 n 
-0000071379 00000 n 
-0000071453 00000 n 
-0000073887 00000 n 
-0000074976 00000 n 
-0000075244 00000 n 
-0000075560 00000 n 
-0000075596 00000 n 
-0000075769 00000 n 
+0000073392 00000 n 
+0000074455 00000 n 
+0000074723 00000 n 
+0000075039 00000 n 
+0000075075 00000 n 
+0000075235 00000 n 
 trailer
-<< /Size 94 /Root 92 0 R /Info 93 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
+<< /Size 93 /Root 91 0 R /Info 92 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-75978
+75444
 %%EOF

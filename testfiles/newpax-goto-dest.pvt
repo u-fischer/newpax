@@ -1,6 +1,6 @@
 % !Mode:: "TeX:UTF-8:Main"
 %improves compability with tikz etc ...
-\DocumentMetadata{uncompress}
+\RequirePackage{pdfmanagement}
 \input{regression-test}
 \documentclass{article}
 \usepackage{pdfpages,xcolor}
