@@ -904,7 +904,9 @@
 }
 %    \end{macrocode}
 % These are keys used in the newpax file. The command names are inherited from kvoptions.
+% We must predefined \cs{NEWPAX@key@DestName} as that is not done by the key setup.
 %    \begin{macrocode}
+\def\NEWPAX@key@DestName{}
 \keys_define:nn {newpax/key}
   {
    ,URI      .tl_set:N = \NEWPAX@key@URI
