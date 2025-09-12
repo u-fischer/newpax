@@ -1,4 +1,4 @@
-%PDF-1.5
+%PDF-1.7
 %äðíø
 9 0 obj
 <</Length1 1393/Length2 8038/Length3 0/Length 9431>>
@@ -304,16 +304,8 @@ endobj
 4 0 obj
 <</opacity1<</ca 1/CA 1>>>>
 endobj
-13 0 obj
-<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[.444706 .456472 .680002]/A<</Type/Action/S/GoToR/F(test-gotoR.pdf)/D[0/Fit]>>/Rect[255.257
-602.591 276.624 668.196]>>
-endobj
-20 0 obj
-<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[.444706 .456472 .680002]/A<</Type/Action/S/GoToR/F<</AFRelationship/Unspecified/F<feff0074006500730074002d0067006f0074006f0052002e007000640066>/Subtype/application#2fpdf/Type/Filespec/UF<feff0074006500730074002d0067006f0074006f0052002e007000640066>>>/D[0/Fit]>>/Rect[176.064
-535.932 197.431 601.537]>>
-endobj
 21 0 obj
-<</Type/Metadata/Subtype/XML/Length 11380>>
+<</Type/Metadata/Subtype/XML/Length 10885>>
 stream
 <?xpacket begin="ï»¿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -329,7 +321,6 @@ stream
     xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
     xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
     xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:pdfxid="http://www.npes.org/pdfx/ns/id/"
     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
     xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
     xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
@@ -367,6 +358,12 @@ stream
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Year of standard</pdfaProperty:description>
         </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
@@ -387,21 +384,6 @@ stream
          <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/X ID Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfxid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.npes.org/pdfx/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>GTS_PDFXVersion</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>ID of PDF/X standard</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -508,17 +490,12 @@ stream
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>xetex-NN.NN.NN</pdf:Producer>
-   <pdf:PDFVersion>1.5</pdf:PDFVersion>
+   <pdf:PDFVersion>1.7</pdf:PDFVersion>
    <dc:type>
     <rdf:Bag>
      <rdf:li>Text</rdf:li>
     </rdf:Bag>
    </dc:type>
-   <dc:language>
-    <rdf:Bag>
-     <rdf:li>en-US</rdf:li>
-    </rdf:Bag>
-   </dc:language>
    <dc:date>
     <rdf:Seq>
      <rdf:li>2016-05-20T09:00:00Z</rdf:li>
@@ -539,6 +516,14 @@ stream
 </x:xmpmeta>
 <?xpacket end="w"?>
 endstream
+endobj
+13 0 obj
+<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[.444706 .456472 .680002]/A<</Type/Action/S/GoToR/F(test-gotoR.pdf)/D[0/Fit]>>/Rect[255.257
+602.591 276.624 668.196]>>
+endobj
+20 0 obj
+<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[.444706 .456472 .680002]/A<</Type/Action/S/GoToR/F<</AFRelationship/Unspecified/F<feff0074006500730074002d0067006f0074006f0052002e007000640066>/Subtype/application#2fpdf/Type/Filespec/UF<feff0074006500730074002d0067006f0074006f0052002e007000640066>>>/D[0/Fit]>>/Rect[176.064
+535.932 197.431 601.537]>>
 endobj
 26 0 obj
 <</Names[(Doc-Start)24 0 R(page.1)25 0 R]>>
@@ -565,7 +550,7 @@ endobj
 <</Creator<feff004c006100540065005800200077006900740068002000680079007000650072007200650066>/Producer(xetex)/CreationDate(D:20160520090000Z)/ModDate(D:20160520090000Z)>>
 endobj
 1 0 obj
-<</Lang(en-US)/PageMode/UseOutlines/OpenAction[3 0 R/Fit]/PageLabels<</Nums[0<</S/D>>]>>/Metadata
+<</PageMode/UseOutlines/OpenAction[3 0 R/Fit]/PageLabels<</Nums[0<</S/D>>]>>/Metadata
 21 0 R/Names 27 0 R/Pages 28 0 R/Type/Catalog>>
 endobj
 30 0 obj
@@ -574,7 +559,7 @@ stream
 /CIDInit /ProcSet findresource begin
 12 dict begin
 begincmap
-/CMapName /EXQIVM+LMRoman10-Regular-UTF16 def
+/CMapName /FFDUDA+LMRoman10-Regular-UTF16 def
 /CMapType 2 def
 /CIDSystemInfo <<
   /Registry (Adobe)
@@ -618,58 +603,58 @@ endobj
 [BINARY STREAM]
 endobj
 6 0 obj
-<</Type/Font/Subtype/CIDFontType0/BaseFont/EXQIVM+LMRoman10-Regular/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement
+<</Type/Font/Subtype/CIDFontType0/BaseFont/FFDUDA+LMRoman10-Regular/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement
 0>>/FontDescriptor 31 0 R/DW 280/W 33 0 R>>
 endobj
 31 0 obj
 <</Type/FontDescriptor/Ascent 806/Descent -194/StemV 69/CapHeight 806/AvgWidth 549/FontBBox[-430
--290 1417 1127]/ItalicAngle 0/Flags 6/Style<</Panose<000000000500000000000000>>>/FontName/EXQIVM+LMRoman10-Regular/FontFile3
+-290 1417 1127]/ItalicAngle 0/Flags 6/Style<</Panose<000000000500000000000000>>>/FontName/FFDUDA+LMRoman10-Regular/FontFile3
 32 0 R/CIDSet 34 0 R>>
 endobj
 5 0 obj
-<</Type/Font/Subtype/Type0/BaseFont/EXQIVM+LMRoman10-Regular-Identity-H/Encoding/Identity-H/DescendantFonts[6 0 R]/ToUnicode
+<</Type/Font/Subtype/Type0/BaseFont/FFDUDA+LMRoman10-Regular-Identity-H/Encoding/Identity-H/DescendantFonts[6 0 R]/ToUnicode
 30 0 R>>
 endobj
 xref
 0 35
 0000000000 65535 f 
-0000037162 00000 n 
-0000036977 00000 n 
-0000036811 00000 n 
+0000036667 00000 n 
+0000036482 00000 n 
+0000036316 00000 n 
 0000024545 00000 n 
-0000040706 00000 n 
-0000040256 00000 n 
+0000040199 00000 n 
+0000039749 00000 n 
 0000011643 00000 n 
 0000009532 00000 n 
 0000000015 00000 n 
 0000009734 00000 n 
 0000009868 00000 n 
 0000011787 00000 n 
-0000024588 00000 n 
+0000035551 00000 n 
 0000023649 00000 n 
 0000021536 00000 n 
 0000012018 00000 n 
 0000021740 00000 n 
 0000021874 00000 n 
 0000023795 00000 n 
-0000024769 00000 n 
-0000025134 00000 n 
+0000035732 00000 n 
+0000024588 00000 n 
 0000024027 00000 n 
 0000024416 00000 n 
-0000036652 00000 n 
-0000036698 00000 n 
-0000036592 00000 n 
-0000036745 00000 n 
-0000036903 00000 n 
-0000036779 00000 n 
-0000037323 00000 n 
-0000040445 00000 n 
-0000037912 00000 n 
-0000040078 00000 n 
-0000040193 00000 n 
+0000036157 00000 n 
+0000036203 00000 n 
+0000036097 00000 n 
+0000036250 00000 n 
+0000036408 00000 n 
+0000036284 00000 n 
+0000036816 00000 n 
+0000039938 00000 n 
+0000037405 00000 n 
+0000039571 00000 n 
+0000039686 00000 n 
 trailer
 <</ID[<ID-STRING><ID-STRING>]/Root
 1 0 R/Info 2 0 R/Size 35>>
 startxref
-40855
+40348
 %%EOF

@@ -1,4 +1,4 @@
-%PDF-1.5
+%PDF-1.7
 %äðíø
 5 0 obj
 <</opacity1<</ca 1/CA 1>>>>
@@ -292,16 +292,8 @@ endobj
 4 0 obj
 <</opacity1<</ca 1/CA 1>>>>
 endobj
-17 0 obj
-<</Type/Annot/Subtype/Link/A<</Type/Action/S/URI/URI(https://xxxx.zzzz/#configure-the-service-task)>>/Rect[222.57
-598.212 341.996 603.774]>>
-endobj
-18 0 obj
-<</Type/Annot/Subtype/Link/A<</Type/Action/S/URI/URI(https://xxxx.zzzz/%25configure-the-service-task)>>/Rect[222.57
-592.234 341.996 597.797]>>
-endobj
 21 0 obj
-<</Type/Metadata/Subtype/XML/Length 11369>>
+<</Type/Metadata/Subtype/XML/Length 10874>>
 stream
 <?xpacket begin="ï»¿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -317,7 +309,6 @@ stream
     xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
     xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
     xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:pdfxid="http://www.npes.org/pdfx/ns/id/"
     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
     xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
     xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
@@ -355,6 +346,12 @@ stream
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Year of standard</pdfaProperty:description>
         </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
@@ -375,21 +372,6 @@ stream
          <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/X ID Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfxid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.npes.org/pdfx/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>GTS_PDFXVersion</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>ID of PDF/X standard</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -496,17 +478,12 @@ stream
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>xetex-NN.NN.NN</pdf:Producer>
-   <pdf:PDFVersion>1.5</pdf:PDFVersion>
+   <pdf:PDFVersion>1.7</pdf:PDFVersion>
    <dc:type>
     <rdf:Bag>
      <rdf:li>Text</rdf:li>
     </rdf:Bag>
    </dc:type>
-   <dc:language>
-    <rdf:Bag>
-     <rdf:li>en-US</rdf:li>
-    </rdf:Bag>
-   </dc:language>
    <dc:date>
     <rdf:Seq>
      <rdf:li>2016-05-20T09:00:00Z</rdf:li>
@@ -528,6 +505,14 @@ stream
 <?xpacket end="w"?>
 endstream
 endobj
+17 0 obj
+<</Type/Annot/Subtype/Link/A<</Type/Action/S/URI/URI(https://xxxx.zzzz/#configure-the-service-task)>>/Rect[222.57
+598.212 341.996 603.774]>>
+endobj
+18 0 obj
+<</Type/Annot/Subtype/Link/A<</Type/Action/S/URI/URI(https://xxxx.zzzz/%25configure-the-service-task)>>/Rect[222.57
+592.234 341.996 597.797]>>
+endobj
 25 0 obj
 [17 0 R 18 0 R]
 endobj
@@ -541,7 +526,7 @@ endobj
 <</Creator(TeX)/Producer(xetex)/CreationDate(D:20160520090000Z)/ModDate(D:20160520090000Z)>>
 endobj
 1 0 obj
-<</Lang(en-US)/Metadata 21 0 R/Pages 24 0 R/Type/Catalog>>
+<</Metadata 21 0 R/Pages 24 0 R/Type/Catalog>>
 endobj
 26 0 obj
 <</Length 356>>
@@ -549,7 +534,7 @@ stream
 /CIDInit /ProcSet findresource begin
 12 dict begin
 begincmap
-/CMapName /EXQIVM+LMRoman10-Regular-UTF16 def
+/CMapName /ECBDAE+LMRoman10-Regular-UTF16 def
 /CMapType 2 def
 /CIDSystemInfo <<
   /Registry (Adobe)
@@ -580,24 +565,24 @@ endobj
 [BINARY STREAM]
 endobj
 20 0 obj
-<</Type/Font/Subtype/CIDFontType0/BaseFont/EXQIVM+LMRoman10-Regular/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement
+<</Type/Font/Subtype/CIDFontType0/BaseFont/ECBDAE+LMRoman10-Regular/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement
 0>>/FontDescriptor 27 0 R/DW 280/W 29 0 R>>
 endobj
 27 0 obj
 <</Type/FontDescriptor/Ascent 806/Descent -194/StemV 69/CapHeight 806/AvgWidth 549/FontBBox[-430
--290 1417 1127]/ItalicAngle 0/Flags 6/Style<</Panose<000000000500000000000000>>>/FontName/EXQIVM+LMRoman10-Regular/FontFile3
+-290 1417 1127]/ItalicAngle 0/Flags 6/Style<</Panose<000000000500000000000000>>>/FontName/ECBDAE+LMRoman10-Regular/FontFile3
 28 0 R/CIDSet 30 0 R>>
 endobj
 19 0 obj
-<</Type/Font/Subtype/Type0/BaseFont/EXQIVM+LMRoman10-Regular-Identity-H/Encoding/Identity-H/DescendantFonts[20 0 R]/ToUnicode
+<</Type/Font/Subtype/Type0/BaseFont/ECBDAE+LMRoman10-Regular-Identity-H/Encoding/Identity-H/DescendantFonts[20 0 R]/ToUnicode
 26 0 R>>
 endobj
 xref
 0 31
 0000000000 65535 f 
-0000037537 00000 n 
-0000037429 00000 n 
-0000037263 00000 n 
+0000037042 00000 n 
+0000036934 00000 n 
+0000036768 00000 n 
 0000025425 00000 n 
 0000000015 00000 n 
 0000014959 00000 n 
@@ -611,23 +596,23 @@ xref
 0000022700 00000 n 
 0000022722 00000 n 
 0000024642 00000 n 
+0000036420 00000 n 
+0000036577 00000 n 
+0000038672 00000 n 
+0000038221 00000 n 
 0000025468 00000 n 
-0000025625 00000 n 
-0000039179 00000 n 
-0000038728 00000 n 
-0000025784 00000 n 
 0000025095 00000 n 
 0000025306 00000 n 
-0000037355 00000 n 
-0000037231 00000 n 
-0000037611 00000 n 
-0000038918 00000 n 
-0000038017 00000 n 
-0000038642 00000 n 
-0000038668 00000 n 
+0000036860 00000 n 
+0000036736 00000 n 
+0000037104 00000 n 
+0000038411 00000 n 
+0000037510 00000 n 
+0000038135 00000 n 
+0000038161 00000 n 
 trailer
 <</ID[<ID-STRING><ID-STRING>]/Root
 1 0 R/Info 2 0 R/Size 31>>
 startxref
-39330
+38823
 %%EOF

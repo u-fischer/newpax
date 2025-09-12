@@ -1,7 +1,7 @@
-%PDF-1.5
+%PDF-1.7
 %Ã’¡‘≈ÿ–ƒ∆
 7 0 obj
-<< /Type /Metadata /Subtype /XML /Length 11372 >>      
+<< /Type /Metadata /Subtype /XML /Length 10877 >>      
 stream
 <?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -17,7 +17,6 @@ stream
     xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
     xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
     xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:pdfxid="http://www.npes.org/pdfx/ns/id/"
     xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
     xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
     xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
@@ -55,6 +54,12 @@ stream
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Year of standard</pdfaProperty:description>
         </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
@@ -75,21 +80,6 @@ stream
          <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
          <pdfaProperty:category>internal</pdfaProperty:category>
          <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/X ID Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfxid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.npes.org/pdfx/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>GTS_PDFXVersion</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>ID of PDF/X standard</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -196,17 +186,12 @@ stream
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
-   <pdf:PDFVersion>1.5</pdf:PDFVersion>
+   <pdf:PDFVersion>1.7</pdf:PDFVersion>
    <dc:type>
     <rdf:Bag>
      <rdf:li>Text</rdf:li>
     </rdf:Bag>
    </dc:type>
-   <dc:language>
-    <rdf:Bag>
-     <rdf:li>en-US</rdf:li>
-    </rdf:Bag>
-   </dc:language>
    <dc:date>
     <rdf:Seq>
      <rdf:li>2016-05-20T09:00:00Z</rdf:li>
@@ -360,7 +345,7 @@ endobj
 << /Type /FontDescriptor /FontName /JFRMQG+LMRoman10-Regular /Flags 4 /FontBBox [ -430 -290 1417 1127 ] /Ascent 1127 /CapHeight 683 /Descent -290 /ItalicAngle 0 /StemV 93 /XHeight 431 /FontFile3 24 0 R /CIDSet 23 0 R >>
 endobj
 25 0 obj
-<< /Length 692 >>        
+<< /Length 666 >>        
 stream
 %!PS-Adobe-3.0 Resource-CMap
 %%DocumentNeededResources: ProcSet (CIDInit)
@@ -382,8 +367,6 @@ begincmap
 1 begincodespacerange
 <0000> <FFFF>
 endcodespacerange
-0 beginbfrange
-endbfrange
 1 beginbfchar
 <0052> <0031>
 endbfchar
@@ -405,7 +388,7 @@ endobj
 << /Type /Pages  /Count 1 /Kids [ 9 0 R ] >>
 endobj
 27 0 obj
-<< /Type /Catalog /Pages 12 0 R /Lang (en-US)/Metadata 7 0 R >>
+<< /Type /Catalog /Pages 12 0 R /Metadata 7 0 R >>
 endobj
 28 0 obj
 << /Producer (LuaTeX)/Creator (TeX)/CreationDate (D:20160520090000Z)/ModDate (D:20160520090000Z) /Trapped /False >>
@@ -413,36 +396,36 @@ endobj
 xref
 0 29
 0000000002 65535 f 
-0000017828 00000 n 
+0000017333 00000 n 
 0000000003 00000 f 
 0000000004 00000 f 
 0000000000 00000 f 
-0000011800 00000 n 
-0000017545 00000 n 
+0000011305 00000 n 
+0000017050 00000 n 
 0000000020 00000 n 
-0000017716 00000 n 
-0000011651 00000 n 
-0000011481 00000 n 
-0000019623 00000 n 
-0000019977 00000 n 
-0000011774 00000 n 
-0000012520 00000 n 
-0000012673 00000 n 
-0000012872 00000 n 
-0000013935 00000 n 
-0000014170 00000 n 
-0000014387 00000 n 
-0000017478 00000 n 
-0000017875 00000 n 
-0000018635 00000 n 
-0000017906 00000 n 
-0000017977 00000 n 
-0000018871 00000 n 
-0000019777 00000 n 
-0000020038 00000 n 
-0000020118 00000 n 
+0000017221 00000 n 
+0000011156 00000 n 
+0000010986 00000 n 
+0000019102 00000 n 
+0000019456 00000 n 
+0000011279 00000 n 
+0000012025 00000 n 
+0000012178 00000 n 
+0000012377 00000 n 
+0000013440 00000 n 
+0000013675 00000 n 
+0000013892 00000 n 
+0000016983 00000 n 
+0000017380 00000 n 
+0000018140 00000 n 
+0000017411 00000 n 
+0000017482 00000 n 
+0000018376 00000 n 
+0000019256 00000 n 
+0000019517 00000 n 
+0000019584 00000 n 
 trailer
 << /Size 29 /Root 27 0 R /Info 28 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-20250
+19716
 %%EOF

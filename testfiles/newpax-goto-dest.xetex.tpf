@@ -1,34 +1,32 @@
 %PDF-1.7
 %äðíø
-8 0 obj
-<</Subtype/CIDFontType0C/Length 3014>>
-[BINARY STREAM]
-endobj
-9 0 obj
-<</Length 16>>
-[BINARY STREAM]
+4 0 obj
+<</opacity1<</ca 1/CA 1>>>>
 endobj
 7 0 obj
-<</Type/FontDescriptor/FontName/SSSLUY+LMMono10-Regular/Flags 4/FontBBox[-451 -316
-731 1016]/Ascent 1016/CapHeight 611/Descent -316/ItalicAngle 0/StemV 175/XHeight
-431/FontFile3 8 0 R/CIDSet 9 0 R>>
-endobj
-10 0 obj
-[44[525]47[525]51[525]57[525]59[525]63[525 525]66[525]81[525 525]84[525 525 525]88[525]96[525
-525 525]100[525 525 525]105[525 525 525]121[525]]
+<</Length1 1473/Length2 6964/Length3 0/Length 8437>>
+[BINARY STREAM]
 endobj
 6 0 obj
-<</Type/Font/Subtype/CIDFontType0/BaseFont/SSSLUY+LMMono10-Regular/FontDescriptor
-7 0 R/W 10 0 R/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement 0>>>>
+<</Type/FontDescriptor/FontName/LNLIVH+CMBX12/Flags 4/FontBBox[-53 -251 1139 750]/Ascent
+694/CapHeight 686/Descent -194/ItalicAngle 0/StemV 109/XHeight 444/CharSet(/S/a/c/e/o/one/r/u)/FontFile
+7 0 R>>
 endobj
-11 0 obj
-<</Length 1010>>
+8 0 obj
+[562.5 562.5 562.5 562.5 562.5 562.5 562.5 562.5 562.5 312.5 312.5 342.6 875 531.2
+531.2 875 849.5 799.8 812.5 862.3 738.4 707.2 884.3 879.6 419 581 880.8 675.9 1067.1
+879.6 844.9 768.5 844.9 839.1 625 782.4 864.6 849.5 1162 849.5 849.5 687.5 312.5
+581 312.5 562.5 312.5 312.5 546.9 625 500 625 513.3 343.7 562.5 625 312.5 343.7 593.7
+312.5 937.5 625 562.5 625 593.7 459.5 443.8 437.5 625]
+endobj
+9 0 obj
+<</Length 1729>>
 stream
 %!PS-Adobe-3.0 Resource-CMap
 %%DocumentNeededResources: ProcSet (CIDInit)
 %%IncludeResource: ProcSet (CIDInit)
-%%BeginResource: CMap (TeX-SSSLUY-LMMono10-Regular-0)
-%%Title: (TeX-SSSLUY-LMMono10-Regular-0 TeX SSSLUY-LMMono10-Regular 0)
+%%BeginResource: CMap (TeX-cmbx12-builtin-0)
+%%Title: (TeX-cmbx12-builtin-0 TeX cmbx12-builtin 0)
 %%Version: 1.000
 %%EndComments
 /CIDInit /ProcSet findresource begin
@@ -36,41 +34,102 @@ stream
 begincmap
 /CIDSystemInfo
 << /Registry (TeX)
-/Ordering (SSSLUY-LMMono10-Regular)
+/Ordering (cmbx12-builtin)
 /Supplement 0
 >> def
-/CMapName /TeX-Identity-SSSLUY-LMMono10-Regular def
+/CMapName /TeX-cmbx12-builtin-0 def
 /CMapType 2 def
 1 begincodespacerange
-<0000> <FFFF>
+<00> <FF>
 endcodespacerange
-0 beginbfrange
+7 beginbfrange
+<07> <08> <03A5>
+<23> <26> <0023>
+<28> <3B> <0028>
+<3F> <5B> <003F>
+<61> <7A> <0061>
+<7B> <7C> <2013>
+<A8> <A9> <03A5>
 endbfrange
-24 beginbfchar
-<002C> <003A>
-<002F> <0064>
-<0033> <0038>
-<0039> <0034>
-<003B> <0067>
-<003F> <0068>
-<0040> <002D>
-<0042> <0069>
-<0051> <006F>
-<0052> <0031>
-<0054> <0070>
-<0055> <0028>
-<0056> <0029>
-<0058> <002E>
-<0060> <0072>
-<0061> <0053>
-<0062> <0073>
-<0064> <0037>
-<0065> <0036>
-<0066> <002F>
-<0069> <0074>
-<006A> <0033>
-<006B> <0032>
-<0079> <0030>
+78 beginbfchar
+<00> <0393>
+<01> <2206>
+<02> <0398>
+<03> <039B>
+<04> <039E>
+<05> <03A0>
+<06> <03A3>
+<09> <03A8>
+<0A> <2126>
+<0B> <00660066>
+<0C> <00660069>
+<0D> <0066006C>
+<0E> <006600660069>
+<0F> <00660066006C>
+<10> <0131>
+<11> <0237>
+<12> <0060>
+<13> <00B4>
+<14> <02C7>
+<15> <02D8>
+<16> <00AF>
+<17> <02DA>
+<18> <00B8>
+<19> <00DF>
+<1A> <00E6>
+<1B> <0153>
+<1C> <00F8>
+<1D> <00C6>
+<1E> <0152>
+<1F> <00D8>
+<21> <0021>
+<22> <201D>
+<27> <2019>
+<3C> <00A1>
+<3D> <003D>
+<3E> <00BF>
+<5C> <201C>
+<5D> <005D>
+<5E> <02C6>
+<5F> <02D9>
+<60> <2018>
+<7D> <02DD>
+<7E> <02DC>
+<7F> <00A8>
+<A0> <0020>
+<A1> <0393>
+<A2> <2206>
+<A3> <0398>
+<A4> <039B>
+<A5> <039E>
+<A6> <03A0>
+<A7> <03A3>
+<AA> <03A8>
+<AB> <00AD>
+<AC> <00A0>
+<AD> <2126>
+<AE> <00660066>
+<AF> <00660069>
+<B0> <0066006C>
+<B1> <006600660069>
+<B2> <00660066006C>
+<B3> <0131>
+<B4> <0237>
+<B5> <0060>
+<B6> <00B4>
+<B7> <02C7>
+<B8> <02D8>
+<B9> <00AF>
+<BA> <02DA>
+<BB> <00B8>
+<BC> <00DF>
+<BD> <00E6>
+<BE> <0153>
+<BF> <00F8>
+<C0> <00C6>
+<C1> <0152>
+<C2> <00D8>
+<C4> <00A8>
 endbfchar
 endcmap
 CMapName currentdict /CMap defineresource pop
@@ -81,33 +140,192 @@ end
 endstream
 endobj
 5 0 obj
-<</Type/Font/Subtype/Type0/Encoding/Identity-H/BaseFont/SSSLUY+LMMono10-Regular/DescendantFonts[6 0 R]/ToUnicode
-11 0 R>>
+<</Type/Font/Subtype/Type1/BaseFont/LNLIVH+CMBX12/FontDescriptor 6 0 R/FirstChar
+49/LastChar 117/Widths 8 0 R/ToUnicode 9 0 R>>
 endobj
 12 0 obj
-<</Type/XObject/Subtype/Form/FormType 1/BBox[0 0 246.326 19.158]/Matrix[1 0 0 1 0
-0]/Resources<</Font<</F16 5 0 R>>/ProcSet[/PDF/Text]>>/Length 242>>
+<</Length1 1486/Length2 9558/Length3 0/Length 11044>>
+[BINARY STREAM]
+endobj
+11 0 obj
+<</Type/FontDescriptor/FontName/AIIPVO+CMR10/Flags 4/FontBBox[-40 -250 1009 750]/Ascent
+694/CapHeight 683/Descent -194/ItalicAngle 0/StemV 69/XHeight 431/CharSet(/e/i/k/l/n/one/t/two/x)/FontFile
+12 0 R>>
+endobj
+13 0 obj
+[500 500 500 500 500 500 500 500 500 277.8 277.8 277.8 777.8 472.2 472.2 777.8 750
+708.3 722.2 763.9 680.6 652.8 784.7 750 361.1 513.9 777.8 625 916.7 750 777.8 680.6
+777.8 736.1 555.6 722.2 750 750 1027.8 750 750 611.1 277.8 500 277.8 500 277.8 277.8
+500 555.6 444.4 555.6 444.4 305.6 500 555.6 277.8 305.6 527.8 277.8 833.3 555.6 500
+555.6 527.8 391.7 394.4 388.9 555.6 527.8 722.2 527.8]
+endobj
+14 0 obj
+<</Length 1724>>
 stream
+%!PS-Adobe-3.0 Resource-CMap
+%%DocumentNeededResources: ProcSet (CIDInit)
+%%IncludeResource: ProcSet (CIDInit)
+%%BeginResource: CMap (TeX-cmr10-builtin-0)
+%%Title: (TeX-cmr10-builtin-0 TeX cmr10-builtin 0)
+%%Version: 1.000
+%%EndComments
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo
+<< /Registry (TeX)
+/Ordering (cmr10-builtin)
+/Supplement 0
+>> def
+/CMapName /TeX-cmr10-builtin-0 def
+/CMapType 2 def
+1 begincodespacerange
+<00> <FF>
+endcodespacerange
+7 beginbfrange
+<07> <08> <03A5>
+<23> <26> <0023>
+<28> <3B> <0028>
+<3F> <5B> <003F>
+<61> <7A> <0061>
+<7B> <7C> <2013>
+<A8> <A9> <03A5>
+endbfrange
+78 beginbfchar
+<00> <0393>
+<01> <2206>
+<02> <0398>
+<03> <039B>
+<04> <039E>
+<05> <03A0>
+<06> <03A3>
+<09> <03A8>
+<0A> <2126>
+<0B> <00660066>
+<0C> <00660069>
+<0D> <0066006C>
+<0E> <006600660069>
+<0F> <00660066006C>
+<10> <0131>
+<11> <0237>
+<12> <0060>
+<13> <00B4>
+<14> <02C7>
+<15> <02D8>
+<16> <00AF>
+<17> <02DA>
+<18> <00B8>
+<19> <00DF>
+<1A> <00E6>
+<1B> <0153>
+<1C> <00F8>
+<1D> <00C6>
+<1E> <0152>
+<1F> <00D8>
+<21> <0021>
+<22> <201D>
+<27> <2019>
+<3C> <00A1>
+<3D> <003D>
+<3E> <00BF>
+<5C> <201C>
+<5D> <005D>
+<5E> <02C6>
+<5F> <02D9>
+<60> <2018>
+<7D> <02DD>
+<7E> <02DC>
+<7F> <00A8>
+<A0> <0020>
+<A1> <0393>
+<A2> <2206>
+<A3> <0398>
+<A4> <039B>
+<A5> <039E>
+<A6> <03A0>
+<A7> <03A3>
+<AA> <03A8>
+<AB> <00AD>
+<AC> <00A0>
+<AD> <2126>
+<AE> <00660066>
+<AF> <00660069>
+<B0> <0066006C>
+<B1> <006600660069>
+<B2> <00660066006C>
+<B3> <0131>
+<B4> <0237>
+<B5> <0060>
+<B6> <00B4>
+<B7> <02C7>
+<B8> <02D8>
+<B9> <00AF>
+<BA> <02DA>
+<BB> <00B8>
+<BC> <00DF>
+<BD> <00E6>
+<BE> <0153>
+<BF> <00F8>
+<C0> <00C6>
+<C1> <0152>
+<C2> <00D8>
+<C4> <00A8>
+endbfchar
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+%%EndResource
+%%EOF
+endstream
+endobj
+10 0 obj
+<</Type/Font/Subtype/Type1/BaseFont/AIIPVO+CMR10/FontDescriptor 11 0 R/FirstChar
+49/LastChar 120/Widths 13 0 R/ToUnicode 14 0 R>>
+endobj
+15 0 obj
+<</Type/XObject/Subtype/Form/FormType 1/BBox[0 0 612 792]/Matrix[1 0 0 1 0 0]/Resources<</ExtGState
+4 0 R/Font<</F38 5 0 R/F28 10 0 R>>/ProcSet[/PDF/Text]>>/Length 123>>
+stream
+/opacity1 gs
 BT
-/F16 9.96264 Tf
-1 0 0 1 4.981 7.263 Tm [<003F0069006900540062002C00660066002F00510042005800510060003B006600520079005800520079005200650066006100520039006400390040>-50<006500650064007900550052006400560039006A0065006B00330040>-50<0064>]TJ
+/F38 14.3462 Tf 133.768 657.235 Td [(1)-1125(Source)-375(a)]TJ/F28 9.9626 Tf 169.365 -567.87 Td [(1)]TJ
 ET
 endstream
 endobj
 17 0 obj
-<</Length 130>>
+<</Length 192>>
 stream
- q 1 0 0 1 72 720 cm 0 G 0 g q q 1 0 0 1 76.712 -71.96 cm /Fm0 Do Q Q 0 G 0 g BT /F1 9.9626 Tf 231.133 -630.635 Td[<0052>]TJ ET Q
+ q 1 0 0 1 72 720 cm 0 G 0 g q q q q 1.00047 0 0 1.00047 .034 .338 cm q 1 0 0 1 -72.144 -720.186 cm /Fm0 Do Q Q 0 G 0 g Q 0 G 0 g Q 0 G 0 g Q 0 G 0 g 0 G 0 g 0 G 0 g 0 G 0 g 0 G 0 g 0 G 0 g Q
 endstream
 endobj
 18 0 obj
-<</ExtGState 4 0 R/XObject<</Fm0 12 0 R>>/Font<</F1 14 0 R>>/ProcSet[/PDF/Text/ImageC/ImageB/ImageI]>>
+<</XObject<</Fm0 15 0 R>>/ExtGState 16 0 R/ProcSet[/PDF/Text/ImageC/ImageB/ImageI]>>
 endobj
-4 0 obj
-<</opacity1<</ca 1/CA 1>>>>
+20 0 obj
+<</Type/XObject/Subtype/Form/FormType 1/BBox[0 0 612 792]/Matrix[1 0 0 1 0 0]/Resources<</ExtGState
+4 0 R/Font<</F28 10 0 R>>/ProcSet[/PDF/Text]>>/Length 95>>
+stream
+/opacity1 gs
+BT
+/F28 9.9626 Tf 148.712 657.235 Td [(linktext)]TJ 154.421 -567.87 Td [(2)]TJ
+ET
+endstream
+endobj
+24 0 obj
+<</Length 281>>
+stream
+ q 1 0 0 1 72 720 cm 0 G 0 g q q q q 1.00047 0 0 1.00047 .034 .338 cm q 1 0 0 1 -72.144 -720.186 cm /Fm1 Do Q Q 0 G 0 g Q 0 G 0 g Q 0 G 0 g Q 0 G 0 g BT /F0 0 Tf 73.658 -65.609 Td[( )]TJ ET 0 G 0 g 0 G 0 g BT /F0 0 Tf 113.418 -52.709 Td[( )]TJ ET 0 G 0 g 0 G 0 g 0 G 0 g 0 G 0 g Q
+endstream
+endobj
+25 0 obj
+<</XObject<</Fm1 20 0 R>>/Font<</F0 21 0 R>>/ExtGState 16 0 R/ProcSet[/PDF/Text/ImageC/ImageB/ImageI]>>
 endobj
 16 0 obj
-<</Type/Metadata/Subtype/XML/Length 10874>>
+<</opacity1<</ca 1/CA 1>>>>
+endobj
+23 0 obj
+<</Type/Metadata/Subtype/XML/Length 10886>>
 stream
 <?xpacket begin="ï»¿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -304,47 +522,69 @@ stream
     </rdf:Seq>
    </dc:date>
    <dc:format>application/pdf</dc:format>
-   <dc:source>newpax-link-parens.tex</dc:source>
-   <xmp:CreatorTool>LaTeX</xmp:CreatorTool>
+   <dc:source>newpax-goto-dest.tex</dc:source>
+   <xmp:CreatorTool>LaTeX with hyperref</xmp:CreatorTool>
    <xmp:CreateDate>2016-05-20T09:00:00Z</xmp:CreateDate>
    <xmp:ModifyDate>2016-05-20T09:00:00Z</xmp:ModifyDate>
    <xmp:MetadataDate>2016-05-20T09:00:00Z</xmp:MetadataDate>
-   <xmpMM:DocumentID>uuid:28e990b6-0967-4259-8128-7b0173bed383</xmpMM:DocumentID>
+   <xmpMM:DocumentID>uuid:f508e001-15f6-4798-8d40-49ee4cd59ef1</xmpMM:DocumentID>
    <xmpMM:InstanceID>uuid:0a57c455-157a-4141-8c19-6237d832fc80</xmpMM:InstanceID>
    <prism:complianceProfile>three</prism:complianceProfile>
-   <prism:pageCount>1</prism:pageCount>
+   <prism:pageCount>2</prism:pageCount>
   </rdf:Description>
  </rdf:RDF>
 </x:xmpmeta>
 <?xpacket end="w"?>
 endstream
 endobj
-13 0 obj
-<</Type/Annot/Subtype/Link/A<</Type/Action/S/URI/URI(https://doi.org/10.1016/S1474-6670\(17\)43628-7)>>/Rect[152.697
-647.044 391.064 668.195]>>
+22 0 obj
+<</Type/Annot/Subtype/Link/A<</S/GoTo/D(goto-dest-input.newpax@section.1)>>/Rect[144.662
+653.394 186.414 668.287]>>
 endobj
-20 0 obj
-[13 0 R]
+30 0 obj
+<</Names[(Doc-Start)26 0 R(goto-dest-input.newpax@section.1)27 0 R(page.1)28 0 R(page.2)29 0 R]>>
+endobj
+26 0 obj
+[3 0 R/XYZ 133.77 667.2 null]
+endobj
+28 0 obj
+[3 0 R/XYZ 132.77 705.06 null]
+endobj
+29 0 obj
+[19 0 R/XYZ 132.77 705.06 null]
+endobj
+27 0 obj
+[3 0 R/XYZ 133.7 667.35 null]
+endobj
+31 0 obj
+<</Dests 30 0 R>>
 endobj
 3 0 obj
-<</Resources 18 0 R/Type/Page/Parent 19 0 R/Contents[17 0 R]/Annots 20 0 R>>
+<</Resources 18 0 R/Type/Page/Parent 32 0 R/Contents[17 0 R]>>
+endobj
+33 0 obj
+[22 0 R]
 endobj
 19 0 obj
-<</Type/Pages/Count 1/Kids[3 0 R]/MediaBox[0 0 612 792]>>
+<</Resources 25 0 R/Type/Page/Parent 32 0 R/Contents[24 0 R]/Annots 33 0 R>>
+endobj
+32 0 obj
+<</Type/Pages/Count 2/Kids[3 0 R 19 0 R]/MediaBox[0 0 612 792]>>
 endobj
 2 0 obj
-<</Creator(TeX)/Producer(xetex)/CreationDate(D:20160520090000Z)/ModDate(D:20160520090000Z)>>
+<</Creator<feff004c006100540065005800200077006900740068002000680079007000650072007200650066>/Producer(xetex)/CreationDate(D:20160520090000Z)/ModDate(D:20160520090000Z)>>
 endobj
 1 0 obj
-<</Metadata 16 0 R/Pages 19 0 R/Type/Catalog>>
+<</PageMode/UseOutlines/OpenAction[3 0 R/Fit]/PageLabels<</Nums[0<</S/D>>]>>/Metadata
+23 0 R/Names 31 0 R/Pages 32 0 R/Type/Catalog>>
 endobj
-21 0 obj
-<</Length 356>>
+34 0 obj
+<</Length 341>>
 stream
 /CIDInit /ProcSet findresource begin
 12 dict begin
 begincmap
-/CMapName /JADNQI+LMRoman10-Regular-UTF16 def
+/CMapName /ETYXOM+Dingbats-UTF16 def
 /CMapType 2 def
 /CIDSystemInfo <<
   /Registry (Adobe)
@@ -352,10 +592,10 @@ begincmap
   /Supplement 0
 >> def
 1 begincodespacerange
-<0000> <FFFF>
+<00> <FF>
 endcodespacerange
 1 beginbfchar
-<0052> <0031>
+<20> <0020>
 endbfchar
 endcmap
 CMapName currentdict /CMap defineresource pop
@@ -363,61 +603,64 @@ end
 end
 endstream
 endobj
-23 0 obj
-<</Subtype/CIDFontType0C/Length 553>>
+35 0 obj
+[278]
+endobj
+36 0 obj
+<</Subtype/Type1C/Length 578>>
 [BINARY STREAM]
 endobj
-24 0 obj
-[82[500]]
+21 0 obj
+<</Type/Font/Subtype/Type1/ToUnicode 34 0 R/Widths 35 0 R/FirstChar 32/LastChar 32/BaseFont/ETYXOM+Dingbats/FontDescriptor
+37 0 R>>
 endobj
-25 0 obj
-<</Length 11>>
-[BINARY STREAM]
-endobj
-15 0 obj
-<</Type/Font/Subtype/CIDFontType0/BaseFont/JADNQI+LMRoman10-Regular/CIDSystemInfo<</Registry(Adobe)/Ordering(Identity)/Supplement
-0>>/FontDescriptor 22 0 R/DW 280/W 24 0 R>>
-endobj
-22 0 obj
-<</Type/FontDescriptor/Ascent 806/Descent -194/StemV 69/CapHeight 806/AvgWidth 549/FontBBox[-430
--290 1417 1127]/ItalicAngle 0/Flags 6/Style<</Panose<000000000500000000000000>>>/FontName/JADNQI+LMRoman10-Regular/FontFile3
-23 0 R/CIDSet 25 0 R>>
-endobj
-14 0 obj
-<</Type/Font/Subtype/Type0/BaseFont/JADNQI+LMRoman10-Regular-Identity-H/Encoding/Identity-H/DescendantFonts[15 0 R]/ToUnicode
-21 0 R>>
+37 0 obj
+<</Type/FontDescriptor/CapHeight 0/Ascent 0/Descent 0/ItalicAngle 0/StemV 0/Flags
+6/FontBBox[-1 -143 981 819]/FontFile3 36 0 R/CharSet(/space)/FontName/ETYXOM+Dingbats>>
 endobj
 xref
-0 26
+0 38
 0000000000 65535 f 
-0000017096 00000 n 
-0000016988 00000 n 
-0000016822 00000 n 
-0000005642 00000 n 
-0000004780 00000 n 
-0000003539 00000 n 
-0000003165 00000 n 
+0000038150 00000 n 
+0000037965 00000 n 
+0000037688 00000 n 
 0000000015 00000 n 
-0000003101 00000 n 
-0000003379 00000 n 
-0000003719 00000 n 
-0000004917 00000 n 
-0000016637 00000 n 
-0000018726 00000 n 
-0000018275 00000 n 
-0000005685 00000 n 
-0000005343 00000 n 
-0000005523 00000 n 
-0000016914 00000 n 
-0000016797 00000 n 
-0000017158 00000 n 
-0000018465 00000 n 
-0000017564 00000 n 
-0000018189 00000 n 
-0000018215 00000 n 
+0000010981 00000 n 
+0000008581 00000 n 
+0000000058 00000 n 
+0000008797 00000 n 
+0000009202 00000 n 
+0000024658 00000 n 
+0000022256 00000 n 
+0000011124 00000 n 
+0000022476 00000 n 
+0000022883 00000 n 
+0000024804 00000 n 
+0000026213 00000 n 
+0000025131 00000 n 
+0000025373 00000 n 
+0000037791 00000 n 
+0000025474 00000 n 
+0000039355 00000 n 
+0000037221 00000 n 
+0000026257 00000 n 
+0000025762 00000 n 
+0000026093 00000 n 
+0000037467 00000 n 
+0000037608 00000 n 
+0000037513 00000 n 
+0000037560 00000 n 
+0000037353 00000 n 
+0000037654 00000 n 
+0000037884 00000 n 
+0000037766 00000 n 
+0000038299 00000 n 
+0000038690 00000 n 
+0000038712 00000 n 
+0000039503 00000 n 
 trailer
 <</ID[<ID-STRING><ID-STRING>]/Root
-1 0 R/Info 2 0 R/Size 26>>
+1 0 R/Info 2 0 R/Size 38>>
 startxref
-18877
+39689
 %%EOF

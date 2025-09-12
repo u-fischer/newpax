@@ -1,4 +1,4 @@
-\DocumentMetadata{uncompress}
+\RequirePackage{pdfmanagement}
 \input{regression-test}
 \documentclass{article}
 \usepackage{newpax}
