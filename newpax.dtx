@@ -726,6 +726,7 @@
 % This records the destinations that are provided.
 %    \begin{macrocode}
 \def\NEWPAX@DestProv#1#2{{%
+  \NEWPAX@sanitize@destname
   \expandafter\gdef\csname NEWPAX@PROV@#1@#2\endcsname{}%
 }}
 %    \end{macrocode}
