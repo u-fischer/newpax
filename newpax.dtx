@@ -58,9 +58,10 @@
 % \subsection{Variables}
 % Variables inherited from the pax code use \cs{NEWPAX}
 % as prefix.
-% \begin{variable}{\l_@@_tmpa_box}
+% \begin{variable}{\l_@@_tmpa_box,\g_@@_tmpa_tl}
 %    \begin{macrocode}
 \box_new:N \l_@@_tmpa_box
+\tl_new:N\g_@@_tmpa_tl
 %    \end{macrocode}
 % \end{variable}
 
@@ -533,6 +534,17 @@
 \NEWPAX@oktrue
 
 \newif\ifNEWPAX@GoTo
+%    \end{macrocode}
+% We need to sanitize destnames in case they contain umlauts and so backslashes for the 
+% octal numbers.
+%    \begin{macrocode}
+\def\NEWPAX@sanitize@destname{%
+    \edef\0{\string\0}%
+    \edef\1{\string\1}%
+    \edef\2{\string\2}%
+    \edef\3{\string\3}%    
+    \edef\8{\string\8}%
+    \edef\9{\string\9}}
 
 \def\NEWPAX@pdf@annot#1{%
   \ifNEWPAX@Gin@clip
@@ -703,18 +715,19 @@
 % \begin{macro}{\NEWPAX@DestReq}
 % This command records the destinations that are required and should be reinserted.
 %    \begin{macrocode}
-\def\NEWPAX@DestReq#1#2{%
+\def\NEWPAX@DestReq#1#2{{%
+  \NEWPAX@sanitize@destname
   \expandafter\gdef\csname NEWPAX@REQ@#1@#2\endcsname{}%
-}
+}}
 %    \end{macrocode}
 % \end{macro}
 
 % \begin{macro}{\NEWPAX@DestProv}
 % This records the destinations that are provided.
 %    \begin{macrocode}
-\def\NEWPAX@DestProv#1#2{%
+\def\NEWPAX@DestProv#1#2{{%
   \expandafter\gdef\csname NEWPAX@PROV@#1@#2\endcsname{}%
-}
+}}
 %    \end{macrocode}
 % \end{macro}
 
@@ -895,7 +908,14 @@
   {
    ,URI      .tl_set:N = \NEWPAX@key@URI
    ,Name     .tl_set:N = \NEWPAX@key@Name
-   ,DestName .tl_set:N = \NEWPAX@key@DestName
+   ,DestName .code:n   = 
+     { 
+       \group_begin:
+       \NEWPAX@sanitize@destname
+       \tl_gset:Ne \g_@@_tmpa_tl{#1}
+       \group_end:
+       \cs_set_eq:NN\NEWPAX@key@DestName\g_@@_tmpa_tl
+     } 
    ,DestName .groups:n = {destinit}
    ,DestPage .tl_set:N = \NEWPAX@key@DestPage
    ,DestView .tl_set:N = \NEWPAX@key@DestView
