@@ -1,6 +1,6 @@
 -- Build script for newpax
-packageversion="0.56"
-packagedate="2025-08-21"
+packageversion="0.57"
+packagedate="2025-09-24"
 
 module   = "newpax"
 ctanpkg  = "newpax"
@@ -63,7 +63,8 @@ tagfiles = {"Readme.md",
             "newpax.dtx",
             "newpax.ins",
             "doc/newpax.tex",
-            "doc/CTANREADME.md"
+            "doc/CTANREADME.md",
+            "CHANGELOG.md"
             }
 
 
@@ -99,13 +100,19 @@ function update_tag (file,content,tagname,tagdate)
                          "%d%d%d%d%-%-%d%d%-%-%d%d",
                          imgpackagedate)
    return content
-  elseif string.match (file, "%.md$") then
+  elseif string.match (file, "%.md$") then   
    content = string.gsub (content,
                          "Packageversion: %d%.%d+",
                          "Packageversion: " .. packageversion )
    content = string.gsub (content,
-                         "Packagedate: %d%d%d%d/%d%d/%d%d",
-                         "Packagedate: " .. tagdate )
+                         "Packagedate: %d%d%d%d%-%d%d%-%d%d",
+                         "Packagedate: " .. packagedate )
+   content = string.gsub (content,
+                         "Unreleased",
+                          packagedate) 
+   content = string.gsub (content,
+                         "XXXX",
+                          packageversion )                                                
    return content  
  elseif string.match (file, "%.tex$" ) then
    content = string.gsub (content,
