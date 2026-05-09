@@ -2,7 +2,7 @@
 %
 % File: newpax.dtx
 % Copyright 2006-2008, 2011, 2012 Heiko Oberdiek (original pax.sty)
-% Copyright (C) 2021--2023 Ulrike Fischer
+% Copyright (C) 2021--2026 Ulrike Fischer
 %
 % It may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License (LPPL), either version 1.3c of this
@@ -1411,7 +1411,12 @@ local function outputENTRY_dest (destcount,name,pagereftonum,destnamestoref,pdfe
  end
   -- output also the name. This perhaps need a check if the name exists 
   -- print("DEBUG TYPE name", TYPE(name))
-  if not (TYPE(name) == "pdfe.array") then    
+  -- if name is a reference, resolve it once, issue #30
+  if  (TYPE(name) == "pdfe.reference") then
+    _,name  = GETFROMREFERENCE(name)
+  end
+  -- check also if name is still a reference issue #30
+  if not (TYPE(name) == "pdfe.array" or TYPE(name) == "pdfe.reference") then  
    a = a .. strKV_BEG .. constKEY_DEST_NAME .. strVALUE_BEG .. name .. strVALUE_END .. strKV_END
   end 
  a = a .. strKVS_END .. strENTRY_END
