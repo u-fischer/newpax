@@ -27,219 +27,6 @@ endobj
 25 0 obj
 << /ExtGState 1 0 R /Font << /F15 29 0 R >> /ProcSet [ /PDF /Text ] >>
 endobj
-31 0 obj
-<< /Type /Metadata /Subtype /XML /Length 10886 >>      
-stream
-<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/">
- <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about=""
-    xmlns:pdf="http://ns.adobe.com/pdf/1.3/"
-    xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/"
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
-    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
-    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
-    xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
-    xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
-    xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
-    xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
-    xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
-    xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
-    xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
-    xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/"
-    xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
-    xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
-    xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
-   <pdfaExtension:schemas>
-    <rdf:Bag>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>XMP Media Management Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>xmpMM</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://ns.adobe.com/xap/1.0/mm/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>OriginalDocumentID</pdfaProperty:name>
-         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>The common identifier for all versions and renditions of a document.</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/A Identification Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfaid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.aiim.org/pdfa/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>year</pdfaProperty:name>
-         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>Year of standard</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>rev</pdfaProperty:name>
-         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PDF/UA Universal Accessibility Schema</pdfaSchema:schema>
-      <pdfaSchema:prefix>pdfuaid</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://www.aiim.org/pdfua/ns/id/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>part</pdfaProperty:name>
-         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>Part of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>rev</pdfaProperty:name>
-         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-     <rdf:li rdf:parseType="Resource">
-      <pdfaSchema:schema>PRISM Basic Metadata</pdfaSchema:schema>
-      <pdfaSchema:prefix>prism</pdfaSchema:prefix>
-      <pdfaSchema:namespaceURI>http://prismstandard.org/namespaces/basic/3.0/</pdfaSchema:namespaceURI>
-      <pdfaSchema:property>
-       <rdf:Seq>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>complianceProfile</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>PRISM specification compliance profile to which this document adheres</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>publicationName</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Publication name</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>aggregationType</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Publication type</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>bookEdition</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Edition of the book in which the document was published</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>volume</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Publication volume number</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>number</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Publication issue number within a volume</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>pageRange</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Page range for the document within the print version of its publication</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>issn</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>ISSN for the printed publication in which the document was published</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>eIssn</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>ISSN for the electronic publication in which the document was published</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>isbn</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>ISBN for the publication in which the document was published</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>doi</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Digital Object Identifier for the document</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>url</pdfaProperty:name>
-         <pdfaProperty:valueType>URL</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>URL at which the document can be found</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>byteCount</pdfaProperty:name>
-         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>Approximate file size in octets</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>pageCount</pdfaProperty:name>
-         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
-         <pdfaProperty:category>internal</pdfaProperty:category>
-         <pdfaProperty:description>Number of pages in the print version of the document</pdfaProperty:description>
-        </rdf:li>
-        <rdf:li rdf:parseType="Resource">
-         <pdfaProperty:name>subtitle</pdfaProperty:name>
-         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
-         <pdfaProperty:category>external</pdfaProperty:category>
-         <pdfaProperty:description>Document's subtitle</pdfaProperty:description>
-        </rdf:li>
-       </rdf:Seq>
-      </pdfaSchema:property>
-     </rdf:li>
-    </rdf:Bag>
-   </pdfaExtension:schemas>
-   <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
-   <pdf:PDFVersion>1.7</pdf:PDFVersion>
-   <dc:type>
-    <rdf:Bag>
-     <rdf:li>Text</rdf:li>
-    </rdf:Bag>
-   </dc:type>
-   <dc:date>
-    <rdf:Seq>
-     <rdf:li>2016-05-20T09:00:00Z</rdf:li>
-    </rdf:Seq>
-   </dc:date>
-   <dc:format>application/pdf</dc:format>
-   <dc:source>newpax-umlaut.tex</dc:source>
-   <xmp:CreatorTool>LaTeX with hyperref</xmp:CreatorTool>
-   <xmp:CreateDate>2016-05-20T09:00:00Z</xmp:CreateDate>
-   <xmp:ModifyDate>2016-05-20T09:00:00Z</xmp:ModifyDate>
-   <xmp:MetadataDate>2016-05-20T09:00:00Z</xmp:MetadataDate>
-   <xmpMM:DocumentID>uuid:b140f13c-a109-4f02-83a0-3bf1611e838d</xmpMM:DocumentID>
-   <xmpMM:InstanceID>uuid:0a57c455-157a-4141-8c19-6237d832fc80</xmpMM:InstanceID>
-   <prism:complianceProfile>three</prism:complianceProfile>
-   <prism:pageCount>2</prism:pageCount>
-  </rdf:Description>
- </rdf:RDF>
-</x:xmpmeta>
-<?xpacket end="w"?>
-endstream
-endobj
 34 0 obj
 << /Length 143 >>        
 stream
@@ -265,7 +52,9 @@ endobj
 [ 7 0 R 8 0 R 9 0 R 10 0 R 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 11 0 R 12 0 R ]
 endobj
 6 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Author (\376\377\000V\000o\000r\000n\000a\000m\000e\0001\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0001\000,\000\040\000V\000o\000r\000n\000a\000m\000e\0002\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0002\000,\000\040\000V\000o\000r\000n\000a\000m\000e\0003\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0003\000\040\000u\000n\000d\000\040\000V\000o\000r\000n\000a\000m\000e\0004\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0004) /Title (\376\377\000E\000i\000n\000\040\000s\000e\000h\000r\000\040\000l\000a\000n\000g\000e\000r\000\040\000T\000i\000t\000e\000l\000\040\000\374\000b\000e\000r\000\040\000m\000e\000h\000r\000e\000r\000e\000\040\000Z\000e\000i\000l\000e\000n\000\040\000m\000i\000t\000\040\000s\000e\000h\000r\000\040\000v\000i\000e\000l\000e\000n\000\040\000W\000o\000r\000t\000e\000n\000\040\000u\000n\000d\000\040\000n\000o\000c\000h\000\040\000m\000e\000h\000r\000\040\000B\000u\000c\000h\000s\000t\000a\000b\000e\000n) /Subject () /Creator (LaTeX with hyperref) /Keywords () /Producer (LuaTeX-1.22.0) /CreationDate (D:20250912152756+02'00') /ModDate (D:20250912152756+02'00') /Trapped /False /PTEX.FullBanner (This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)) >> /BBox [ 0 0 595.276 841.89 ] /Resources << /ColorSpace 39 0 R /Pattern 40 0 R /ExtGState 41 0 R /Font << /F27 42 0 R /F24 43 0 R /F159 44 0 R >> /ProcSet [ /PDF /Text ] >> /Length 17346 >>      
+<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Author (\376\377\000V\000o\000r\000n\000a\000m\000e\0001\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0001\000,\000\040\000V\000o\000r\000n\000a\000m\000e\0002\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0002\000,\000\040\000V\000o\000r\000n\000a\000m\000e\0003\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0003\000\040\000u\000n\000d\000\040\000V\000o\000r\000n\000a\000m\000e\0004\000\040\000N\000a\000c\000h\000n\000a\000m\000e\0004) /Title (\376\377\000E\000i\000n\000\040\000s\000e\000h\000r\000\040\000l\000a\000n\000g\000e\000r\000\040\000T\000i\000t\000e\000l\000\040\000\374\000b\000e\000r\000\040\000m\000e\000h\000r\000e\000r\000e\000\040\000Z\000e\000i\000l\000e\000n\000\040\000m\000i\000t\000\040\000s\000e\000h\000r\000\040\000v\000i\000e\000l\000e\000n\000\040\000W\000o\000r\000t\000e\000n\000\040\000u\000n\000d\000\040\000n\000o\000c\000h\000\040\000m\000e\000h\000r\000\040\000B\000u\000c\000h\000s\000t\000a\000b\000e\000n) /Subject () /Creator (LaTeX with hyperref) /Keywords () /Producer (LuaTeX-1.22.0) /CreationDate (D:20250912152756+02'00') /ModDate (D:20250912152756+02'00') /Trapped /False /PTEX.FullBanner (This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)) >> /BBox [ 0 0 595.276 841.89 ] /Resources << /ColorSpace 39 0 R /Pattern 40 0 R /ExtGState 41 0 R /Font << /F27 42 0 R /F24 43 0 R /F159 44 0 R >> /ProcSet [ /PDF /Text ] >>
+/Group<</S/Transparency/K false/I false>>
+ /Length 17346 >>      
 stream
 0 g 0 G
 0 g 0 G
@@ -1237,6 +1026,250 @@ endobj
 1 0 obj
 << /opacity1 <</ca 1/CA 1>>  >>
 endobj
+2 0 obj
+<<  >>
+endobj
+3 0 obj
+<<  >>
+endobj
+4 0 obj
+<<  >>
+endobj
+31 0 obj
+<< /Type /Metadata /Subtype /XML /Length 11999 >>      
+stream
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:pdf="http://ns.adobe.com/pdf/1.3/"
+    xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+    xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+    xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/"
+    xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"
+    xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"
+    xmlns:prism="http://prismstandard.org/namespaces/basic/3.0/"
+    xmlns:stFnt="http://ns.adobe.com/xap/1.0/sType/Font#"
+    xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
+    xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/"
+    xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
+    xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
+    xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
+   <pdfaExtension:schemas>
+    <rdf:Bag>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>XMP Media Management Schema</pdfaSchema:schema>
+      <pdfaSchema:prefix>xmpMM</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://ns.adobe.com/xap/1.0/mm/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>OriginalDocumentID</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>The common identifier for all versions and renditions of a document.</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>PDF/A Identification Schema</pdfaSchema:schema>
+      <pdfaSchema:prefix>pdfaid</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.aiim.org/pdfa/ns/id/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>year</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Year of standard</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision year of standard</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>PDF/UA Universal Accessibility Schema</pdfaSchema:schema>
+      <pdfaSchema:prefix>pdfuaid</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.aiim.org/pdfua/ns/id/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>part</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Part of ISO 14289 standard</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>rev</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Revision of ISO 14289 standard</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>PRISM Basic Metadata</pdfaSchema:schema>
+      <pdfaSchema:prefix>prism</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://prismstandard.org/namespaces/basic/3.0/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>complianceProfile</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>PRISM specification compliance profile to which this document adheres</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>publicationName</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Publication name</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>aggregationType</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Publication type</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>bookEdition</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Edition of the book in which the document was published</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>volume</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Publication volume number</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>number</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Publication issue number within a volume</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>pageRange</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Page range for the document within the print version of its publication</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>issn</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>ISSN for the printed publication in which the document was published</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>eIssn</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>ISSN for the electronic publication in which the document was published</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>isbn</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>ISBN for the publication in which the document was published</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>doi</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Digital Object Identifier for the document</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>url</pdfaProperty:name>
+         <pdfaProperty:valueType>URL</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>URL at which the document can be found</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>byteCount</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Approximate file size in octets</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>pageCount</pdfaProperty:name>
+         <pdfaProperty:valueType>Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>Number of pages in the print version of the document</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>subtitle</pdfaProperty:name>
+         <pdfaProperty:valueType>Text</pdfaProperty:valueType>
+         <pdfaProperty:category>external</pdfaProperty:category>
+         <pdfaProperty:description>Document's subtitle</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+    </rdf:Bag>
+   </pdfaExtension:schemas>
+   <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
+   <pdf:PDFVersion>1.7</pdf:PDFVersion>
+   <dc:type>
+    <rdf:Bag>
+     <rdf:li>Text</rdf:li>
+    </rdf:Bag>
+   </dc:type>
+   <dc:date>
+    <rdf:Seq>
+     <rdf:li>2016-05-20T09:00:00Z</rdf:li>
+    </rdf:Seq>
+   </dc:date>
+   <dc:format>application/pdf</dc:format>
+   <dc:source>newpax-umlaut.tex</dc:source>
+   <xmp:CreatorTool>LaTeX with hyperref</xmp:CreatorTool>
+   <xmp:CreateDate>2016-05-20T09:00:00Z</xmp:CreateDate>
+   <xmp:ModifyDate>2016-05-20T09:00:00Z</xmp:ModifyDate>
+   <xmp:MetadataDate>2016-05-20T09:00:00Z</xmp:MetadataDate>
+   <xmpMM:DocumentID>uuid:b140f13c-a109-4f02-83a0-3bf1611e838d</xmpMM:DocumentID>
+   <xmpMM:InstanceID>uuid:0a57c455-157a-4141-8c19-6237d832fc80</xmpMM:InstanceID>
+   <prism:complianceProfile>three</prism:complianceProfile>
+   <prism:pageCount>2</prism:pageCount>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="w"?>
+endstream
+endobj
 63 0 obj
 [ 82 [ 500 ] 107 [ 500 ] ]
 endobj
@@ -1309,81 +1342,81 @@ endobj
 endobj
 xref
 0 73
-0000000002 65535 f 
-0000054255 00000 n 
-0000000003 00000 f 
-0000000004 00000 f 
-0000000000 00000 f 
+0000000000 65535 f 
+0000043322 00000 n 
+0000043369 00000 n 
+0000043391 00000 n 
+0000043413 00000 n 
 0000000192 00000 n 
-0000011956 00000 n 
-0000050256 00000 n 
-0000050466 00000 n 
-0000050676 00000 n 
-0000050886 00000 n 
-0000053591 00000 n 
-0000053768 00000 n 
-0000051096 00000 n 
-0000051303 00000 n 
-0000051510 00000 n 
-0000051716 00000 n 
-0000051923 00000 n 
-0000052130 00000 n 
-0000052336 00000 n 
-0000052546 00000 n 
-0000052756 00000 n 
-0000052965 00000 n 
-0000053174 00000 n 
-0000053383 00000 n 
+0000000980 00000 n 
+0000039323 00000 n 
+0000039533 00000 n 
+0000039743 00000 n 
+0000039953 00000 n 
+0000042658 00000 n 
+0000042835 00000 n 
+0000040163 00000 n 
+0000040370 00000 n 
+0000040577 00000 n 
+0000040783 00000 n 
+0000040990 00000 n 
+0000041197 00000 n 
+0000041403 00000 n 
+0000041613 00000 n 
+0000041823 00000 n 
+0000042032 00000 n 
+0000042241 00000 n 
+0000042450 00000 n 
 0000000422 00000 n 
 0000000020 00000 n 
 0000000301 00000 n 
 0000000361 00000 n 
-0000056176 00000 n 
-0000056530 00000 n 
+0000057398 00000 n 
+0000057752 00000 n 
+0000043435 00000 n 
+0000043209 00000 n 
+0000000712 00000 n 
 0000000509 00000 n 
-0000054142 00000 n 
-0000011688 00000 n 
-0000011485 00000 n 
-0000053958 00000 n 
-0000054019 00000 n 
-0000054081 00000 n 
-0000011813 00000 n 
-0000030793 00000 n 
-0000030848 00000 n 
-0000030870 00000 n 
-0000030892 00000 n 
-0000031047 00000 n 
-0000031205 00000 n 
-0000031357 00000 n 
-0000031558 00000 n 
-0000032724 00000 n 
-0000032928 00000 n 
-0000034585 00000 n 
-0000034783 00000 n 
-0000035527 00000 n 
-0000035764 00000 n 
-0000036058 00000 n 
-0000036298 00000 n 
-0000036731 00000 n 
-0000036965 00000 n 
-0000037018 00000 n 
-0000041071 00000 n 
-0000041209 00000 n 
-0000049171 00000 n 
-0000049309 00000 n 
-0000050186 00000 n 
-0000054302 00000 n 
-0000055200 00000 n 
-0000054345 00000 n 
-0000054419 00000 n 
-0000055436 00000 n 
-0000056330 00000 n 
-0000056598 00000 n 
-0000056809 00000 n 
-0000056845 00000 n 
-0000057005 00000 n 
+0000043025 00000 n 
+0000043086 00000 n 
+0000043148 00000 n 
+0000000837 00000 n 
+0000019860 00000 n 
+0000019915 00000 n 
+0000019937 00000 n 
+0000019959 00000 n 
+0000020114 00000 n 
+0000020272 00000 n 
+0000020424 00000 n 
+0000020625 00000 n 
+0000021791 00000 n 
+0000021995 00000 n 
+0000023652 00000 n 
+0000023850 00000 n 
+0000024594 00000 n 
+0000024831 00000 n 
+0000025125 00000 n 
+0000025365 00000 n 
+0000025798 00000 n 
+0000026032 00000 n 
+0000026085 00000 n 
+0000030138 00000 n 
+0000030276 00000 n 
+0000038238 00000 n 
+0000038376 00000 n 
+0000039253 00000 n 
+0000055524 00000 n 
+0000056422 00000 n 
+0000055567 00000 n 
+0000055641 00000 n 
+0000056658 00000 n 
+0000057552 00000 n 
+0000057820 00000 n 
+0000058031 00000 n 
+0000058067 00000 n 
+0000058227 00000 n 
 trailer
 << /Size 73 /Root 71 0 R /Info 72 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-57214
+58436
 %%EOF

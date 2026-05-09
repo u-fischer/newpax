@@ -1,7 +1,88 @@
 %PDF-1.7
 %Ã’¡‘≈ÿ–ƒ∆
+9 0 obj
+<< /Length 277 >>        
+stream
+/opacity1 gs
+0 g 0 G
+0 g 0 G
+0 g 0 G
+BT
+/F15 9.96264 Tf
+1 0 0 1 148.712 639.492 Tm [<0042004D002B0048006D002F0032002F>-333<003B0060001C0054003F0042002B002C>]TJ
+ET
+q
+1 0 0 1 227.905 639.492 cm
+/Im1 Do
+Q
+0 g 0 G
+BT
+/F15 9.96264 Tf
+1 0 0 1 303.133 89.365 Tm [<0052>]TJ
+0 g 0 G
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Contents 9 0 R /Resources 8 0 R /MediaBox [ 0 0 612 792 ] /Parent 13 0 R >>
+endobj
+6 0 obj
+<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 22.690624 27.706249 ] /Group << /S /Transparency /Type /Group /CS /DeviceRGB >> /Resources << /ExtGState << /a0 << /CA 1 /ca 1 >> >> >>
+/Group<</S/Transparency/K false/I false>>
+ /Length 1273 >>       
+stream
+q
+0 0 0.756863 RG /a0 gs
+0.8 w
+1 J
+1 j
+[] 0.0 d
+4 M q 1 0 0 -1 0 27.706249 cm
+22.289 23.898 m 21.32 25 20.652 25.715 20.289 26.039 c 19.352 26.883 
+18.508 27.305 17.762 27.305 c 16.871 27.305 15.348 26.406 13.184 24.617 
+c 10.789 22.625 9.152 21.438 8.281 21.039 c 7.977 20.906 7.68 20.836 
+7.391 20.836 c 6.578 20.836 5.496 21.523 4.145 22.898 c 4.145 21.934 l 
+4.629 21.25 5.152 20.676 5.707 20.207 c 4.012 19.512 2.695 18.379 1.762 
+16.813 c 0.852 15.316 0.398 13.629 0.398 11.75 c 0.398 7.668 2.293 
+4.414 6.086 1.992 c 7.762 0.93 9.648 0.398 11.742 0.398 c 15.313 0.398 
+18.047 1.863 19.945 4.789 c 20.852 6.207 21.305 7.891 21.305 9.836 c 
+21.305 12.516 20.43 14.906 18.68 17.008 c 16.93 19.117 14.734 20.434 
+12.098 20.961 c 12.867 21.152 14.02 21.875 15.551 23.141 c 17.082 
+24.402 18.219 25.035 18.961 25.039 c 19.699 25.035 20.809 24.324 22.289 
+22.898 c h
+18.727 12.523 m 18.727 10.652 18.309 8.871 17.48 7.18 c 16.59 5.402 
+15.383 4.043 13.859 3.102 c 12.414 2.219 11.027 1.777 9.699 1.773 c 
+7.676 1.777 6.039 2.52 4.785 4.008 c 3.598 5.414 3.004 7.145 3.008 
+9.195 c 3.004 13.113 4.504 16.156 7.5 18.32 c 8.883 19.324 10.41 19.824 
+12.082 19.82 c 14.047 19.824 15.656 19.09 16.918 17.617 c 18.121 16.227 
+18.727 14.527 18.727 12.523 c h
+18.727 12.523 m S Q
+Q
+endstream
+endobj
+10 0 obj
+<< /D [ 5 0 R /XYZ 132.768 705.06 null ] >>
+endobj
+11 0 obj
+<< /D [ 5 0 R /XYZ 133.768 667.198 null ] >>
+endobj
+8 0 obj
+<< /ExtGState 1 0 R /Font << /F15 12 0 R >> /XObject << /Im1 6 0 R >> /ProcSet [ /PDF /Text ] >>
+endobj
+1 0 obj
+<< /opacity1 <</ca 1/CA 1>>  >>
+endobj
+2 0 obj
+<<  >>
+endobj
+3 0 obj
+<<  >>
+endobj
+4 0 obj
+<<  >>
+endobj
 7 0 obj
-<< /Type /Metadata /Subtype /XML /Length 10895 >>      
+<< /Type /Metadata /Subtype /XML /Length 12008 >>      
 stream
 <?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -24,7 +105,8 @@ stream
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -183,6 +265,27 @@ stream
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
@@ -212,76 +315,6 @@ stream
 </x:xmpmeta>
 <?xpacket end="w"?>
 endstream
-endobj
-9 0 obj
-<< /Length 277 >>        
-stream
-/opacity1 gs
-0 g 0 G
-0 g 0 G
-0 g 0 G
-BT
-/F15 9.96264 Tf
-1 0 0 1 148.712 639.492 Tm [<0042004D002B0048006D002F0032002F>-333<003B0060001C0054003F0042002B002C>]TJ
-ET
-q
-1 0 0 1 227.905 639.492 cm
-/Im1 Do
-Q
-0 g 0 G
-BT
-/F15 9.96264 Tf
-1 0 0 1 303.133 89.365 Tm [<0052>]TJ
-0 g 0 G
-ET
-endstream
-endobj
-5 0 obj
-<< /Type /Page /Contents 9 0 R /Resources 8 0 R /MediaBox [ 0 0 612 792 ] /Parent 13 0 R >>
-endobj
-6 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /BBox [ 0 0 22.690624 27.706249 ] /Group << /S /Transparency /Type /Group /CS /DeviceRGB >> /Resources << /ExtGState << /a0 << /CA 1 /ca 1 >> >> >> /Length 1273 >>       
-stream
-q
-0 0 0.756863 RG /a0 gs
-0.8 w
-1 J
-1 j
-[] 0.0 d
-4 M q 1 0 0 -1 0 27.706249 cm
-22.289 23.898 m 21.32 25 20.652 25.715 20.289 26.039 c 19.352 26.883 
-18.508 27.305 17.762 27.305 c 16.871 27.305 15.348 26.406 13.184 24.617 
-c 10.789 22.625 9.152 21.438 8.281 21.039 c 7.977 20.906 7.68 20.836 
-7.391 20.836 c 6.578 20.836 5.496 21.523 4.145 22.898 c 4.145 21.934 l 
-4.629 21.25 5.152 20.676 5.707 20.207 c 4.012 19.512 2.695 18.379 1.762 
-16.813 c 0.852 15.316 0.398 13.629 0.398 11.75 c 0.398 7.668 2.293 
-4.414 6.086 1.992 c 7.762 0.93 9.648 0.398 11.742 0.398 c 15.313 0.398 
-18.047 1.863 19.945 4.789 c 20.852 6.207 21.305 7.891 21.305 9.836 c 
-21.305 12.516 20.43 14.906 18.68 17.008 c 16.93 19.117 14.734 20.434 
-12.098 20.961 c 12.867 21.152 14.02 21.875 15.551 23.141 c 17.082 
-24.402 18.219 25.035 18.961 25.039 c 19.699 25.035 20.809 24.324 22.289 
-22.898 c h
-18.727 12.523 m 18.727 10.652 18.309 8.871 17.48 7.18 c 16.59 5.402 
-15.383 4.043 13.859 3.102 c 12.414 2.219 11.027 1.777 9.699 1.773 c 
-7.676 1.777 6.039 2.52 4.785 4.008 c 3.598 5.414 3.004 7.145 3.008 
-9.195 c 3.004 13.113 4.504 16.156 7.5 18.32 c 8.883 19.324 10.41 19.824 
-12.082 19.82 c 14.047 19.824 15.656 19.09 16.918 17.617 c 18.121 16.227 
-18.727 14.527 18.727 12.523 c h
-18.727 12.523 m S Q
-Q
-endstream
-endobj
-10 0 obj
-<< /D [ 5 0 R /XYZ 132.768 705.06 null ] >>
-endobj
-11 0 obj
-<< /D [ 5 0 R /XYZ 133.768 667.198 null ] >>
-endobj
-8 0 obj
-<< /ExtGState 1 0 R /Font << /F15 12 0 R >> /XObject << /Im1 6 0 R >> /ProcSet [ /PDF /Text ] >>
-endobj
-1 0 obj
-<< /opacity1 <</ca 1/CA 1>>  >>
 endobj
 14 0 obj
 [ 28 [ 500 ] 43 [ 444 278 ] 47 [ 556 ] 50 [ 444 ] 59 [ 500 ] 63 [ 556 ] 66 [ 278 ] 72 [ 278 ] 77 [ 556 ] 82 [ 500 ] 84 [ 556 ] 96 [ 392 ] 109 [ 556 ] ]
@@ -367,32 +400,32 @@ endobj
 endobj
 xref
 0 24
-0000000002 65535 f 
-0000013202 00000 n 
-0000000003 00000 f 
-0000000004 00000 f 
-0000000000 00000 f 
-0000011340 00000 n 
-0000011447 00000 n 
+0000000000 65535 f 
+0000002261 00000 n 
+0000002308 00000 n 
+0000002330 00000 n 
+0000002352 00000 n 
+0000000356 00000 n 
+0000000463 00000 n 
+0000002374 00000 n 
+0000002149 00000 n 
 0000000020 00000 n 
-0000013090 00000 n 
-0000011004 00000 n 
-0000012969 00000 n 
-0000013029 00000 n 
-0000016834 00000 n 
-0000017188 00000 n 
-0000013249 00000 n 
-0000015689 00000 n 
-0000013417 00000 n 
-0000013491 00000 n 
-0000015925 00000 n 
-0000016988 00000 n 
-0000017249 00000 n 
-0000017350 00000 n 
-0000017386 00000 n 
-0000017545 00000 n 
+0000002028 00000 n 
+0000002088 00000 n 
+0000018056 00000 n 
+0000018410 00000 n 
+0000014471 00000 n 
+0000016911 00000 n 
+0000014639 00000 n 
+0000014713 00000 n 
+0000017147 00000 n 
+0000018210 00000 n 
+0000018471 00000 n 
+0000018572 00000 n 
+0000018608 00000 n 
+0000018767 00000 n 
 trailer
 << /Size 24 /Root 22 0 R /Info 23 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-17754
+18976
 %%EOF

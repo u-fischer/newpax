@@ -560,7 +560,7 @@ endobj
 <</opacity1<</ca 1/CA 1>>>>
 endobj
 64 0 obj
-<</Type/Metadata/Subtype/XML/Length 10881>>
+<</Type/Metadata/Subtype/XML/Length 11994>>
 stream
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -583,7 +583,8 @@ stream
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -738,6 +739,27 @@ stream
          <pdfaProperty:valueType>Text</pdfaProperty:valueType>
          <pdfaProperty:category>external</pdfaProperty:category>
          <pdfaProperty:description>Document's subtitle</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
         </rdf:li>
        </rdf:Seq>
       </pdfaSchema:property>
@@ -967,12 +989,12 @@ endobj
 xref
 0 89
 0000000000 65535 f 
-0000069886 00000 n 
-0000069701 00000 n 
-0000069305 00000 n 
+0000070999 00000 n 
+0000070814 00000 n 
+0000070418 00000 n 
 0000055897 00000 n 
-0000074474 00000 n 
-0000074024 00000 n 
+0000075587 00000 n 
+0000075137 00000 n 
 0000000015 00000 n 
 0000020334 00000 n 
 0000017640 00000 n 
@@ -990,16 +1012,16 @@ xref
 0000042816 00000 n 
 0000043124 00000 n 
 0000045050 00000 n 
-0000074623 00000 n 
-0000066899 00000 n 
-0000067054 00000 n 
-0000067209 00000 n 
-0000067390 00000 n 
-0000067572 00000 n 
-0000067754 00000 n 
-0000067935 00000 n 
-0000068117 00000 n 
-0000068299 00000 n 
+0000075736 00000 n 
+0000068012 00000 n 
+0000068167 00000 n 
+0000068322 00000 n 
+0000068503 00000 n 
+0000068685 00000 n 
+0000068867 00000 n 
+0000069048 00000 n 
+0000069230 00000 n 
+0000069412 00000 n 
 0000050160 00000 n 
 0000050341 00000 n 
 0000050523 00000 n 
@@ -1013,7 +1035,7 @@ xref
 0000052209 00000 n 
 0000047954 00000 n 
 0000049476 00000 n 
-0000069527 00000 n 
+0000070640 00000 n 
 0000052364 00000 n 
 0000052522 00000 n 
 0000052680 00000 n 
@@ -1033,31 +1055,31 @@ xref
 0000055940 00000 n 
 0000049615 00000 n 
 0000050041 00000 n 
-0000068744 00000 n 
-0000068885 00000 n 
-0000069026 00000 n 
-0000068932 00000 n 
-0000069073 00000 n 
-0000068979 00000 n 
-0000068790 00000 n 
-0000068837 00000 n 
-0000068481 00000 n 
-0000069120 00000 n 
-0000069620 00000 n 
-0000069154 00000 n 
-0000069397 00000 n 
-0000070035 00000 n 
-0000070624 00000 n 
-0000071015 00000 n 
-0000071037 00000 n 
-0000074213 00000 n 
-0000071680 00000 n 
-0000073846 00000 n 
-0000073961 00000 n 
-0000074771 00000 n 
+0000069857 00000 n 
+0000069998 00000 n 
+0000070139 00000 n 
+0000070045 00000 n 
+0000070186 00000 n 
+0000070092 00000 n 
+0000069903 00000 n 
+0000069950 00000 n 
+0000069594 00000 n 
+0000070233 00000 n 
+0000070733 00000 n 
+0000070267 00000 n 
+0000070510 00000 n 
+0000071148 00000 n 
+0000071737 00000 n 
+0000072128 00000 n 
+0000072150 00000 n 
+0000075326 00000 n 
+0000072793 00000 n 
+0000074959 00000 n 
+0000075074 00000 n 
+0000075884 00000 n 
 trailer
 <</ID[<ID-STRING><ID-STRING>]/Root
 1 0 R/Info 2 0 R/Size 89>>
 startxref
-74957
+76070
 %%EOF

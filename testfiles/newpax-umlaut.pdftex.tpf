@@ -45,7 +45,7 @@ endobj
 31 0 obj
 <<
 /Type /Metadata /Subtype /XML
-/Length 10884     
+/Length 11997     
 >>
 stream
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
@@ -69,7 +69,8 @@ stream
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -228,6 +229,27 @@ stream
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>pdftex-NN.NN.NN</pdf:Producer>
@@ -289,6 +311,7 @@ endobj
 endobj
 6 0 obj
 <<
+/Group<</S/Transparency/K false/I false>>
 /Type /XObject
 /Subtype /Form
 /FormType 1
@@ -672,6 +695,15 @@ endobj
 1 0 obj
 << /opacity1 <</ca 1/CA 1>>  >>
 endobj
+2 0 obj
+<<  >>
+endobj
+3 0 obj
+<<  >>
+endobj
+4 0 obj
+<<  >>
+endobj
 60 0 obj
 [500 500]
 endobj
@@ -868,79 +900,79 @@ endobj
 endobj
 xref
 0 68
-0000000002 65535 f 
-0000035543 00000 n 
-0000000003 00000 f 
-0000000004 00000 f 
-0000000000 00000 f 
+0000000000 65535 f 
+0000036698 00000 n 
+0000036745 00000 n 
+0000036767 00000 n 
+0000036789 00000 n 
 0000000174 00000 n 
-0000011892 00000 n 
-0000031585 00000 n 
-0000031793 00000 n 
-0000032001 00000 n 
-0000032209 00000 n 
-0000034888 00000 n 
-0000035063 00000 n 
-0000032417 00000 n 
-0000032622 00000 n 
-0000032827 00000 n 
-0000033031 00000 n 
-0000033236 00000 n 
-0000033441 00000 n 
-0000033645 00000 n 
-0000033853 00000 n 
-0000034061 00000 n 
-0000034268 00000 n 
-0000034475 00000 n 
-0000034682 00000 n 
+0000013005 00000 n 
+0000032740 00000 n 
+0000032948 00000 n 
+0000033156 00000 n 
+0000033364 00000 n 
+0000036043 00000 n 
+0000036218 00000 n 
+0000033572 00000 n 
+0000033777 00000 n 
+0000033982 00000 n 
+0000034186 00000 n 
+0000034391 00000 n 
+0000034596 00000 n 
+0000034800 00000 n 
+0000035008 00000 n 
+0000035216 00000 n 
+0000035423 00000 n 
+0000035630 00000 n 
+0000035837 00000 n 
 0000000398 00000 n 
 0000000015 00000 n 
 0000000281 00000 n 
 0000000339 00000 n 
-0000045725 00000 n 
-0000045882 00000 n 
+0000046946 00000 n 
+0000047103 00000 n 
 0000000486 00000 n 
-0000035429 00000 n 
-0000011649 00000 n 
-0000011459 00000 n 
-0000035251 00000 n 
-0000035310 00000 n 
-0000035370 00000 n 
-0000014976 00000 n 
-0000015950 00000 n 
-0000016104 00000 n 
-0000016261 00000 n 
-0000016412 00000 n 
-0000016613 00000 n 
-0000017186 00000 n 
-0000017390 00000 n 
-0000018110 00000 n 
-0000018308 00000 n 
-0000018744 00000 n 
-0000018980 00000 n 
-0000019253 00000 n 
-0000019492 00000 n 
-0000019904 00000 n 
-0000020137 00000 n 
-0000020186 00000 n 
-0000023740 00000 n 
-0000023840 00000 n 
-0000030606 00000 n 
-0000030720 00000 n 
-0000031500 00000 n 
-0000035590 00000 n 
-0000035616 00000 n 
-0000043719 00000 n 
-0000043942 00000 n 
-0000045947 00000 n 
-0000046154 00000 n 
-0000046190 00000 n 
-0000046350 00000 n 
+0000036584 00000 n 
+0000012762 00000 n 
+0000012572 00000 n 
+0000036406 00000 n 
+0000036465 00000 n 
+0000036525 00000 n 
+0000016131 00000 n 
+0000017105 00000 n 
+0000017259 00000 n 
+0000017416 00000 n 
+0000017567 00000 n 
+0000017768 00000 n 
+0000018341 00000 n 
+0000018545 00000 n 
+0000019265 00000 n 
+0000019463 00000 n 
+0000019899 00000 n 
+0000020135 00000 n 
+0000020408 00000 n 
+0000020647 00000 n 
+0000021059 00000 n 
+0000021292 00000 n 
+0000021341 00000 n 
+0000024895 00000 n 
+0000024995 00000 n 
+0000031761 00000 n 
+0000031875 00000 n 
+0000032655 00000 n 
+0000036811 00000 n 
+0000036837 00000 n 
+0000044940 00000 n 
+0000045163 00000 n 
+0000047168 00000 n 
+0000047375 00000 n 
+0000047411 00000 n 
+0000047571 00000 n 
 trailer
 << /Size 68
 /Root 66 0 R
 /Info 67 0 R
 /ID [<9BD18DF3359C1216B83ADB4AA401CC9A> <9BD18DF3359C1216B83ADB4AA401CC9A>] >>
 startxref
-46559
+47780
 %%EOF

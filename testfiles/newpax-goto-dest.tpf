@@ -23,7 +23,9 @@ endobj
 << /Type /Page /Contents 10 0 R /Resources 9 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R >>
 endobj
 8 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF004C006100540065005800200077006900740068002000680079007000650072007200650066> /CreationDate (D:20240531142847+02'00') /ModDate (D:20240531142847+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 15 0 R /Font << /F38 16 0 R /F28 17 0 R >> /ProcSet [ /PDF /Text ] >> /Length 123 >>        
+<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF004C006100540065005800200077006900740068002000680079007000650072007200650066> /CreationDate (D:20240531142847+02'00') /ModDate (D:20240531142847+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 15 0 R /Font << /F38 16 0 R /F28 17 0 R >> /ProcSet [ /PDF /Text ] >>
+/Group<</S/Transparency/K false/I false>>
+ /Length 123 >>        
 stream
 /opacity1 gs
 BT
@@ -312,8 +314,64 @@ endobj
 9 0 obj
 << /ExtGState 1 0 R /XObject << /Im3 8 0 R >> /ProcSet [ /PDF ] >>
 endobj
+31 0 obj
+<< /Length 128 >>        
+stream
+/opacity1 gs
+1 0 0 1 -0.144 -0.186 cm
+q
+1.00047 0 0 1.00047 0 0 cm
+q
+1 0 0 1 0 0 cm
+/Im4 Do
+Q
+Q
+0 g 0 G
+0 g 0 G
+0 g 0 G
+0 g 0 G
+endstream
+endobj
+30 0 obj
+<< /Type /Page /Contents 31 0 R /Resources 29 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Annots 33 0 R >>
+endobj
+33 0 obj
+[ 27 0 R ]
+endobj
+26 0 obj
+<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF004C006100540065005800200077006900740068002000680079007000650072007200650066> /CreationDate (D:20240531142847+02'00') /ModDate (D:20240531142847+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 15 0 R /Font << /F28 17 0 R >> /ProcSet [ /PDF /Text ] >>
+/Group<</S/Transparency/K false/I false>>
+ /Length 95 >>         
+stream
+/opacity1 gs
+BT
+/F28 9.9626 Tf 148.712 657.235 Td [(linktext)]TJ 154.421 -567.87 Td [(2)]TJ
+ET
+endstream
+endobj
+27 0 obj
+<< /Type /Annot /Subtype /Link /Rect [ 146.655 655.387 184.421 666.295 ]/A  << /S /GoTo /D (goto-dest-input.newpax@section.1) >> >>
+endobj
+32 0 obj
+<< /D [ 30 0 R /XYZ 132.768 705.06 null ] >>
+endobj
+29 0 obj
+<< /ExtGState 1 0 R /XObject << /Im4 26 0 R >> /ProcSet [ /PDF ] >>
+endobj
+1 0 obj
+<< /opacity1 <</ca 1/CA 1>>  >>
+endobj
+2 0 obj
+<<  >>
+endobj
+3 0 obj
+<<  >>
+endobj
+4 0 obj
+<<  >>
+endobj
 28 0 obj
-<< /Type /Metadata /Subtype /XML /Length 10889 >>      
+<< /Type /Metadata /Subtype /XML /Length 12002 >>      
 stream
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -336,7 +394,8 @@ stream
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -495,6 +554,27 @@ stream
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
@@ -525,51 +605,6 @@ stream
 <?xpacket end="w"?>
 endstream
 endobj
-31 0 obj
-<< /Length 128 >>        
-stream
-/opacity1 gs
-1 0 0 1 -0.144 -0.186 cm
-q
-1.00047 0 0 1.00047 0 0 cm
-q
-1 0 0 1 0 0 cm
-/Im4 Do
-Q
-Q
-0 g 0 G
-0 g 0 G
-0 g 0 G
-0 g 0 G
-endstream
-endobj
-30 0 obj
-<< /Type /Page /Contents 31 0 R /Resources 29 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Annots 33 0 R >>
-endobj
-33 0 obj
-[ 27 0 R ]
-endobj
-26 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Producer (pdfTeX) /Creator <FEFF004C006100540065005800200077006900740068002000680079007000650072007200650066> /CreationDate (D:20240531142847+02'00') /ModDate (D:20240531142847+02'00') /Trapped /False >> /BBox [ 0 0 612 792 ] /Resources << /ExtGState 15 0 R /Font << /F28 17 0 R >> /ProcSet [ /PDF /Text ] >> /Length 95 >>         
-stream
-/opacity1 gs
-BT
-/F28 9.9626 Tf 148.712 657.235 Td [(linktext)]TJ 154.421 -567.87 Td [(2)]TJ
-ET
-endstream
-endobj
-27 0 obj
-<< /Type /Annot /Subtype /Link /Rect [ 146.655 655.387 184.421 666.295 ]/A  << /S /GoTo /D (goto-dest-input.newpax@section.1) >> >>
-endobj
-32 0 obj
-<< /D [ 30 0 R /XYZ 132.768 705.06 null ] >>
-endobj
-29 0 obj
-<< /ExtGState 1 0 R /XObject << /Im4 26 0 R >> /ProcSet [ /PDF ] >>
-endobj
-1 0 obj
-<< /opacity1 <</ca 1/CA 1>>  >>
-endobj
 14 0 obj
 << /Type /Pages  /Count 2 /Kids [ 5 0 R 30 0 R ] >>
 endobj
@@ -587,46 +622,46 @@ endobj
 endobj
 xref
 0 38
-0000000002 65535 f 
-0000038174 00000 n 
-0000000003 00000 f 
-0000000004 00000 f 
-0000000006 00000 f 
+0000000006 65535 f 
+0000027281 00000 n 
+0000027328 00000 n 
+0000027350 00000 n 
+0000027372 00000 n 
 0000000216 00000 n 
 0000000007 00000 f 
 0000000000 00000 f 
 0000000324 00000 n 
-0000025955 00000 n 
+0000025998 00000 n 
 0000000020 00000 n 
-0000025773 00000 n 
-0000025834 00000 n 
-0000025894 00000 n 
-0000038221 00000 n 
-0000000888 00000 n 
-0000000938 00000 n 
-0000001097 00000 n 
-0000001255 00000 n 
-0000001492 00000 n 
-0000001900 00000 n 
-0000003682 00000 n 
-0000003921 00000 n 
-0000004330 00000 n 
-0000006107 00000 n 
-0000014636 00000 n 
-0000037356 00000 n 
-0000037881 00000 n 
-0000026037 00000 n 
-0000038090 00000 n 
-0000037204 00000 n 
-0000037016 00000 n 
-0000038029 00000 n 
-0000037329 00000 n 
-0000038289 00000 n 
-0000038448 00000 n 
-0000038484 00000 n 
-0000038644 00000 n 
+0000025816 00000 n 
+0000025877 00000 n 
+0000025937 00000 n 
+0000039486 00000 n 
+0000000931 00000 n 
+0000000981 00000 n 
+0000001140 00000 n 
+0000001298 00000 n 
+0000001535 00000 n 
+0000001943 00000 n 
+0000003725 00000 n 
+0000003964 00000 n 
+0000004373 00000 n 
+0000006150 00000 n 
+0000014679 00000 n 
+0000026420 00000 n 
+0000026988 00000 n 
+0000027394 00000 n 
+0000027197 00000 n 
+0000026268 00000 n 
+0000026080 00000 n 
+0000027136 00000 n 
+0000026393 00000 n 
+0000039554 00000 n 
+0000039713 00000 n 
+0000039749 00000 n 
+0000039909 00000 n 
 trailer
 << /Size 38 /Root 36 0 R /Info 37 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-38853
+40118
 %%EOF

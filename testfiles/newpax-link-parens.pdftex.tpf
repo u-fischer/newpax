@@ -3,7 +3,7 @@
 7 0 obj
 <<
 /Type /Metadata /Subtype /XML
-/Length 10875     
+/Length 11988     
 >>
 stream
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
@@ -27,7 +27,8 @@ stream
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -186,6 +187,27 @@ stream
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>pdftex-NN.NN.NN</pdf:Producer>
@@ -243,6 +265,7 @@ endobj
 endobj
 5 0 obj
 <<
+/Group<</S/Transparency/K false/I false>>
 /Type /XObject
 /Subtype /Form
 /FormType 1
@@ -409,6 +432,15 @@ endobj
 endobj
 1 0 obj
 << /opacity1 <</ca 1/CA 1>>  >>
+endobj
+2 0 obj
+<<  >>
+endobj
+3 0 obj
+<<  >>
+endobj
+4 0 obj
+<<  >>
 endobj
 21 0 obj
 [500]
@@ -594,38 +626,38 @@ endobj
 endobj
 xref
 0 27
-0000000002 65535 f 
-0000017283 00000 n 
-0000000003 00000 f 
-0000000004 00000 f 
-0000000000 00000 f 
-0000011259 00000 n 
-0000017001 00000 n 
+0000000000 65535 f 
+0000018438 00000 n 
+0000018485 00000 n 
+0000018507 00000 n 
+0000018529 00000 n 
+0000012372 00000 n 
+0000018156 00000 n 
 0000000015 00000 n 
-0000017170 00000 n 
-0000011135 00000 n 
-0000010978 00000 n 
-0000026760 00000 n 
-0000026917 00000 n 
-0000011707 00000 n 
-0000011993 00000 n 
-0000012145 00000 n 
-0000012344 00000 n 
-0000013407 00000 n 
-0000013641 00000 n 
-0000013843 00000 n 
-0000016934 00000 n 
-0000017330 00000 n 
-0000017352 00000 n 
-0000024758 00000 n 
-0000024977 00000 n 
-0000026975 00000 n 
-0000027042 00000 n 
+0000018325 00000 n 
+0000012248 00000 n 
+0000012091 00000 n 
+0000027981 00000 n 
+0000028138 00000 n 
+0000012862 00000 n 
+0000013148 00000 n 
+0000013300 00000 n 
+0000013499 00000 n 
+0000014562 00000 n 
+0000014796 00000 n 
+0000014998 00000 n 
+0000018089 00000 n 
+0000018551 00000 n 
+0000018573 00000 n 
+0000025979 00000 n 
+0000026198 00000 n 
+0000028196 00000 n 
+0000028263 00000 n 
 trailer
 << /Size 27
 /Root 25 0 R
 /Info 26 0 R
 /ID [<9BD18DF3359C1216B83ADB4AA401CC9A> <9BD18DF3359C1216B83ADB4AA401CC9A>] >>
 startxref
-27174
+28395
 %%EOF

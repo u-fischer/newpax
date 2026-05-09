@@ -1,7 +1,135 @@
 %PDF-1.7
 %Ã’¡‘≈ÿ–ƒ∆
+10 0 obj
+<< /Length 110 >>        
+stream
+/opacity1 gs
+q
+1 0 0 1 148.712 648.04 cm
+/Im1 Do
+Q
+BT
+/F15 9.96264 Tf
+1 0 0 1 303.133 89.365 Tm [<0052>]TJ
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Contents 10 0 R /Resources 8 0 R /MediaBox [ 0 0 612 792 ] /Parent 12 0 R /Annots 13 0 R >>
+endobj
+13 0 obj
+[ 6 0 R ]
+endobj
+5 0 obj
+<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Author () /Title () /Subject () /Creator (LaTeX with hyperref) /Keywords () /Producer (LuaTeX-1.15.0) /CreationDate (D:20220627113900+02'00') /ModDate (D:20220627113900+02'00') /Trapped /False /PTEX.FullBanner (This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)) >> /BBox [ 0 0 246.326 19.158 ] /Resources << /Font << /F16 14 0 R >> /ProcSet [ /PDF /Text ] >>
+/Group<</S/Transparency/K false/I false>>
+ /Length 242 >>        
+stream
+BT
+/F16 9.96264 Tf
+1 0 0 1 4.981 7.263 Tm [<003F0069006900540062002C00660066002F00510042005800510060003B006600520079005800520079005200650066006100520039006400390040>-50<006500650064007900550052006400560039006A0065006B00330040>-50<0064>]TJ
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Font /Subtype /Type0 /Encoding /Identity-H /BaseFont /SSSLUY+LMMono10-Regular /DescendantFonts [ 15 0 R ] /ToUnicode 16 0 R >>
+endobj
+15 0 obj
+<< /Type /Font /Subtype /CIDFontType0 /BaseFont /SSSLUY+LMMono10-Regular /FontDescriptor 17 0 R /W 18 0 R /CIDSystemInfo << /Registry (Adobe) /Ordering (Identity) /Supplement 0 >> >>
+endobj
+16 0 obj
+<< /Length 1010 >>
+stream
+%!PS-Adobe-3.0 Resource-CMap
+%%DocumentNeededResources: ProcSet (CIDInit)
+%%IncludeResource: ProcSet (CIDInit)
+%%BeginResource: CMap (TeX-SSSLUY-LMMono10-Regular-0)
+%%Title: (TeX-SSSLUY-LMMono10-Regular-0 TeX SSSLUY-LMMono10-Regular 0)
+%%Version: 1.000
+%%EndComments
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo
+<< /Registry (TeX)
+/Ordering (SSSLUY-LMMono10-Regular)
+/Supplement 0
+>> def
+/CMapName /TeX-Identity-SSSLUY-LMMono10-Regular def
+/CMapType 2 def
+1 begincodespacerange
+<0000> <FFFF>
+endcodespacerange
+0 beginbfrange
+endbfrange
+24 beginbfchar
+<002C> <003A>
+<002F> <0064>
+<0033> <0038>
+<0039> <0034>
+<003B> <0067>
+<003F> <0068>
+<0040> <002D>
+<0042> <0069>
+<0051> <006F>
+<0052> <0031>
+<0054> <0070>
+<0055> <0028>
+<0056> <0029>
+<0058> <002E>
+<0060> <0072>
+<0061> <0053>
+<0062> <0073>
+<0064> <0037>
+<0065> <0036>
+<0066> <002F>
+<0069> <0074>
+<006A> <0033>
+<006B> <0032>
+<0079> <0030>
+endbfchar
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+%%EndResource
+%%EOF
+endstream
+endobj
+17 0 obj
+<< /Type /FontDescriptor /FontName /SSSLUY+LMMono10-Regular /Flags 4 /FontBBox [ -451 -316 731 1016 ] /Ascent 1016 /CapHeight 611 /Descent -316 /ItalicAngle 0 /StemV 175 /XHeight 431 /FontFile3 19 0 R /CIDSet 20 0 R >>
+endobj
+18 0 obj
+[ 44 [ 525 ] 47 [ 525 ] 51 [ 525 ] 57 [ 525 ] 59 [ 525 ] 63 [ 525 525 ] 66 [ 525 ] 81 [ 525 525 ] 84 [ 525 525 525 ] 88 [ 525 ] 96 [ 525 525 525 ] 100 [ 525 525 525 ] 105 [ 525 525 525 ] 121 [ 525 ] ]
+endobj
+19 0 obj
+<< /Subtype /CIDFontType0C /Length 3014 >>
+[BINARY STREAM]
+endobj
+20 0 obj
+<< /Length 16 >>
+[BINARY STREAM]
+endobj
+6 0 obj
+<< /Type /Annot /Subtype /Link /A <</Type/Action/S/URI/URI(https://doi.org/10.1016/S1474-6670\(17\)43628-7)>>  /Rect [ 152.697 647.044 391.064 668.195 ] >>
+endobj
+8 0 obj
+<< /ExtGState 1 0 R /Font << /F15 11 0 R >> /XObject << /Im1 5 0 R >> /ProcSet [ /PDF /Text ] >>
+endobj
+1 0 obj
+<< /opacity1 <</ca 1/CA 1>>  >>
+endobj
+2 0 obj
+<<  >>
+endobj
+3 0 obj
+<<  >>
+endobj
+4 0 obj
+<<  >>
+endobj
 7 0 obj
-<< /Type /Metadata /Subtype /XML /Length 10877 >>      
+<< /Type /Metadata /Subtype /XML /Length 11990 >>      
 stream
 <?xpacket begin="Ôªø" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
@@ -24,7 +152,8 @@ stream
     xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
     xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
     xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
-    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#">
+    xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#"
+    xmlns:tdm="http://www.w3.org/ns/tdmrep/">
    <pdfaExtension:schemas>
     <rdf:Bag>
      <rdf:li rdf:parseType="Resource">
@@ -183,6 +312,27 @@ stream
        </rdf:Seq>
       </pdfaSchema:property>
      </rdf:li>
+     <rdf:li rdf:parseType="Resource">
+      <pdfaSchema:schema>TDMRep</pdfaSchema:schema>
+      <pdfaSchema:prefix>tdm</pdfaSchema:prefix>
+      <pdfaSchema:namespaceURI>http://www.w3.org/ns/tdmrep/</pdfaSchema:namespaceURI>
+      <pdfaSchema:property>
+       <rdf:Seq>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>reservation</pdfaProperty:name>
+         <pdfaProperty:valueType>Closed Choice of Integer</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>TDM rights are reserved (1) or not reserved (0)</pdfaProperty:description>
+        </rdf:li>
+        <rdf:li rdf:parseType="Resource">
+         <pdfaProperty:name>policy</pdfaProperty:name>
+         <pdfaProperty:valueType>URI</pdfaProperty:valueType>
+         <pdfaProperty:category>internal</pdfaProperty:category>
+         <pdfaProperty:description>URL pointing to a TDM Policy set by the rightsholder</pdfaProperty:description>
+        </rdf:li>
+       </rdf:Seq>
+      </pdfaSchema:property>
+     </rdf:li>
     </rdf:Bag>
    </pdfaExtension:schemas>
    <pdf:Producer>luahbtex-NN.NN.NN</pdf:Producer>
@@ -212,123 +362,6 @@ stream
 </x:xmpmeta>
 <?xpacket end="w"?>
 endstream
-endobj
-10 0 obj
-<< /Length 110 >>        
-stream
-/opacity1 gs
-q
-1 0 0 1 148.712 648.04 cm
-/Im1 Do
-Q
-BT
-/F15 9.96264 Tf
-1 0 0 1 303.133 89.365 Tm [<0052>]TJ
-ET
-endstream
-endobj
-9 0 obj
-<< /Type /Page /Contents 10 0 R /Resources 8 0 R /MediaBox [ 0 0 612 792 ] /Parent 12 0 R /Annots 13 0 R >>
-endobj
-13 0 obj
-[ 6 0 R ]
-endobj
-5 0 obj
-<< /Type /XObject /Subtype /Form /FormType 1 /PTEX.InfoDict << /Author () /Title () /Subject () /Creator (LaTeX with hyperref) /Keywords () /Producer (LuaTeX-1.15.0) /CreationDate (D:20220627113900+02'00') /ModDate (D:20220627113900+02'00') /Trapped /False /PTEX.FullBanner (This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)) >> /BBox [ 0 0 246.326 19.158 ] /Resources << /Font << /F16 14 0 R >> /ProcSet [ /PDF /Text ] >> /Length 242 >>        
-stream
-BT
-/F16 9.96264 Tf
-1 0 0 1 4.981 7.263 Tm [<003F0069006900540062002C00660066002F00510042005800510060003B006600520079005800520079005200650066006100520039006400390040>-50<006500650064007900550052006400560039006A0065006B00330040>-50<0064>]TJ
-ET
-endstream
-endobj
-14 0 obj
-<< /Type /Font /Subtype /Type0 /Encoding /Identity-H /BaseFont /SSSLUY+LMMono10-Regular /DescendantFonts [ 15 0 R ] /ToUnicode 16 0 R >>
-endobj
-15 0 obj
-<< /Type /Font /Subtype /CIDFontType0 /BaseFont /SSSLUY+LMMono10-Regular /FontDescriptor 17 0 R /W 18 0 R /CIDSystemInfo << /Registry (Adobe) /Ordering (Identity) /Supplement 0 >> >>
-endobj
-16 0 obj
-<< /Length 1010 >>
-stream
-%!PS-Adobe-3.0 Resource-CMap
-%%DocumentNeededResources: ProcSet (CIDInit)
-%%IncludeResource: ProcSet (CIDInit)
-%%BeginResource: CMap (TeX-SSSLUY-LMMono10-Regular-0)
-%%Title: (TeX-SSSLUY-LMMono10-Regular-0 TeX SSSLUY-LMMono10-Regular 0)
-%%Version: 1.000
-%%EndComments
-/CIDInit /ProcSet findresource begin
-12 dict begin
-begincmap
-/CIDSystemInfo
-<< /Registry (TeX)
-/Ordering (SSSLUY-LMMono10-Regular)
-/Supplement 0
->> def
-/CMapName /TeX-Identity-SSSLUY-LMMono10-Regular def
-/CMapType 2 def
-1 begincodespacerange
-<0000> <FFFF>
-endcodespacerange
-0 beginbfrange
-endbfrange
-24 beginbfchar
-<002C> <003A>
-<002F> <0064>
-<0033> <0038>
-<0039> <0034>
-<003B> <0067>
-<003F> <0068>
-<0040> <002D>
-<0042> <0069>
-<0051> <006F>
-<0052> <0031>
-<0054> <0070>
-<0055> <0028>
-<0056> <0029>
-<0058> <002E>
-<0060> <0072>
-<0061> <0053>
-<0062> <0073>
-<0064> <0037>
-<0065> <0036>
-<0066> <002F>
-<0069> <0074>
-<006A> <0033>
-<006B> <0032>
-<0079> <0030>
-endbfchar
-endcmap
-CMapName currentdict /CMap defineresource pop
-end
-end
-%%EndResource
-%%EOF
-endstream
-endobj
-17 0 obj
-<< /Type /FontDescriptor /FontName /SSSLUY+LMMono10-Regular /Flags 4 /FontBBox [ -451 -316 731 1016 ] /Ascent 1016 /CapHeight 611 /Descent -316 /ItalicAngle 0 /StemV 175 /XHeight 431 /FontFile3 19 0 R /CIDSet 20 0 R >>
-endobj
-18 0 obj
-[ 44 [ 525 ] 47 [ 525 ] 51 [ 525 ] 57 [ 525 ] 59 [ 525 ] 63 [ 525 525 ] 66 [ 525 ] 81 [ 525 525 ] 84 [ 525 525 525 ] 88 [ 525 ] 96 [ 525 525 525 ] 100 [ 525 525 525 ] 105 [ 525 525 525 ] 121 [ 525 ] ]
-endobj
-19 0 obj
-<< /Subtype /CIDFontType0C /Length 3014 >>
-[BINARY STREAM]
-endobj
-20 0 obj
-<< /Length 16 >>
-[BINARY STREAM]
-endobj
-6 0 obj
-<< /Type /Annot /Subtype /Link /A <</Type/Action/S/URI/URI(https://doi.org/10.1016/S1474-6670\(17\)43628-7)>>  /Rect [ 152.697 647.044 391.064 668.195 ] >>
-endobj
-8 0 obj
-<< /ExtGState 1 0 R /Font << /F15 11 0 R >> /XObject << /Im1 5 0 R >> /ProcSet [ /PDF /Text ] >>
-endobj
-1 0 obj
-<< /opacity1 <</ca 1/CA 1>>  >>
 endobj
 21 0 obj
 [ 82 [ 500 ] ]
@@ -395,37 +428,37 @@ endobj
 endobj
 xref
 0 29
-0000000002 65535 f 
-0000017333 00000 n 
-0000000003 00000 f 
-0000000004 00000 f 
-0000000000 00000 f 
-0000011305 00000 n 
-0000017050 00000 n 
+0000000000 65535 f 
+0000006410 00000 n 
+0000006457 00000 n 
+0000006479 00000 n 
+0000006501 00000 n 
+0000000339 00000 n 
+0000006127 00000 n 
+0000006523 00000 n 
+0000006298 00000 n 
+0000000190 00000 n 
 0000000020 00000 n 
-0000017221 00000 n 
-0000011156 00000 n 
-0000010986 00000 n 
-0000019102 00000 n 
-0000019456 00000 n 
-0000011279 00000 n 
-0000012025 00000 n 
-0000012178 00000 n 
-0000012377 00000 n 
-0000013440 00000 n 
-0000013675 00000 n 
-0000013892 00000 n 
-0000016983 00000 n 
-0000017380 00000 n 
-0000018140 00000 n 
-0000017411 00000 n 
-0000017482 00000 n 
-0000018376 00000 n 
-0000019256 00000 n 
-0000019517 00000 n 
-0000019584 00000 n 
+0000020324 00000 n 
+0000020678 00000 n 
+0000000313 00000 n 
+0000001102 00000 n 
+0000001255 00000 n 
+0000001454 00000 n 
+0000002517 00000 n 
+0000002752 00000 n 
+0000002969 00000 n 
+0000006060 00000 n 
+0000018602 00000 n 
+0000019362 00000 n 
+0000018633 00000 n 
+0000018704 00000 n 
+0000019598 00000 n 
+0000020478 00000 n 
+0000020739 00000 n 
+0000020806 00000 n 
 trailer
 << /Size 29 /Root 27 0 R /Info 28 0 R /ID [ <2350CAD05F8A7AF0AA4058486855344F> <2350CAD05F8A7AF0AA4058486855344F> ] >>
 startxref
-19716
+20938
 %%EOF
