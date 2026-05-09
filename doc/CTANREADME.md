@@ -7,8 +7,8 @@ a lua script first.
 
 The package is based on and uses code from [pax](https://ctan.org/pkg/pax) by Heiko Oberdiek.
 
-Packageversion: 0.57 
-Packagedate: 2025-09-24 Author: Ulrike Fischer 
+Packageversion: 0.58 
+Packagedate: 2026-05-09 Author: Ulrike Fischer 
 
 ## License
 The newpax package may be modified and distributed under the terms and conditions of the 

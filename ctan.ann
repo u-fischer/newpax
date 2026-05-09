@@ -1,9 +1,10 @@
-Version 0.57
+Version 0.58
 
-## [2025-09-24]
+## [2026-05-09]
 
 ### Fixed
- - handle DestNames with umlauts, issue #28
+ - error if the destination name is a reference, issue #30
+ - missing \XeTeXLinkBox with XeTeX due to hyperref change
 
 
 Issues, comments, etc https://github.com/u-fischer/newpax

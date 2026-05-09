@@ -5,11 +5,12 @@ first release 0.5, 2021-02-23 will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 this project uses date-based 'snapshot' version identifiers.
 
-## [Unreleased]
+## [2026-05-09]
+Version 0.58
 
 ### Fixed
  - check if the dest name is a reference and resolve it, issue #30
- - missing \XeTeXLinkBox with xetex due to hyperref change
+ - missing \XeTeXLinkBox with XeTeX due to hyperref change
  
 ## [2025-09-24]
 Version 0.57
