@@ -9,6 +9,7 @@ this project uses date-based 'snapshot' version identifiers.
 
 ### Fixed
  - check if the dest name is a reference and resolve it, issue #30
+ - missing \XeTeXLinkBox with xetex due to hyperref change
  
 ## [2025-09-24]
 Version 0.57

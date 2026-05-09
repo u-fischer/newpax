@@ -275,13 +275,15 @@
 % \begin{macro}{\@NEWPAX@ensurelinkbox@n}
 % XeTeX needs in some places a specific box to ensure the size.
 % TODO: check the mailing list for the alternative. 
+% 2026-05-09: changed definition to adapt to hyperref 7.0q which moved the
+% definition to begin document.
 %    \begin{macrocode}
 \cs_new_eq:NN \@NEWPAX@ensurelinkbox@n \use:n
 \AddToHook{package/hyperref/after}
   {
     \sys_if_engine_xetex:T
       {
-        \cs_set_eq:NN \@NEWPAX@ensurelinkbox@n \XeTeXLinkBox
+        \cs_set:Npn \@NEWPAX@ensurelinkbox@n #1{ \XeTeXLinkBox {#1} }
       }
   } 
 %    \end{macrocode}
